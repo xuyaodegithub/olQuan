@@ -1,6 +1,8 @@
 {
-  "component": true,
-  "usingComponents": {},
+  "component": false,
+  "usingComponents": {
+    "header": "../../components/header/header"
+  },
   "navigationBarTitleText": "OL圈",
   "navigationBarBackgroundColor": "#000000",
   "navigationBarTextStyle": "white",

@@ -1,59 +1,106 @@
 //app.js
 App({
   dataNum:0,
-  // baseUrl: 'https://test-mobile.olquan.cn',
-  baseUrl: 'https://ol-site.olquan.cn',
-  userId: 894559,
+  baseUrl: 'https://test-mobile.olquan.cn',
+  // baseUrl: 'https://ol-site.olquan.cn',
+  userId: '',//openId
+  openId:'',
+  isGetStoreCommission:'',//店主权益
+  unionid: '',//unionid
+  wx_code:'',
   wx_appid:'wx5ba80d28096963a2',
   wx_secret:'0caf9c1c8982bdbe9f2d87ec262fb047',
-  onLaunch: function (options) {//当小程序初始化完成时，会触发 onLaunch（全局只触发一次）//可以在 App 的 onlaunch 和 onshow 中获取场景值，
-    console.log(options)
-    console.log(options.scene)//获取场景值
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      timeout:10000,
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log(res)
-       
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        console.log(res)
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              console.log(res)
-              // console.log(Base64_Decode(res.encryptedData))
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
+  getLogin() {
+    let _self = this    
+    return new Promise(function (resolve, reject) {
+      // 登录
+      wx.login({
+        timeout: 10000,
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          console.log(res)
+          if (res.code) {
+            _self.wx_code = res.code
+            // 获取用户信息
+            wx.getSetting({
+              success: res => {
+                // console.log(res)
+                if (res.authSetting['scope.userInfo']) {
+                  // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                  wx.getUserInfo({
+                    success: res => {
+                      // console.log(res)
+                      // 可以将 res 发送给后台解码出 unionId
+                      wx.request({
+                        url: _self.baseUrl + '/mobile/member/getOpenid',
+                        data: {
+                          appid: _self.wx_appid,
+                          secret: _self.wx_secret,
+                          code: _self.wx_code,
+                          nickName: res.userInfo.nickName,
+                          headimgurl: res.userInfo.avatarUrl,
+                          sex: res.userInfo.gender
+                        },
+                        dataType: 'json',
+                        method: 'POST',
+                        header: {
+                          'content-type': 'application/x-www-form-urlencoded' // 默认值
+                        },
+                        success: function (res2) {
+                          // console.log(res)
+                          if (res2.data.code === 0) {
+                            _self.userId = res2.data.result.id
+                            _self.openId = res2.data.result.openid
+                            _self.isGetStoreCommission = res2.data.result.isGetStoreCommission
+                            _self.unionid = res2.data.result.unionid
+                            resolve(res2)
+                          } else {
+                            wx.showToast({
+                              title: '获取用户信息失败',
+                              icon: 'none',
+                              duration: 2000
+                            })
+                            reject(res2)
+                          }
+                        },
+                        fail: function (err) {
+                          console.log(err)
+                        }
+                      })
+                      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                      // 所以此处加入 callback 以防止这种情况
+                      // if (this.userInfoReadyCallback) {
+                      //   this.userInfoReadyCallback(res)
+                      // }
+                    }
+                  })
+                }
               }
-            }
-          })
+            })
+          } else {
+            wx.showToast({
+              title: '登录失败，请重新登录',
+              icon: 'error',
+              duration: 2000
+            });
+            reject(err)
+          }
         }
-      }
+      })
+
     })
   },
+  onLaunch: function (options) {//当小程序初始化完成时，会触发 onLaunch（全局只触发一次）//可以在 App 的 onlaunch 和 onshow 中获取场景值，
+    // console.log(options)
+    // console.log(options.scene)//获取场景值
+    // // 展示本地存储能力
+    // var logs = wx.getStorageSync('logs') || []
+    // logs.unshift(Date.now())
+    // wx.setStorageSync('logs', logs)
+
+    
+  },
   onShow(options) {//当小程序启动，或从后台进入前台显示，会触发 onShow
-    // let str = options.scene.toString()
-    // wx.showToast({
-    //   title: str,
-    //   icon: 'success',
-    //   duration: 2000
-    // });
   },
   onHide() {//当小程序从前台进入后台，会触发 onHide
     

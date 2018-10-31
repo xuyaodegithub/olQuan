@@ -1,70 +1,105 @@
-
+// trypage/trypage.js
 var common = require("../../utils/common.js")
-Component({
+const app = getApp()
+Page({
+
   /**
-   * 组件的属性列表
-   */
-  properties: {
-    advers:{
-      type:Array,
-    },
-    dataList:{
-      type: Array,
-    }
-    
-  },
-  attached: function () {
-   
-  },// 组件生命周期函数，在组件实例进入页面节点树时执行
-  moved: function () { },//组件生命周期函数，在组件实例被移动到节点树另一个位置时执行
-  ready: function () { },//组件生命周期函数，在组件布局完成后执行，此时可以获取节点信息（使用 SelectorQuery ）
-  detached: function () {
-    console.log("undown")
-  },//组件生命周期函数，在组件实例被从页面节点树移除时执行
-  /**
-   * 组件的初始数据
+   * 页面的初始数据
    */
   data: {
-  
+    banners:[],
+    advers:[],
+    classNum:2,
+    classBtn: [
+      { title: '精品试用', imgChose: '../../image/jingpinChoose.png', imgNoChose: '../../image/jingpinNo.png'},      { title: '|', imgChose: '', imgNoChose: '' },
+      { title: '付邮试用', imgChose: '../../image/youPay.png', imgNoChose: '../../image/youNoPay.png'},              { title: '|', imgChose: '', imgNoChose: '' },
+      { title: '整点抢试', imgChose: '../../image/chooseClock.png', imgNoChose:'../../image/noChooseClock.png'}
+      ],
+    isGetStoreCommission:''
   },
 
   /**
-   * 组件的方法列表
+   * 生命周期函数--监听页面加载
    */
-  methods: {
-    upTo(e) {
-      wx.navigateTo({
-        url: '../../detial/detial?id=' + this.data.ids//跳转详情页，用options接受参数
-      })
-      //路由切换的几种方式
-      //打开新页面 : 调用 API wx.navigateTo 或使用组件 <navigator open-type="navigateTo"/>
-      //页面重定向 : 调用 API wx.redirectTo 或使用组件 <navigator open-type="redirectTo"/>
-      //页面返回 : 调用 API wx.navigateBack 或使用组件<navigator open-type="navigateBack">或用户按左上角返回按钮
-      //Tab 切换 : 调用 API wx.switchTab 或使用组件 <navigator open-type="switchTab"/> 或用户切换 Tab
-      //重启动 : 调用 API wx.reLaunch 或使用组件 <navigator open-type="reLaunch"/>
-      //navigateTo, redirectTo 只能打开非 tabBar 页面。switchTab 只能打开 tabBar 页面。reLaunch 可以打开任意页面。页面底部的 tabBar 由页面决定，即只要是定义为 tabBar 的页面，底部都有 tabBar。调用页面路由带的参数可以在目标页面的onLoad中获取。
-      console.log(e.currentTarget.dataset.key)
-      var myEventDetail = { num: e.currentTarget.dataset.key }
-      var myEventOption = {} // 触发事件的选项
-      this.triggerEvent('myevent', myEventDetail, myEventOption)
-    },
-    previewImage(e) {//点击图片大图预览
-      var current = e.target.dataset.src;
-      console.log(e)
-      wx.previewImage({
-        current: this.data.sameImg[e.target.dataset.num], // 当前显示图片的http链接  
-        urls: this.data.sameImg // 需要预览的图片http链接列表  
-      })
-    },
-    showMsg() {
-      // wx.setNavigationBarTitle({//动态设置标题
-      //   title:'hehehehe'
-      // })
-      wx.showToast({
-        title: '购买成功',
-        icon: 'success',
-        duration: 2000
-      });
+  onLoad: function (options) {
+    common.methods.getLoginMess(this.getAdvers)
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+  //轮播
+  getAdvers(){
+    let _self = this
+    console.log(app.isGetStoreCommission)
+    this.setData({
+      isGetStoreCommission: app.isGetStoreCommission
+    })
+    let banners = {
+      url: '/mobile/plus/advers',
+      data: {
+        memberId: app.userId
+      },
+      callback: function (res) {
+        _self.setData({
+          banners: res.data.result.banners,
+          advers: res.data.result.advers
+        })
+      }
     }
+    common.methods.mothod1(banners)
+  },
+  changeClass(e){
+    console.log(e.currentTarget.dataset.index)
+    if (e.currentTarget.dataset.index === 1 || e.currentTarget.dataset.index ===3){
+      return
+    }
+    this.setData({
+      classNum: e.currentTarget.dataset.index
+    })
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

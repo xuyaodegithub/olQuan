@@ -40,12 +40,13 @@ page{
   -ms-box-shadow:0 0 6rpx rgba(132, 128, 128, 0.18);
   box-shadow:0 0 6rpx rgba(132, 128, 128, 0.18);
   margin-bottom: 20rpx;
+  padding-bottom: 24rpx;
 }
 .dataList .title{
    padding: 0 14rpx;
 }
 .dataList .smalltitle{
-  padding: 0 14rpx;
+  padding: 0 28rpx;
   font-size: 22rpx;
   color: #777777;
   line-height: 34rpx;
@@ -54,4 +55,59 @@ page{
 .dataList image{
   display: block;
   width: 100%;
+}
+.dataList .price{
+  justify-content: space-between;
+  align-items: center;
+  padding:0 30rpx;
+}
+.dataList .left{
+  margin-top: -10rpx;
+}
+.dataList .left view:first-child{
+font-size: 28rpx;
+color: #131313;
+margin-right: 14rpx;
+}
+.dataList .left view:nth-child(2){
+font-size: 24rpx;
+color: #AAAAAA;
+margin-right: 14rpx;
+}
+.dataList .left view:last-child{
+  color: #E5006E;
+  font-size: 26rpx;
+}
+.dataList .right view:first-child,.dataList .right view:last-child{
+color: #E5006E;
+text-align: center;
+font-size: 24rpx;
+line-height: 44rpx;
+width: 88rpx;
+border: 2rpx solid #E5006E;
+-webkit-border-radius:6rpx;
+-moz-border-radius:6rpx;
+-ms-border-radius: 6rpx;
+-o-border-radius: 6rpx;
+border-radius:6rpx;
+
+}
+.dataList .right view:last-child{
+  color: #FFFFFF;
+  background-color: #E5006E;
+  margin-left: 18rpx;
+}
+.rightte{
+  width: 120rpx;
+  line-height: 48rpx;
+  border:2rpx solid #fa006a;
+  text-align:center;
+  color:#fa006a;
+  font-size: 26rpx;
+  -webkit-border-radius:6rpx;
+  -moz-border-radius:6rpx;
+  -ms-border-radius: 6rpx;
+  -o-border-radius: 6rpx;
+  border-radius:6rpx;
+
 }

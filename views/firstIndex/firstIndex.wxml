@@ -1,9 +1,7 @@
 <!--firstIndex/firstIndex.wxml-->
 <!-- <text>firstIndex/firstIndex.wxml</text> -->
 <wxs src="../../filters/filters.wxs" module="filters" />
- <view class="topbtn flex">
-  <view wx:for="{{topBtm}}" wx:key="{{index}}" class="topB {{num==index ? 'active' : ''}}" bindtap='changeType' data-key="{{index}}">{{item}}</view>
-</view> 
+ <header  numkey="1"></header>
 <!-- <headerSub type="{{num}}"></headerSub>  -->
 <view class="content">
  <seachs></seachs>

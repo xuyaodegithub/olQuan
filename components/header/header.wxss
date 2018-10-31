@@ -1,0 +1,29 @@
+/* components/header/header.wxss */
+.topbtn{
+  justify-content: center;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  color: #777777;
+  align-items: center;
+  /* margin-bottom: 12rpx; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color:#FFFFFF; 
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  border-bottom: 2rpx solid #e1e1e1
+}
+.topbtn view{
+  margin: 0 20rpx;
+}
+.active,.activeTab{
+  color: #333333;
+  line-height: 66rpx;
+  border-bottom: 4rpx solid #e50f72;
+  font-size:36rpx;
+}

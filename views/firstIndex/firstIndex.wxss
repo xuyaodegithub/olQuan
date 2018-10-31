@@ -6,22 +6,6 @@ background-color: #FFFFFF;
   padding-top: 90rpx;
   /* overflow: hidden; */
 }
-.topbtn{
-  justify-content: center;
-  line-height: 88rpx;
-  font-size: 32rpx;
-  color: #777777;
-  align-items: center;
-  /* margin-bottom: 12rpx; */
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  background-color:#FFFFFF; 
-}
-.topbtn view{
-  margin: 0 20rpx;
-}
 .active,.activeTab{
   color: #333333;
   line-height: 66rpx;
@@ -38,7 +22,7 @@ background-color: #FFFFFF;
    background-color: #FFFFFF;
 }
 .jindou view:nth-child(1){
-  width: 466rpx;
+  min-width: 466rpx;
   line-height: 76rpx;
   background-color: #E50F72;
   -webkit-border-radius:38rpx;
@@ -48,7 +32,7 @@ background-color: #FFFFFF;
   border-radius:38rpx;
   font-size: 30rpx;
   color: #FFFFFF;
-  padding: 0 42rpx;
+  padding: 0 26rpx 0 32rpx;
   justify-content: space-between;
   align-items: center;
   margin-right: 50rpx;
@@ -136,18 +120,6 @@ background-color: #FFFFFF;
 }
 .smallClass  view.smallActive{
 color: #e50f72;
-}
-.toTop{
-  position: fixed;
-  width: 60rpx;
-  height: 60rpx;
-  bottom: 150rpx;
-  right: 100rpx;
-  z-index: 999;
-}
-.toTop image{
-  width: 100%;
-  height: 100%;
 }
 .dataList{
   padding: 20rpx 30rpx 0;

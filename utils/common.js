@@ -20,7 +20,7 @@ function mothod1(data) {
       } else {
         wx.showToast({
           title: res.data.message,
-          icon: 'fail',
+          icon: 'none',
           duration: 2000
         });
       }
@@ -28,7 +28,7 @@ function mothod1(data) {
     fail:function(res){
       wx.showToast({
         title: '请求错误',
-        icon: 'fail',
+        icon: 'none',
         duration: 2000
       });
     }
@@ -99,12 +99,38 @@ function getExtConfig() {
     return _conf;
   }
 }
-function mothod4() {
-  console.log(4)
+function sharePage(data) {
+  if (data.ops.from === 'button') {
+    // 来自页面内转发按钮
+    console.log(ops.target)
+  }
+  return {
+    title: data.title,
+    path: data.pagePath,//当前页面 path ，必须是以 / 开头的完整路径
+    success: function (res) {
+     //成功
+    },
+    fail: function (res) {
+      // 转发失败
+      console.log(res);
+    }
+  }
 }
+function getLoginMess(callback){
+    if (app.userId) {
+      callback()
+    } else {
+      app.getLogin().then(function (res) {
+        callback()
+      }).catch(function (err) {
+        console.log(err)
+      })
+    }
+  }
 
 module.exports.methods = {
   "mothod1": mothod1,
   "mothod2": httpRequest,
-  "mothod4": mothod4
+  "sharePage": sharePage,
+  "getLoginMess": getLoginMess
 }

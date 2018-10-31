@@ -1,1 +1,4 @@
 /* find/find.wxss */
+page{
+  padding-top: 90rpx;
+}

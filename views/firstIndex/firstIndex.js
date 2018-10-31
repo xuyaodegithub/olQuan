@@ -7,8 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-      topBtm: ['试用', '欢乐送', '发现'],
-      num:1,
       page:1,
       rows:10,
       jindouresult:{},
@@ -21,11 +19,6 @@ Page({
       smallclassNum:0,
       scrollNum:false,
       topTrue:false
-  },
-  changeType(e){
-    this.setData({
-      num: e.currentTarget.dataset.key
-    })
   },
   callBack(res){
     this.setData({
@@ -51,52 +44,57 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   let _self=this
-   let data={
-     url:'/mobile/happyGive/indexData',
-     data:{
-       memberId: app.userId
-     },
-     callback: this.callBack
-   }
-   let obj = {
-     url: '/mobile/happyGive/indexProductData',
-     data: {
-       memberId: app.userId
-     },
-     callback:function(res){
-       _self.setData({
-         jindouresult:res.data.result
-       })
-     }
-   }
-   let classF={
-     url:'/mobile/product/category/getCategory',
-     data:{},
-     callback:function(res){
-       _self.setData({
-         classBtn: res.data.result
-       })
-     }
-   }
-   let procuct={
-     url:'/mobile/product/productList',
-     data:{
-       pcatId:0,
-       memberId:894559,
-       page: this.data.page,
-       rows:this.data.rows
-     },
-     callback:function(res){
-       _self.setData({
-         dataList:res.data.result
-       })
-     }
-   }
-   common.methods.mothod1(data)
-   common.methods.mothod1(obj)
-   common.methods.mothod1(classF)
-   common.methods.mothod1(procuct)
+    let _self = this    
+    app.getLogin().then(function(){
+      let data = {
+        url: '/mobile/happyGive/indexData',
+        data: {
+          memberId: app.userId
+        },
+        callback: _self.callBack
+      }
+      let obj = {
+        url: '/mobile/happyGive/indexProductData',
+        data: {
+          memberId: app.userId
+        },
+        callback: function (res) {
+          _self.setData({
+            jindouresult: res.data.result
+          })
+        }
+      }
+      let classF = {
+        url: '/mobile/product/category/getCategory',
+        data: {},
+        callback: function (res) {
+          _self.setData({
+            classBtn: res.data.result
+          })
+        }
+      }
+      let procuct = {
+        url: '/mobile/product/productList',
+        data: {
+          pcatId: 0,
+          memberId: app.userId,
+          page: _self.data.page,
+          rows: _self.data.rows
+        },
+        callback: function (res) {
+          _self.setData({
+            dataList: res.data.result
+          })
+        }
+      }
+      common.methods.mothod1(data)
+      common.methods.mothod1(obj)
+      common.methods.mothod1(classF)
+      common.methods.mothod1(procuct)
+    }).catch(function(err){
+      console.log(err)
+    })
+   
   },
   //等分点击事件
   goCalssF(e){
@@ -287,19 +285,19 @@ Page({
    */
   onShareAppMessage: function (ops) {
     if (ops.from === 'button') {
-      // 来自页面内转发按钮
+      // 来自页面内转发按钮、、menu
       console.log(ops.target)
     }
     return {
-      title: '自己的小程序',
-      path: "/pages/index/index",//当前页面 path ，必须是以 / 开头的完整路径
+      title: '欢乐送',
+      path: '/views/firstIndex/firstIndex',//当前页面 path ，必须是以 / 开头的完整路径
       success: function (res) {
-        // 转发成功
-        console.log("转发成功:" + JSON.stringify(res));
+        //成功
+        console.log(999)
       },
       fail: function (res) {
         // 转发失败
-        console.log("转发失败:" + JSON.stringify(res));
+        console.log(res);
       }
     }
   }

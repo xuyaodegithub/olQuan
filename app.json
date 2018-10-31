@@ -1,7 +1,8 @@
 {
   "pages": [
-    "views/plusPage/plusPage",
     "views/firstIndex/firstIndex",
+    "views/tryPage/tryPage",
+    "views/plusPage/plusPage",    
     "pages/index/index",
     "pages/logs/logs",
     "views/service/detail",
@@ -10,7 +11,6 @@
     "views/find/find",
     "views/detial/detial",
     "views/seachSome/seachsome",
-    "views/tryPage/tryPage",
     "views/findPage/findPsge"
    
   ],

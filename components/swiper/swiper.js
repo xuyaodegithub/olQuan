@@ -26,7 +26,7 @@ Component({
     //活动
     toactiveUrl(e) {
       wx.navigateTo({
-        url: '../find/find?url' + e.target.dataset.url//跳转详情页，用options接受参数
+        url: '../find/find?url=' + e.target.dataset.url//跳转详情页，用options接受参数
       })
     },
   }

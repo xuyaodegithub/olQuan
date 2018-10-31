@@ -2,7 +2,8 @@
   "component": false,
   "usingComponents": {
     "swipers":"../../components/swiper/swiper",
-    "seachs":"../../components/seach/seach"
+    "seachs":"../../components/seach/seach",
+    "header":"../../components/header/header"
   },
   "navigationBarTitleText": "OL圈",
   "navigationBarBackgroundColor": "#F7F7F7",
