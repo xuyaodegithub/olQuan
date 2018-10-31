@@ -1,0 +1,117 @@
+/* views/orderList/orderList.wxss */
+page {
+ 
+  background-color: #f6f6f6;
+}
+.topbtn{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  justify-content: space-around;
+  line-height: 86rpx;
+  font-size: 28rpx;
+  height: 86rpx;
+  color: #808080;
+}
+.active{
+  color: #e50f72;
+  border-bottom: 1rpx #e50f72 solid;
+}
+.orderList{
+  width: 100%;
+  margin-top: 106rpx;
+}
+.orderListNo{
+  background: #fff;
+  width: 100%;
+}
+.listNoCent{
+  padding: 20rpx;
+  font-size: 24rpx;
+  color: #666;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+}
+.listStatus{
+  color: #333
+}
+.order-list{
+  background: #f7f7f7;
+  
+}
+.shopName{
+  font-size: 30rpx;
+  color: #333;
+  padding: 20rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+.productList{
+  padding: 20rpx;
+}
+.productDetail{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  margin-bottom: 20rpx;
+  
+}
+.productDetail:last-child{
+  margin-bottom: 0;
+}
+.productImage{
+  display: block;
+  width: 200rpx;
+  height: 200rpx;
+}
+.porductName{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+}
+.porductName-top{
+  width: 65%;
+  height: 96rpx;
+  line-height: 48rpx;
+  overflow: hidden;
+  font-size: 26rpx;
+  color: #333;
+}
+.porductName-bot{
+  font-size: 26rpx;
+  line-height: 48rpx
+}
+.productNormal{
+  width: 65%;
+  font-size: 24rpx;
+  color: #999;
+  height: auto;
+  margin-top: 20rpx;
+}
+.speListNor{
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+}

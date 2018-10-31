@@ -2,27 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d222bbf-e83b-4bf6-aa47-16f65fa61648" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/apply.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/daiPay.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myBook.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myCoupin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myHelp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myPagekt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myPartent.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myQuan.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/mySetup.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myTryUes.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/mycelect.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/orderList.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/perBack.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/shouhou.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/user-hua-02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/user-icon-20.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/user-icon06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/user-icon09-02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/user_sk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/waitPing.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/waitShou.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/waitSong.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/orderList/orderList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/orderList/orderList.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/orderList/orderList.wxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/orderList/orderList.wxss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/personal/personal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/personal/personal.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/personal/personal.wxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/personal/personal.wxss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.wxss" afterPath="$PROJECT_DIR$/app.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common.js" afterPath="$PROJECT_DIR$/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/swiper/swiper.js" afterPath="$PROJECT_DIR$/components/swiper/swiper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/common.js" afterPath="$PROJECT_DIR$/utils/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/detial.js" afterPath="$PROJECT_DIR$/views/detial/detial.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/find/find.json" afterPath="$PROJECT_DIR$/views/find/find.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/find/find.wxml" afterPath="$PROJECT_DIR$/views/find/find.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/find/find.wxss" afterPath="$PROJECT_DIR$/views/find/find.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/firstIndex/firstIndex.js" afterPath="$PROJECT_DIR$/views/firstIndex/firstIndex.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/firstIndex/firstIndex.json" afterPath="$PROJECT_DIR$/views/firstIndex/firstIndex.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/firstIndex/firstIndex.wxml" afterPath="$PROJECT_DIR$/views/firstIndex/firstIndex.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/firstIndex/firstIndex.wxss" afterPath="$PROJECT_DIR$/views/firstIndex/firstIndex.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plusPage/plusPage.js" afterPath="$PROJECT_DIR$/views/plusPage/plusPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plusPage/plusPage.wxml" afterPath="$PROJECT_DIR$/views/plusPage/plusPage.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plusPage/plusPage.wxss" afterPath="$PROJECT_DIR$/views/plusPage/plusPage.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tryPage/tryPage.js" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tryPage/tryPage.json" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tryPage/tryPage.wxml" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tryPage/tryPage.wxss" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.config.json" afterPath="$PROJECT_DIR$/project.config.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,21 +48,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="40" />
+            <state relative-caret-position="162">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="18">
+              <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -65,6 +77,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/app.json" />
       </list>
     </option>
   </component>
@@ -142,12 +155,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540981015057</updated>
-      <workItem from="1540981021298" duration="328000" />
+      <workItem from="1540981021298" duration="604000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328000" />
+    <option name="totallyTimeSpent" value="604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -182,18 +195,18 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.json">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="162">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="40" />
+        <state relative-caret-position="18">
+          <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
           <folding />
         </state>
       </provider>
