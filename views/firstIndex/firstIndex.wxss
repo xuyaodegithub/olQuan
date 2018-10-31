@@ -30,7 +30,7 @@ background-color: #FFFFFF;
   -ms-border-radius: 38rpx;
   -o-border-radius: 38rpx;
   border-radius:38rpx;
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #FFFFFF;
   padding: 0 26rpx 0 32rpx;
   justify-content: space-between;

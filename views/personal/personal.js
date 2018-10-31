@@ -14,7 +14,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _self = this
+    // common.methods.getLoginMess(this.firstGoin)
+    this.firstGoin()
+      
+  },
+    //首次进入
+    firstGoin(){
+      let _self = this
       let banners = {
         url: '/mobile/member/getMember',
         data: {
@@ -39,10 +45,8 @@ Page({
         }
       }
       common.methods.mothod1(banners)
-    common.methods.mothod1(obj)
-      
-  },
-
+      common.methods.mothod1(obj)
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

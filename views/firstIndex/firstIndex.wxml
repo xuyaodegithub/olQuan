@@ -23,9 +23,6 @@
   </view>
   <!-- <scroll-view>
   </scroll-view>  -->
-  <view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
-    <image src="../../image/goTop.png"></image>
-  </view>
 </view>
 <view class="productList">
     <view class="classtitle">
@@ -59,5 +56,8 @@
           </view>
       </view>
 </view>
+<view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+    <image src="../../image/goTop.png"></image>
+  </view>
 <!-- <tryPage wx:elif="{{num===1}}" advers="{{advers}}" dataList="{{dataList}}"></tryPage>
 <findPage wx:else></findPage> -->

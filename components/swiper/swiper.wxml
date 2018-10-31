@@ -4,12 +4,12 @@
     <swiper indicator-dots autoplay interval="3000" duration="400" style="height:334rpx;">
       <block wx:for="{{banner}}" wx:key="{{index}}" data-link="{{item.url}}">
         <swiper-item>
-          <image src="{{item.image}}" style="display:block;width:100%;height:100%;"/>
+          <image src="{{item.image}}" style="display:block;width:100%;height:100%;" lazy-load/>
         </swiper-item>
       </block>
     </swiper>
   </view>
   <view wx:for="{{advers}}" wx:key="{{index}}" bindtap='toactiveUrl' data-url="{{item.url}}"        wx:if="advers.length>0" class="advers">
-    <image src="{{item.image}}" lazy-load mode="widthFix" style="display:block;width:100%;"></image>
+    <image src="{{item.image}}" lazy-load mode="widthFix" style="display:block;width:100%;" lazy-load></image>
   </view>
   </view>

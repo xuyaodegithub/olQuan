@@ -25,7 +25,7 @@ App({
             wx.getSetting({
               success: res => {
                 // console.log(res)
-                if (res.authSetting['scope.userInfo']) {
+                // if (res.authSetting['scope.userInfo']) {
                   // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
                   wx.getUserInfo({
                     success: res => {
@@ -55,6 +55,7 @@ App({
                             _self.unionid = res2.data.result.unionid
                             resolve(res2)
                           } else {
+                            console.log('获取用户信息失败')
                             wx.showToast({
                               title: '获取用户信息失败',
                               icon: 'none',
@@ -72,12 +73,29 @@ App({
                       // if (this.userInfoReadyCallback) {
                       //   this.userInfoReadyCallback(res)
                       // }
+                    },fail: function (err) {
+                      wx.showModal({
+                        title:  '警告',
+                        content:  '尚未进行授权，请点击确定跳转到授权页面进行授权。',
+                        success:  function  (res)  {
+                          if  (res.confirm)  {
+                            console.log('用户点击确定')
+                            wx.redirectTo({
+                              url:  '../getLogin/getLogin',
+                            })
+                          }
+                        }
+                      })
                     }
                   })
-                }
+                // }
+              },
+              fail:function(err){
+                console.log(err)
               }
             })
           } else {
+            console.log('登录失败，请重新登录')
             wx.showToast({
               title: '登录失败，请重新登录',
               icon: 'error',

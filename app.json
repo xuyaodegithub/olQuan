@@ -1,10 +1,10 @@
 {
   "pages": [
+    "views/firstIndex/firstIndex",
     "views/orderList/orderList",
     "views/personal/personal",
-    "views/firstIndex/firstIndex",
     "views/tryPage/tryPage",
-    "views/plusPage/plusPage",    
+    "views/plusPage/plusPage",
     "pages/index/index",
     "pages/logs/logs",
     "views/service/detail",
@@ -13,8 +13,8 @@
     "views/find/find",
     "views/detial/detial",
     "views/seachSome/seachsome",
-    "views/findPage/findPsge"
-    
+    "views/findPage/findPsge",
+    "views/getLogin/getLogin"
   ],
   "find": [
     ""
@@ -53,7 +53,7 @@
         "selectedIconPath": "image/iconPatch/sserver.png"
       },
       {
-        "pagePath": "views/myonle/myonle",
+        "pagePath": "views/personal/personal",
         "text": "我的",
         "iconPath": "image/iconPatch/my.png",
         "selectedIconPath": "image/iconPatch/smy.png"
