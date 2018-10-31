@@ -21,21 +21,141 @@
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/daiPay.png'></image>
       <view class='navTabName'>待付款</view>
-      <view class='severalNum'>5</view>
+      <view class='severalNum' wx:if='{{orderCount.waitPayCount!=0}}'>{{orderCount.waitPayCount}}</view>
     </view>
   </view>
   <view class='navTab'>
     <view class='navTabSon'>
-      <image class='navTabImg' src='../../image/daiPay.png'></image>
-      <view class='navTabName'>待付款</view>
-      <view class='severalNum'>5</view>
+      <image class='navTabImg' src='../../image/waitSong.png'></image>
+      <view class='navTabName'>待配送</view>
+      <view class='severalNum' wx:if='{{orderCount.waitSendCount!=0}}'>{{orderCount.waitSendCount}}</view>
     </view>
   </view>
   <view class='navTab'>
     <view class='navTabSon'>
-      <image class='navTabImg' src='../../image/daiPay.png'></image>
-      <view class='navTabName'>待付款</view>
-      <view class='severalNum'>5</view>
+      <image class='navTabImg' src='../../image/waitShou.png'></image>
+      <view class='navTabName'>待收货</view>
+      <view class='severalNum' wx:if='{{orderCount.waitConfirmCount!=0}}'>{{orderCount.waitConfirmCount}}</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/waitPing.png'></image>
+      <view class='navTabName'>待评价</view>
+      <view class='severalNum' wx:if='{{orderCount.waitCommentCount!=0}}'>{{orderCount.waitCommentCount}}</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/shouhou.png'></image>
+      <view class='navTabName'>售后服务</view>
+      <view class='severalNum' wx:if='{{orderCount.waitRefundCount!=0}}'>{{orderCount.waitRefundCount}}</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/orderList.png'></image>
+      <view class='navTabName'>全部订单</view>
+    </view>
+  </view>
+</view>
+<view class='useNavTab'>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/myPagekt.png'></image>
+      <view class='navTabName'>我的钱包</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/myTryUes.png'></image>
+      <view class='navTabName'>我的试用</view>
+      <view class='severalNum' wx:if='{{orderCount.freeUseCount!=0}}'>{{orderCount.freeUseCount}}</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/myCoupin.png'></image>
+      <view class='navTabName'>我的优惠券</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/mycelect.png'></image>
+      <view class='navTabName'>我的收藏</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/myBook.png'></image>
+      <view class='navTabName'>推广海报</view>
+    </view>
+  </view>
+  <view class='navTab' wx:if="{{personalList.levelCode!='white' && personalList.levelCode!='golden' && personalList.isShowRenewButton==0}}">
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/user-icon09-02.png'></image>
+      <view class='navTabName'>邀请店主</view>
+    </view>
+  </view>
+  <view class='navTab' wx:if="{{personalList.isShowRenewButton!=0}}">
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/user-icon09-02.png'></image>
+      <view class='navTabName'>店主续费</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/myQuan.png'></image>
+      <view class='navTabName'>我的客户</view>
+    </view>
+  </view>
+  <view class='navTab' wx:if="{{personalList.levelCode!='white' && personalList.levelCode!='golden' && personalList.levelCode!='store'}}">
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/user-icon06.png'></image>
+      <view class='navTabName'>报表中心</view>
+    </view>
+  </view>
+  <view class='navTab' wx:if="{{personalList.partnerLevel!=null || personalList.isCityPartner==1 || personalList.isBrandPartner==1}}">
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/myPartent.png'></image>
+      <view class='navTabName'>合伙人</view>
+    </view>
+  </view>
+  <view class='navTab' wx:if="{{personalList.isPhysicalStore==1}}">
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/user_sk.png'></image>
+      <view class='navTabName'>收款二维码</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/mySetup.png'></image>
+      <view class='navTabName'>设置</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg'src='../../image/myHelp.png'></image>
+      <view class='navTabName'>帮助中心</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg'src='../../image/user-hua-02.png'></image>
+      <view class='navTabName' wx:if="{{personalList.levelCode=='store'}}">申请经理</view>
+      <view class='navTabName' wx:if="{{personalList.levelCode!='store'}}">邀请经理</view>
+    </view>
+  </view>
+  <view class='navTab' wx:if="{{personalList.levelCode!='white' && personalList.levelCode!='golden' && personalList.levelCode!='store'}}">
+    <view class='navTabSon'>
+      <image class='navTabImg'src='../../image/apply.png'></image>
+      <view class='navTabName'>经理审核</view>
+    </view>
+  </view>
+  <view class='navTab' wx:if="{{personalList.isShowFind==1}}">
+    <view class='navTabSon'>
+      <image class='navTabImg'src='../../image/user-icon-20.png'></image>
+      <view class='navTabName'>我的发现</view>
     </view>
   </view>
 </view>

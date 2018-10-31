@@ -1,5 +1,6 @@
 {
   "pages": [
+    "views/orderList/orderList",
     "views/personal/personal",
     "views/plusPage/plusPage",
     "views/firstIndex/firstIndex",

@@ -27,7 +27,19 @@ Page({
           })
         }
       }
+      let obj = {
+        url: '/mobile/order/orderCount',
+        data: {
+          memberId: app.userId
+        },
+        callback: function (res) {
+          _self.setData({
+            orderCount: res.data.result
+          })
+        }
+      }
       common.methods.mothod1(banners)
+    common.methods.mothod1(obj)
       
   },
 

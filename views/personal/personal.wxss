@@ -53,7 +53,7 @@ page {
 .perLevelName{
  display: inline-block;
  font-size: 24rpx;
- padding: 8rpx;
+ padding: 2rpx 8rpx;
  color: #EE1C7D;
  text-align: center;
  border-radius: 6rpx;
