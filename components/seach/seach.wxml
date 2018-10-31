@@ -1,0 +1,5 @@
+<!--components/seach/seach.wxml-->
+<view class="seach" bindtap='toseach'>
+    <image src="../../image/seach.png"></image>
+    达人、标题、产品
+  </view>

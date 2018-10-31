@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<!-- <wxs src="../../common.wxs" module="common" />
+<view>{{num}}</view>
+<view>
+<text>1234</text>
+  <slot></slot>
+</view>
+<view>
+  <component-tag-name>
+     这部分内容将被放置在组件 <slot> 的位置上 -->
+   <!-- <view><button style='width:375rpx;' bindtap='higf'>呵呵哒</button></view>
+  </component-tag-name>
+</view>
+<view>{{common.FOO}}</view>
+<button>+++</button>
+<button bindtap='changeNum' class='btn'>改变</button> -->
+<!-- <wxs src='../../common.wxs' module="tool"/> -->
+<import src="./indexSon" />  
+<!-- import可以在该文件中使用目标文件定义的template
+import 有作用域的概念，即只会 import 目标文件中定义的 template，而不会 import 目标文件 import 的 template。 
+include 可以将目标文件除了 <template/> <wxs/> 外的整个代码引入，相当于是拷贝到 include 位置，如：-->
+<view class="section">
+  <scroll-view class="scroll-view_H {{topshow?'topshow':''}}" scroll-x>
+    <view wx:for="{{arr}}" wx:key="{{index}}" class="scroll-view-item_H {{num==index?'active':''}}" bindtap='changeClass' data-num="{{index}}">{{item}}</view>
+  </scroll-view>
+  <button open-type="share">2222</button>
+  <indexPage wx:if="{{num==0}}" bindmyevent="onchangeNum">
+  <view slot="after">
+    这是slot占位符
+  </view>
+  </indexPage>
+  <template is="otherSub" data="{{SonData}}" wx:else/>
+  <!-- {{...obj1, ...obj2, e: 5}} 对象展开运算符号。。。-->
+  <view>
+  getCurrentPages() 函数用于获取当前页面栈的实例，以数组形式按栈的顺序给出，第一个元素为首页，最后一个元素为当前页面。
+  </view>
+</view>

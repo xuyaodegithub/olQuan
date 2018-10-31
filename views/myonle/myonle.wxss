@@ -1,0 +1,4 @@
+/* myonle/myonle.wxss */
+:host {
+  color: black;
+}

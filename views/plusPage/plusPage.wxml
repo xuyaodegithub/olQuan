@@ -1,0 +1,28 @@
+<!--views/plusPage/plusPage.wxml-->
+<wxs src="../../filters/filters.wxs" module="filters" />
+<view class="header">
+<seachs></seachs>
+<swipers banner="{{banners}}"  advers="{{advers}}"></swipers>
+</view>
+<view class="classBtn flex">
+  <view wx:for="{{classBtn}}" wx:key="{{index}}" data-index="{{index}}" bindtap='changClass' class="{{classNum===index ? 'alcssActive' : ''}}">
+    {{item}}
+  </view>
+</view>
+<view class="dataList">
+  <view wx:for="{{dataList}}" wx:key="{{index}}" data-plusId="{{item.plusId}}" class="product">
+    <image src="{{item.productImage}}" mode="widthFix"></image>
+    <view class="title over">{{item.productName}}</view>
+    <view class="smalltitle over">{{item.summary}}</view>
+    <view class="price flex">
+      <view class="flex">
+        <view>￥{{filters.changePrice(item.price)}}</view>
+        <view class="delete">{{filters.changePrice(item.marketPrice)}}</view>
+       </view> 
+       <view class="flex">
+        <view>自购省</view>
+        <view>分享赚</view>
+       </view>
+    </view> 
+  </view>
+</view>

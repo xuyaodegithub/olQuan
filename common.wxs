@@ -1,0 +1,18 @@
+//关于方法和状态数据，可以在wxl中 通过wxs标签引入 <wxs src="" module="common" />
+//通过export 对外共享私有的变量和函数
+//在.wxs模块中引用其他 wxs 文件模块，可以使用 require 函数。只能引用 .wxs 文件模//块，且必须使用相对路径。如果一个 wxs 模块在定义之后，一直没有被引用，则该模块不会//被解析与运行。
+var foo = 0;
+var bar = function (d) {
+  return d;
+}
+module.exports = {
+  FOO: foo,
+  bar: bar,
+};
+module.exports.msg = "some msg";
+//每一个 .wxs 文件和 <wxs> 标签都是一个单独的模块。
+//每个模块都有自己独立的作用域。即在一个模块里面定义的变量与函数，默认为私有的，对其他模块不可见。
+//一个模块要想对外暴露其内部的私有变量与函数，只能通过 module.exports 实现。
+//<wxs> 模块只能在定义模块的 WXML 文件中被访问到。使用 <include> 或 <import> 时，<wxs> 模块不会被引入到对应的 WXML 文件中。
+//<template>标签中，只能使用定义该 < template > 的 WXML 文件中定义的 < wxs > 模块。
+//在里面可以写一些类似vue里面的过滤器，可以直接在wxml里直接执行的方法

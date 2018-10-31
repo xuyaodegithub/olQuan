@@ -1,0 +1,13 @@
+<template name="otherSub">
+  <view class="topclass">
+    <view wx:for="{{SonData.topSub}}" wx:key="{{index}}" data-key="{{index}}" bindtap='changeType'>
+      <image src="{{item.imgurl}}"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+  <view>
+    
+  
+  
+  </view>   
+</template>  

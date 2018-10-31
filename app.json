@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "views/plusPage/plusPage",
+    "views/firstIndex/firstIndex",
+    "pages/index/index",
+    "pages/logs/logs",
+    "views/service/detail",
+    "views/shopcar/shopcar",
+    "views/myonle/myonle",
+    "views/find/find",
+    "views/detial/detial",
+    "views/seachSome/seachsome",
+    "views/tryPage/tryPage",
+    "views/findPage/findPsge"
+   
+  ],
+  "find": [
+    ""
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "OL圈",
+    "backgroundColor": "#9e9e9e",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": "10px"
+  },
+  "tabBar": {
+    "selectedColor": "#E5006E",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "color": "#333333",
+    "list": [
+      {
+        "pagePath": "views/firstIndex/firstIndex",
+        "text": "首页",
+        "iconPath": "image/iconPatch/index.png",
+        "selectedIconPath": "image/iconPatch/sindex.png"
+      },
+      {
+        "pagePath": "views/shopcar/shopcar",
+        "text": "购物车",
+        "iconPath": "image/iconPatch/shop.png",
+        "selectedIconPath": "image/iconPatch/sshop.png"
+      },
+      {
+        "pagePath": "views/service/detail",
+        "text": "客服",
+        "iconPath": "image/iconPatch/server.png",
+        "selectedIconPath": "image/iconPatch/sserver.png"
+      },
+      {
+        "pagePath": "views/myonle/myonle",
+        "text": "我的",
+        "iconPath": "image/iconPatch/my.png",
+        "selectedIconPath": "image/iconPatch/smy.png"
+      }
+    ],
+    "position": "bottom"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000,
+    "uploadFile": "10000"
+  },
+  "debug": true
+}

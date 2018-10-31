@@ -1,0 +1,215 @@
+/* firstIndex/firstIndex.wxss */
+page{
+background-color: #FFFFFF;
+  /* padding:0 60rpx; */
+  width: 100%;
+  padding-top: 90rpx;
+  /* overflow: hidden; */
+}
+.topbtn{
+  justify-content: center;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  color: #777777;
+  align-items: center;
+  /* margin-bottom: 12rpx; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color:#FFFFFF; 
+}
+.topbtn view{
+  margin: 0 20rpx;
+}
+.active,.activeTab{
+  color: #333333;
+  line-height: 66rpx;
+  border-bottom: 4rpx solid #e50f72;
+  font-size:36rpx;
+}
+.content{
+  padding:0 30rpx;
+  padding-top: 10rpx;
+}
+.jindou{
+  height: 150rpx;
+   align-items: center;
+   background-color: #FFFFFF;
+}
+.jindou view:nth-child(1){
+  width: 466rpx;
+  line-height: 76rpx;
+  background-color: #E50F72;
+  -webkit-border-radius:38rpx;
+  -moz-border-radius:38rpx;
+  -ms-border-radius: 38rpx;
+  -o-border-radius: 38rpx;
+  border-radius:38rpx;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  padding: 0 42rpx;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 50rpx;
+}
+.jindou view:nth-child(1) image{
+  width: 10rpx;
+  height: 18rpx;
+}
+.jindou view:nth-child(2){
+  font-size: 22rpx;
+  /* margin-top: 40rpx */
+}
+.jindou view:nth-child(2) image{
+  width: 72rpx;
+  height:60rpx;
+  display: block;
+  margin-bottom: 10rpx;
+}
+.dengfen{
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 20rpx;
+}
+.dengfen image{
+  width: 340rpx;
+  height: 200rpx;
+  margin-bottom:10rpx; 
+}
+.productList{
+  background-color:#F7F7F7;
+  padding-top: 20rpx; 
+  overflow: hidden;
+}
+.classtitle,.smallClass{
+   /* width: 100%; */
+   overflow-x: auto;
+   overflow-y: hidden;
+   text-align: left;
+   white-space: nowrap;
+   color: #777777;
+   font-size: 28rpx;
+   line-height: 90rpx;
+   background-color:#FFFFFF; 
+   -webkit-overflow-scrolling: touch;
+   padding: 0 30rpx;
+}
+.smallClass{
+  border-top: 1px solid #E1E1E1;
+  line-height: 48rpx;
+  padding: 22rpx 30rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+.classtitle view,.smallClass view{
+    display: inline-block;
+    margin-right: 32rpx;
+    width: auto;
+}
+.classtitle view:last-child{
+  margin-right: 0;
+}
+.smallClass view{
+  margin-right: 18rpx;
+  background-color: #F7F8FA;
+  padding:0 18rpx;
+}
+.classActive{
+  color: #333333;
+  border-bottom: 4rpx solid #E50F72;
+  line-height: 44rpx;
+}
+.classBanner{
+  padding: 0 30rpx;
+  overflow:hidden;
+  background-color:#FFFFFF; 
+}
+.classBanner image{
+  display: block;
+  width: 100%;
+  -webkit-border-radius:8rpx;
+  -moz-border-radius:8rpx;
+  -ms-border-radius: 8rpx;
+  -o-border-radius: 8rpx;
+  border-radius:8rpx;
+}
+.smallClass  view.smallActive{
+color: #e50f72;
+}
+.toTop{
+  position: fixed;
+  width: 60rpx;
+  height: 60rpx;
+  bottom: 150rpx;
+  right: 100rpx;
+  z-index: 999;
+}
+.toTop image{
+  width: 100%;
+  height: 100%;
+}
+.dataList{
+  padding: 20rpx 30rpx 0;
+  background-color: #F7F7F7;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.Pitem{
+  width: 336rpx;
+  margin-bottom: 22rpx;
+  color: #333333;
+  background-color: #FFFFFF;
+  position: relative;
+}
+.Pitem image{
+  display: block;
+  width: 100%;
+}
+.Pitem .title{
+font-size: 24rpx;
+padding: 22rpx 16rpx 0;
+display:-webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden;
+}
+.Pitem .price{
+  line-height: 58rpx;
+  padding: 0 16rpx;
+}
+.Pitem .price view:nth-child(1){
+  font-size: 28rpx;
+  margin-right: 12rpx;
+}
+.Pitem .price view:nth-child(2){
+  color: #777777;
+  font-size: 22rpx;
+  text-decoration:line-through;
+}
+.Pitem .price view:nth-child(3){
+  flex: 1;
+  text-align: right;
+  font-size: 22rpx;
+  color: #F31C6A;
+}
+.typeTitle{
+  position: absolute;
+  right: 0;
+  top: 18rpx;
+  line-height: 40rpx;
+  padding: 0 20rpx 0 32rpx;
+  background-color: #E50F72;
+  color: #FFFFFF;
+  font-size: 26rpx;
+  -webkit-border-top-left-radius:20rpx;
+  -moz-border-top-left-radius:20rpx;
+  -ms-border-top-left-radius: 20rpx;
+  -o-border-top-left-radius: 20rpx;
+  border-top-left-radius:20rpx;
+   -webkit-border-bottom-left-radius:20rpx;
+  -moz-border-bottom-left-radius:20rpx;
+  -ms-border-bottom-left-radius: 20rpx;
+  -o-border-bottom-left-radius: 20rpx;
+  border-bottom-left-radius:20rpx;
+}

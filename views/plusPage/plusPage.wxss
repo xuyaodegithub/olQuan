@@ -1,0 +1,57 @@
+/* views/plusPage/plusPage.wxss */
+page{
+  /* padding: 0 20rpx; */
+  /* width:-webkit-calc(100% - 40rpx); 
+  width:-moz-calc(100% - 40rpx); 
+  width:calc(100% - 40rpx);  */
+  background-color: #F7F7F7;
+  width: 100%;
+  /* overflow: hidden; */
+}
+.header{
+  padding: 0 20rpx;
+  background-color: #FFFFFF;
+  padding-top: 10rpx;
+}
+.classBtn{
+  line-height: 58rpx;
+  justify-content: center;
+  font-size: 30rpx;
+  padding: 30rpx 0
+}
+.classBtn view:nth-child(n){
+  margin:0 15rpx;
+}
+.alcssActive{
+  color: #E50F72;
+  border-bottom: 2rpx solid #E50F72;
+}
+.dataList{
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  line-height: 56rpx;
+  color: #131313;
+}
+.product{
+  background-color:#FFFFFF; 
+  -webkit-box-shadow:0 0 6rpx rgba(132, 128, 128, 0.18);
+  -moz-box-shadow: 0 0 6rpx rgba(132, 128, 128, 0.18);
+  -o-box-shadow:0 0 6rpx rgba(132, 128, 128, 0.18);
+  -ms-box-shadow:0 0 6rpx rgba(132, 128, 128, 0.18);
+  box-shadow:0 0 6rpx rgba(132, 128, 128, 0.18);
+  margin-bottom: 20rpx;
+}
+.dataList .title{
+   padding: 0 14rpx;
+}
+.dataList .smalltitle{
+  padding: 0 14rpx;
+  font-size: 22rpx;
+  color: #777777;
+  line-height: 34rpx;
+  margin-bottom: 16rpx;
+}
+.dataList image{
+  display: block;
+  width: 100%;
+}

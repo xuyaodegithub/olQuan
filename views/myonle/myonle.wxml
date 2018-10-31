@@ -1,0 +1,6 @@
+<view>
+  <view>我的位置：</view>
+  <view><text>经度：{{line}}</text></view>
+  <view><text>维度:{{upline}}</text></view>
+  <button bindtap='getLoca'>获取当前位置</button>
+</view>

@@ -1,0 +1,13 @@
+var  filters={
+    changePrice:function(val){
+      return parseFloat(val);
+      // if(arr[1]==='00'){
+      //   return 
+      // } else if (arr[1].split('')[1] === '0' && arr[1].split('')[0] !=='0'){
+      //   return arr[0] + '.' + arr[1].split('')[0]
+      // }else{
+      //   return val
+      // }
+    }
+}
+module.exports = filters

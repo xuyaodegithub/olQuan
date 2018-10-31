@@ -1,0 +1,4 @@
+<!--firstIndex/header.wxml-->
+<view class="topbtn flex">
+  <view wx:for="{{topBtm}}" wx:key="{{index}}" class="{{type==index ? 'active' : ''}}" data-key="{{index}}" bindtap='changeType'>{{item}}</view>
+</view>

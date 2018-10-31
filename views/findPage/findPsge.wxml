@@ -1,0 +1,25 @@
+<!--firstIndex/findPage/findPsge.wxml-->
+<view>
+  <button type="primary" bindtap='openbuleTe'>初始化蓝牙</button>
+  <button type="default" bindtap='startSeach'>搜索蓝牙</button>
+  <button type="default" bindtap='getSeach'>获取已搜索蓝牙</button>
+  <button type="warn" bindtap='getblueOld'>获取已连接蓝牙</button>
+  <button size="mini">打开蓝牙</button>
+  <button type="primary" bindtap='getAccess'>获取access_token</button>
+  <button type="primary" open-type="contact">打开客服会话</button>
+  <button type="primary" open-type="openSetting">打开授权设置页</button>
+  <button type="primary" open-type="feedback">打开客服反馈</button>
+  <button type="primary" open-type="launchApp">打开app</button>
+  <button type="primary" open-type="share">分享</button>
+  <button type="primary" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">获取用户信息</button>
+  <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="bindgetphonenumber">获取用户手机号</button>
+  <open-data type="userAvatarUrl"></open-data> 
+  <view>
+    已搜索到的
+    <block wx:for="{{buleTe}}" wx:key="{{index}}">
+    <view data-id="{{item.deviceId}}" bindtap='choseBlue'>
+      {{item.name}}
+    </view>
+    </block>
+  </view>
+</view>

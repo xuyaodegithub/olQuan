@@ -1,0 +1,65 @@
+<!--firstIndex/firstIndex.wxml-->
+<!-- <text>firstIndex/firstIndex.wxml</text> -->
+<wxs src="../../filters/filters.wxs" module="filters" />
+ <view class="topbtn flex">
+  <view wx:for="{{topBtm}}" wx:key="{{index}}" class="topB {{num==index ? 'active' : ''}}" bindtap='changeType' data-key="{{index}}">{{item}}</view>
+</view> 
+<!-- <headerSub type="{{num}}"></headerSub>  -->
+<view class="content">
+ <seachs></seachs>
+<swipers banner="{{banner}}" advers="{{advers}}"></swipers>    
+  <view class="jindou flex">
+      <view class="flex">
+      <text>您有{{jindouresult.canGetproductCount}}金豆，可白拿{{jindouresult.goldBeanStr}}件产品</text>
+      <image src="../../image/right.png"></image>
+      </view>
+      <view>
+      <image src="../../image/jindou.png"></image>
+      <text>领金豆</text>      
+      </view>
+  </view>
+  <view class="flex dengfen">
+    <block wx:for="{{icons.iconDto}}"  class="iconImage"  wx:key="{{index}}">
+    <image src="{{item.iconImage}}" data-link="{{item.link}}" data-type="{{item.type}}"  wx:if="icons.iconDto.length>0"  bindtap='goCalssF'></image>
+    </block> 
+  </view>
+  <!-- <scroll-view>
+  </scroll-view>  -->
+  <view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+    <image src="../../image/goTop.png"></image>
+  </view>
+</view>
+<view class="productList">
+    <view class="classtitle">
+      <view wx:for="{{classBtn}}" wx:key="{{index}}" data-catId="{{item.catId}}" data-index="{{index}}" class="{{classNum===index ? 'classActive' : '' }}" bindtap='changeClass'>
+        {{item.name}}
+      </view>
+    </view> 
+    <view class="smallClass" wx:if="{{classBtn[classNum].children.length>0}}">
+      <view wx:for="{{classBtn[classNum].children}}" data-index="{{index}}" wx:key="{{index}}" data-catId="{{item.catId}}" bindtap='smallClass'  class="{{smallclassNum===index ? 'smallActive' : ''}}">
+      {{item.name}}
+      </view> 
+    </view>
+      <view wx:if="{{classBtn[classNum].advers.length>0}}" class="classBanner">
+        <image src="{{classBtn[classNum].advers[0].image}}" data-url="{{classBtn[classNum].advers[0].url}}" bindtap="goActive" mode="widthFix"></image>
+      </view>
+      <view class="dataList flex">
+          <view class="Pitem" wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" data-type="{{item.type}}" bindtap='goDetial'>
+            <image src="{{item.image}}" mode="widthFix" lazy-load></image>
+            <view class="title">{{item.productName}}</view>
+            <view class="price flex">
+              <view>￥{{filters.changePrice(item.price)}}</view>
+              <view>￥{{filters.changePrice(item.marketPrice)}}</view>
+              <view>{{item.score || item.score1 }}</view>
+            </view>
+            <view class="typeTitle" wx:if="{{item.type===4}}">
+              试用
+            </view>
+            <view class="typeTitle" wx:if="{{item.type===9}}">
+              特卖
+            </view>
+          </view>
+      </view>
+</view>
+<!-- <tryPage wx:elif="{{num===1}}" advers="{{advers}}" dataList="{{dataList}}"></tryPage>
+<findPage wx:else></findPage> -->

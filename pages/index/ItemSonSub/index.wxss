@@ -1,0 +1,35 @@
+/* pages/index/ItemSonSub/index.wxss */
+.banner{
+display: flex;
+padding:20rpx 30rpx;
+justify-content: space-between;
+font-size: 24rpx;
+text-align: center;
+  background: #F2F6F9;   
+}
+.bannerItem{
+  width: 100rpx;
+}
+.bannerItem image{
+  display:block;width:90rpx;
+  height: 90rpx;
+  margin-bottom: 10rpx;
+}
+.navB{
+  margin-top: 20rpx;
+}
+.navB image{
+  width: 100%;
+  display: block;
+}
+.sameImg{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  padding:0 20rpx;
+}
+.sameImg image{
+  width: 350rpx;
+  height: 350rpx;
+}

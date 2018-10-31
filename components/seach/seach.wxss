@@ -1,0 +1,23 @@
+/* components/seach/seach.wxss */
+.seach{
+  color:#7e7e7e;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  width: 100%;
+  text-indent: 1em;
+  background-color: #EFEDED;
+  margin-bottom: 10rpx;
+  -webkit-border-radius:30rpx;
+  -moz-border-radius:30rpx;
+  -ms-border-radius: 30rpx;
+  -o-border-radius: 30rpx;
+  border-radius:30rpx;
+  /* margin-top: 100rpx; */
+}
+.seach image{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 12rpx;
+  vertical-align: middle;
+}

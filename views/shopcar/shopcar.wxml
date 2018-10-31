@@ -1,0 +1,2 @@
+<!--shopcar/shopcar.wxml-->
+<text>{{num}}</text>

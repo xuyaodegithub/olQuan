@@ -1,0 +1,4 @@
+<!--seachSome/seachsome.wxml-->
+<view class="flex seaxhFlex">
+<input type="text" confirm-type="search" bindconfirm="seachSome" placeholder='搜索' focus></input>
+</view>

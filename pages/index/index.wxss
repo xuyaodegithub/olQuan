@@ -1,0 +1,102 @@
+/**index.wxss**/
+/* .userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+} */
+
+.scroll-view_H{
+  background: #F2F6F9;     
+  line-height: 70rpx;
+  font-size: 28rpx;
+  padding:0 20rpx 10rpx;
+  white-space:nowrap;
+  position:fixed;
+  top:0;
+  z-index:10;
+}
+.scroll-view-item_H{
+ display: inline-block;
+ margin-right: 40rpx;
+}
+.topshow{
+opacity: 0;
+}
+.section{
+   overflow: hidden;padding-top:42px;
+}
+.fixTop{
+   position: fixed;
+   top: 0;
+   z-index: 1000;
+
+}
+.active{
+  color:red;
+  border-bottom: 2px solid red;
+}
+/* .banner{
+display: flex;
+padding:20rpx 30rpx;
+justify-content: space-between;
+font-size: 24rpx;
+text-align: center;
+  background: #F2F6F9;   
+}
+.bannerItem{
+  width: 100rpx;
+}
+.bannerItem image{
+  display:block;width:90rpx;
+  height: 90rpx;
+  margin-bottom: 10rpx;
+}
+.navB{
+  margin-top: 20rpx;
+}
+.navB image{
+  width: 100%;
+  display: block;
+}
+.sameImg{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  padding:0 20rpx;
+}
+.sameImg image{
+  width: 350rpx;
+  height: 350rpx;
+} */
+.topclass{
+  display: flex;
+  padding:10rpx 20rpx;
+  font-size: 24rpx;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.topclass view{
+  width:25%;
+}
+.topclass view image{
+  display: block;
+  width: 100rpx;
+  height: 100rpx;  
+  margin: 10rpx auto;
+}

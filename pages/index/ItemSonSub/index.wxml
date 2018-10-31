@@ -1,0 +1,26 @@
+<!--pages/index/ItemSonSub/index.wxml-->
+<view>
+ <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" style="display:block;width:100%;height:100%;"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="banner">
+    <view wx:for="{{arrbanner}}" wx:key="{{index}}" class="bannerItem" bindtap='upTo' data-key="{{index}}">
+     <image src="{{item.iconImg}}"></image>
+      <view>{{item.name}}</view>
+    </view>
+</view>
+<view class="navB">
+  <image src="{{imgURL}}" bindtap='showMsg'></image>
+</view>
+<view class="sameImg">
+  <block wx:for="{{sameImg}}" wx:key="{{index}}">
+    <image src="{{item}}" bindtap='previewImage' data-num="{{index}}"></image>
+  </block>
+</view>
+    <slot name="after"></slot>  
+</view>

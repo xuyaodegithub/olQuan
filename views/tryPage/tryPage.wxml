@@ -1,0 +1,32 @@
+<!--firstIndex/tryPage/tryPage.wxml-->
+<view>
+  <swiper indicator-dots autoplay interval="3000" duration="400" style="height:334rpx;">
+      <block wx:for="{{advers}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item.image}}" class="slide-image" style="display:block;width:100%;height:100%;"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="title">
+      <image src="../../image/jingp.png"></image>
+      <text>精品试用</text>
+    </view>
+    <view class="listdata">
+    <block wx:for="{{dataList}}" wx:key="{{index}}">
+      <view class="list-item">
+        <image src="{{item.indexImage}}" lazy-load mode="widthFix"></image>
+        <view class="over overte">{{item.productName}}</view>
+        <view class="spans over">{{item.summery}}</view>
+        <view class="flex price">
+          <view>
+            <i>保证金</i>
+            <i>￥{{item.price}}</i>
+          </view>
+          <view>
+            已试{{item.buyCount}}份
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
