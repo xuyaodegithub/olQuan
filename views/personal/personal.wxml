@@ -1,0 +1,41 @@
+<!--views/personal/personal.wxml-->
+<view class='perTop'>
+   <image class='perImg' src="../../image/perBack.png"></image>
+   <view class='logoImg'>
+     <image class='logoImgSon' src='{{personalList.logo}}'></image>
+   </view>
+   <view class='personalName'>{{personalList.nickName}}</view>
+   <view class='personalLevel'>
+    <view class='perLevelName'>{{personalList.levelName}}</view>
+     <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.partnerLevel!=null}}'>{{personalList.partnerLevel}}</view>
+     <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.isCityPartner==1}}'>城市合伙人</view>
+     <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.isBrandPartner==1}}'>品牌合伙人</view>
+   </view>
+</view>
+<view class='renewGet' wx:if='{{personalList.isShowRenewButton!=0}}'>
+  <view class='getDate'>您的店主将于{{time}}到期</view>
+  <view class='goRenew'>立即续费</view>
+</view>
+<view class='useNavTab'>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/daiPay.png'></image>
+      <view class='navTabName'>待付款</view>
+      <view class='severalNum'>5</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/daiPay.png'></image>
+      <view class='navTabName'>待付款</view>
+      <view class='severalNum'>5</view>
+    </view>
+  </view>
+  <view class='navTab'>
+    <view class='navTabSon'>
+      <image class='navTabImg' src='../../image/daiPay.png'></image>
+      <view class='navTabName'>待付款</view>
+      <view class='severalNum'>5</view>
+    </view>
+  </view>
+</view>

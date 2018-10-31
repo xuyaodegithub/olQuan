@@ -1,8 +1,8 @@
 //app.js
 App({
   dataNum:0,
-  // baseUrl: 'https://test-mobile.olquan.cn',
-  baseUrl: 'https://ol-site.olquan.cn',
+  baseUrl: 'https://test-mobile.olquan.cn',
+  // baseUrl: 'https://ol-site.olquan.cn',
   userId: 894559,
   wx_appid:'wx5ba80d28096963a2',
   wx_secret:'0caf9c1c8982bdbe9f2d87ec262fb047',

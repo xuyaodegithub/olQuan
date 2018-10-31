@@ -1,5 +1,6 @@
 {
   "pages": [
+    "views/personal/personal",
     "views/plusPage/plusPage",
     "views/firstIndex/firstIndex",
     "pages/index/index",
@@ -12,7 +13,7 @@
     "views/seachSome/seachsome",
     "views/tryPage/tryPage",
     "views/findPage/findPsge"
-   
+    
   ],
   "find": [
     ""
