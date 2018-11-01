@@ -30,3 +30,19 @@
 /*文本溢出 出现省略号*/
 .over{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .delete{text-decoration:line-through;}
+.border_radius{
+  -webkit-border-radius:6rpx;
+  -moz-border-radius:6rpx;
+  -ms-border-radius: 6rpx;
+  -o-border-radius: 6rpx;
+  border-radius:6rpx;
+}
+.over2{
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

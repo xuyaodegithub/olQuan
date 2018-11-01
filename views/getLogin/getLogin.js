@@ -1,11 +1,12 @@
 // views/getLogin/getLogin.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
 
@@ -13,17 +14,31 @@ Page({
     var  that  =  this;
     //此处授权得到userInfo
     console.log(e.detail.userInfo);
+    if (e.detail.userInfo){
+      wx.reLaunch({
+        url: '../' + app.type + '/' + app.type
+      })
+    }else{
+      wx.showModal({
+        title: '警告',
+        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!',
+        showCancel: false,
+        confirmText: '返回授权',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击了“返回授权”')
+          }
+        }
+      })
+    }
     //接下来写业务代码
     //最后，记得返回刚才的页面
-    wx.navigateBack({
-      delta:  1
-    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.scene)
   },
 
   /**

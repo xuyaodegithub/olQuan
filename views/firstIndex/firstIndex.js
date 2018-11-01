@@ -44,6 +44,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.type){
+      app.type = options.type
+    }
     let _self = this    
     app.getLogin().then(function(){
       let data = {
@@ -76,7 +79,7 @@ Page({
       let procuct = {
         url: '/mobile/product/productList',
         data: {
-          pcatId: 0,
+          pcatId: '',
           memberId: app.userId,
           page: _self.data.page,
           rows: _self.data.rows
@@ -157,7 +160,7 @@ Page({
           page: this.data.page,
           rows: this.data.rows,
           memberId: app.userId,
-          pcatId: this.data.classBtn[this.data.classNum].catId,
+          pcatId: this.data.classBtn[this.data.classNum].catId === 0 ? '' : this.data.classBtn[this.data.classNum].catId,
           // catId: this.data.classBtn[this.data.classNum].children.length>0 ? this.data.classBtn[this.data.classNum].children[this.data.smallclassNum].catId : ''
         },
         callback:function(res){
@@ -235,7 +238,7 @@ Page({
     })
     let data = {
       url: '/mobile/product/productList',
-      data: { page: 1, rows: 10, memberId: app.userId, pcatId: 0 },
+      data: { page: 1, rows: 10, memberId: app.userId, pcatId: '' },
       callback: function (res) {
         _self.setData({
           dataList: res.data.result
@@ -290,7 +293,7 @@ Page({
     }
     return {
       title: '欢乐送',
-      path: '/views/firstIndex/firstIndex',//当前页面 path ，必须是以 / 开头的完整路径
+      path: '/views/firstIndex/firstIndex?type=firstIndex',//当前页面 path ，必须是以 / 开头的完整路径
       success: function (res) {
         //成功
         console.log(999)
