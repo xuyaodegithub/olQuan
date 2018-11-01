@@ -1,0 +1,38 @@
+<!--views/orderList/returnList/returnList.wxml-->
+<view class='returnTop'>
+   订单编号：{{orderList.orderNo}}
+</view>
+<view class='productList'>
+  <view class='productDetail' wx:for="{{orderList.items}}">
+    <view>
+      <image class='productImage' src='{{item.productImage}}'></image>
+    </view>
+    <view style='flex:1;margin-left:20rpx;'>
+      <view class='porductName'>
+        <view class='porductName-top'>{{item.productName}}</view>
+        <view class='porductName-bot'>
+          <view>￥{{item.price}}</view>
+          <view style='color:#999;font-size:24rpx;'>x{{item.num}}</view>
+        </view>
+      </view>
+      <view class='productNormal'>{{item.normal}}</view>
+    </view>
+  </view>
+</view>
+<view class='chooseWay'>
+  申请方式
+</view>
+<view class='mode'>
+  退款
+</view>
+<view class='chooseWay'>
+  退款原因
+</view>
+<view class='pickerOut'>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      {{array[index]}}
+    </view>
+  </picker>
+  <image src='../../../image/rowmore.png' class='rowMoreImg'></image>
+</view>
