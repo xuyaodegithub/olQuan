@@ -16,7 +16,6 @@ Page({
   onLoad: function (options) {
     // common.methods.getLoginMess(this.firstGoin)
     this.firstGoin()
-
   },
     //首次进入
     firstGoin(){
