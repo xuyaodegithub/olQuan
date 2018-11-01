@@ -1,0 +1,117 @@
+<!--views/orderList/listMore/listMore.wxml-->
+<view class='state'>订单状态
+  <view class='listStatus' wx:if="{{orderList.status==0}}">待付款</view>
+  <view class='listStatus' wx:if="{{orderList.status==1}}">待发货</view>
+  <view class='listStatus' wx:if="{{orderList.status==2}}">待收货</view>
+  <view class='listStatus' wx:if="{{orderList.status==3}}">待评价</view>
+  <view class='listStatus' wx:if="{{orderList.status==4}}">已失效</view>
+  <view class='listStatus' wx:if="{{orderList.status==5}}">正在退款</view>
+  <view class='listStatus' wx:if="{{orderList.status==6}}">交易取消</view>
+  <view class='listStatus' wx:if="{{orderList.status==7}}">已退款</view>
+  <view class='listStatus' wx:if="{{orderList.status==8}}">正在退货</view>
+  <view class='listStatus' wx:if="{{orderList.status==9}}">已退货</view>
+  <view class='listStatus' wx:if="{{orderList.status==10}}">已完成</view>
+  <view class='listStatus' wx:if="{{orderList.status==11}}">待拼团待支付</view>
+  <view class='listStatus' wx:if="{{orderList.status==12}}">拼团已支付</view>
+  <view class='listStatus' wx:if="{{orderList.status==13}}">拼团失败</view>
+</view>
+<view class='address'>
+  <view class='addTop'>配送地址</view>
+  <view class='people'>
+    <view class='inlineBlock'>{{orderList.name}}</view>
+    <view class='inlineBlock' style='margin-left:20rpx;'>{{orderMobile}}</view>
+  </view>
+  <view class='addDetail'>{{orderList.address}}</view>
+</view>
+<view class='productList'>
+  <view class='productDetail' wx:for="{{orderList.items}}">
+    <view>
+      <image class='productImage' src='{{item.productImage}}'></image>
+    </view>
+    <view style='flex:1;margin-left:20rpx;'>
+      <view class='porductName'>
+        <view class='porductName-top'>{{item.productName}}</view>
+        <view class='porductName-bot'>
+          <view>￥{{item.price}}</view>
+          <view style='color:#999;font-size:24rpx;'>x{{item.num}}</view>
+        </view>
+      </view>
+      <view class='productNormal'>{{item.normal}}</view>
+    </view>
+  </view>
+</view>
+<view class='postFee'>
+  <view>运费</view>
+  <view style='color:#666;' wx:if="{{orderList.expressFee==0}}">包邮</view>
+  <view style='color:#666;' wx:if="{{orderList.expressFee!=0}}">{{orderList.expressFee}}</view>
+</view>
+<view class='goldBean' wx:if="{{orderList.totalCommission!='' && orderList.totalCommission!=null}}">
+  <view>{{orderList.totalCommission}}</view>
+  
+</view>
+<view class='ordernumber'>
+  <view class='orderCar'>
+    <view>物流公司</view>
+    <view wx:if="{{orderList.express!=null && orderList.express!=''}}">{{orderList.express}}</view>
+  </view>
+  <view class='orderCar'>
+    <view>物流编号</view>
+    <view wx:if="{{orderList.expressNo!=null && orderList.expressNo!=''}}">{{orderList.expressNo}}</view>
+  </view>
+</view>
+<view class='total'>
+  <view class='totalDetail'>合计</view>
+  <view class='totalMoney'>
+    <view>商品总额</view>
+    <view style='color:#e50f72'>￥{{orderList.totalFee}}</view>
+  </view>
+  <view class='totalMoney' wx:if="{{orderList.expressFee!=0}}">
+    <view>运费</view>
+    <view style='color:#e50f72'>￥{{orderList.expressFee}}</view>
+  </view>
+  <view class='totalMoney' wx:if="{{orderList.score!=0}}">
+    <view>积分</view>
+    <view style='color:#e50f72'>-￥{{orderList.score}}</view>
+  </view>
+  <view class='totalMoney' wx:if="{{orderList.coffers!=0}}">
+    <view>小金库</view>
+    <view style='color:#e50f72'>-￥{{orderList.coffers}}</view>
+  </view>
+  <view class='totalMoney' wx:if="{{orderList.amount!=0}}">
+    <view>余额</view>
+    <view style='color:#e50f72'>-￥{{orderList.amount}}</view>
+  </view>
+  <view class='totalMoney' wx:if="{{orderList.goldBean!=0}}">
+    <view>金豆</view>
+    <view style='color:#e50f72'>-￥{{orderList.goldBean}}</view>
+  </view>
+  <view class='totalMoney' wx:if="{{orderList.couponFee!=0}}">
+    <view>优惠券</view>
+    <view style='color:#e50f72'>-￥{{orderList.couponFee}}</view>
+  </view>
+</view>
+<view class='total totalSpeOut'>
+  <view class='totalMoney totalSpe'>
+    <view>订单编号</view>
+    <view class='getOrderNO'>
+      <text selectable='true' bindlongtap='copy' >{{orderList.orderNo}}</text>
+      <button class='copyNo' bindtap="copyBtn">复制</button>
+    </view>
+  </view>
+  <view class='totalMoney totalSpe'>
+    <view>下单时间</view>
+    <view>{{orderList.createTime}}</view>
+  </view>
+  <view class='totalMoney totalSpe'>
+    <view>支付时间</view>
+    <view>{{orderList.payTime}}</view>
+  </view>
+  <view class='totalMoney totalSpe'>
+    <view>发货时间</view>
+    <view>{{orderList.sendTime}}</view>
+  </view>
+  <view class='totalMoney totalSpe'>
+    <view>收货时间</view>
+    <view>{{orderList.receiveTime}}</view>
+  </view>
+</view>

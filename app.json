@@ -1,7 +1,7 @@
 {
   "pages": [
-    "views/firstIndex/firstIndex",
     "views/orderList/orderList",
+    "views/firstIndex/firstIndex",
     "views/personal/personal",
     "views/tryPage/tryPage",
     "views/plusPage/plusPage",
@@ -14,7 +14,9 @@
     "views/detial/detial",
     "views/seachSome/seachsome",
     "views/findPage/findPsge",
-    "views/getLogin/getLogin"
+    "views/getLogin/getLogin",
+    "views/orderList/listMore/listMore",
+    "views/orderList/returnList/returnList"
   ],
   "find": [
     ""
