@@ -3,11 +3,11 @@ App({
   dataNum:0,
   scene:'',
   type:'',
-  // baseUrl: 'https://test-mobile.olquan.cn',
-  baseUrl: 'https://ol-site.olquan.cn',
-  userId: '949574',//openId
+  baseUrl: 'https://test-mobile.olquan.cn',
+  // baseUrl: 'https://ol-site.olquan.cn',
+  userId: '',//openId
   openId:'',
-  isGetStoreCommission:1,//店主权益
+  isGetStoreCommission:'',//店主权益
   unionid: '',//unionid
   wx_code:'',
   wx_appid:'wx5ba80d28096963a2',
