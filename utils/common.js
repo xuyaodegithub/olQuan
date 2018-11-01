@@ -128,9 +128,24 @@ function getLoginMess(callback){
     }
   }
 
+function setTabBarBadge(data){
+  wx.setTabBarBadge({
+    index:data.index,
+    text:data.num,
+    success:function(res){
+
+    },
+    fail:function(err){
+      console.log(err)
+    }
+  })
+
+}
+
 module.exports.methods = {
   "mothod1": mothod1,
   "mothod2": httpRequest,
   "sharePage": sharePage,
-  "getLoginMess": getLoginMess
+  "getLoginMess": getLoginMess,
+  "setTabBarBadge": setTabBarBadge
 }

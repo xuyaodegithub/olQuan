@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d222bbf-e83b-4bf6-aa47-16f65fa61648" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/image/tryOut.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/wx_login.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/app.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/header.json" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/header.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header/header.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/header/header.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/seach/seach.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/seach/seach.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/seach/seach.json" beforeDir="false" afterPath="$PROJECT_DIR$/components/seach/seach.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/seach/seach.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/seach/seach.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/swiper/swiper.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/swiper/swiper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/swiper/swiper.json" beforeDir="false" afterPath="$PROJECT_DIR$/components/swiper/swiper.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/firstIndex/firstIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/firstIndex/firstIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/getLogin/getLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/getLogin/getLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/getLogin/getLogin.json" beforeDir="false" afterPath="$PROJECT_DIR$/views/getLogin/getLogin.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/getLogin/getLogin.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/getLogin/getLogin.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/getLogin/getLogin.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/getLogin/getLogin.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/plusPage/plusPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/plusPage/plusPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/plusPage/plusPage.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/plusPage/plusPage.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/tryPage/tryPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/tryPage/tryPage.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/tryPage/tryPage.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.wxss" afterDir="false" />
-    </list>
+    <list default="true" id="8d222bbf-e83b-4bf6-aa47-16f65fa61648" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -167,9 +141,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="563" />
-    <option name="y" value="191" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="257" />
+    <option name="y" value="195" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -232,12 +206,12 @@
       <option name="presentableId" value="Default" />
       <updated>1540981015057</updated>
       <workItem from="1540981021298" duration="604000" />
-      <workItem from="1541078331342" duration="1301000" />
+      <workItem from="1541078331342" duration="1851000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1905000" />
+    <option name="totallyTimeSpent" value="2455000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="563" y="191" width="1346" height="688" extended-state="0" />

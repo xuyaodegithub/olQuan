@@ -47,7 +47,12 @@ Page({
     if(options.type){
       app.type = options.type
     }
+    let data={
+      index:1,
+      num:'4'
+    }
     common.methods.getLoginMess(this.getfirstBanner)
+    common.methods.setTabBarBadge(data)
     // app.getLogin().then(function(){
       
     // }).catch(function(err){
