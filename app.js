@@ -13,7 +13,7 @@ App({
   wx_appid:'wx5ba80d28096963a2',
   wx_secret:'0caf9c1c8982bdbe9f2d87ec262fb047',
   getLogin() {
-    let _self = this    
+    let _self = this
     return new Promise(function (resolve, reject) {
       // 登录
       wx.login({
@@ -121,13 +121,13 @@ App({
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
 
-    
+
   },
   onShow(options) {//当小程序启动，或从后台进入前台显示，会触发 onShow
     // this.getLogin()
   },
   onHide() {//当小程序从前台进入后台，会触发 onHide
-    
+
   },
   onError() {//当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
 

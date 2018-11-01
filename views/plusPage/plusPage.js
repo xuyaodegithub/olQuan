@@ -26,16 +26,18 @@ Page({
     if (options.type) {
       app.type = options.type
     }
-    let _self=this
-    if (app.userId){
-      this.firstPage()
-    }else{
-      app.getLogin().then(function(res){
-        _self.firstPage()
-      }).catch(function(err){
-        console.log(err)
-      })
-    }
+    common.methods.getLoginMess(this.firstPage)
+    
+    // let _self=this
+    // if (app.userId){
+    //   this.firstPage()
+    // }else{
+    //   app.getLogin().then(function(res){
+    //     _self.firstPage()
+    //   }).catch(function(err){
+    //     console.log(err)
+    //   })
+    // }
   },
   //首次进入
   firstPage(){

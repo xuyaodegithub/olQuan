@@ -15,9 +15,15 @@ Page({
     //此处授权得到userInfo
     console.log(e.detail.userInfo);
     if (e.detail.userInfo){
-      wx.reLaunch({
-        url: '../' + app.type + '/' + app.type
-      })
+      if (!app.type){
+        wx.reLaunch({
+          url: '../firstIndex/firstIndex'
+        })
+      }else{
+        wx.reLaunch({
+          url: '../' + app.type + '/' + app.type
+        })
+      }
     }else{
       wx.showModal({
         title: '警告',

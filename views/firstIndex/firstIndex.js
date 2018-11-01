@@ -47,57 +47,67 @@ Page({
     if(options.type){
       app.type = options.type
     }
-    let _self = this    
-    app.getLogin().then(function(){
-      let data = {
-        url: '/mobile/happyGive/indexData',
-        data: {
-          memberId: app.userId
-        },
-        callback: _self.callBack
-      }
-      let obj = {
-        url: '/mobile/happyGive/indexProductData',
-        data: {
-          memberId: app.userId
-        },
-        callback: function (res) {
-          _self.setData({
-            jindouresult: res.data.result
-          })
-        }
-      }
-      let classF = {
-        url: '/mobile/product/category/getCategory',
-        data: {},
-        callback: function (res) {
-          _self.setData({
-            classBtn: res.data.result
-          })
-        }
-      }
-      let procuct = {
-        url: '/mobile/product/productList',
-        data: {
-          pcatId: '',
-          memberId: app.userId,
-          page: _self.data.page,
-          rows: _self.data.rows
-        },
-        callback: function (res) {
-          _self.setData({
-            dataList: res.data.result
-          })
-        }
-      }
-      common.methods.mothod1(data)
-      common.methods.mothod1(obj)
-      common.methods.mothod1(classF)
-      common.methods.mothod1(procuct)
-    }).catch(function(err){
-      console.log(err)
-    })
+    let data={
+      index:1,
+      num:'4'
+    }
+    common.methods.getLoginMess(this.getfirstBanner)
+    common.methods.setTabBarBadge(data)
+    // app.getLogin().then(function(){
+      
+    // }).catch(function(err){
+    //   console.log(err)
+    // })
    
+  },
+  //首次进入
+  getfirstBanner(){
+    let _self = this        
+    let data = {
+      url: '/mobile/happyGive/indexData',
+      data: {
+        memberId: app.userId
+      },
+      callback: _self.callBack
+    }
+    let obj = {
+      url: '/mobile/happyGive/indexProductData',
+      data: {
+        memberId: app.userId
+      },
+      callback: function (res) {
+        _self.setData({
+          jindouresult: res.data.result
+        })
+      }
+    }
+    let classF = {
+      url: '/mobile/product/category/getCategory',
+      data: {},
+      callback: function (res) {
+        _self.setData({
+          classBtn: res.data.result
+        })
+      }
+    }
+    let procuct = {
+      url: '/mobile/product/productList',
+      data: {
+        pcatId: '',
+        memberId: app.userId,
+        page: _self.data.page,
+        rows: _self.data.rows
+      },
+      callback: function (res) {
+        _self.setData({
+          dataList: res.data.result
+        })
+      }
+    }
+    common.methods.mothod1(data)
+    common.methods.mothod1(obj)
+    common.methods.mothod1(classF)
+    common.methods.mothod1(procuct)
   },
   //等分点击事件
   goCalssF(e){
