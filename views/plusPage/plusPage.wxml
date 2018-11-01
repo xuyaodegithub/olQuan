@@ -10,7 +10,7 @@
   </view>
 </view>
 <view class="dataList">
-  <view wx:for="{{dataList}}" wx:key="{{index}}" data-plusId="{{item.plusId}}" class="product" bindtap='goDetial'>
+  <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.plusId}}" class="product" bindtap='goDetial'>
     <image src="{{item.productImage}}" mode="widthFix" lazy-load></image>
     <view class="title over">{{item.productName}}</view>
     <view class="smalltitle over">{{item.summary}}</view>

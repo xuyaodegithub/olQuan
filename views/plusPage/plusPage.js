@@ -23,16 +23,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _self=this
-    if (app.userId){
-      this.firstPage()
-    }else{
-      app.getLogin().then(function(res){
-        _self.firstPage()
-      }).catch(function(err){
-        console.log(err)
-      })
+    if (options.type) {
+      app.type = options.type
     }
+    common.methods.getLoginMess(this.firstPage)
+    
+    // let _self=this
+    // if (app.userId){
+    //   this.firstPage()
+    // }else{
+    //   app.getLogin().then(function(res){
+    //     _self.firstPage()
+    //   }).catch(function(err){
+    //     console.log(err)
+    //   })
+    // }
   },
   //首次进入
   firstPage(){
@@ -219,7 +224,7 @@ Page({
     }
     return {
       title: '特卖',
-      path: '/views/plusPage/plusPage',//当前页面 path ，必须是以 / 开头的完整路径
+      path: '/views/plusPage/plusPage?type=plusPage',//当前页面 path ，必须是以 / 开头的完整路径
       success: function (res) {
         //成功
         console.log(999)

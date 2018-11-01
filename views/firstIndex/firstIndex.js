@@ -44,57 +44,65 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _self = this    
-    app.getLogin().then(function(){
-      let data = {
-        url: '/mobile/happyGive/indexData',
-        data: {
-          memberId: app.userId
-        },
-        callback: _self.callBack
-      }
-      let obj = {
-        url: '/mobile/happyGive/indexProductData',
-        data: {
-          memberId: app.userId
-        },
-        callback: function (res) {
-          _self.setData({
-            jindouresult: res.data.result
-          })
-        }
-      }
-      let classF = {
-        url: '/mobile/product/category/getCategory',
-        data: {},
-        callback: function (res) {
-          _self.setData({
-            classBtn: res.data.result
-          })
-        }
-      }
-      let procuct = {
-        url: '/mobile/product/productList',
-        data: {
-          pcatId: 0,
-          memberId: app.userId,
-          page: _self.data.page,
-          rows: _self.data.rows
-        },
-        callback: function (res) {
-          _self.setData({
-            dataList: res.data.result
-          })
-        }
-      }
-      common.methods.mothod1(data)
-      common.methods.mothod1(obj)
-      common.methods.mothod1(classF)
-      common.methods.mothod1(procuct)
-    }).catch(function(err){
-      console.log(err)
-    })
+    if(options.type){
+      app.type = options.type
+    }
+    common.methods.getLoginMess(this.getfirstBanner)
+    // app.getLogin().then(function(){
+      
+    // }).catch(function(err){
+    //   console.log(err)
+    // })
    
+  },
+  //首次进入
+  getfirstBanner(){
+    let _self = this        
+    let data = {
+      url: '/mobile/happyGive/indexData',
+      data: {
+        memberId: app.userId
+      },
+      callback: _self.callBack
+    }
+    let obj = {
+      url: '/mobile/happyGive/indexProductData',
+      data: {
+        memberId: app.userId
+      },
+      callback: function (res) {
+        _self.setData({
+          jindouresult: res.data.result
+        })
+      }
+    }
+    let classF = {
+      url: '/mobile/product/category/getCategory',
+      data: {},
+      callback: function (res) {
+        _self.setData({
+          classBtn: res.data.result
+        })
+      }
+    }
+    let procuct = {
+      url: '/mobile/product/productList',
+      data: {
+        pcatId: '',
+        memberId: app.userId,
+        page: _self.data.page,
+        rows: _self.data.rows
+      },
+      callback: function (res) {
+        _self.setData({
+          dataList: res.data.result
+        })
+      }
+    }
+    common.methods.mothod1(data)
+    common.methods.mothod1(obj)
+    common.methods.mothod1(classF)
+    common.methods.mothod1(procuct)
   },
   //等分点击事件
   goCalssF(e){
@@ -157,7 +165,7 @@ Page({
           page: this.data.page,
           rows: this.data.rows,
           memberId: app.userId,
-          pcatId: this.data.classBtn[this.data.classNum].catId,
+          pcatId: this.data.classBtn[this.data.classNum].catId === 0 ? '' : this.data.classBtn[this.data.classNum].catId,
           // catId: this.data.classBtn[this.data.classNum].children.length>0 ? this.data.classBtn[this.data.classNum].children[this.data.smallclassNum].catId : ''
         },
         callback:function(res){
@@ -235,7 +243,7 @@ Page({
     })
     let data = {
       url: '/mobile/product/productList',
-      data: { page: 1, rows: 10, memberId: app.userId, pcatId: 0 },
+      data: { page: 1, rows: 10, memberId: app.userId, pcatId: '' },
       callback: function (res) {
         _self.setData({
           dataList: res.data.result
@@ -290,7 +298,7 @@ Page({
     }
     return {
       title: '欢乐送',
-      path: '/views/firstIndex/firstIndex',//当前页面 path ，必须是以 / 开头的完整路径
+      path: '/views/firstIndex/firstIndex?type=firstIndex',//当前页面 path ，必须是以 / 开头的完整路径
       success: function (res) {
         //成功
         console.log(999)

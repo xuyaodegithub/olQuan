@@ -1,6 +1,8 @@
 //app.js
 App({
   dataNum:0,
+  scene:'',
+  type:'',
   baseUrl: 'https://test-mobile.olquan.cn',
   // baseUrl: 'https://ol-site.olquan.cn',
   userId: '',//openId
@@ -11,14 +13,14 @@ App({
   wx_appid:'wx5ba80d28096963a2',
   wx_secret:'0caf9c1c8982bdbe9f2d87ec262fb047',
   getLogin() {
-    let _self = this    
+    let _self = this
     return new Promise(function (resolve, reject) {
       // 登录
       wx.login({
         timeout: 10000,
         success: res => {
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          console.log(res)
+          // console.log(res)
           if (res.code) {
             _self.wx_code = res.code
             // 获取用户信息
@@ -79,9 +81,9 @@ App({
                         content:  '尚未进行授权，请点击确定跳转到授权页面进行授权。',
                         success:  function  (res)  {
                           if  (res.confirm)  {
-                            console.log('用户点击确定')
-                            wx.redirectTo({
-                              url:  '../getLogin/getLogin',
+                            // console.log('用户点击确定')
+                            wx.navigateTo({
+                              url: '../getLogin/getLogin',
                             })
                           }
                         }
@@ -108,7 +110,10 @@ App({
 
     })
   },
-  onLaunch: function (options) {//当小程序初始化完成时，会触发 onLaunch（全局只触发一次）//可以在 App 的 onlaunch 和 onshow 中获取场景值，
+  onLaunch: function (options) {
+    // this.scene = options.scene
+    // console.log('场景值'+options.scene)
+    //当小程序初始化完成时，会触发 onLaunch（全局只触发一次）//可以在 App 的 onlaunch 和 onshow 中获取场景值，
     // console.log(options)
     // console.log(options.scene)//获取场景值
     // // 展示本地存储能力
@@ -116,12 +121,13 @@ App({
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
 
-    
+
   },
   onShow(options) {//当小程序启动，或从后台进入前台显示，会触发 onShow
+    // this.getLogin()
   },
   onHide() {//当小程序从前台进入后台，会触发 onHide
-    
+
   },
   onError() {//当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
 
