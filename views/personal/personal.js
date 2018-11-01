@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
     // common.methods.getLoginMess(this.firstGoin)
     this.firstGoin()
-      
+
   },
     //首次进入
     firstGoin(){
@@ -79,7 +79,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+      wx.stopPullDownRefresh()
   },
 
   /**

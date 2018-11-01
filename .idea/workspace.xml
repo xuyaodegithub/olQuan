@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d222bbf-e83b-4bf6-aa47-16f65fa61648" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/views/orderList/listMore/listMore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/listMore/listMore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/listMore/listMore.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/listMore/listMore.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/orderList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/orderList.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/orderList.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/orderList.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/returnList/returnList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/returnList/returnList.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/returnList/returnList.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/orderList/returnList/returnList.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/personal/personal.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/personal.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,25 +18,25 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="1" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="9" />
+          <entry key="js" value="11" />
           <entry key="json" value="4" />
           <entry key="png" value="1" />
-          <entry key="wxml" value="5" />
-          <entry key="wxss" value="4" />
+          <entry key="wxml" value="6" />
+          <entry key="wxss" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="1" />
           <entry key="JSON" value="4" />
-          <entry key="JavaScript" value="9" />
-          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="JavaScript" value="11" />
+          <entry key="PLAIN_TEXT" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -63,7 +52,38 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/orderList/orderList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-150" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/personal/personal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1044" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2980" />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,6 +93,7 @@
       <list>
         <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/personal/personal.js" />
       </list>
     </option>
   </component>
@@ -82,7 +103,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="569" />
     <option name="y" value="185" />
     <option name="width" value="1346" />
@@ -93,7 +114,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -106,10 +126,17 @@
               <item name="olQuan" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="olQuan" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="personal" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -153,14 +180,16 @@
       <updated>1540981015057</updated>
       <workItem from="1540981021298" duration="604000" />
       <workItem from="1541078331342" duration="3073000" />
+      <workItem from="1541086682231" duration="154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3800000" />
+    <option name="totallyTimeSpent" value="3954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -261,15 +290,26 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxml">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1044" />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2155" />
+        <state relative-caret-position="-2980" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/orderList/orderList.js">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/personal/personal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
