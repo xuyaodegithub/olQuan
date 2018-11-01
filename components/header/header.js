@@ -31,8 +31,8 @@ Component({
           url: '../../views/tryPage/tryPage',
         })
       } else if (e.currentTarget.dataset.key === 1){
-        wx.navigateBack({
-          delta: 1000,
+        wx.switchTab({
+          url: '../../views/firstIndex/firstIndex',
         })
       }else{
         wx.navigateTo({

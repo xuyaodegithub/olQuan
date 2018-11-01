@@ -23,6 +23,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.type) {
+      app.type = options.type
+    }
     let _self=this
     if (app.userId){
       this.firstPage()
@@ -219,7 +222,7 @@ Page({
     }
     return {
       title: '特卖',
-      path: '/views/plusPage/plusPage',//当前页面 path ，必须是以 / 开头的完整路径
+      path: '/views/plusPage/plusPage?type=plusPage',//当前页面 path ，必须是以 / 开头的完整路径
       success: function (res) {
         //成功
         console.log(999)

@@ -15,6 +15,55 @@
           <view class="{{classNum===index ? 'activeClass' : ''}}">{{item.title}}</view>
         </view>
     </block>
-    
+  </view>
+  <view>
   </view>
 </view>
+<view class="timer flex" wx:if="{{!productType}}">
+  <view wx:for="{{timeList}}" wx:key="{{index}}" data-time="{{item.time}}" data-index="{{index}}" bindtap='gettimeDataList' class="{{timeActive===index ? 'activeTime' : ''}}">
+    <view>{{item.time}}</view>
+    <view>{{item.isStarted === 1 ? '抢试中' : '预热中'}}</view>
+  </view>
+</view>
+<view class="productList">
+    <view wx:if="{{productType===1}}" class="typeFirst">
+      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap='goDetial' >  
+        <image src="{{item.indexImage}}"  mode="widthFix" lazy-load class="border_radius"></image>
+        <view class="over title">{{item.productName}}</view>
+        <view class="smallTitle " wx:if="{{item.summery}}">{{item.summery}}</view>
+        <view class="price flex">
+          <view>保证金<text class="firstTitle">￥{{item.price}}</text></view>
+          <view>已试{{item.buyCount}}份</view>
+        </view>
+      </view>
+    </view>
+    <view  wx:elif="{{productType===5}}" class="typeSecond">
+      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap='goDetial' >  
+        <image src="{{item.indexImage}}"  mode="widthFix" lazy-load class="border_radius"></image>
+          <view class="over title">{{item.productName}}</view>
+          <view class="smallTitle" wx:if="{{item.summery}}">{{item.summery}}</view>
+          <view class="price flex">
+            <view>保证金<text>￥{{item.price}}</text></view>
+            <view>已试{{item.buyCount}}份</view>
+          </view>
+      </view>
+    </view>
+    <view wx:else class="typeLast">
+      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap='goDetial' class="flex">  
+          <view>
+              <image src="{{item.image}}" mode="aspectFit"  lazy-load></image>      
+          </view>
+          <view class="rightP">
+            <view class="rightTitle over2">{{item.productName}}</view>
+            <text>仅剩{{(item.dayLimitCount-item.saleCount)<0 ? 0 : item.dayLimitCount-item.saleCount}}件</text>
+            <view class="flex btn">
+              <view>保证金:￥{{item.price}}</view>
+              <view class="border_radius">马上试 ></view>
+            </view>
+          </view>
+      </view>
+    </view>
+</view>
+<view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+    <image src="../../image/goTop.png"></image>
+  </view>

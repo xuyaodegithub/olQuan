@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d222bbf-e83b-4bf6-aa47-16f65fa61648" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/apply.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/daiPay.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myBook.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myCoupin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myHelp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myPagekt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myPartent.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myQuan.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/mySetup.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/myTryUes.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/mycelect.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/orderList.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/perBack.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/shouhou.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/user-hua-02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/user-icon-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/user-icon06.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/user-icon09-02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/user_sk.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/waitPing.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/waitShou.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/waitSong.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/orderList/orderList.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/orderList/orderList.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/orderList/orderList.wxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/orderList/orderList.wxss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/personal/personal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/personal/personal.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/personal/personal.wxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/personal/personal.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.config.json" afterPath="$PROJECT_DIR$/project.config.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -87,7 +55,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="359" />
     <option name="y" value="53" />
     <option name="width" value="1346" />
@@ -152,15 +120,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540981015057</updated>
-      <workItem from="1540981021298" duration="604000" />
+      <workItem from="1540981021298" duration="832000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="604000" />
+    <option name="totallyTimeSpent" value="832000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

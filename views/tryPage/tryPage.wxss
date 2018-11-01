@@ -11,7 +11,7 @@ page{
   color: #777777;
   justify-content: center;
   line-height: 60rpx;
-  padding: 30rpx 0;
+  padding: 30rpx 0 0;
 }
 .classBtn image{
   width: 30rpx;
@@ -23,4 +23,103 @@ page{
 }
 .classBtn > view:nth-child(2n){
   margin: 0 30rpx;
+}
+.productList{
+  background-color:#F7F7F7; 
+  color: #333333;
+  font-size: 26rpx;
+}
+.productList > view > view{
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+  padding: 30rpx 20rpx 0;
+}
+.productList > view.typeLast > view{
+  margin-bottom: 0;
+  border-bottom: 2rpx solid #e1e1e1;
+}
+.productList > view .title{
+  line-height: 60rpx;
+}
+.productList > view .smallTitle{
+  font-size: 24rpx;
+  line-height: 32rpx;
+  color: #777777;
+}
+.productList > view .price{
+  font-size: 24rpx;
+  color: #777777;
+  line-height: 70rpx;
+  justify-content: space-between;
+}
+.productList > view .price text{
+  font-size: 34rpx;
+  color: #E5006E;
+}
+.productList > view .price .firstTitle{
+  color: #000000;
+}
+.productList image{
+  display: block;
+  width: 100%;
+}
+.timer{
+  justify-content: center;
+  background-color:#F7F7F7;
+  padding: 43rpx 0;
+  font-size: 30rpx;
+  color: #333333;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-top: 30rpx;
+}
+.timer > view{
+  margin: 0 27rpx;
+  text-align: center;
+}
+.timer > view view:first-child{
+  margin-bottom: 10rpx;
+}
+.timer > view view:last-child{
+  font-size: 22rpx;
+  color: #777777
+}
+.timer > view.activeTime > view{
+  color: #E50F72
+}
+.productList >  view.typeLast > view{
+  justify-content: space-between;
+  font-size: 28rpx;
+  padding: 10rpx 30rpx 20rpx 10rpx;
+  color: #333333;
+}
+.typeLast .rightP{
+  padding: 18rpx 0 0 22rpx;
+}
+.typeLast > view > view:first-child{
+  width: 250rpx;
+  height: 250rpx;
+}
+.typeLast > view image{
+  display: block;
+  width: 250rpx;
+  height: 250rpx;
+}
+.typeLast > view text{
+  line-height: 84rpx;
+  font-size: 24rpx;
+  color: #e50f72;
+}
+.typeLast > view .btn{
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+.typeLast > view .btn view:last-child{
+  line-height: 56rpx;
+  color: #ffffff;
+  text-align: center;
+  width: 130rpx;
+  background-color: #e50f72;
 }
