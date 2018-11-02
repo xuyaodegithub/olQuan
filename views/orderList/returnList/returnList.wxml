@@ -3,7 +3,7 @@
    订单编号：{{orderList.orderNo}}
 </view>
 <view class='productList'>
-  <view class='productDetail' wx:for="{{orderList.items}}">
+  <view class='productDetail' wx:key="index" wx:for="{{orderList.items}}">
     <view>
       <image class='productImage' src='{{item.productImage}}'></image>
     </view>
@@ -35,4 +35,27 @@
     </view>
   </picker>
   <image src='../../../image/rowmore.png' class='rowMoreImg'></image>
+</view>
+<view class='chooseWay'>
+  可退金额(退款总金额:{{orderList.totalFee}})
+</view>
+<view class="section">
+  {{orderList.totalFee}}
+</view>
+<view class='chooseWay'>
+  手机号码
+</view>
+<view class="section">
+  <input bindinput="mobileNum" maxlength="11" value='{{orderList.mobile}}' type="number" class='mobileNum' placeholder="便于卖家联系"/>
+</view>
+<view class='chooseWay'>
+  详细原因
+</view>
+<view class='resonMore'>
+  <textarea bindinput="descDetail" class='moerRoson' type="text" placeholder="请填写详细申请售后原因"/>
+</view>
+<view class='footer'>
+  <view class='bot' bindtap='getReturn'>
+    提交
+  </view>
 </view>

@@ -1,8 +1,10 @@
 {
   "pages": [
-    "views/firstIndex/firstIndex",
-    "views/orderList/orderList",
     "views/personal/personal",
+    "views/orderList/orderList",
+    "views/firstIndex/firstIndex",
+    
+    
     "views/tryPage/tryPage",
     "views/plusPage/plusPage",
     "pages/index/index",

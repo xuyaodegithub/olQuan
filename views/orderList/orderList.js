@@ -19,12 +19,20 @@ Page({
     page:1,
     orderList:[],
     isMoreNone:false,
+    statusReson:'您的售后申请已经提交,请耐心等待',
+    showMore:false,
+    delectIndex:'',
+    delectOrderId:'',
+    delectOrder:false,
   },
  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      status: options.status,
+    })
     common.methods.getLoginMess(this.getOrderList)
    
   },
@@ -34,6 +42,62 @@ Page({
    */
   onReady: function () {
 
+  },
+  //查看退款进度
+  getDetailReson(e){
+    
+    let _self=this;
+    let reson = {
+      url: '/mobile/order/customerService/getCustomerServiceInfo',
+      data: {
+        orderId: e.target.dataset.orderid
+      },
+      callback: function (res) {
+        if(res.data.code==0){
+          if (res.data.result.status == 0){
+            _self.setData({
+              statusReson: '您的售后申请已经提交,请耐心等待'
+            })
+          }else if (res.data.result.status==1){
+            _self.setData({
+              statusReson: '商家已同意您的申请'
+            })
+          }else if (res.data.result.status == 2){
+            _self.setData({
+              statusReson: '商家拒绝了您的申请，理由是：' + res.data.result.refuseReason
+            })
+          }else if (res.data.result.status == 3){
+            _self.setData({
+              statusReson: '您的物流信息已提交，请等待商家确认'
+            })
+          } else if (res.data.result.status == 4) {
+            _self.setData({
+              statusReson: '您的售后申请已完成'
+            })
+          } else if (res.data.result.status == 5) {
+            _self.setData({
+              statusReson: '等待财务审核'
+            })
+          }
+          _self.setData({
+            showMore: true,
+          })
+        }else{
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    }
+    common.methods.mothod1(reson)
+  },
+  //关闭退款进度查看
+  closeDetailReson(){
+    this.setData({
+      showMore: false,
+    })
   },
   //获取订单列表
   getOrderList(isMore){
@@ -117,6 +181,58 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+  },
+  //删除订单
+  deleteOrder(e){
+    
+    this.setData({
+      delectIndex: e.target.dataset.index,
+      delectOrderId: e.target.dataset.orderid,
+      delectOrder:true,
+    });
+    // let orderS = this.data.orderList;
+    // orderS.splice(e.target.dataset.index, 1); // 删除购物车列表里这个商品
+    // this.setData({
+    //   orderList: orderS
+    // });
+    
+  },
+  sureDelectOrder(){
+    let _self = this;
+    let orderS = this.data.orderList;
+    let delect = {
+      url: '/mobile/order/deleteOrder',
+      data: {
+        memberId: app.userId,
+        orderId: this.data.delectOrderId
+      }, 
+      callback: function (res) {
+        if(res.data.code==0){
+          orderS.splice(_self.data.delectIndex, 1); // 删除购物车列表里这个商品
+          _self.setData({
+            orderList: orderS,
+            delectOrder: false,
+          });
+          wx.showToast({
+            title: '删除成功',
+            icon: 'none',
+            duration: 2000
+          })
+        }else{
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    }
+    common.methods.mothod1(delect)
+  },
+  closeDelectOrder(){
+    this.setData({
+      delectOrder: false,
+    });
   },
   /**
    * 生命周期函数--监听页面显示

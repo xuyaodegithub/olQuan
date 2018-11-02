@@ -1,4 +1,21 @@
 <!--views/orderList/orderList.wxml-->
+<view class='mask' wx:if="{{showMore}}"> 
+  <view class='nameBox'>
+    <view class='resonSta'>{{statusReson}}</view>
+    <view class='knowMore' bindtap='closeDetailReson'>知道了</view>
+  </view>
+</view>
+<view class='delect' wx:if="{{delectOrder}}">
+  <view class='delectCent'>
+    <view class='centNor'>您确定删除订单?</view>
+    <view class='sureOrNot'>
+      <view class='noWay' bindtap='closeDelectOrder'>
+        <view style='border-right:1rpx solid #e1e1e1;'>否</view>
+      </view>
+      <view class='noWay' style=' color:#40AFFE' bindtap='sureDelectOrder'>是</view>
+    </view>
+  </view>
+</view>
 <view class="topbtn flex">
  <view wx:for="{{topBtm}}" wx:key="{{index}}" class="{{status==index ? 'active' : ''}}" data-key="{{index}}" bindtap='changeType'>{{item}}</view>
 </view>
@@ -60,10 +77,11 @@
             <view class='norDtai'  data-orderId="{{item.orderId}}" bindtap='getReturn' wx:if="{{item.status==1 || item.status==10 || item.status==2}}">申请售后</view>
           </view>
           <view class='norDtai' wx:if="{{item.status==2}}">确认收货</view>
-          <view class='norDtai' wx:if="{{item.status==4 || item.status==6 || item.status==7 || item.status==9 || item.status==10}}">删除订单</view>
+          <view class='norDtai' wx:if="{{item.status==4 || item.status==6 || item.status==7 || item.status==9 || item.status==10}}" data-orderId="{{item.orderId}}" data-index="{{index}}" bindtap="deleteOrder">删除订单</view>
           <view class='norDtai' wx:if="{{item.status==0}}" data-index="{{index}}" data-key="{{item.orderId}}" bindtap='cancelOrder'>取消订单</view>
           <view class='norDtai' wx:if="{{item.status==0}}">立即付款</view>
-          <view class='norDtai' wx:if="{{item.status==5}}">退款进度</view>
+          <view class='norDtai' data-orderId="{{item.orderId}}" bindtap='getDetailReson' wx:if="{{item.status==5}}">退款进度</view>
+          <view class='norDtai' wx:if="{{item.status==3}}">评价</view>
         </view>
       </view>
     </view>

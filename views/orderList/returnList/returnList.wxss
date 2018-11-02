@@ -70,7 +70,7 @@ page {
 .chooseWay{
   font-size: 26rpx;
   color: #808080;
-  line-height: 80rpx;
+  line-height: 68rpx;
   padding-left: 25rpx;
 }
 .mode{
@@ -98,4 +98,56 @@ page {
   right: 30rpx;
   top: 50%;
   margin-top: -8rpx;
+}
+.section{
+  padding: 0 30rpx;
+  background: #fff;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 88rpx;
+  color: red;
+}
+.mobileNum{
+  height: 88rpx;
+  color: #333;
+}
+.resonMore{
+  background: #fff;
+  padding: 30rpx 25rpx 0;
+  font-size: 30rpx;
+}
+.moerRoson{
+  min-height: 214rpx;
+  width: 100%;
+}
+.footer{
+  height: 140rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:center;
+  justify-content:center;
+  -moz-box-pack:center;
+  -webkit--moz-box-pack:center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  overflow: hidden;
+}
+.bot{
+  width: 690rpx;
+  height: 90rpx;
+  font-size: 34rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background: #e50f72;
+  color: #fff;
 }

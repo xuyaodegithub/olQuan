@@ -12,47 +12,47 @@
      <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.isBrandPartner==1}}'>品牌合伙人</view>
    </view>
 </view>
-<view class='renewGet' wx:if='{{personalList.isShowRenewButton!=0}}'>
+<view class='renewGet' wx:if='{{showXufei}}'>
   <view class='getDate'>您的店主将于{{time}}到期</view>
   <view class='goRenew'>立即续费</view>
 </view>
 <view class='useNavTab'>
-  <view class='navTab'>
+  <view class='navTab' bindtap='getDaifuList'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/daiPay.png'></image>
       <view class='navTabName'>待付款</view>
       <view class='severalNum' wx:if='{{orderCount.waitPayCount!=0}}'>{{orderCount.waitPayCount}}</view>
     </view>
   </view>
-  <view class='navTab'>
+  <view class='navTab' bindtap='getDaiSongList'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/waitSong.png'></image>
       <view class='navTabName'>待配送</view>
       <view class='severalNum' wx:if='{{orderCount.waitSendCount!=0}}'>{{orderCount.waitSendCount}}</view>
     </view>
   </view>
-  <view class='navTab'>
+  <view class='navTab' bindtap='getDaiShouList'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/waitShou.png'></image>
       <view class='navTabName'>待收货</view>
       <view class='severalNum' wx:if='{{orderCount.waitConfirmCount!=0}}'>{{orderCount.waitConfirmCount}}</view>
     </view>
   </view>
-  <view class='navTab'>
+  <view class='navTab' bindtap='getDaiPingList'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/waitPing.png'></image>
       <view class='navTabName'>待评价</view>
       <view class='severalNum' wx:if='{{orderCount.waitCommentCount!=0}}'>{{orderCount.waitCommentCount}}</view>
     </view>
   </view>
-  <view class='navTab'>
+  <view class='navTab' bindtap='getDaiTuiList'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/shouhou.png'></image>
       <view class='navTabName'>售后服务</view>
       <view class='severalNum' wx:if='{{orderCount.waitRefundCount!=0}}'>{{orderCount.waitRefundCount}}</view>
     </view>
   </view>
-  <view class='navTab'>
+  <view class='navTab'bindtap='getAllList'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/orderList.png'></image>
       <view class='navTabName'>全部订单</view>
