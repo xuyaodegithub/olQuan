@@ -19,6 +19,13 @@ page{
   font-size: 30rpx;
   padding: 30rpx 0
 }
+.classTop{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+}
 .classBtn view:nth-child(n){
   margin:0 15rpx;
 }

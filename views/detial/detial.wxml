@@ -1,9 +1,65 @@
 <!--detial/detial.wxml-->
-<swiper indicator-dots="{{indicatorDots}}"
-  autoplay interval="3000" duration="400" style="height:340rpx">
-  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+<swiper indicator-dots autoplay interval="5000" duration="400" style="height:750rpx">
+  <block wx:for="{{productData.images}}" wx:key="{{index}}">
     <swiper-item>
-      <image src="{{item}}" mode="widthFix" style="width:100%;" />
+      <image src="{{item}}" mode="widthFix" style="display:block;width:100%;" />
     </swiper-item>
   </block>
 </swiper>
+<view class="content">
+  <view class="price">
+    <text>￥{{productData.salePrice}}</text>
+    <text class="delete">￥{{productData.marketPrice}}</text>
+    <!-- <view></view> -->
+    <image src="../../image/erwei.png" ></image>
+  </view>
+  <view class="mess">
+    <view class="title over2">{{productData.productName}}</view>
+    <view class="smalltitle">{{productData.summary}}</view>
+    <view class="jindou flex">
+      <text>{{productData.score}}</text>
+      <text>仅剩{{productData.store}}件</text>
+      <text wx:if="{{productData.area}}">{{productData.area}}</text>
+    </view>
+  </view>
+  <view class="tag flex" wx:if="{{productData.tags.length>0}}">
+    <view wx:for="{{productData.tags}}" wx:key="{{index}}" class="flex">
+      <image src="../../image/choose.png"></image>
+      <text>{{item}}</text>
+    </view>
+  </view>
+  <view class="scode flex">
+    <text>选择</text>
+    <text>规格</text>
+    <image src="../../image/rowright.png"></image>
+  </view>
+  <view class="shareDou">
+   <!-- wx:if="{{productData.personal===1 && productData.score1}}"{{productData.score1}} -->
+      <view>分享奖励金豆</view>
+      <view>分享好友下单成功可获得<text style="color:#E50F72;">136</text>金豆</view>
+      <view class="flex">
+        <button plain>海报邀请</button>
+        <button plain open-type="share">分享邀请</button>
+      </view>
+  </view>
+  <view wx:if="{{productType==='4'}}">
+    <view class="tryLiu flex">
+      <text>试用流程</text>
+      <view>
+        试用说明
+        <image src="../../image/rowright.png"></image>
+      </view>
+    </view>
+    <view class="withup flex">
+      <text>申请 试用</text>
+      <image src="../../image/rowright.png"></image>    
+      <text>付保 证金</text>
+      <image src="../../image/rowright.png"></image>
+      <text>试用 30天</text>
+      <image src="../../image/rowright.png"></image>
+      <text>试用 报告</text>
+      <image src="../../image/rowright.png"></image>    
+      <text>退保 证金</text>
+    </view>
+  </view>
+</view>

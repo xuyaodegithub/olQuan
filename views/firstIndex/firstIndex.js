@@ -16,9 +16,10 @@ Page({
       banner:[],
       classBtn: [],
       classNum: 0,
-      smallclassNum:0,
+      smallclassNum:'',
       scrollNum:false,
-      topTrue:false
+      topTrue:false,
+      pcatId:''
   },
   callBack(res){
     this.setData({
@@ -86,28 +87,29 @@ Page({
       data: {},
       callback: function (res) {
         _self.setData({
-          classBtn: res.data.result
+          classBtn: res.data.result,
+          pcatId: res.data.result[0].catId ? res.data.result[0].catId : ''
         })
-      }
-    }
-    let procuct = {
-      url: '/mobile/product/productList',
-      data: {
-        pcatId: '',
-        memberId: app.userId,
-        page: _self.data.page,
-        rows: _self.data.rows
-      },
-      callback: function (res) {
-        _self.setData({
-          dataList: res.data.result
-        })
+        let procuct = {
+          url: '/mobile/product/productList',
+          data: {
+            pcatId: _self.data.pcatId,
+            memberId: app.userId,
+            page: _self.data.page,
+            rows: _self.data.rows
+          },
+          callback: function (res) {
+            _self.setData({
+              dataList: res.data.result
+            })
+          }
+        }
+        common.methods.mothod1(procuct)        
       }
     }
     common.methods.mothod1(data)
     common.methods.mothod1(obj)
     common.methods.mothod1(classF)
-    common.methods.mothod1(procuct)
   },
   //等分点击事件
   goCalssF(e){
@@ -244,11 +246,12 @@ Page({
       page: 1,
       rows: 10,
       classNum: 0,
-      smallclassNum: ''
+      smallclassNum: '',
+      pcatId: this.data.classBtn[0].catId ? this.data.classBtn[0].catId : ''
     })
     let data = {
       url: '/mobile/product/productList',
-      data: { page: 1, rows: 10, memberId: app.userId, pcatId: '' },
+      data: { page: 1, rows: 10, memberId: app.userId, pcatId: this.data.pcatId },
       callback: function (res) {
         _self.setData({
           dataList: res.data.result

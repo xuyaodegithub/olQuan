@@ -3,6 +3,7 @@ App({
   dataNum:0,
   scene:'',
   type:'',
+  uutype:1,
   baseUrl: 'https://test-mobile.olquan.cn',
   // baseUrl: 'https://ol-site.olquan.cn',
   userId: '',//openId

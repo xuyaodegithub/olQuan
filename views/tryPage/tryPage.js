@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    dataType:4,
     banners:[],
     advers:[],
     classNum:2,
@@ -23,7 +24,11 @@ Page({
     time:'',
     timeList:[],
     timeActive:'',
-    topTrue:false
+    topTrue:false,
+    fixedNav:false,
+    fixedNavTop:'',
+    timeTop: false,
+    timeTopNum:'',
   },
 
   /**
@@ -31,8 +36,24 @@ Page({
    */
   onLoad: function (options) {
     common.methods.getLoginMess(this.getAdvers)
+    this.setTop('#classBtnTop',1)
   },
-
+  setTop(str,num){
+      let _self = this  
+      let query = wx.createSelectorQuery()
+      query.select(str).boundingClientRect((rect) => {
+        console.log(rect.top)
+        if(num===1){
+          _self.setData({
+            fixedNavTop: rect.top
+          })
+        }else{
+          _self.setData({
+            timeTopNum: rect.top
+          })
+        }
+      }).exec()
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -42,7 +63,7 @@ Page({
   //首次进入
   getAdvers(){
     let _self = this
-    console.log(app.isGetStoreCommission)
+    // console.log(app.isGetStoreCommission)
     this.setData({
       isGetStoreCommission: app.isGetStoreCommission
     })
@@ -93,6 +114,10 @@ Page({
   //分类切换
   changeClass(e){
     // console.log(e.currentTarget.dataset.index)
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 400
+    })
     let _self=this
     if (e.currentTarget.dataset.index === 1 || e.currentTarget.dataset.index === 3 || e.currentTarget.dataset.index===this.data.classNum){
       return
@@ -142,7 +167,7 @@ Page({
   //进详情
   goDetial(e){
     wx:wx.navigateTo({
-      url: '../detial/detial?id=' + e.currentTarget.dataset.id,
+      url: '../detial/detial?id=' + e.currentTarget.dataset.id + '&type=' + e.currentTarget.dataset.type,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
@@ -185,17 +210,61 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    let _self=this
+    wx.showNavigationBarLoading()
+      this.setData({
+        classNum:2,
+        page: 1,
+        rows: 10,
+        productType:5,
+        time: '',
+        timeList: [],
+        timeActive: '',
+      })
+      let data={
+        url: '/mobile/freeUse/getFreeUseProducts',
+        data:{
+          page:this.data.page,
+          rows:this.data.rows,
+          type: this.data.productType
+        },
+        callback:function(res){
+          _self.setData({
+            dataList: res.data.result
+          })
+          wx.hideNavigationBarLoading()
+          wx.stopPullDownRefresh()
+        }
+      }
+    common.methods.mothod1(data)
   },
   onPageScroll: function (e) { // 页面滚动触发事件的处理函数
-    // console.log(e.scrollTop)
-    if (e.scrollTop > 200) {
+    console.log(e.scrollTop)
+    if (e.scrollTop > 250) {
       this.setData({
         topTrue: true
       })
     } else {
       this.setData({
         topTrue: false
+      })
+    }
+    if (e.scrollTop > this.data.fixedNavTop){
+      this.setData({
+        fixedNav: true
+      })
+    }else{
+      this.setData({
+        fixedNav: false
+      })
+    }
+    if (e.scrollTop > 277){
+      this.setData({
+        timeTop: true
+      })
+    }else{
+      this.setData({
+        timeTop: false
       })
     }
   },

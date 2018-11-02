@@ -13,6 +13,22 @@ page{
   line-height: 60rpx;
   padding: 30rpx 0 0;
 }
+.fixedNav{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index:1000; 
+  padding-bottom: 30rpx;
+  background-color: #ffffff;
+}
+.timeTop{
+  position: fixed;
+  width: 100%;
+  top: 90rpx;
+  left: 0;
+  z-index:1000; 
+}
 .classBtn image{
   width: 30rpx;
   height: 30rpx;
@@ -122,4 +138,18 @@ page{
   text-align: center;
   width: 130rpx;
   background-color: #e50f72;
+}
+.typeLast > view .btn view:last-child.disno{
+  background-color: rgb(252, 137, 178)
+}
+.typeLast > view > view:first-child{
+  position: relative;
+}
+.typeLast > view > view:first-child .tryOut{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  width: 150rpx;
+  height: 150rpx;
+  margin: -75rpx 0 0 -75rpx;
 }

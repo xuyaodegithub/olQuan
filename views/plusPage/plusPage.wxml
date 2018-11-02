@@ -4,13 +4,13 @@
 <seachs></seachs>
 <swipers banner="{{banners}}"  advers="{{advers}}"></swipers>
 </view>
-<view class="classBtn flex">
+<view class="classBtn flex {{classTop ? 'classTop' : ''}}" id="classTopTT">
   <view wx:for="{{classBtn}}" wx:key="{{index}}" data-index="{{index}}" bindtap='changClass' class="{{classNum===index ? 'alcssActive' : ''}}">
     {{item}}
   </view>
 </view>
 <view class="dataList">
-  <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.plusId}}" class="product" bindtap='goDetial'>
+  <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" data-type="{{dataType}}" class="product" bindtap='goDetial'>
     <image src="{{item.productImage}}" mode="widthFix" lazy-load></image>
     <view class="title over">{{item.productName}}</view>
     <view class="smalltitle over">{{item.summary}}</view>

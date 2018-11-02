@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+      dataType:9,
       banners:[],
       advers:[],
       classBtn: ['今日特卖', '|', '热门特卖', '|','明日预告'],
@@ -16,7 +17,9 @@ Page({
       type:1,
       dataList:[],
       isGetStoreCommission:'',
-      topTrue:false
+      topTrue:false,
+      classTop: false,
+      classTopNum:''
   },
 
   /**
@@ -27,17 +30,17 @@ Page({
       app.type = options.type
     }
     common.methods.getLoginMess(this.firstPage)
-    
-    // let _self=this
-    // if (app.userId){
-    //   this.firstPage()
-    // }else{
-    //   app.getLogin().then(function(res){
-    //     _self.firstPage()
-    //   }).catch(function(err){
-    //     console.log(err)
-    //   })
-    // }
+    this.setTop('#classTopTT')
+  },
+  setTop(str) {
+    let _self = this
+    let query = wx.createSelectorQuery()
+    query.select(str).boundingClientRect((rect) => {
+      console.log(rect.top)
+        _self.setData({
+          classTopNum: rect.top
+        })
+    }).exec()
   },
   //首次进入
   firstPage(){
@@ -65,6 +68,10 @@ Page({
     if (this.data.classNum === e.currentTarget.dataset.index || e.currentTarget.dataset.index === 1 || e.currentTarget.dataset.index === 3){
       return
     }
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 400
+    })
     this.setData({
       classNum: e.currentTarget.dataset.index,
       page: 1,
@@ -119,7 +126,7 @@ Page({
   goDetial(e){
     console.log(e)
     wx.navigateTo({
-      url: '../detial/detial?plusId=' + e.currentTarget.dataset.plusid,
+      url: '../detial/detial?id=' + e.currentTarget.dataset.id + '&type=' + e.currentTarget.dataset.type,
     })
   },
   toScrollTop() {//回到顶部方法
@@ -130,7 +137,7 @@ Page({
   },
   onPageScroll: function (e) { // 页面滚动触发事件的处理函数
     // console.log(e.scrollTop)
-    if (e.scrollTop > 200) {
+    if (e.scrollTop > 250) {
       this.setData({
         topTrue: true
       })
@@ -139,6 +146,14 @@ Page({
         topTrue: false
       })
     }
+    if (e.scrollTop > this.data.classTopNum)
+    this.setData({
+      classTop:true
+    })
+    else 
+    this.setData({
+      classTop: false
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -2,7 +2,7 @@
 <header numkey="0"></header> 
 <view class="content">
  <swipers banner="{{banners}}"></swipers>  
-  <view class="classBtn flex">
+  <view class="classBtn flex {{fixedNav ? 'fixedNav' : ''}}" id="classBtnTop">
     <block wx:for="{{classBtn}}" wx:key="{{index}}">
       <view data-index="{{index}}" bindtap='changeClass' class="flex" wx:if="{{index < 3}}">
         <image src="{{item.imgChose}}" wx:if="{{classNum===index && item.imgChose}}"></image>
@@ -19,7 +19,7 @@
   <view>
   </view>
 </view>
-<view class="timer flex" wx:if="{{!productType}}">
+<view class="timer flex {{timeTop ? 'timeTop' : ''}}" wx:if="{{!productType && timeList.length>0}}" id="timeTopId">
   <view wx:for="{{timeList}}" wx:key="{{index}}" data-time="{{item.time}}" data-index="{{index}}" bindtap='gettimeDataList' class="{{timeActive===index ? 'activeTime' : ''}}">
     <view>{{item.time}}</view>
     <view>{{item.isStarted === 1 ? '抢试中' : '预热中'}}</view>
@@ -27,7 +27,7 @@
 </view>
 <view class="productList">
     <view wx:if="{{productType===1}}" class="typeFirst">
-      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap='goDetial' >  
+      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" bindtap='goDetial'  data-type="{{dataType}}">  
         <image src="{{item.indexImage}}"  mode="widthFix" lazy-load class="border_radius"></image>
         <view class="over title">{{item.productName}}</view>
         <view class="smallTitle " wx:if="{{item.summery}}">{{item.summery}}</view>
@@ -38,7 +38,7 @@
       </view>
     </view>
     <view  wx:elif="{{productType===5}}" class="typeSecond">
-      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap='goDetial' >  
+      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" bindtap='goDetial'  data-type="{{dataType}}" >  
         <image src="{{item.indexImage}}"  mode="widthFix" lazy-load class="border_radius"></image>
           <view class="over title">{{item.productName}}</view>
           <view class="smallTitle" wx:if="{{item.summery}}">{{item.summery}}</view>
@@ -49,8 +49,9 @@
       </view>
     </view>
     <view wx:else class="typeLast">
-      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap='goDetial' class="flex">  
+      <view wx:for="{{dataList}}" wx:key="{{index}}" data-type="{{dataType}}" data-id="{{item.productId}}" bindtap='goDetial' class="flex">  
           <view>
+              <image src="../../image/tryOut.png" mode="aspectFit" class="tryOut" wx:if="{{item.percent==='100%'}}"></image>
               <image src="{{item.image}}" mode="aspectFit"  lazy-load></image>      
           </view>
           <view class="rightP">
@@ -58,7 +59,8 @@
             <text>仅剩{{(item.dayLimitCount-item.saleCount)<0 ? 0 : item.dayLimitCount-item.saleCount}}件</text>
             <view class="flex btn">
               <view>保证金:￥{{item.price}}</view>
-              <view class="border_radius">马上试 ></view>
+              <view class="border_radius" wx:if="{{item.isStarted===1}}">马上试 ></view>
+              <view class="border_radius disno" wx:else>即将开始</view>
             </view>
           </view>
       </view>
