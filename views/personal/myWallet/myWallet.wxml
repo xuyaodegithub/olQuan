@@ -1,0 +1,64 @@
+<!--views/personal/myWallet/myWallet.wxml-->
+<view class='walletTop'>
+  <view class='walletList' data-number='{{memberList.amount}}' bindtap='getAmount'>
+    <view>账号余额</view>
+    <view class='lookMore'>
+      <view style='color:#e50f72;'>{{memberList.amount}}</view>
+      <image class='iconImg' src='../../../image/moneyRow.png'></image>
+    </view>
+  </view>
+  <view class='walletList' data-number='{{memberList.waitAmount}}' bindtap='getWaitAmount'>
+    <view>待定余额</view>
+    <view class='lookMore'>
+      <view style='color:#e50f72;'>{{memberList.waitAmount}}</view>
+      <image class='iconImg' src='../../../image/moneyRow.png'></image>
+    </view>
+  </view>
+  <view class='walletList' bindtap='getScore'>
+    <view>可用积分</view>
+    <view class='lookMore'>
+      <view style='color:#e50f72;'>{{memberList.score}}</view>
+      <image class='iconImg' src='../../../image/moneyRow.png'></image>
+    </view>
+  </view>
+  <view class='walletList' bindtap='getWaitScore'>
+    <view>待定积分</view>
+    <view class='lookMore'>
+      <view style='color:#e50f72;'>{{memberList.waitScore}}</view>
+      <image class='iconImg' src='../../../image/moneyRow.png'></image>
+    </view>
+  </view>
+  <view class='walletList' data-number='{{memberList.coffers}}' bindtap='getCoffers'>
+    <view>小金库</view>
+    <view class='lookMore'>
+      <view style='color:#e50f72;'>{{memberList.coffers}}</view>
+      <image class='iconImg' src='../../../image/moneyRow.png'></image>
+    </view>
+  </view>
+  <view class='walletList' data-number='{{memberList.goldBean}}' bindtap='getGoldBean'>
+    <view>金豆</view>
+    <view class='lookMore'>
+      <view style='color:#e50f72;'>{{memberList.goldBean}}</view>
+      <image class='iconImg' src='../../../image/moneyRow.png'></image>
+    </view>
+  </view>
+  <view class='walletList' data-number='{{memberList.waitGoldBean}}' bindtap='getWaitGoldBean'>
+    <view>待定金豆</view>
+    <view class='lookMore'>
+      <view style='color:#e50f72;'>{{memberList.waitGoldBean}}</view>
+      <image class='iconImg' src='../../../image/moneyRow.png'></image>
+    </view>
+  </view>
+</view>
+<view class='accountCount'>
+  <view class='walletList'>
+    <view>我的银行卡</view>
+    <view class='lookMore'>
+      <view style='color:#e50f72;'>{{memberList.accountCount}} 张</view>
+      <image class='iconImg' src='../../../image/moneyRow.png'></image>
+    </view>
+  </view>
+</view>
+<view class='bot' bindtap='withDraw'>
+  <view class='withDrawCash'>提现</view>
+</view>

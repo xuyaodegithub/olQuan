@@ -59,7 +59,7 @@
     </view>
   </view>
 </view>
-<view class='useNavTab'>
+<view class='useNavTab'bindtap='getMyWallet'>
   <view class='navTab'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/myPagekt.png'></image>

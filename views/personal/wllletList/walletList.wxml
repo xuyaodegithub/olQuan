@@ -1,0 +1,25 @@
+<!--views/personal/wllletList/walletList.wxml-->
+<view class='walletListTop' wx:if="{{!scoreSure}}">
+  <image class='listBack' src='../../../image/bg07.png'></image>
+  <view class='numDetail'>{{numDetail}}</view>
+  <view class='typeDetail' wx:if="{{typeNum==1}}">账户余额(元)</view>
+  <view class='typeDetail' wx:if="{{typeNum==5}}">待定余额(元)</view>
+  <view class='typeDetail' wx:if="{{typeNum==3}}">小金库(元)</view>
+  <view class='typeDetail' wx:if="{{typeNum==6}}">金豆(个)</view>
+  <view class='typeDetail' wx:if="{{typeNum==7}}">待定金豆(个)</view>
+</view>
+<view class="topbtn flex" wx:if="{{scoreSure}}">
+ <view style='width:150rpx;margin:0 10rpx;' wx:for="{{topBtm}}" wx:key="{{index}}" class="{{status==index ? 'active' : ''}}" data-key="{{index}}" bindtap='changeType'>{{item}}</view>
+</view>
+<view class='income' wx:if="{{scoreSure}}">
+  总收入：<text style='color:#3593db'>{{shouruList.totalAddAmount}}分</text>/总支出：<text style='color:#e50f72'>{{shouruList.totalPlusAmount}}分</text>
+</view>
+<view class='integralsetail' wx:for="{{amountList}}"  wx:key="{{index}}">
+  <view class='integralList'>
+    <view class='moneyDetail' class="{{item.amount < 0 ? 'moneyDetailSpe' : 'moneyDetail'}}">{{item.amount}}</view>
+    <view class='listDetail'>
+      <view>{{item.memo}}</view>
+      <view>{{item.time}}</view>
+    </view>
+  </view>
+</view>

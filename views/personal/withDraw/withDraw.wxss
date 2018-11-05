@@ -1,0 +1,48 @@
+/* views/personal/withDraw/withDraw.wxss */
+page {
+  display: block;
+  background-color:#f5f5fa;
+}
+.withDrawOut{
+  margin-top: 30rpx;
+}
+.withDrawAcount{
+  background: #fff;
+  padding: 30rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  position: relative;
+}
+.acountName{
+  font-size: 30rpx;
+  color: #333;
+
+}
+.acountNum{
+  font-size: 28rpx;
+  color: #999;
+}
+.iconImg{
+  display: block;
+  width: 14rpx;
+  height: 24rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 50%;
+  margin-top: -12rpx;
+}
+.poundage{
+  padding: 30rpx 0 20rpx 15rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+.inputOut{
+  padding: 0 30rpx;
+  background: #fff;
+  font-size: 30rpx;
+  
+}
+.inputSure{
+  line-height: 100rpx;
+  height: 100rpx;
+}
