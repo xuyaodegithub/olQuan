@@ -1,16 +1,10 @@
 {
   "pages": [
-<<<<<<< HEAD
-    "views/firstIndex/firstIndex",
-    "views/personal/personal",
-    "views/orderList/orderList",
-=======
     "views/personal/withDraw/withDraw",
     "views/personal/myWallet/myWallet",
     "views/personal/personal",
     "views/orderList/orderList",
     "views/firstIndex/firstIndex",
->>>>>>> 912d318eb486607a30196a39871a3198c9926b5a
     "views/tryPage/tryPage",
     "views/plusPage/plusPage",
     "pages/index/index",
@@ -24,12 +18,8 @@
     "views/getLogin/getLogin",
     "views/orderList/listMore/listMore",
     "views/orderList/returnList/returnList",
-<<<<<<< HEAD
     "views/service/service"
-=======
     "views/personal/wllletList/walletList"
-    
->>>>>>> 912d318eb486607a30196a39871a3198c9926b5a
   ],
   "find": [
     ""
