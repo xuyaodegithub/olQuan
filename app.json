@@ -1,15 +1,12 @@
 {
   "pages": [
+    "views/firstIndex/firstIndex",
     "views/personal/personal",
     "views/orderList/orderList",
-    "views/firstIndex/firstIndex",
-    
-    
     "views/tryPage/tryPage",
     "views/plusPage/plusPage",
     "pages/index/index",
     "pages/logs/logs",
-    "views/service/detail",
     "views/shopcar/shopcar",
     "views/myonle/myonle",
     "views/find/find",
@@ -18,7 +15,8 @@
     "views/findPage/findPsge",
     "views/getLogin/getLogin",
     "views/orderList/listMore/listMore",
-    "views/orderList/returnList/returnList"
+    "views/orderList/returnList/returnList",
+    "views/service/service"
   ],
   "find": [
     ""
@@ -51,7 +49,7 @@
         "selectedIconPath": "image/iconPatch/sshop.png"
       },
       {
-        "pagePath": "views/service/detail",
+        "pagePath": "views/service/service",
         "text": "客服",
         "iconPath": "image/iconPatch/server.png",
         "selectedIconPath": "image/iconPatch/sserver.png"
