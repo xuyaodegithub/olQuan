@@ -1,0 +1,72 @@
+/* views/personal/myWallet/myWallet.wxss */
+page {
+  display: block;
+  background-color:#f5f5fa;
+}
+.walletTop{
+  margin-top: 30rpx;
+  border-top: 1rpx solid #e5e5e5;
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+.walletList{
+  padding: 30rpx;
+  background: #fff;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  color: #333;
+}
+.lookMore{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  align-items:center;
+  -webkit-align-items:center;
+  box-align:center;
+  -moz-box-align:center;
+  -webkit-box-align:center;
+  
+}
+.iconImg{
+  display: block;
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 30rpx;
+}
+.accountCount{
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.bot{
+  width: 100%;
+  margin-top: 30rpx;
+}
+.withDrawCash{
+  width: 90%;
+  margin: 0 auto;
+  background: #fff;
+  border: 2rpx solid #e50f72;
+  font-size: 30rpx;
+  color: #e50f72;
+  text-align: center;
+  text-align: center;
+  border-radius: 4rpx;
+  line-height: 100rpx;
+}

@@ -139,9 +139,7 @@ function setTabBarBadge(data){
       console.log(err)
     }
   })
-
 }
-
 module.exports.methods = {
   "mothod1": mothod1,
   "mothod2": httpRequest,

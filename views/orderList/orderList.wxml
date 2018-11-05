@@ -16,9 +16,21 @@
     </view>
   </view>
 </view>
+<view class='delect' wx:if="{{takeOver}}">
+  <view class='delectCent'>
+    <view class='centNor'>您确定收货?</view>
+    <view class='sureOrNot'>
+      <view class='noWay'>
+        <view style='border-right:1rpx solid #e1e1e1;' bindtap='closeTakeOver'>否</view>
+      </view>
+      <view class='noWay' style=' color:#40AFFE' bindtap='sureTakeOver'>是</view>
+    </view>
+  </view>
+</view>
 <view class="topbtn flex">
  <view wx:for="{{topBtm}}" wx:key="{{index}}" class="{{status==index ? 'active' : ''}}" data-key="{{index}}" bindtap='changeType'>{{item}}</view>
 </view>
+
 <view class='orderList'>
   <view wx:key="{{index}}" wx:for="{{orderList}}" style='margin-bottom:20rpx'>
     <view class='orderListNo'>
@@ -76,7 +88,7 @@
           <view wx:if="{{item.type!=3 && item.type!=9}}">
             <view class='norDtai'  data-orderId="{{item.orderId}}" bindtap='getReturn' wx:if="{{item.status==1 || item.status==10 || item.status==2}}">申请售后</view>
           </view>
-          <view class='norDtai' wx:if="{{item.status==2}}">确认收货</view>
+          <view class='norDtai' data-orderId="{{item.orderId}}" data-index="{{index}}" bindtap="takeOver" wx:if="{{item.status==2}}">确认收货</view>
           <view class='norDtai' wx:if="{{item.status==4 || item.status==6 || item.status==7 || item.status==9 || item.status==10}}" data-orderId="{{item.orderId}}" data-index="{{index}}" bindtap="deleteOrder">删除订单</view>
           <view class='norDtai' wx:if="{{item.status==0}}" data-index="{{index}}" data-key="{{item.orderId}}" bindtap='cancelOrder'>取消订单</view>
           <view class='norDtai' wx:if="{{item.status==0}}">立即付款</view>

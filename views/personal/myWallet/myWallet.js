@@ -1,5 +1,5 @@
-// views/personal/personal.js
-var common = require("../../utils/common.js")
+// views/personal/myWallet/myWallet.js
+var common = require("../../../utils/common.js")
 const app = getApp()
 Page({
 
@@ -7,111 +7,109 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showXufei:false,
+    memberList:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    common.methods.getLoginMess(this.firstGoin)
-    //this.firstGoin()
+    common.methods.getLoginMess(this.getMember)
   },
-  //点击全部订单
-  getAllList(){
-    wx: wx.navigateTo({
-      url: '../orderList/orderList?status=0',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-  //点击待付款订单
-  getDaifuList() {
-    wx: wx.navigateTo({
-      url: '../orderList/orderList?status=1',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-  //点击待付款订单
-  getDaiSongList() {
-    wx: wx.navigateTo({
-      url: '../orderList/orderList?status=2',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-  //点击待付款订单
-  getDaiShouList() {
-    wx: wx.navigateTo({
-      url: '../orderList/orderList?status=3',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-  //点击我的钱包
-  getMyWallet(){
-    wx: wx.navigateTo({
-      url: './myWallet/myWallet',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-  getDaiPingList() {
-    wx: wx.navigateTo({
-      url: '../orderList/orderList?status=4',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-  getDaiTuiList() {
-    wx: wx.navigateTo({
-      url: '../orderList/orderList?status=5',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-    //首次进入
-    firstGoin(){
-      let _self = this
-      let banners = {
-        url: '/mobile/member/getMember',
-        data: {
-          memberId: app.userId
-        },
-        callback: function (res) {
-          _self.setData({
-            personalList: res.data.result,
-            time: res.data.result.validTime.split("至")[1]
-          })
-          if (res.data.result.isShowRenewButton != 0){
-            _self.setData({
-              showXufei:true,
-            })
-          }
-        }
+  //进入加载
+  getMember(){
+    let _self = this
+    let banners = {
+      url: '/mobile/member/getMember',
+      data: {
+        memberId: app.userId
+      },
+      callback: function (res) {
+        _self.setData({
+          memberList: res.data.result,
+        })
       }
-      let obj = {
-        url: '/mobile/order/orderCount',
-        data: {
-          memberId: app.userId
-        },
-        callback: function (res) {
-          _self.setData({
-            orderCount: res.data.result
-          })
-        }
-      }
-      common.methods.mothod1(banners)
-      common.methods.mothod1(obj)
-    },
+    }
+    common.methods.mothod1(banners)
+  },
+  //点击体现
+  withDraw(){
+    wx: wx.navigateTo({
+      url: '../withDraw/withDraw',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击账号余额
+  getAmount(e){
+    wx: wx.navigateTo({
+      url: '../wllletList/walletList?type=1&number=' + e.currentTarget.dataset.number,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击待定余额
+  getWaitAmount(e) {
+    
+    wx: wx.navigateTo({
+      url: '../wllletList/walletList?type=5&number=' + e.currentTarget.dataset.number,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击小金库
+  getCoffers(e) {
+    
+    wx: wx.navigateTo({
+      url: '../wllletList/walletList?type=3&number=' + e.currentTarget.dataset.number,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击金豆
+  getGoldBean(e) {
+    
+    wx: wx.navigateTo({
+      url: '../wllletList/walletList?type=6&number=' + e.currentTarget.dataset.number,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击待定金豆
+  getWaitGoldBean(e) {
+    
+    wx: wx.navigateTo({
+      url: '../wllletList/walletList?type=7&number=' + e.currentTarget.dataset.number,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击可用积分
+  getScore() {
+   
+    wx: wx.navigateTo({
+      url: '../wllletList/walletList?type=2&isScore=1',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击可用积分
+  getWaitScore() {
+
+    wx: wx.navigateTo({
+      url: '../wllletList/walletList?type=4&isScore=1',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -144,7 +142,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-      wx.stopPullDownRefresh()
+    wx.stopPullDownRefresh()
   },
 
   /**

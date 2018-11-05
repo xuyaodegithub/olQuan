@@ -24,6 +24,9 @@ Page({
     delectIndex:'',
     delectOrderId:'',
     delectOrder:false,
+    takeOver:false,
+    overIndex:'',
+    overOrderId:'',
   },
  
   /**
@@ -50,7 +53,7 @@ Page({
     let reson = {
       url: '/mobile/order/customerService/getCustomerServiceInfo',
       data: {
-        orderId: e.target.dataset.orderid
+        orderId: e.currentTarget.dataset.orderid
       },
       callback: function (res) {
         if(res.data.code==0){
@@ -146,9 +149,9 @@ Page({
   },
   // 点击头部列表事件
   changeType(e) {
-    // console.log(e.target.dataset.key
+    // console.log(e.currentTarget.dataset.key
     this.setData({
-      status: e.currentTarget.dataset.key,
+      status: e.currentcurrentTarget.dataset.key,
       page:1,
       isMoreNone:false,
     })
@@ -161,14 +164,14 @@ Page({
   },
   //取消订单
   cancelOrder(e){
-    console.log(e.target.dataset.index)
-    console.log(e.target.dataset.key)
+    console.log(e.currentTarget.dataset.index)
+    console.log(e.currentTarget.dataset.key)
   },
   //查看详情
   getDetail(e){
-    //console.log(e.target.dataset.orderid)
+    //console.log(e.currentTarget.dataset.orderid)
     wx: wx.navigateTo({
-      url: './listMore/listMore?id=' + e.target.dataset.orderid,
+      url: './listMore/listMore?id=' + e.currentTarget.dataset.orderid,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -176,27 +179,66 @@ Page({
   },
   getReturn(e){
     wx: wx.navigateTo({
-      url: './returnList/returnList?id=' + e.target.dataset.orderid,
+      url: './returnList/returnList?id=' + e.currentTarget.dataset.orderid,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
     })
   },
+  //确认收货
+  takeOver(e){
+    this.setData({
+      overIndex: e.currentTarget.dataset.index,
+      overOrderId: e.currentTarget.dataset.orderid,
+      takeOver: true,
+    });
+  },
+  closeTakeOver() {
+    this.setData({
+      takeOver: false,
+    });
+  },
+  sureTakeOver(){
+    let _self = this;
+    let orderS = this.data.orderList;
+    let delect = {
+      url: '/mobile/order/confirmGet',
+      data: {
+        memberId: app.userId,
+        orderId: this.data.overOrderId
+      },
+      callback: function (res) {
+        if (res.data.code == 0) {
+          orderS.splice(_self.data.overIndex, 1); // 删除购物车列表里这个商品
+          _self.setData({
+            orderList: orderS,
+            takeOver: false,
+          });
+          wx.showToast({
+            title: '收货成功',
+            icon: 'none',
+            duration: 2000
+          })
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    }
+    common.methods.mothod1(delect)
+  },
   //删除订单
   deleteOrder(e){
-    
     this.setData({
-      delectIndex: e.target.dataset.index,
-      delectOrderId: e.target.dataset.orderid,
+      delectIndex: e.currentTarget.dataset.index,
+      delectOrderId: e.currentTarget.dataset.orderid,
       delectOrder:true,
     });
-    // let orderS = this.data.orderList;
-    // orderS.splice(e.target.dataset.index, 1); // 删除购物车列表里这个商品
-    // this.setData({
-    //   orderList: orderS
-    // });
-    
   },
+  
   sureDelectOrder(){
     let _self = this;
     let orderS = this.data.orderList;

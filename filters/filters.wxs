@@ -8,6 +8,25 @@ var  filters={
       // }else{
       //   return val
       // }
+    },
+  //倒计时时间过滤器
+  overTime:function (val) {
+    let hours = Math.floor(val / 1000 / 60 / 60)
+    let mint = Math.floor(val / 1000 / 60 % 60)
+    let sec = Math.floor(val / 1000 % 60)
+    let addZero = function (num) {
+      if (num < 10) {
+        return '0' + num
+      } else {
+        return num
+      }
     }
+    return {
+      hours: addZero(hours),
+      mint: addZero(mint),
+      sec: addZero(sec),
+    }
+  }
 }
+ 
 module.exports = filters

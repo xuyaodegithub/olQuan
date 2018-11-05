@@ -16,18 +16,20 @@ Page({
     productId:'',
     productType:'',
     uutype:1,
-    productData:{}
+    productData:{},
+    levelCode:'',//等级
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options,options.id, options.type,'---------------------')
     this.setData({
       productId: options.id,
-      productType: options.type
+      productType: options.type,
+      levelCode: app.memberData.levelCode
     })
+    console.log(options, options.id, options.type,'---------------------')    
     this.getProductDetial()
   },
 //firstin
@@ -39,9 +41,16 @@ Page({
               productId: this.data.productId,
               memberId: app.userId,
               uutype: app.uutype,
-              type: this.data.productType
+              type: this.data.productType,
+              viewType: this.data.viewType ? 1 : ''
             },
             callback:res => {
+              // let reg = new RegExp("<img","g")
+              // console.log(typeof res.data.result.detail)
+              if (res.data.result.detail) {
+                res.data.result.detail = res.data.result.detail.replace(/\<img/g, "<img style='display:block;width:100%;'")
+               }
+              // console.log(res.data.result.detail.replace(/\<img/g, "<img style='display:block;width:100%;'"))
               _self.setData({
                 productData: res.data.result,
               })
@@ -49,6 +58,15 @@ Page({
       }
       common.methods.mothod1(data)      
     },
+    //图片预览
+  previewImage(e) {//点击图片大图预览
+    // var current = e.target.dataset.src;
+    console.log(e)
+    wx.previewImage({
+      current: e.currentTarget.dataset.item[e.currentTarget.dataset.index], // 当前显示图片的http链接  
+      urls: e.currentTarget.dataset.item // 需要预览的图片http链接列表  
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
