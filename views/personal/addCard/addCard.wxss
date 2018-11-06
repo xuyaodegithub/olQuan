@@ -1,0 +1,54 @@
+/* views/personal/addCard/addCard.wxss */
+page {
+  display: block;
+  background-color: #f6f6f6;
+  
+}
+.listDetail{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:flex-start;
+  justify-content:flex-start;
+  -moz-box-pack:flex-start;
+  -webkit--moz-box-pack:flex-start;
+  margin: 20rpx 0;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  color: #333;
+  background:#fff;
+  padding: 0 20rpx;
+}
+.listName{
+  width: 25%;
+}
+.listType{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:flex-start;
+  justify-content:flex-start;
+  -moz-box-pack:flex-start;
+  -webkit--moz-box-pack:flex-start;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  height: 80rpx;
+}
+.listImg{
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  margin-left: 20rpx;
+}
+.inputDetail{
+  height: 80rpx;
+}

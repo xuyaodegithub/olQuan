@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d222bbf-e83b-4bf6-aa47-16f65fa61648" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/views/personal/personal.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/personal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,7 +19,8 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -52,15 +53,13 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/orderList/orderList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/personal/personal.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
@@ -69,21 +68,31 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1044" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2980" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>wllletList</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -91,9 +100,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/personal/personal.js" />
+        <option value="$PROJECT_DIR$/app.json" />
       </list>
     </option>
   </component>
@@ -120,17 +129,6 @@
             <path>
               <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
               <item name="olQuan" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="olQuan" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="olQuan" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="personal" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -181,11 +179,13 @@
       <workItem from="1540981021298" duration="604000" />
       <workItem from="1541078331342" duration="3073000" />
       <workItem from="1541086682231" duration="268000" />
+      <workItem from="1541413512184" duration="9000" />
+      <workItem from="1541418069160" duration="388000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4068000" />
+    <option name="totallyTimeSpent" value="4465000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -194,6 +194,7 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -204,7 +205,6 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -217,43 +217,15 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/tryPage/tryPage.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/getLogin/getLogin.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/seach/seach.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/seach/seach.wxml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/seach/seach.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/header/header.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-379" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/header/header.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/image/rowmore.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -283,31 +255,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/plusPage/plusPage.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/orderList/orderList.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1044" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2980" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/orderList/orderList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/views/personal/personal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
         </state>
       </provider>
     </entry>

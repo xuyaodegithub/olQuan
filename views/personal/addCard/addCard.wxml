@@ -1,0 +1,36 @@
+<!--views/personal/addCard/addCard.wxml-->
+
+<view class='listDetail'>
+  <view class='listName'>账号类型</view>
+  <view class='listType'>
+    <view class='listType'>
+      <view>银行卡</view>
+      <image wx:if="{{type==2}}" class='listImg' src='../../../image/checked.png'></image>
+      <image bindtap='changeTypeTwo' wx:else class='listImg' src='../../../image/nochose.png'></image>
+    </view>
+    <view class='listType' style='margin-left:60rpx;'>
+      <view>支付宝</view>
+      <image wx:if="{{type==1}}" class='listImg' src='../../../image/checked.png'></image>
+      <image bindtap='changeTypeNoe' wx:else class='listImg' src='../../../image/nochose.png'></image>
+    </view>
+  </view>
+</view>
+<view class='listDetail' style='margin-top:20rpx;'>
+  <view class='listName'>真实姓名</view>
+  <input class='inputDetail' type="text" placeholder="请输入真实姓名"/>
+</view>
+
+
+<view class="section">
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker" style='background:#fff;height:60rpx;text-align: center;'>
+      {{region[0]}}{{region[1]}}{{region[2]}}
+      <text wx:if="{{region.length==0}}">123</text>
+    </view>
+  </picker>
+</view>
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{bankLisr}}">
+  <view class="picker">
+    当前选择：{{bankLisr[index]}}
+  </view>
+</picker>

@@ -1,0 +1,42 @@
+/* views/personal/presentRecord/presentRecord.wxss */
+page {
+  display: block;
+  background-color:#f5f5fa;
+}
+.listOut{
+  padding: 0 30rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.moneyTime{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  font-size: 36rpx;
+  color: #e5006e;
+  line-height: 120rpx;
+  
+}
+.statusAccount{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #666;
+
+}

@@ -1,9 +1,11 @@
 //app.js
 App({
+  memberData:{
+    levelCode:'store'
+  },
   dataNum:0,
-  scene:'',
-  type:'',
-  uutype:1,
+  scene:'',//场景值
+  uutype:1,//终端类型
   baseUrl: 'https://test-mobile.olquan.cn',
   // baseUrl: 'https://ol-site.olquan.cn',
   userId: '',//openId
@@ -56,6 +58,7 @@ App({
                             _self.openId = res2.data.result.openid
                             _self.isGetStoreCommission = res2.data.result.isGetStoreCommission
                             _self.unionid = res2.data.result.unionid
+                            _self.memberData = res2.data.result
                             resolve(res2)
                           } else {
                             console.log('获取用户信息失败')

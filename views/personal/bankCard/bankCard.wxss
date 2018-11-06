@@ -1,0 +1,63 @@
+/* views/personal/bankCard/bankCard.wxss */
+page {
+  display: block;
+  background-color:#f5f5fa;
+}
+.backList{
+  padding: 40rpx 40rpx 0;
+}
+.addList{
+  width: 100%;
+  height: 240rpx;
+  border: 2px #e50f72 dashed;
+  border-radius: 8rpx;
+  position: relative;
+  text-align: center;
+  font-size: 26rpx;
+  color: #e50f72;
+}
+.addImg{
+  margin: 0 auto;
+  margin-top: 40rpx;
+  display: block;
+  width: 90rpx;
+  height: 90rpx;
+}
+.accountList{
+  padding-top: 40rpx;
+}
+.accountDetail{
+  width: 100%;
+  height: 240rpx;
+  border-radius: 8rpx;
+  background: -webkit-linear-gradient(80deg,#497bd7 25%,#497ed9 35%,#52a6f4); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(80deg,#497bd7 25%,#497ed9 35%,#52a6f4); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(80deg,#497bd7 25%,#497ed9 35%,#52a6f4); /* Firefox 3.6 - 15 */
+  background: linear-gradient(80deg,#497bd7 25%,#497ed9 35%,#52a6f4); /* 标准的语法 */
+  font-size: 30rpx;
+  box-shadow: 0 8px 16px rgba(80,159,239,0.4);
+  color: #fff;
+}
+.detailMore{
+  padding: 40rpx 20rpx;
+}
+.speView{
+  margin-left: 50rpx;
+  padding-bottom: 30rpx;
+}
+.accountNum{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  margin-left: 50rpx;
+}
+.speBot{
+  margin-right: 32rpx;
+}

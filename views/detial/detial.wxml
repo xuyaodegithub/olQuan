@@ -1,4 +1,5 @@
 <!--detial/detial.wxml-->
+<wxs src="../../filters/filters.wxs" module="filters" /><!--引入过滤器-->
 <swiper indicator-dots autoplay interval="5000" duration="400" style="height:750rpx">
   <block wx:for="{{productData.images}}" wx:key="{{index}}">
     <swiper-item>
@@ -7,19 +8,70 @@
   </block>
 </swiper>
 <view class="content">
-  <view class="price">
-    <text>￥{{productData.salePrice}}</text>
+  <view wx:if="{{productType==='4'}}">
+    <view wx:if="{{productData.freeUseSubType === 3}}" class="addposition"><!--有倒计时 -->
+      <view wx:if="{{productData.status===1 && productData.time}}" class="tryPrice flex"><!-- 尚未开始 -->
+        <view class="left">
+          <text>保证金</text>
+          <text>￥{{productData.salePrice}}</text>
+        </view>
+        <view class="right">
+        <view>距开始</view>
+        <view>
+          <!-- <text>{{filters.overTime(productData.time).hours}}</text> : <text>{{filters.overTime(productData.time).mint}}</text> : <text>{{filters.overTime(productData.time).sec}}</text> -->
+        </view>
+        </view>
+      </view>
+      <view wx:else="{{productData.status===2 && productData.time}}" class="tryPrice flex"><!-- 已开始 -->
+      1111
+      </view>
+      <image src="../../image/back.png"></image>            
+    </view>
+    <view wx:else class="price"><!--无倒计时 -->
+      <text class="promise" wx:if="{{productType === '4'}}">保证金</text>    
+      <text class="bigTest">￥{{productData.salePrice}}</text>
+      <!-- <text class="delete">￥{{productData.marketPrice}}</text> -->
+      <image src="../../image/erwei.png" ></image>
+    </view>
+  </view>
+  <view wx:elif="{{productType==='9'}}"><!--特卖-->
+    <view wx:if="{{productData.status!==5 && productData.time}}"  class="addposition"><!--有倒计时-->
+        <view wx:if="{{productData.status===1}}" class="tryPrice flex"><!-- 尚未开始 -->
+          未开始
+        </view>
+        <view wx:elif="{{productData.status===2}}" class="tryPrice flex"><!-- 已开始 -->
+          已开始
+        </view>
+      <image src="../../image/back.png"></image>            
+    </view>
+    <view wx:else class="price"><!--wu倒计时-->
+      <text class="bigTest">￥{{productData.salePrice}}</text>
+      <text class="delete">￥{{productData.marketPrice}}</text>
+      <text style="color:#e50f72;font-size:28rpx;margin-left:15rpx;">{{productData.score1}}</text>
+    <!-- <view></view> -->
+      <image src="../../image/erwei.png" ></image>
+    </view>
+  </view>
+  <view class="price" wx:else>
+    <!-- <text class="promise" wx:if="{{productType === '4'}}">保证金</text> -->
+    <text class="bigTest">￥{{productData.salePrice}}</text>
     <text class="delete">￥{{productData.marketPrice}}</text>
+    <!-- <text wx:if="{{productType==='9'}}" style="color:#e50f72;font-size:28rpx;margin-left:15rpx;">{{productData.score1}}</text> -->
     <!-- <view></view> -->
     <image src="../../image/erwei.png" ></image>
   </view>
   <view class="mess">
     <view class="title over2">{{productData.productName}}</view>
     <view class="smalltitle">{{productData.summary}}</view>
-    <view class="jindou flex">
+    <view class="jindou flex" wx:if="{{productType===1}}">
       <text>{{productData.score}}</text>
       <text>仅剩{{productData.store}}件</text>
       <text wx:if="{{productData.area}}">{{productData.area}}</text>
+    </view>
+    <view class="jindou flex" wx:else>
+      <text>运费：{{productData.postFee}}</text>
+      <text wx:if="{{productData.freeUseDays}}">试用时间：{{productData.freeUseDays}}件</text>
+      <text>仅剩{{productData.store}}件</text>
     </view>
   </view>
   <view class="tag flex" wx:if="{{productData.tags.length>0}}">
@@ -28,15 +80,15 @@
       <text>{{item}}</text>
     </view>
   </view>
-  <view class="scode flex">
+  <view class="scode flex" wx:if="{{productData.normals.length>0}}">
     <text>选择</text>
     <text>规格</text>
     <image src="../../image/rowright.png"></image>
   </view>
-  <view class="shareDou">
+  <view class="shareDou" wx:if="{{(productType==='1' && productData.score1 && productData.personal===1 && levelCode!=='white' && levelCode!=='golden') || (productType==='4' && productData.promotionAward && levelCode!=='white')}}">
    <!-- wx:if="{{productData.personal===1 && productData.score1}}"{{productData.score1}} -->
       <view>分享奖励金豆</view>
-      <view>分享好友下单成功可获得<text style="color:#E50F72;">136</text>金豆</view>
+      <view>分享好友下单成功可获得<text style="color:#E50F72;">{{productType==='1' ? productData.score1 : productData.promotionAward}}</text>金豆</view>
       <view class="flex">
         <button plain>海报邀请</button>
         <button plain open-type="share">分享邀请</button>
@@ -62,4 +114,40 @@
       <text>退保 证金</text>
     </view>
   </view>
+  <view class="tryBaogao">
+    <view class="tryLiu flex" wx:if="{{productData.comments.length>0}}">
+      <text>{{productType==='4' ? '试用报告' : '用户评价'}}({{productData.commentCount}})</text>
+      <!-- <text wx:else>试用报告({{productData.commentCount}})</text> -->
+      <view>
+        查看全部
+        <image src="../../image/rowright.png"></image>
+      </view>
+    </view>
+    <view class="tryImage" wx:for="{{productData.comments}}" wx:key="{{index}}">
+      <view class="user flex">
+          <view class="flex">
+            <image src="{{item.memberLogo}}"  mode="widthFix" class="radius50"></image>
+            <text>{{item.memberName}}</text>
+          </view>
+          <view class="time">{{item.time}}</view>
+      </view>
+      <view class="tell">{{item.content}}</view>
+      <view class="image flex">
+        <image wx:for="{{item.images}}" wx:key="{{index}}" wx:for-item="itemson" wx:for-index="indexson" bindtap='previewImage' data-index="{{index}}" data-item="{{item.images}}" src="{{itemson}}" wx:if="{{indexson<3}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class="instore flex">
+      <view class="store flex">
+          <image src="{{productData.sellerLogo}}"  mode="widthFix" class="radius50"></image>
+          <text>{{productData.sellerName}}</text>
+      </view>
+      <view class="house flex">
+        <image src="../../image/house.png"  mode="widthFix"></image>
+        <text>进店逛逛</text>
+      </view>
+  </view>
+  <view class="h5Title">————商品详情————</view>
 </view>
+<rich-text nodes="{{productData.detail}}"></rich-text> 
+  <!-- <web-view src="{{productData.detailUrl}}"></web-view> -->

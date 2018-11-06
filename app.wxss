@@ -38,11 +38,15 @@
   border-radius:6rpx;
 }
 .over2{
-    text-overflow: -o-ellipsis-lastline;
-    overflow: hidden;
-    text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.radius50{
+  -webkit-border-radius:50%;
+  -moz-border-radius:50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius:50%;
 }

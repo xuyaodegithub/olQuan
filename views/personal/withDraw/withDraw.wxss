@@ -40,9 +40,66 @@ page {
   padding: 0 30rpx;
   background: #fff;
   font-size: 30rpx;
-  
+  border-bottom: 1rpx solid #e5e5e5;
 }
 .inputSure{
   line-height: 100rpx;
   height: 100rpx;
+}
+.moneyDetail{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  padding: 0 30rpx;
+  background: #fff;
+  font-size: 24rpx;
+  line-height: 80rpx;
+  color: #999;
+}
+.sureMoney{
+  width: 100%;
+  margin-top: 30rpx;
+}
+.sureBot{
+  width: 90%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background: #e50f72 ;
+  color: #fff;
+  border-radius: 4rpx;
+  margin: 0 auto;
+  font-size: 30rpx;
+}
+.tipOut{
+  padding: 20rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #808080;
+  line-height: 45rpx;
+}
+.speTip{
+  margin-bottom: 20rpx;
+}
+.lookMore{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:center;
+  justify-content:center;
+  -moz-box-pack:center;
+  -webkit--moz-box-pack:center;
+  font-size: 32rpx;
+  color: #686868;
+  margin-top: 30rpx;
 }
