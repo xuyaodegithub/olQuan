@@ -28,7 +28,7 @@ Page({
     overIndex:'',
     overOrderId:'',
   },
- 
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -37,7 +37,7 @@ Page({
       status: options.status,
     })
     common.methods.getLoginMess(this.getOrderList)
-   
+
   },
 
   /**
@@ -48,7 +48,7 @@ Page({
   },
   //查看退款进度
   getDetailReson(e){
-    
+
     let _self=this;
     let reson = {
       url: '/mobile/order/customerService/getCustomerServiceInfo',
@@ -151,7 +151,7 @@ Page({
   changeType(e) {
     // console.log(e.currentTarget.dataset.key
     this.setData({
-      status: e.currentcurrentTarget.dataset.key,
+      status: e.currentTarget.dataset.key,
       page:1,
       isMoreNone:false,
     })
@@ -160,7 +160,7 @@ Page({
       duration: 400
     })
     this.getOrderList(1);
-    
+
   },
   //取消订单
   cancelOrder(e){
@@ -238,7 +238,7 @@ Page({
       delectOrder:true,
     });
   },
-  
+
   sureDelectOrder(){
     let _self = this;
     let orderS = this.data.orderList;
@@ -247,7 +247,7 @@ Page({
       data: {
         memberId: app.userId,
         orderId: this.data.delectOrderId
-      }, 
+      },
       callback: function (res) {
         if(res.data.code==0){
           orderS.splice(_self.data.delectIndex, 1); // 删除购物车列表里这个商品
@@ -352,7 +352,7 @@ Page({
       })
       this.getOrderList(2);
     }
-    
+
   },
 
   /**

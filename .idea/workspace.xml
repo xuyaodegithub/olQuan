@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d222bbf-e83b-4bf6-aa47-16f65fa61648" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/image/addList.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/checked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/nochose.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.wxss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.wxss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/presentRecord/presentRecord.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/presentRecord/presentRecord.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/presentRecord/presentRecord.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/personal/presentRecord/presentRecord.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filters/filters.wxs" beforeDir="false" afterPath="$PROJECT_DIR$/filters/filters.wxs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/detial/detial.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/detial/detial.json" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/detial/detial.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/detial/detial.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/service/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/service/service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/service/service.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/service/service.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/orderList/orderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/orderList/orderList.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -80,9 +54,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/orderList/orderList.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="556">
+              <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -94,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="550">
@@ -153,6 +131,7 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/personal/personal.js" />
         <option value="$PROJECT_DIR$/app.json" />
+        <option value="$PROJECT_DIR$/views/orderList/orderList.js" />
       </list>
     </option>
   </component>
@@ -185,6 +164,12 @@
               <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
               <item name="olQuan" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="olQuan" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="orderList" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
@@ -246,7 +231,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4528000" />
+    <option name="totallyTimeSpent" value="4576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -314,9 +299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/orderList/orderList.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/personal/personal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -334,6 +316,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/orderList/orderList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
         </state>
       </provider>
     </entry>
