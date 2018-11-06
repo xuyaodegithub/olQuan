@@ -7,17 +7,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls:[
-      "https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/af3d8818094a4fcc721132c960043600b8d28ece",
-      "https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/158389d6dce7d00d5ba1338a55e9519307debc95",
-      "https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/24df7839631eadb3112a62eaf798bd7dab4a1f43",
-      "https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/bcf66e8aa2ee47d1875355023d1b674661531ab4"
-    ],
     productId:'',
     productType:'',
     uutype:1,
     productData:{},
     levelCode:'',//等级
+    timer:'',//倒计时
+    overtimer:'',
+    isShow:false,
+    propverImg:'',//购买弹框图片
+    isStore:'请选择规格',//购买弹框库存
+    isbuyMinCount:'',//最低起售数量
+    itemKey: '',//选择那个大分类规格
+    item_sonOne: '',//选择规格active
+    item_sonTwo: '',//选择规格active
+    item_sonThree:'',//选择规格active
   },
 
   /**
@@ -45,14 +49,29 @@ Page({
               viewType: this.data.viewType ? 1 : ''
             },
             callback:res => {
-              // let reg = new RegExp("<img","g")
+              let resData = res.data.result
               // console.log(typeof res.data.result.detail)
               if (res.data.result.detail) {
                 res.data.result.detail = res.data.result.detail.replace(/\<img/g, "<img style='display:block;width:100%;'")
                }
-              // console.log(res.data.result.detail.replace(/\<img/g, "<img style='display:block;width:100%;'"))
+              if ((_self.data.productType === '4' && resData.freeUseSubType === 3) || (_self.data.productType === '9' && resData.status !== 5)) { 
+                if (res.data.result.time) {
+                  let time = res.data.result.time
+                  _self.setData({
+                    timer: _self.overTime(time),
+                    overtimer: setInterval(function () {
+                      time -= 1000
+                      _self.setData({
+                        timer: _self.overTime(time)
+                      })
+                    }, 1000)
+                  })
+                }
+              }
               _self.setData({
                 productData: res.data.result,
+                propverImg: res.data.result.image,
+                isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1
               })
             }
       }
@@ -65,6 +84,52 @@ Page({
     wx.previewImage({
       current: e.currentTarget.dataset.item[e.currentTarget.dataset.index], // 当前显示图片的http链接  
       urls: e.currentTarget.dataset.item // 需要预览的图片http链接列表  
+    })
+  },
+  //倒计时方法
+  overTime(val) {
+    if(val<0){
+      return {
+        hours: 0,
+        mint: 0,
+        sec: 0
+      }
+    }
+    let hours = Math.floor(val / 1000 / 60 / 60)
+    let mint = Math.floor(val / 1000 / 60 % 60)
+    let sec = Math.floor(val / 1000 % 60)
+    if (hours < 10) hours = '0' + hours
+    if (mint < 10) mint = '0' + mint
+    if (sec < 10) sec = '0' + sec
+    return {
+      hours: hours,
+      mint: mint,
+      sec: sec
+    }
+  },
+  //改变规格
+  changenormal(e){
+    // if (e.currentTarget.dataset.index === this.data.itemKey){
+    //   if (e.currentTarget.dataset.indexson === this.data.item_sonOne || e.currentTarget.dataset.indexson === this.data.item_sonTwo || e.currentTarget.dataset.indexson === this.data.item_sonThree ){
+    //     return
+    //   }
+    // }
+    this.setData({
+      itemKey: e.currentTarget.dataset.index,
+      item_sonOne: e.currentTarget.dataset.index === 0 ? e.currentTarget.dataset.indexson : this.data.item_sonOne,
+      item_sonTwo: e.currentTarget.dataset.index === 1 ? e.currentTarget.dataset.indexson : this.data.item_sonTwo,
+      item_sonThree: e.currentTarget.dataset.index === 2 ? e.currentTarget.dataset.indexson : this.data.item_sonThree
+    })
+  },
+  //打开购买弹框
+  closeBuy(){
+    this.setData({
+      isShow:false
+    })
+  },
+  openBuy() {
+    this.setData({
+      isShow: true
     })
   },
   /**
@@ -92,7 +157,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    if (this.data.overtimer){
+      clearInterval(this.data.overtimer)
+    }
   },
 
   /**

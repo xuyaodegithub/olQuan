@@ -9,6 +9,25 @@
     提现金额(收取1%手续费)
   </view>
   <view class='inputOut'>
-    <input bindinput="bindKeyInput" class='inputSure' type="digit" placeholder="请输入提现金额,最低200元"/>
+    <input value='{{inputValue}}' bindinput="bindKeyInput" class='inputSure' type="digit" placeholder="请输入提现金额,最低200元"/>
+  </view>
+  <view class='moneyDetail'>
+    <view wx:if="{{!moreMoney}}">余额：{{memberList.amount}}</view>
+    <view wx:if="{{moreMoney}}">含：{{poundage}}元手续费,实际到账￥{{accountMoney}}</view>
+    <view style='color:#ed0477' bindtap='getAllMoney'>全部提现</view>
+  </view>
+  <view class='sureMoney'>
+    <view class='sureBot' bindtap='sureGetAllMoney'>确认提现</view>
+  </view>
+  <view class='tipOut'>
+    <view style='color:#333;' class=' speTip'>提现说明:</view>
+    <view>1、为了保障你的利益,请正确填写收款账户所有人信息，否则无法审核通过。</view>
+    <view>2、提现将收取1%转账手续费。</view>
+    <view>3、最低起提金额为200元，申请成功后15个工作日内到账。</view>
+  </view>
+  <view class='lookMore'>
+    <view bindtap='lookMoney'>余额明细</view>
+    <view style='margin:0 50rpx;'>|</view>
+    <view bindtap='presentRecrdList'>提现记录</view>
   </view>
 </view>

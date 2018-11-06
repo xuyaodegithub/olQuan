@@ -1,0 +1,25 @@
+<!--views/personal/bankCard/bankCard.wxml-->
+<view class='backList'>
+  <view class='addList'>
+   <image class='addImg' src='../../../image/addList.png'></image>
+   <view style='margin-top:20rpx;'>添加账户</view>
+  </view>
+  <view class='accountList' wx:for="{{accountList}}" wx:key="{{index}}">
+    <view class='accountDetail'>
+      <view class='detailMore'>
+        <view class='speView' wx:if="{{item.type!=1}}">{{item.accountBank}}</view>
+        <view class='speView' wx:else>支付宝</view>
+        <view class='speView' style='font-size:26rpx;'>{{item.accountName}}</view>
+        <view class='speView' class='accountNum'>
+          <view>
+            {{item.accountNo}}
+          </view>
+          <view>
+           <text class='speBot'>删除</text>
+           <text class='speBot'>修改</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

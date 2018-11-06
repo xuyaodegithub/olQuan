@@ -2,7 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d222bbf-e83b-4bf6-aa47-16f65fa61648" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/image/addList.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/checked.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/nochose.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/presentRecord/presentRecord.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/presentRecord/presentRecord.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/presentRecord/presentRecord.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/personal/presentRecord/presentRecord.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filters/filters.wxs" beforeDir="false" afterPath="$PROJECT_DIR$/filters/filters.wxs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/detial/detial.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/detial/detial.json" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/detial/detial.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/detial/detial.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/service/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/service/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/service/service.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/service/service.wxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -71,10 +97,33 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
+            <state relative-caret-position="550">
+              <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/detial/detial.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.wxss">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -92,6 +141,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>wllletList</find>
+      <find>presentRecord</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,6 +173,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,11 +181,21 @@
               <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
               <item name="olQuan" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="olQuan" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="olQuan" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="personal" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -185,7 +246,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4465000" />
+    <option name="totallyTimeSpent" value="4528000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -194,7 +255,6 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -205,6 +265,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -225,14 +286,12 @@
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-430" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/components/header/header.wxml">
       <provider selected="true" editor-type-id="text-editor">
@@ -273,8 +332,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
+        <state relative-caret-position="550">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
         </state>
       </provider>
     </entry>
