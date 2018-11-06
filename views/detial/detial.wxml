@@ -152,7 +152,7 @@
       </view>
       <view class="tell">{{item.content}}</view>
       <view class="image flex">
-        <image wx:for="{{item.images}}" wx:key="{{index}}" wx:for-item="itemson" wx:for-index="indexson" bindtap='previewImage' data-index="{{index}}" data-item="{{item.images}}" src="{{itemson}}" wx:if="{{indexson<3}}"></image>
+        <image wx:for="{{item.images}}" wx:key="{{index}}" wx:for-item="itemson" wx:for-index="indexson" bindtap='previewImage' data-index="{{indexson}}" data-item="{{item.images}}" src="{{itemson}}" wx:if="{{indexson<3}}"></image>
       </view>
     </view>
   </view>
