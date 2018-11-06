@@ -1,10 +1,10 @@
 {
   "pages": [
+    "views/firstIndex/firstIndex",
     "views/personal/withDraw/withDraw",
     "views/personal/myWallet/myWallet",
     "views/personal/personal",
     "views/orderList/orderList",
-    "views/firstIndex/firstIndex",
     "views/tryPage/tryPage",
     "views/plusPage/plusPage",
     "pages/index/index",
@@ -18,7 +18,7 @@
     "views/getLogin/getLogin",
     "views/orderList/listMore/listMore",
     "views/orderList/returnList/returnList",
-    "views/service/service"
+    "views/service/service",
     "views/personal/wllletList/walletList"
   ],
   "find": [
