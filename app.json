@@ -1,5 +1,7 @@
 {
   "pages": [
+    "views/personal/addCard/addCard",
+    "views/personal/bankCard/bankCard",
     "views/personal/withDraw/withDraw",
     "views/personal/myWallet/myWallet",
     "views/personal/personal",
@@ -19,7 +21,8 @@
     "views/getLogin/getLogin",
     "views/orderList/listMore/listMore",
     "views/orderList/returnList/returnList",
-    "views/personal/wllletList/walletList"
+    "views/personal/wllletList/walletList",
+    "views/personal/presentRecord/presentRecord"
     
   ],
   "find": [
