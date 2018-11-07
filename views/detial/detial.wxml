@@ -1,30 +1,35 @@
 <!--detial/detial.wxml-->
 <wxs src="../../filters/filters.wxs" module="filters" /><!--引入过滤器-->
-<swiper indicator-dots autoplay interval="5000" duration="400" style="height:750rpx">
-  <block wx:for="{{productData.images}}" wx:key="{{index}}">
-    <swiper-item>
-      <image src="{{item}}" mode="widthFix" style="display:block;width:100%;" />
-    </swiper-item>
-  </block>
-</swiper>
+<view style="position:relative;">
+  <swiper indicator-dots autoplay interval="5000" duration="400" style="height:750rpx" circular>
+    <block wx:for="{{productData.images}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" mode="widthFix" style="display:block;width:100%;" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <image src="../../image/soldOut.png" class="soldOut" wx:if="{{productType!=='4' && productData.store<1}}"></image>
+  <image src="../../image/tryOut.png" class="soldOut" wx:if="{{productType==='4' && productData.store<1}}"></image>
+</view>
 <view class="content">
   <view wx:if="{{productType==='4'}}">
     <view wx:if="{{productData.freeUseSubType === 3}}" class="addposition"><!--有倒计时 -->
-      <view wx:if="{{productData.status===1 && productData.time}}" class="tryPrice flex"><!-- 尚未开始 -->
+      <view wx:if="{{productData.time}}" class="tryPrice flex"><!-- 尚未开始 productData.status===1 && -->
         <view class="left">
           <text>保证金</text>
           <text>￥{{productData.salePrice}}</text>
         </view>
         <view class="right">
-        <view>距开始</view>
-        <view>
-          <!-- <text>{{filters.overTime(productData.time).hours}}</text> : <text>{{filters.overTime(productData.time).mint}}</text> : <text>{{filters.overTime(productData.time).sec}}</text> -->
+        <view>{{productData.status===1 ? '距开始' : '距结束'}}</view><!--是否开始-->
+        <view class="flex">
+          <view>{{timer.hours}}</view><text>:</text><view>{{timer.mint}}</view><text>:</text><view>{{timer.sec}}</view>
         </view>
         </view>
       </view>
-      <view wx:else="{{productData.status===2 && productData.time}}" class="tryPrice flex"><!-- 已开始 -->
+      <!-- 已开始 -->
+      <!-- <view wx:else="{{productData.status===2 && productData.time}}" class="tryPrice flex">
       1111
-      </view>
+      </view> -->
       <image src="../../image/back.png"></image>            
     </view>
     <view wx:else class="price"><!--无倒计时 -->
@@ -36,12 +41,23 @@
   </view>
   <view wx:elif="{{productType==='9'}}"><!--特卖-->
     <view wx:if="{{productData.status!==5 && productData.time}}"  class="addposition"><!--有倒计时-->
-        <view wx:if="{{productData.status===1}}" class="tryPrice flex"><!-- 尚未开始 -->
-          未开始
+        <view class="tryPrice flex"><!-- 尚未开始 wx:if="{{productData.status===1}}" -->
+          <view class="plusLeft">
+            <text class="bigTest">￥{{productData.salePrice}}</text>
+            <text class="delete">￥{{productData.marketPrice}}</text>
+            <text style="color:#FFFFFF;font-size:26rpx;margin-left:15rpx;">{{productData.score1}}</text>
+          </view>
+          <view class="plusRight">
+            <view>{{productData.status===1 ? '距开始' : '距结束'}}</view><!--是否开始-->
+            <view class="flex">
+              <view>{{timer.hours}}</view><text>:</text><view>{{timer.mint}}</view><text>:</text><view>{{timer.sec}}             </view>
+            </view>
+          </view>
         </view>
-        <view wx:elif="{{productData.status===2}}" class="tryPrice flex"><!-- 已开始 -->
+        <!-- 已开始 -->
+        <!-- <view wx:elif="{{productData.status===2 && productData.time}}" class="tryPrice flex">
           已开始
-        </view>
+        </view> -->
       <image src="../../image/back.png"></image>            
     </view>
     <view wx:else class="price"><!--wu倒计时-->
@@ -61,16 +77,19 @@
     <image src="../../image/erwei.png" ></image>
   </view>
   <view class="mess">
-    <view class="title over2">{{productData.productName}}</view>
+    <view class="title flex">
+      <view class="over2">{{productData.productName}}</view>
+      <image src="../../image/erwei.png" wx:if="{{timer}}"></image>
+    </view>
     <view class="smalltitle">{{productData.summary}}</view>
-    <view class="jindou flex" wx:if="{{productType===1}}">
+    <view class="jindou flex" wx:if="{{productType==='1'}}">
       <text>{{productData.score}}</text>
       <text>仅剩{{productData.store}}件</text>
       <text wx:if="{{productData.area}}">{{productData.area}}</text>
     </view>
     <view class="jindou flex" wx:else>
       <text>运费：{{productData.postFee}}</text>
-      <text wx:if="{{productData.freeUseDays}}">试用时间：{{productData.freeUseDays}}件</text>
+      <text wx:if="{{productData.freeUseDays}}">试用时间：{{productData.freeUseDays}}天</text>
       <text>仅剩{{productData.store}}件</text>
     </view>
   </view>
@@ -133,7 +152,7 @@
       </view>
       <view class="tell">{{item.content}}</view>
       <view class="image flex">
-        <image wx:for="{{item.images}}" wx:key="{{index}}" wx:for-item="itemson" wx:for-index="indexson" bindtap='previewImage' data-index="{{index}}" data-item="{{item.images}}" src="{{itemson}}" wx:if="{{indexson<3}}"></image>
+        <image wx:for="{{item.images}}" wx:key="{{index}}" wx:for-item="itemson" wx:for-index="indexson" bindtap='previewImage' data-index="{{indexson}}" data-item="{{item.images}}" src="{{itemson}}" wx:if="{{indexson<3}}"></image>
       </view>
     </view>
   </view>
@@ -150,4 +169,85 @@
   <view class="h5Title">————商品详情————</view>
 </view>
 <rich-text nodes="{{productData.detail}}"></rich-text> 
+<view class="buyBtn flex"><!--购买按钮-->
+  <view class="buyLeft flex">
+    <view>
+      <image src="../../image/kefu.png"></image>
+      <text>客服</text>
+    </view>
+    <view>
+      <image src="../../image/house.png"></image>
+      <text>店铺</text>      
+    </view>
+    <view>
+      <image src="../../image/shoucang2.png"></image>
+      <text>收藏</text>      
+    </view>
+  </view>
+  <view class="buyRight">
+    <view wx:if="{{productType==='4'}}" class="flex typeOne">
+      <view wx:if="{{productData.status===1}}"  class="noTime">尚未开始</view>    
+      <view wx:else  class="buyColor {{productData.store<1 ? 'noTime' : ''}}" bindtap="openBuy">申请试用</view>
+    </view>
+    <view wx:elif="{{productType==='9'}}">
+      <view wx:if="{{levelCode!=='white' && levelCode!=='golden'}}" class="typeOne flex">
+        <view class="darkNo">买</view>
+        <view class="buyColor">卖</view>
+      </view>
+      <view wx:else class="buyColor">
+        立即购买
+      </view>
+    </view>
+    <view wx:else class="flex typeOne">
+        <view wx:if="{{productData.personal!==1}}" class="darkNo">加入购物车</view>
+        <view class="buyColor">立即购买</view>
+    </view>
+  </view>
+</view>
+<view class="buyPopver" wx:if='{{isShow}}'>
+  <view class="buyContent">
+    <view class="top flex">
+      <image src="{{propverImg}}" class="imgbord"></image>
+      <view class="right">
+        <view class="flex priceBuy">
+          <view>{{productType==='4' ? '保证金：' : ''}}<text>￥{{productData.salePrice}}</text></view>
+          <image src="../../image/duiClose.png" class="close" bindtap='closeBuy'></image>
+        </view>
+        <text>{{isStore}}</text>
+      </view>
+    </view>
+    <view class="center" wx:if="{{productData.normals.length>0}}">
+        <view wx:for="{{productData.normals}}" wx:key="{{index}}">
+          <text>{{item.key}}</text>
+          <view class="valueItem" wx:if="{{index===0}}"><!--第一个大分类规格-->
+            <view wx:for="{{item.normses}}" wx:key="{{item_son.valueId}}" wx:for-item="item_son" wx:for-index="index_son" data-index="{{index}}" data-indexson="{{index_son}}" class="{{item_sonOne === index_son ? 'index_son' : ''}}" bindtap='changenormal'>
+            {{item_son.value}}
+            </view>
+          </view>
+          <view class="valueItem" wx:if="{{index===1}}"><!--第2个大分类规格-->
+            <view wx:for="{{item.normses}}" wx:key="{{item_son.valueId}}" wx:for-item="item_son" wx:for-index="index_son" data-index="{{index}}" data-indexson="{{index_son}}" class="{{item_sonTwo === index_son ? 'index_son' : ''}}" bindtap='changenormal'>
+            {{item_son.value}}
+            </view>
+          </view>
+          <view class="valueItem" wx:if="{{index===2}}"><!--第3个大分类规格-->
+            <view wx:for="{{item.normses}}" wx:key="{{item_son.valueId}}" wx:for-item="item_son" wx:for-index="index_son" data-index="{{index}}" data-indexson="{{index_son}}" class="{{item_sonThree === index_son ? 'index_son' : ''}}" bindtap='changenormal'>
+            {{item_son.value}}
+            </view>
+          </view>
+        </view>
+        <view class="buyNumKey">
+          <text>购买数量</text>
+          <view class="addOrDel flex">
+            <image src='../../image/delNew.png'></image>
+            <text>{{isbuyMinCount}}</text>
+            <image src='../../image/addNew.png'></image>
+          </view>
+        </view>
+    </view>
+    <view class="bottom">
+
+    </view>
+  </view>
+  
+</view>
   <!-- <web-view src="{{productData.detailUrl}}"></web-view> -->

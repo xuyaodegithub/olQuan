@@ -99,6 +99,7 @@ Page({
             rows: _self.data.rows
           },
           callback: function (res) {
+            console.log(res.data.result)
             _self.setData({
               dataList: res.data.result
             })

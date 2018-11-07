@@ -10,7 +10,7 @@ var  filters={
       // }
     },
   //倒计时时间过滤器
-  overTime:function (val) {
+  overTime:function (val,key) {
     let hours = Math.floor(val / 1000 / 60 / 60)
     let mint = Math.floor(val / 1000 / 60 % 60)
     let sec = Math.floor(val / 1000 % 60)
@@ -21,11 +21,9 @@ var  filters={
         return num
       }
     }
-    return {
-      hours: addZero(hours),
-      mint: addZero(mint),
-      sec: addZero(sec),
-    }
+    if (key === 1) return 1
+    else if (key === 2) return 2
+    else return 3
   }
 }
  
