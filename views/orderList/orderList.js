@@ -151,7 +151,7 @@ Page({
   changeType(e) {
     // console.log(e.currentTarget.dataset.key
     this.setData({
-      status: e.currentcurrentTarget.dataset.key,
+      status: e.currentTarget.dataset.key,
       page:1,
       isMoreNone:false,
     })
