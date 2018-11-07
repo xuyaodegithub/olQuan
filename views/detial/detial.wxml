@@ -99,9 +99,18 @@
       <text>{{item}}</text>
     </view>
   </view>
-  <view class="scode flex" wx:if="{{productData.normals.length>0}}">
-    <text>选择</text>
-    <text>规格</text>
+  <view class="Coupon flex" wx:if="{{productData.couponPrices}}" bindtap='openCoupon'>
+      <view>领券</view>
+      <view wx:for="{{productData.couponPrices}}" wx:key="{{index}}" class="flex">
+        <image src="../../image/couponleft.png"></image>
+        <text>{{item}}元</text>
+        <image src="../../image/couponright.png"></image>        
+      </view>
+      <image src="../../image/rowright.png"></image>
+  </view>
+  <view class="scode flex" wx:if="{{productData.normals.length>0}}" bindtap="openBuy">
+    <text>{{normalMess ? '已选' : '选择'}}</text>
+    <text>{{normalMess ? normalMess.values : '规格'}}</text>
     <image src="../../image/rowright.png"></image>
   </view>
   <view class="shareDou" wx:if="{{(productType==='1' && productData.score1 && productData.personal===1 && levelCode!=='white' && levelCode!=='golden') || (productType==='4' && productData.promotionAward && levelCode!=='white')}}">
@@ -142,6 +151,7 @@
         <image src="../../image/rowright.png"></image>
       </view>
     </view>
+    <!--评论开始-->
     <view class="tryImage" wx:for="{{productData.comments}}" wx:key="{{index}}">
       <view class="user flex">
           <view class="flex">
@@ -190,34 +200,50 @@
       <view wx:else  class="buyColor {{productData.store<1 ? 'noTime' : ''}}" bindtap="openBuy">申请试用</view>
     </view>
     <view wx:elif="{{productType==='9'}}">
-      <view wx:if="{{levelCode!=='white' && levelCode!=='golden'}}" class="typeOne flex">
-        <view class="darkNo">买</view>
+      <view wx:if="{{productData.status!==1 && levelCode!=='white' && levelCode!=='golden'}}" class="typeOne flex">
+        <view class="darkNo" bindtap="openBuy">买</view>
         <view class="buyColor">卖</view>
       </view>
-      <view wx:else class="buyColor">
+       <view wx:elif="{{productData.status===1}}" class="activenoTime">
+        尚未开始
+      </view>
+      <view wx:else class="buyColor" bindtap="openBuy">
         立即购买
       </view>
     </view>
     <view wx:else class="flex typeOne">
         <view wx:if="{{productData.personal!==1}}" class="darkNo">加入购物车</view>
-        <view class="buyColor">立即购买</view>
+        <view class="buyColor" bindtap="openBuy">立即购买</view>
     </view>
   </view>
 </view>
+<!--购买弹框-->
 <view class="buyPopver" wx:if='{{isShow}}'>
   <view class="buyContent">
     <view class="top flex">
-      <image src="{{propverImg}}" class="imgbord"></image>
+      <image src="{{normalMess.image}}" class="imgbord" wx:if="{{normalMess && normalMess.image}}"  lazy-load></image>
+      <image src="{{propverImg}}" class="imgbord" wx:else  lazy-load></image>
       <view class="right">
         <view class="flex priceBuy">
-          <view>{{productType==='4' ? '保证金：' : ''}}<text>￥{{productData.salePrice}}</text></view>
+          <view wx:if="{{productType==='1'}}">
+            <text wx:if="{{!normalMess}}">￥{{productData.salePrice}}</text>
+            <text wx:else>￥{{normalMess.salePriceView}}</text>
+          </view>
+          <view wx:elif="{{productType==='4'}}">保证金：
+            <text wx:if="{{!normalMess}}">￥{{productData.activePriceInterval}}</text>
+            <text wx:else>￥{{normalMess.salePriceView}}</text>
+          </view>
+          <view wx:else>
+            <text wx:if="{{!normalMess}}">￥{{productData.activePriceInterval}}</text>
+            <text wx:else>￥{{normalMess.salePriceView}}</text>
+          </view>
           <image src="../../image/duiClose.png" class="close" bindtap='closeBuy'></image>
         </view>
-        <text>{{isStore}}</text>
+        <text>库存{{isStore ? isStore : 0}}件</text>
       </view>
     </view>
-    <view class="center" wx:if="{{productData.normals.length>0}}">
-        <view wx:for="{{productData.normals}}" wx:key="{{index}}">
+    <view class="center">
+        <view wx:for="{{productData.normals}}" wx:key="{{index}}"  wx:if="{{productData.normals.length>0}}">
           <text>{{item.key}}</text>
           <view class="valueItem" wx:if="{{index===0}}"><!--第一个大分类规格-->
             <view wx:for="{{item.normses}}" wx:key="{{item_son.valueId}}" wx:for-item="item_son" wx:for-index="index_son" data-index="{{index}}" data-indexson="{{index_son}}" class="{{item_sonOne === index_son ? 'index_son' : ''}}" bindtap='changenormal'>
@@ -238,16 +264,46 @@
         <view class="buyNumKey">
           <text>购买数量</text>
           <view class="addOrDel flex">
-            <image src='../../image/delNew.png'></image>
+            <image src='../../image/delNew.png' bindtap='changeNum' data-key="1"></image>
             <text>{{isbuyMinCount}}</text>
-            <image src='../../image/addNew.png'></image>
+            <image src='../../image/addNew.png' bindtap='changeNum' data-key="2"></image>
           </view>
         </view>
     </view>
     <view class="bottom">
-
+      <view bindtap='toSureBuy'>
+        确定
+     </view>  
     </view>
   </view>
-  
+</view>
+<!--优惠券列表弹框-->
+<view class="couponList" wx:if="{{isCoupon}}">
+  <view class="couponContent">
+    <view class="top flex">
+      <text>领券优惠券</text>
+      <image src="../../image/duiClose.png"  class="close" bindtap='closeCoupon'></image>
+    </view>
+    <view class="list">
+      <text style="font-size:25rpx;line-height:88rpx;">可领优惠券</text>
+      <view class="onecoupon" wx:for="{{couponList}}" wx:key="{{index}}">
+        <view style="position:relative;z-index:10;">
+          <view class="flex">
+            <view class="left"><text style="font-size:30rpx;">￥</text>{{item.amount}}</view>
+            <view class="right">
+              <view>{{item.title}}</view>
+              <view class="flex">
+                <view>剩余{{item.vaildNum}}张</view>
+                <view class="btn">点击领券</view>
+                <!-- <view class="btn">点击领券</view> -->
+              </view>
+            </view>
+          </view>
+          <view class="bottom">有效期: {{item.startTime}} 至 {{item.endTime}}</view>
+        </view>        
+        <image src="../../image/dihong.png"></image>        
+      </view>
+    </view>
+  </view>
 </view>
   <!-- <web-view src="{{productData.detailUrl}}"></web-view> -->

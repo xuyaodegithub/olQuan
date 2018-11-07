@@ -97,7 +97,7 @@ page{
 .content .tag text{
   margin-right: 52rpx;
 }
-.content .scode{
+.content .scode,.content .Coupon{
   background-color: #ffffff;
   position: relative;
   padding: 0 30rpx;
@@ -111,7 +111,7 @@ page{
   color: rgb(51, 51, 51);
   margin-left: 30rpx;
 }
-.content .scode image{
+.content .scode image,.Coupon > image{
   width: 10rpx;
   height:20rpx;
   position:absolute;
@@ -288,10 +288,10 @@ margin-bottom: 2rpx;
   padding-left: 30rpx ;
   justify-content: space-between;
 }
-.content .addposition{
+.content .addposition,.couponList .onecoupon{
   position: relative;
 }
-.content .addposition image{
+.content .addposition image,.couponList .onecoupon > image{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -387,10 +387,10 @@ margin-bottom: 2rpx;
   -o-border-radius: 4rpx;
   border-radius:4rpx;
  }
- .buyBtn .buyRight .typeOne .noTime{
+ .buyBtn .buyRight .typeOne .noTime,.buyBtn .buyRight .activenoTime{
    background-color: #BDBCBC;
  }
- .buyPopver{
+ .buyPopver,.couponList{
     position: fixed;
     left: 0;
     top: 0;
@@ -399,16 +399,12 @@ margin-bottom: 2rpx;
     z-index: 99;
     background: rgba(0,0,0,.5);
  }
- .buyContent{
+ .buyContent,.couponContent{
    position: absolute;
-    /* width:-webkit-calc(100% - 52rpx); 
-   width:-moz-calc(100% - 52rpx); 
-   width:calc(100% - 52rpx); */
    left: 0;
    width: 100%;
    bottom: 0;
    background-color: #ffffff;
-   /* padding: 0 26rpx 18rpx; */
    z-index: 111
  }
  .buyContent image{
@@ -425,7 +421,7 @@ margin-bottom: 2rpx;
  .buyContent .imgbord{
    border:2rpx solid #e1e1e1;
  }
- .buyContent image.close{
+ .buyContent image.close,.couponContent .top .close{
    display: block;
    width: 32rpx;
    height: 32rpx;
@@ -453,8 +449,7 @@ margin-bottom: 2rpx;
   padding: 0 28rpx;
   font-size: 26rpx;
   color: #000000;
-  border-bottom: 2rpx solid #cfcfcf;
-  
+  border-bottom: 2rpx solid #cfcfcf;  
 }
 .buyContent .center .valueItem .index_son{
     border: 2rpx solid #e30067;
@@ -462,6 +457,9 @@ margin-bottom: 2rpx;
 }
 .buyContent .center > view{
  border-bottom:2rpx solid #e1e1e1;
+}
+.buyContent .center > view:last-child{
+  border: none;
 }
 .buyContent .center text{
   padding-top: 6rpx;
@@ -499,4 +497,95 @@ margin-bottom: 2rpx;
   color: #000000;
   text-align: center;
   margin: 0 20rpx;
+}
+.buyContent .bottom{
+  padding: 18rpx 26rpx;
+}
+.buyContent .bottom view{
+  background-color: #e50f72;
+  font-size: 34rpx;
+  line-height: 96rpx;
+  color: #ffffff;
+  text-align: center;
+}
+.Coupon view:first-child{
+  color: #000000;
+  margin-right: 30rpx;
+}
+.Coupon view text{
+  line-height: 32rpx;
+  padding: 0 4rpx;
+  color: #E50F72;
+  border-top: 2rpx solid #E50F72;
+  border-bottom: 2rpx solid #E50F72;
+}
+.Coupon .flex{
+  align-items: center;
+  margin-right: 24rpx;  
+}
+  .Coupon view image{
+    display: block;
+}
+.Coupon view image{
+  display: block;
+  width: 15rpx;
+  height: 36rpx;
+}
+.Coupon view image:last-child{
+  width: 7rpx;
+}
+.couponList .top{
+  padding: 0 24rpx;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid rgb(242, 242, 242);
+  font-size: 25rpx;
+  line-height: 88rpx;
+}
+.couponList .list{
+padding: 0 24rpx;
+font-size: 24rpx;
+max-height: 680rpx;
+overflow-y: auto;
+}
+.couponList .flex .left{
+line-height: 160rpx;
+text-align: center;
+color: #ed0276;
+font-size: 60rpx;
+width:200rpx;
+}
+.couponList .flex .right{
+  flex: 1;
+  font-size: 24rpx;
+  color: #000000;
+  padding: 0 20rpx;
+}
+.couponList .right > view:first-child{
+  line-height: 80rpx;
+  margin-bottom: 28rpx;
+}
+.couponList .right .flex{
+  justify-content: space-between;
+  line-height: 48rpx;
+  color: #666666;
+  align-content: center;
+  margin-bottom: 14rpx;
+}
+.couponList .right .btn{
+  width: 140rpx;
+  /* line-height: normal; */
+  color: #fff;
+  text-align: center;
+  background-color: #ed0276;
+  border-radius:48rpx;
+}
+.couponList .bottom{
+  color: #333;
+  font-size: 24rpx;
+  line-height: 64rpx;
+  padding: 0 24rpx;
+}
+.couponList .onecoupon{
+  margin-bottom: 20rpx;
 }

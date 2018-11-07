@@ -17,7 +17,7 @@ Page({
     if (e.detail.userInfo){
       if (!app.type){
         wx.reLaunch({
-          url: '../firstIndex/firstIndex'
+          url: '/views/firstIndex/firstIndex'
         })
       }else{
         wx.reLaunch({

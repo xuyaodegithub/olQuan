@@ -1,7 +1,7 @@
 {
   "pages": [
-    "views/firstIndex/firstIndex",
     "views/personal/addCard/addCard",
+    "views/firstIndex/firstIndex",
     "views/personal/bankCard/bankCard",
     "views/personal/withDraw/withDraw",
     "views/personal/myWallet/myWallet",

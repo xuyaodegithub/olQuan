@@ -15,13 +15,18 @@ Page({
     timer:'',//倒计时
     overtimer:'',
     isShow:false,
+    isCoupon:false,
     propverImg:'',//购买弹框图片
-    isStore:'请选择规格',//购买弹框库存
+    isStore:'',//购买弹框库存
     isbuyMinCount:'',//最低起售数量
     itemKey: '',//选择那个大分类规格
     item_sonOne: '',//选择规格active
     item_sonTwo: '',//选择规格active
     item_sonThree:'',//选择规格active
+    normalMess:'',//规格信息
+    couponList:[],//优惠券列表
+    page:1,
+    rows:10
   },
 
   /**
@@ -120,6 +125,25 @@ Page({
       item_sonTwo: e.currentTarget.dataset.index === 1 ? e.currentTarget.dataset.indexson : this.data.item_sonTwo,
       item_sonThree: e.currentTarget.dataset.index === 2 ? e.currentTarget.dataset.indexson : this.data.item_sonThree
     })
+    if (this.data.productData.normals.length === 1) {
+      if (this.data.item_sonOne !== '') {
+        let id = this.data.productData.normals[0].normses[0].valueId
+        this.getNormal([id].join(','))
+        }
+    } else if (this.data.productData.normals.length === 2) {
+      if (this.data.item_sonOne !== '' && this.data.item_sonTwo !== '') {
+        let id = this.data.productData.normals[0].normses[this.data.item_sonOne].valueId
+        let id2 = this.data.productData.normals[1].normses[this.data.item_sonTwo].valueId
+        this.getNormal([id,id2].join(','))
+      }
+    } else if (this.data.productData.normals.length === 3){
+      if (this.data.item_sonOne !== '' && this.data.item_sonTwo !== '' && this.data.item_sonThree !== '') {
+        let id = this.data.productData.normals[0].normses[this.data.item_sonOne].valueId
+        let id2 = this.data.productData.normals[1].normses[this.data.item_sonTwo].valueId
+        let id3 = this.data.productData.normals[2].normses[this.data.item_sonThree].valueId
+        this.getNormal([id, id2, id3].join(','))
+      }
+    }
   },
   //打开购买弹框
   closeBuy(){
@@ -128,8 +152,125 @@ Page({
     })
   },
   openBuy() {
+    // if (this.data.productType === '1' || this.data.productType === '9'){
+    //   this.setData({
+    //     // normalPrice: this.data.productData.,
+    //   })
+    // }
     this.setData({
-      isShow: true
+      isShow: true,
+      isStore: this.data.productData.store
+    })
+  },
+  //弹框确认按钮
+  toSureBuy(){
+    if (this.data.productData.normals.length>0){
+      if (this.data.normalMess){
+
+      }else{
+        wx.showToast({ title:'请选择规格',icon:'none'})
+      }
+    }else{
+
+    }
+  },
+  //改变数量
+  changeNum(e){
+    if (e.currentTarget.dataset.key==="1"){
+      if (this.data.productData.buyMinCount<1){
+        if (this.data.isbuyMinCount>1){
+          this.setData({
+            isbuyMinCount: this.data.isbuyMinCount - 1
+          })
+        }else{
+          this.setData({
+            isbuyMinCount: 1
+          })
+        }
+      }else{
+        if (this.data.isbuyMinCount - 1 < this.data.productData.buyMinCount) {
+          this.setData({
+            isbuyMinCount: this.data.productData.buyMinCount
+          })
+        } else {
+          this.setData({
+            isbuyMinCount: this.data.isbuyMinCount - 1
+          })
+        }
+      }
+    }
+    if (e.currentTarget.dataset.key === "2"){
+      if (this.data.productType==="4"){
+        this.setData({
+          isbuyMinCount:1
+        })
+        wx.showToast({
+          title:'该商品最多购买一件',
+          icon:'none',
+          duration: 2000
+        })
+      }else{
+        if (!this.data.productData.limitCount || this.data.isbuyMinCount + 1 < this.data.productData.limitCount) {
+            this.setData({
+              isbuyMinCount: this.data.isbuyMinCount+1
+            })
+        }else{
+            wx.showToast({
+              title: '该商品最多购买' + this.data.productData.limitCount+'件',
+              icon: 'none',
+              duration: 2000
+            })
+        }
+      }
+    }
+  },
+  //获取规格信息接口
+  getNormal(str){
+    let _self=this
+    let data={
+      url:'/mobile/product/getNormal',
+      data:{
+        productId: this.data.productId,
+        valueIds: str,
+        memberId: app.userId,
+        type: this.data.productType,
+        uutype: app.uutype
+      },
+      callback:function(res){
+          _self.setData({
+            normalMess:res.data.result,
+            isStore: res.data.result.store
+          })
+      }
+    }
+    common.methods.mothod1(data)
+  },
+  //打开优惠券领券
+  openCoupon(){
+    let _self=this
+      this.setData({
+        isCoupon:true
+      })
+      let data={
+        url:'/mobile/coupon/conponsByProduct',
+        data:{
+          page:this.data.page,
+          rows:this.data.rows,
+          memberId:app.userId,
+          productId: this.data.productId
+        },
+        callback:function(res){
+          _self.setData({
+            couponList:res.data.result
+          })
+        }
+      }
+    common.methods.mothod1(data)  
+  },
+  //关闭弹框
+  closeCoupon(){
+    this.setData({
+      isCoupon: false
     })
   },
   /**
