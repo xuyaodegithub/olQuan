@@ -1,5 +1,16 @@
 <!--views/personal/addCard/addCard.wxml-->
-
+<view class='shade'>
+  <view class='shadeBox'>
+    <view>
+      <image class='colseIcon' src='../../../image/duiClose.png'></image>
+    </view>
+    <view class='iconTip'>请在下方输入图片验证码</view>
+    <view class='inputIcon'>
+      <input type="text" class='inputIconIn'></input>
+      <image class='codeImg' src='{{imgurl}}'></image>
+    </view>
+  </view>
+</view>
 <view class='listDetail'>
   <view class='listName'>账号类型</view>
   <view class='listType'>
@@ -17,20 +28,86 @@
 </view>
 <view class='listDetail' style='margin-top:20rpx;'>
   <view class='listName'>真实姓名</view>
-  <input class='inputDetail' type="text" placeholder="请输入真实姓名"/>
+  <input class='inputDetail' bindinput='accountNameDetail' type="text" placeholder="请输入真实姓名"/>
 </view>
-
-
-<view class="section">
-  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-    <view class="picker" style='background:#fff;height:60rpx;text-align: center;'>
-      {{region[0]}}{{region[1]}}{{region[2]}}
-      <text wx:if="{{region.length==0}}">123</text>
-    </view>
-  </picker>
-</view>
-<picker bindchange="bindPickerChange" value="{{index}}" range="{{bankLisr}}">
-  <view class="picker">
-    当前选择：{{bankLisr[index]}}
+<view class='moreList'>
+  <view class='listDetail' style='margin-top:20rpx;margin-bottom:0;padding:0;border-bottom:1rpx solid #e5e5e5;'>
+    <view class='listName'>手机号码</view>
+    <input class='inputDetail' disabled type="number" value='{{memberList.mobile}}'/>
   </view>
-</picker>
+</view>
+<view class='moreList'>
+  <view class='listDetail' style='margin-top:0rpx;margin-bottom:0;padding:0;'>
+    <view class='listName'>验证码</view>
+    <input bindinput='codeDetail' class='inputDetail' type="number" placeholder="请输入验证码"/>
+    <view class='codeDetail'>获取验证码</view>
+  </view>
+</view>
+<view style='margin-top:20rpx' wx:if="{{type==2}}">
+  <view class='moreList'>
+    <view class='listDetail' style='margin-top:0rpx;margin-bottom:0;padding:0;border-bottom:1rpx solid #e5e5e5;'>
+      <view class='listName'>银行卡号</view>
+      <input bindinput='accountNoDeatil' style='width:75%;padding:0;' class='inputDetail' type="number" placeholder="请输入银行卡号(请不要填写信用卡号)"/>
+    </view>
+  </view>
+  <view class='moreList'>
+    <view class='listDetail' style='margin-top:0rpx;margin-bottom:0;padding:0;border-bottom:1rpx solid #e5e5e5;'>
+      <view class='listName'>确认卡号</view>
+      <input bindinput='accountNo2Detail' class='inputDetail' style='width:75%;padding:0;' type="number" placeholder="确认账号"/>
+    </view>
+  </view>
+  <view class='moreList'>
+    <view class='listDetail' style='margin-top:0rpx;margin-bottom:0;padding:0;border-bottom:1rpx solid #e5e5e5;'>
+      <view class='listName'>开户城市</view>
+      <view class="section" style='width:75%;padding:0;'>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker" style='background:#fff;height:80rpx;'>
+            {{region[0]}}{{region[1]}}{{region[2]}}
+            <text wx:if="{{region.length==0}}">请选择开户城市</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class='moreList'>
+    <view class='listDetail' style='margin-top:0rpx;margin-bottom:0;padding:0;border-bottom:1rpx solid #e5e5e5;'>
+      <view class='listName'>开户银行</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{bankLisr}}" style='width:75%;padding:0;'>
+        <view class="picker">
+          {{bankLisr[index]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='moreList'>
+    <view class='listDetail' style='margin-top:0rpx;margin-bottom:0;padding:0;'>
+      <view class='listName'>开户支行</view>
+      <input bindinput="accountBankStr" style='width:75%;padding:0;' class='inputDetail' type="text" placeholder="例:杭州滨江支行"/>
+    </view>
+  </view>
+</view>
+<view style='margin-top:20rpx' wx:if="{{type==1}}">
+  <view class='moreList'>
+    <view class='listDetail' style='margin-top:0rpx;margin-bottom:0;padding:0;border-bottom:1rpx solid #e5e5e5;'>
+      <view class='listName'>支付宝号</view>
+      <input bindinput='accountNoDeatil' class='inputDetail' type="number" placeholder="请输入支付宝账号"/>
+    </view>
+  </view>
+  <view class='moreList'>
+    <view class='listDetail' style='margin-top:0rpx;margin-bottom:0;padding:0;border-bottom:1rpx solid #e5e5e5;'>
+      <view class='listName'>确认账号</view>
+      <input  bindinput='accountNo2Detail' class='inputDetail' type="number" placeholder="请输入支付宝账号"/>
+    </view>
+  </view>
+</view>
+<view class='isDefalut'>
+  <image bindtap='changeDefalut' wx:if="{{isDefalut}}" class='listImg' src='../../../image/checked.png'></image>
+  <image bindtap='changeDefalut' wx:else class='listImg' src='../../../image/nochose.png'></image>
+  <text style='margin-left:20rpx;line-height: 40rpx;'>设置默认账户</text>
+</view>
+<view class='tipBot'>
+  温馨提示:为了保证您的钱款及时到账,请认真核对您的提款账号信息
+</view>
+<view class='sureBot'>
+  <view class='botSure' bindtap='sureCreate'>绑定账户</view>
+</view>

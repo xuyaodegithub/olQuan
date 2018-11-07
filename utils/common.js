@@ -34,6 +34,35 @@ function mothod1(data) {
     }
   })
 }
+function getGraphCode(data) {
+  wx.request({
+    url: app.baseUrl + '/mobile/code/wxGraphCode',
+    data: {},
+    responseType: 'arraybuffer',
+    method: 'GET',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded' // 默认值
+    },
+    success: function (res) {
+      if (res.statusCode == 200) {
+        data.callback(res)
+      } else {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          duration: 2000
+        });
+      }
+    },
+    fail: function (res) {
+      wx.showToast({
+        title: '请求错误',
+        icon: 'none',
+        duration: 2000
+      });
+    }
+  })
+}
 function httpRequest(url, data = {}, method = 'POST') {
   wx.showLoading({
     title: '加载中...'
@@ -145,5 +174,6 @@ module.exports.methods = {
   "mothod2": httpRequest,
   "sharePage": sharePage,
   "getLoginMess": getLoginMess,
-  "setTabBarBadge": setTabBarBadge
+  "setTabBarBadge": setTabBarBadge,
+  "getGraphCode": getGraphCode
 }

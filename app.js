@@ -6,8 +6,8 @@ App({
   dataNum:0,
   scene:'',//场景值
   uutype:1,//终端类型
-  // baseUrl: 'https://test-mobile.olquan.cn',
-  baseUrl: 'https://ol-site.olquan.cn',
+  baseUrl: 'https://test-mobile.olquan.cn',
+  //baseUrl: 'https://ol-site.olquan.cn',
   userId: '',//openId
   openId:'',
   isGetStoreCommission:'',//店主权益
@@ -87,7 +87,7 @@ App({
                           if  (res.confirm)  {
                             // console.log('用户点击确定')
                             wx.navigateTo({
-                              url: '../getLogin/getLogin',
+                              url: '/views/getLogin/getLogin',
                             })
                           }
                         }
