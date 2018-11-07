@@ -14,7 +14,7 @@ Page({
     levelCode:'',//等级
     timer:'',//倒计时
     overtimer:'',
-    isShow:false,
+    isShow:true,
     isCoupon:false,
     propverImg:'',//购买弹框图片
     isStore:'',//购买弹框库存
@@ -148,7 +148,7 @@ Page({
   //打开购买弹框
   closeBuy(){
     this.setData({
-      isShow:false
+      isShow:true
     })
   },
   openBuy() {
@@ -158,7 +158,7 @@ Page({
     //   })
     // }
     this.setData({
-      isShow: true,
+      isShow: false,
       isStore: this.data.productData.store
     })
   },
@@ -166,7 +166,12 @@ Page({
   toSureBuy(){
     if (this.data.productData.normals.length>0){
       if (this.data.normalMess){
+        if (this.data.isStore){
 
+        }else{
+          wx.showToast({ title: '库存不足请选择其他规格', icon: 'none' })
+        }
+        
       }else{
         wx.showToast({ title:'请选择规格',icon:'none'})
       }

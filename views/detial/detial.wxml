@@ -218,7 +218,7 @@
   </view>
 </view>
 <!--购买弹框-->
-<view class="buyPopver" wx:if='{{isShow}}'>
+<view class="buyPopver" hidden='{{isShow}}'>
   <view class="buyContent">
     <view class="top flex">
       <image src="{{normalMess.image}}" class="imgbord" wx:if="{{normalMess && normalMess.image}}"  lazy-load></image>
