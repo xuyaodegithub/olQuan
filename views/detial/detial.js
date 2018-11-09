@@ -18,7 +18,7 @@ Page({
     isCoupon:false,
     propverImg:'',//购买弹框图片
     isStore:'',//购买弹框库存
-    isbuyMinCount:'',//最低起售数量
+    isbuyMinCount:'',//购买售数量
     itemKey: '',//选择那个大分类规格
     item_sonOne: '',//选择规格active
     item_sonTwo: '',//选择规格active
@@ -26,7 +26,9 @@ Page({
     normalMess:'',//规格信息
     couponList:[],//优惠券列表
     page:1,
-    rows:10
+    rows:10,
+    canvasImg:'',//canvas图片
+    ewmImg:'',
   },
 
   /**
@@ -39,7 +41,7 @@ Page({
       levelCode: app.memberData.levelCode
     })
     console.log(options, options.id, options.type,'---------------------')    
-    this.getProductDetial()
+    common.methods.getLoginMess(this.getProductDetial, this, options)
   },
 //firstin
     getProductDetial(){
@@ -167,7 +169,7 @@ Page({
     if (this.data.productData.normals.length>0){
       if (this.data.normalMess){
         if (this.data.isStore){
-
+          this.saveProductMess()
         }else{
           wx.showToast({ title: '库存不足请选择其他规格', icon: 'none' })
         }
@@ -176,8 +178,21 @@ Page({
         wx.showToast({ title:'请选择规格',icon:'none'})
       }
     }else{
-
+      this.saveProductMess()
     }
+  },
+  //跳转确认订单页储存信息
+  saveProductMess(){
+     let productMess={
+       productId: this.data.productId,
+       num: this.data.isbuyMinCount,
+       normalId: this.data.normalMess ? this.data.normalMess.id : '',
+       type: this.data.productType
+     }
+    wx.setStorageSync('productMess', productMess)
+    wx.navigateTo({
+      url: '/views/detial/toSureBuy/toSureBuy',
+    })
   },
   //改变数量
   changeNum(e){
@@ -278,6 +293,225 @@ Page({
       isCoupon: false
     })
   },
+  //领券优惠券
+  getcoupom(e){
+    let _self=this
+    let data={
+      url:'/mobile/coupon/receiveCoupon',
+      data:{
+        memberId:app.userId,
+        couponId: e.currentTarget.dataset.id
+      },
+      callback:function(res){
+        wx:showToast({title:'领取成功!',icon:'none'})
+        let couponData = _self.data.couponList
+        if (couponData[e.currentTarget.dataset.index].isCanUse===1){
+          couponData[e.currentTarget.dataset.index].receivedStatus=3
+        }else{
+          couponData[e.currentTarget.dataset.index].receivedStatus = 2
+        }
+        couponData[e.currentTarget.dataset.index].vaildNum--        
+        _self.setData({
+          couponList: couponData
+        })
+      }
+    }
+    common.methods.mothod1(data)  
+  },
+  //请求二维码接口
+  drawImage(){
+    let _self = this    
+    _self.setData({
+      canvasImg: true
+    })
+    let obj={
+      url:'/mobile/product/getLocalCodePath',
+      data:{
+        productId: this.data.productId,
+        memberId:app.userId,
+        type: this.data.productType
+      },
+      callback:function(res){
+        _self.getErweima(res.data.result)
+      }
+    }
+    if (this.data.ewmImg!=='have'){
+      wx.showLoading({
+        title: '图片生成中...',
+      })
+      common.methods.mothod1(obj)  
+    }
+  },
+  //canvas画图
+  getErweima(erweima){
+    var resd = wx.getSystemInfoSync();
+    var radio = resd.screenWidth / 750;
+    let _self=this
+    const ctx = wx.createCanvasContext('mycanvas');
+    // ctx.drawImage(app.memberData.logo, 15, 20, 50, 50);    //绘制背景图
+    //ctx.setTextAlign('center')    // 文字居中
+    var R = 25;
+    var d = 2 * R;
+    var cx = 15 + R;
+    var cy = 15 + R;
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, 2 * Math.PI);
+    ctx.save();    
+    ctx.clip();
+    wx.getImageInfo({////////////////////////
+      src: app.memberData.logo,
+      success(res) {
+        // console.log(res)
+        ctx.drawImage(res.path, 15, 15, d, d);
+        ctx.restore();
+        ctx.setFillStyle('#777777')  // 文字颜色：黑色
+        ctx.setFontSize(12)         // 文字字号：22px
+        ctx.fillText(app.memberData.nickName, 72, 33) //开始绘制文本的 x/y 坐标位置（相对于画布） 
+        // ctx.stroke();//stroke() 方法会实际地绘制出通过 moveTo() 和 lineTo() 方法定义的路径。默认颜色是黑色
+        // ctx.fillText('ENJOY', 770, 35)
+        // ctx.rotate(90 * Math.PI / 180)
+        ctx.setFillStyle('#333333')
+        ctx.fillText('发现好物，与您分享!', 72, 57)
+        ctx.save();
+        ctx.translate(radio * 700, 20);//设置画布上的(0,0)位置，也就是旋转的中心点
+        ctx.rotate(90 * Math.PI / 180);
+        ctx.setFillStyle('#777777');
+        ctx.setFontSize(12);
+        ctx.fillText('E N J O Y', 0, 0)
+        ctx.restore();
+        wx.getImageInfo({//////////////////////////////
+          src: _self.data.productData.image,
+          success(res) {
+            ctx.drawImage(res.path, 0, 80, radio * 750, radio*750);
+            //商品名称
+            var str = _self.data.productData.productName;
+            //绘制简单的文字
+            ctx.setFillStyle("#333"); // black color
+            // ctx.setFontSize (12);
+            ctx.lineWidth = 1;
+            var lineWidth = 0;
+            var canvasWidth = 230;//计算canvas的宽度
+            var initHeight = (radio * 750)+100;//绘制字体距离canvas顶部初始的高度
+            var lastSubStrIndex = 0; //每次开始截取的字符串的索引
+            for (let i = 0; i < str.length; i++) {
+              lineWidth += ctx.measureText(str[i]).width;
+              if (lineWidth > canvasWidth) {
+                ctx.fillText(str.substring(lastSubStrIndex, i), 16, initHeight, 250);//绘制截取部分
+                initHeight += 12;//20为字体的高度
+                lineWidth = 0;
+                lastSubStrIndex = i;
+              }
+              if (i == str.length - 1) {//绘制剩余部分
+                ctx.fillText(str.substring(lastSubStrIndex, i + 1), 16, initHeight, 250);
+              }
+            }
+            //价格
+            ctx.setFillStyle('#ed0276')  // 文字颜色：黑色
+            ctx.setFontSize(16)         // 文字字号：22px
+            ctx.fillText('￥' + _self.data.productData.salePrice, 16, (radio * 750) + 150)
+            ctx.setFillStyle('#777777')  // 文字颜色：黑色
+            ctx.setFontSize(12)         // 文字字号：22px
+            ctx.fillText('长按保存分享给好友哟！', 16, (radio * 750) + 180)
+            wx.getImageInfo({////////////////////////
+              src: erweima,
+              success(res) {
+                ctx.drawImage(res.path, radio * 750 * 0.75, (radio * 750) + 80,90,90);                
+                ctx.draw(true,function(){
+                  _self.setData({
+                    ewmImg:'have'
+                  })
+                })
+                wx.hideLoading()    
+              }
+              })
+          }
+        });
+      }
+    });
+  },
+  saveImg(){
+    // this.closeEwm=null
+    let _self=this
+    wx.getSetting({
+      success(res) {
+        // 如果没有则获取授权
+        if (!res.authSetting['scope.writePhotosAlbum']) {
+            wx.authorize({
+              scope: 'scope.writePhotosAlbum',
+              success() {
+                _self.afterCanSaveImg()
+              },
+              fail() {
+                // 如果用户拒绝过或没有授权，则再次打开授权窗口
+                //（ps：微信api又改了现在只能通过button才能打开授权设置，以前通过openSet就可打开，下面有打开授权的button弹窗代码）
+                wx.showToast({
+                  title: '授权失败无法保存',
+                  icon: 'none'
+                })
+                _self.setData({
+                  canvasImg: false
+                })
+              }
+            })
+        } else {
+          // 有则直接保存
+          _self.afterCanSaveImg()
+        }
+      }
+    })
+  },
+  //保存图片
+   afterCanSaveImg(){
+     wx.showModal({
+       title: '提示',
+       content: '确认保存图片么？',
+       success: function (res) {
+         if (res.confirm) {
+           // console.log('用户点击确定')
+           wx.canvasToTempFilePath({ //把当前画布指定区域的内容导出生成指定大小的图片，并返回文件路径
+             x: 0,
+             y: 0,
+             width: 800,
+             height: 1000,
+             destWidth: 800,  //输出的图片的宽度
+             destHeight: 1225,
+             canvasId: 'mycanvas',
+             success: function (res) {
+               console.log(res);
+               if (res.errMsg === "canvasToTempFilePath:ok") {
+                 wx.saveImageToPhotosAlbum({
+                   filePath: res.tempFilePath,
+                   success() {
+                     wx.showToast({
+                       title: '保存成功'
+                     })
+                   },
+                   fail() {
+                     wx.showToast({
+                       title: '保存失败',
+                       icon: 'none'
+                     })
+                   }
+                 })
+               } else {
+                 console.log(res)
+               }
+             },
+           })
+         }
+       }
+     })
+   },
+  //关闭二维码
+  closeEwm(){
+    this.setData({
+      canvasImg: false
+    })
+    wx.hideLoading()    
+  },
+  preventD(){
+    return
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -325,7 +559,23 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (ops) {
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮、、menu
+      console.log(ops.target)
+    }
+    return {
+      title: this.data.productData.productName,
+      path: '/views/detial/detial?id=' + this.data.productId + '&type=' + this.data.productType,//当前页面 path ，必须是以 / 开头的完整路径
+      // imageUrl:'',//转发图标
+      success: function (res) {
+        //成功
+        console.log(999)
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log(res);
+      }
+    }
   }
 })

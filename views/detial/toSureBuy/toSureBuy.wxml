@@ -1,0 +1,34 @@
+<wxs src="../../../filters/filters.wxs" module="filters" />
+<view class="moadress flex">
+    <view class="left">
+      <view class="top">
+        <text>{{OrderList.receiveAddress.name}}</text>
+        <text>{{OrderList.receiveAddress.mobile}}</text>
+      </view>
+      <view class="adress">
+        <text>{{OrderList.receiveAddress.provinceName}}</text>
+        <text>{{OrderList.receiveAddress.cityName}}</text>
+        <text>{{OrderList.receiveAddress.districtName}}</text>
+        <text>{{OrderList.receiveAddress.address}}</text>
+      </view>
+    </view>
+    <image src="../../../image/rowright.png"></image>
+</view>  
+<view class="pMess">
+  <view>{{OrderList.sellers[0].sellerName}}</view>
+  <view>
+    <image src="{{OrderList.sellers[0].productDetails[0].productImage}}"></image>
+    <view class="center">
+        <view class="title">{{OrderList.sellers[0].productDetails[0].productName}}</view>
+        <view class="color" wx:for="{{OrderList.sellers[0].productDetails[0].normal}}" wx:key="{{index}}">{{item}}</view>
+        <!-- <view class="chicun">{{OrderList.sellers[0].productDetails[0].normal[1]}}</view> -->
+    </view>
+    <view class="right">
+      <text>￥{{OrderList.sellers[0].productDetails[0].price}}</text>
+      <text>x{{OrderList.sellers[0].productDetails[0].num}}</text>
+      <text>{{OrderList.sellers[0].productDetails[0].score}}</text>
+    </view>
+  </view>
+  <view></view>
+  <view></view>
+</view>

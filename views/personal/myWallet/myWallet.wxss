@@ -9,6 +9,7 @@ page {
   width: 100%;
   margin-bottom: 40rpx;
 }
+
 .walletList{
   padding: 30rpx;
   background: #fff;

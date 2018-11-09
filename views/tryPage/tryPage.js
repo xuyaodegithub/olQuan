@@ -35,7 +35,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    common.methods.getLoginMess(this.getAdvers)
+    common.methods.getLoginMess(this.getAdvers,this)
     this.setTop('#classBtnTop',1)
   },
   setTop(str,num){
@@ -291,7 +291,22 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (ops) {
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮、、menu
+      console.log(ops.target)
+    }
+    return {
+      title: '试用',
+      path: '/views/tryPage/tryPage',//当前页面 path ，必须是以 / 开头的完整路径
+      success: function (res) {
+        //成功
+        console.log(999)
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log(res);
+      }
+    }
   }
 })

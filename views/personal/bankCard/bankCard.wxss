@@ -3,8 +3,57 @@ page {
   display: block;
   background-color:#f5f5fa;
 }
+.shade{
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+.shdowBox{
+  width: 85%;
+  position: fixed;
+  z-index: 12;
+  height: 280rpx;
+  top: 50%;
+  margin-top: -140rpx;
+  left: 50%;
+  background: #fff;
+  margin-left: -42.5%;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+.shdowTip{
+  padding: 40rpx 20rpx 30rpx;
+   text-align: center;
+  font-size: 30rpx;
+}
+.shdowTipS{
+  padding: 0 40rpx;
+  font-size: 28rpx;
+  color: #888;
+}
+.sureCancel{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  border-top: 1rpx solid #e5e5e5;
+  margin-top: 40rpx;
+  font-size: 34rpx;
+}
+.sureCancelSon{
+  width: 50%;
+  text-align: center;
+  line-height: 88rpx;
+}
 .backList{
   padding: 40rpx 40rpx 0;
+ 
 }
 .addList{
   width: 100%;

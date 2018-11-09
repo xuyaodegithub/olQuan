@@ -52,7 +52,8 @@ Page({
       index:1,
       num:'4'
     }
-    common.methods.getLoginMess(this.getfirstBanner)
+    // console.log(this.route)
+    common.methods.getLoginMess(this.getfirstBanner,this)
     common.methods.setTabBarBadge(data)
     // app.getLogin().then(function(){
       
@@ -307,7 +308,7 @@ Page({
     }
     return {
       title: '欢乐送',
-      path: '/views/firstIndex/firstIndex?type=firstIndex',//当前页面 path ，必须是以 / 开头的完整路径
+      path: '/views/firstIndex/firstIndex',//当前页面 path ，必须是以 / 开头的完整路径
       success: function (res) {
         //成功
         console.log(999)

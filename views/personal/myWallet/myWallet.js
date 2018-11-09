@@ -32,6 +32,15 @@ Page({
     }
     common.methods.mothod1(banners)
   },
+  //点击我的银行卡
+  accountCountDetail(){
+    wx: wx.navigateTo({
+      url: '../bankCard/bankCard',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   //点击体现
   withDraw(){
     wx: wx.navigateTo({

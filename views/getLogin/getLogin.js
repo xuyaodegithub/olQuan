@@ -15,13 +15,27 @@ Page({
     //此处授权得到userInfo
     console.log(e.detail.userInfo);
     if (e.detail.userInfo){
-      if (!app.type){
+      // if (!app.type){
+      //   wx.reLaunch({
+      //     url: '/views/firstIndex/firstIndex'
+      //   })
+      // }else{
+      //   wx.reLaunch({
+      //     url: '../' + app.type + '/' + app.type
+      //   })
+      // }
+      let callBackUrl = wx.getStorageSync('callBackUrl')
+      if (callBackUrl){
+        let url = '/' + callBackUrl.url
+        if (callBackUrl.id && callBackUrl.type){
+          url = '/' + callBackUrl.url + '?id=' + callBackUrl.id + '&type=' + callBackUrl.type
+        }
         wx.reLaunch({
-          url: '/views/firstIndex/firstIndex'
+          url: url
         })
       }else{
         wx.reLaunch({
-          url: '../' + app.type + '/' + app.type
+          url: '/views/firstIndex/firstIndex'
         })
       }
     }else{

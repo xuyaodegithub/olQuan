@@ -36,7 +36,7 @@
       <text class="promise" wx:if="{{productType === '4'}}">保证金</text>    
       <text class="bigTest">￥{{productData.salePrice}}</text>
       <!-- <text class="delete">￥{{productData.marketPrice}}</text> -->
-      <image src="../../image/erwei.png" ></image>
+      <image src="../../image/erwei.png" bindtap='drawImage' ></image>
     </view>
   </view>
   <view wx:elif="{{productType==='9'}}"><!--特卖-->
@@ -65,7 +65,7 @@
       <text class="delete">￥{{productData.marketPrice}}</text>
       <text style="color:#e50f72;font-size:28rpx;margin-left:15rpx;">{{productData.score1}}</text>
     <!-- <view></view> -->
-      <image src="../../image/erwei.png" ></image>
+      <image src="../../image/erwei.png" bindtap='drawImage' ></image>
     </view>
   </view>
   <view class="price" wx:else>
@@ -74,7 +74,7 @@
     <text class="delete">￥{{productData.marketPrice}}</text>
     <!-- <text wx:if="{{productType==='9'}}" style="color:#e50f72;font-size:28rpx;margin-left:15rpx;">{{productData.score1}}</text> -->
     <!-- <view></view> -->
-    <image src="../../image/erwei.png" ></image>
+    <image src="../../image/erwei.png" bindtap='drawImage'></image>
   </view>
   <view class="mess">
     <view class="title flex">
@@ -166,6 +166,7 @@
       </view>
     </view>
   </view>
+  <!--进店逛逛-->
   <view class="instore flex">
       <view class="store flex">
           <image src="{{productData.sellerLogo}}"  mode="widthFix" class="radius50"></image>
@@ -176,6 +177,7 @@
         <text>进店逛逛</text>
       </view>
   </view>
+  <!--商品详情-->
   <view class="h5Title">————商品详情————</view>
 </view>
 <rich-text nodes="{{productData.detail}}"></rich-text> 
@@ -197,7 +199,18 @@
   <view class="buyRight">
     <view wx:if="{{productType==='4'}}" class="flex typeOne">
       <view wx:if="{{productData.status===1}}"  class="noTime">尚未开始</view>    
-      <view wx:else  class="buyColor {{productData.store<1 ? 'noTime' : ''}}" bindtap="openBuy">申请试用</view>
+      <view wx:else>
+        <view wx:if="{{productData.isApply===0 }}">
+          <view wx:if="{{productData.store<1}}" class="buyColor noTime">申请试用</view>
+          <view wx:else class="buyColor"  bindtap="openBuy">申请试用</view> 
+        </view>
+         <view wx:else>
+          <view wx:if="{{productData.canGoPlusBuy===1}}"  class="buyColor">
+            已试用 去购买
+          </view>
+          <view wx:else  class="noTime" > 已试用</view>
+         </view>
+      </view>
     </view>
     <view wx:elif="{{productType==='9'}}">
       <view wx:if="{{productData.status!==1 && levelCode!=='white' && levelCode!=='golden'}}" class="typeOne flex">
@@ -294,7 +307,9 @@
               <view>{{item.title}}</view>
               <view class="flex">
                 <view>剩余{{item.vaildNum}}张</view>
-                <view class="btn">点击领券</view>
+                <view class="btn" wx:if="{{item.receivedStatus===1 && item.vaildNum>0}}" data-id="{{item.couponId}}" data-index="{{index}}" bindtap="getcoupom">点击领券</view>
+                <view class="btn canotget" wx:elif="{{item.receivedStatus===1 && item.vaildNum<1}}">已领完</view>
+                <view class="btn canotget" wx:else>已领取</view>
                 <!-- <view class="btn">点击领券</view> -->
               </view>
             </view>
@@ -306,4 +321,10 @@
     </view>
   </view>
 </view>
+<!-- //canvas -->
+  <view class="canvas flex" hidden="{{!canvasImg}}" catchtouchmove="preventD">
+    <view catchtouchmove="preventD">
+      <canvas canvas-id="mycanvas" class="canvasId" style="width:750rpx;height:1150rpx;z-index:1200;backgroundColor: #ffffff;" bindtap='closeEwm' bindlongpress="saveImg"></canvas>
+    </view>
+  </view>
   <!-- <web-view src="{{productData.detailUrl}}"></web-view> -->

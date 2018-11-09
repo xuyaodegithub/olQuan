@@ -1,3 +1,4 @@
+//filter过滤器，不可以与js共用！
 var  filters={
     changePrice:function(val){
       return parseFloat(val);
@@ -10,20 +11,10 @@ var  filters={
       // }
     },
   //倒计时时间过滤器
-  overTime:function (val,key) {
-    let hours = Math.floor(val / 1000 / 60 / 60)
-    let mint = Math.floor(val / 1000 / 60 % 60)
-    let sec = Math.floor(val / 1000 % 60)
-    let addZero = function (num) {
-      if (num < 10) {
-        return '0' + num
-      } else {
-        return num
-      }
-    }
-    if (key === 1) return 1
-    else if (key === 2) return 2
-    else return 3
+  overPhone:function (phone) {
+    let arr=phone.split('')
+    arr.splice(3,4,'****')
+    return arr.join('')
   }
 }
  

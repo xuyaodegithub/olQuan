@@ -1,10 +1,21 @@
 <!--views/personal/bankCard/bankCard.wxml-->
+<view class='shade' wx:if="{{cancleAccount}}"></view>
+<view class='shdowBox' wx:if="{{cancleAccount}}">
+  <view class='shdowTip'>温馨提示</view>
+  <view class='shdowTipS'>您确定要删除该提现账户吗?</view>
+  <view class='sureCancel'>
+    <view class='sureCancelSon'bindtap="callOff">
+      <view style='border-right:1rpx solid #e5e5e5'>取消</view>
+    </view>
+    <view class='sureCancelSon' style='color:#0BB20C;' bindtap='sureCancelAccount'>确定</view>
+  </view>
+</view>
 <view class='backList'>
-  <view class='addList'>
+  <view class='addList' bindtap='addCardMore'>
    <image class='addImg' src='../../../image/addList.png'></image>
    <view style='margin-top:20rpx;'>添加账户</view>
   </view>
-  <view class='accountList' wx:for="{{accountList}}" wx:key="{{index}}">
+  <view class='accountList' wx:for="{{accountList}}" wx:key="{{index}}" data-index='{{index}}' bindtap='chooseAccount'>
     <view class='accountDetail'>
       <view class='detailMore'>
         <view class='speView' wx:if="{{item.type!=1}}">{{item.accountBank}}</view>
@@ -15,8 +26,8 @@
             {{item.accountNo}}
           </view>
           <view>
-           <text class='speBot'>删除</text>
-           <text class='speBot'>修改</text>
+           <text class='speBot' data-accountId='{{item.accountId}}' data-index='{{index}}' bindtap='removeList'>删除</text>
+           <text class='speBot' data-accountId='{{item.accountId}}' bindtap='modifyCardMore'>修改</text>
           </view>
         </view>
       </view>
