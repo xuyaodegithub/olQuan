@@ -4,6 +4,31 @@ page {
   background-color: #f6f6f6;
   
 }
+
+.tipsTop{
+ text-align: center;
+ padding-top: 30rpx;
+ font-size: 30rpx;
+}
+.tipsSure{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-around;
+  justify-content:space-around;
+  -moz-box-pack:space-around;
+  -webkit--moz-box-pack:space-around;
+  border-top: 1rpx solid #e5e5e5;
+}
+.tipsName{
+  width: 50%;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 100rpx;
+}
 .shade{
   background: rgba(0, 0, 0, .5);
   position: fixed;
@@ -15,12 +40,13 @@ page {
 }
 .shadeBox{
   width: 75%;
-  height: 360rpx;
+  height: 380rpx;
   background: #fff;
   margin: 0 auto;
-  margin-top: 300rpx;
+ 
   border-radius: 10rpx;
-  position: relative
+  position: relative;
+  overflow: hidden;
 }
 .colseIcon{
   display: block;
@@ -29,6 +55,7 @@ page {
   position: absolute;
   right: 30rpx;
   top: 30rpx;
+  z-index: 2;
 }
 .iconTip{
   text-align: center;
@@ -48,6 +75,7 @@ page {
   right: 10%;
   top: 50%;
   margin-top: -30rpx;
+  z-index: 2;
 }
 .inputIconIn{
   width: 85%;
@@ -88,7 +116,19 @@ page {
   width: 30%;
   border: 1rpx solid #e50f72;
   border-radius: 8rpx;
-
+  z-index: 22
+}
+.sureCodeGet{
+  
+  width: 400rpx;
+  height: 90rpx;
+  background: #F798C4;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  border-radius: 8rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
 }
 .listName{
   width: 25%;

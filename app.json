@@ -1,10 +1,12 @@
 {
   "pages": [
-    "views/firstIndex/firstIndex",
-    "views/personal/addCard/addCard",
-    "views/personal/bankCard/bankCard",
     "views/personal/withDraw/withDraw",
+    "views/personal/bankCard/bankCard",
+    
     "views/personal/myWallet/myWallet",
+    "views/personal/addCard/addCard",
+    "views/firstIndex/firstIndex",
+    
     "views/personal/personal",
     "views/orderList/orderList",
     "views/tryPage/tryPage",

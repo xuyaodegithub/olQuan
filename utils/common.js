@@ -34,6 +34,27 @@ function mothod1(data) {
     }
   })
 }
+function mothod3(data) {
+  wx.request({
+    url: app.baseUrl + data.url,
+    data: data.data,
+    dataType: 'json',
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded' // 默认值
+    },
+    success: function (res) {
+      data.callback(res)
+    },
+    fail: function (res) {
+      wx.showToast({
+        title: '请求错误',
+        icon: 'none',
+        duration: 2000
+      });
+    }
+  })
+}
 function getGraphCode(data) {
   wx.request({
     url: app.baseUrl + '/mobile/code/wxGraphCode',
@@ -175,5 +196,6 @@ module.exports.methods = {
   "sharePage": sharePage,
   "getLoginMess": getLoginMess,
   "setTabBarBadge": setTabBarBadge,
-  "getGraphCode": getGraphCode
+  "getGraphCode": getGraphCode,
+  "mothod3": mothod3
 }

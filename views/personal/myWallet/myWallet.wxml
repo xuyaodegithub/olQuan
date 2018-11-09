@@ -50,7 +50,7 @@
     </view>
   </view>
 </view>
-<view class='accountCount'>
+<view class='accountCount' bindtap='accountCountDetail'>
   <view class='walletList'>
     <view>我的银行卡</view>
     <view class='lookMore'>
