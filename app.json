@@ -22,7 +22,8 @@
     "views/orderList/returnList/returnList",
     "views/personal/presentRecord/presentRecord",
     "views/service/service",
-    "views/personal/wllletList/walletList"
+    "views/personal/wllletList/walletList",
+    "views/detial/toSureBuy/toSureBuy"
   ],
   "find": [
     ""

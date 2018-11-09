@@ -128,27 +128,18 @@ function getExtConfig() {
     return _conf;
   }
 }
-function sharePage(data) {
-  if (data.ops.from === 'button') {
-    // 来自页面内转发按钮
-    console.log(ops.target)
-  }
-  return {
-    title: data.title,
-    path: data.pagePath,//当前页面 path ，必须是以 / 开头的完整路径
-    success: function (res) {
-     //成功
-    },
-    fail: function (res) {
-      // 转发失败
-      console.log(res);
-    }
-  }
-}
-function getLoginMess(callback){
+function getLoginMess(callback,_self,options){
     if (app.userId) {
       callback()
     } else {
+      // console.log(_self.route)
+      let callBackUrl={
+        url: _self.route,
+        id: options ? options.id : "",
+        type: options ? options.type : "",
+
+      }
+      wx.setStorageSync('callBackUrl', callBackUrl)
       app.getLogin().then(function (res) {
         callback()
       }).catch(function (err) {
@@ -169,11 +160,29 @@ function setTabBarBadge(data){
     }
   })
 }
+function uploadImg(data){//上传图片接口
+  let that = this;
+  wx.uploadFile({
+    url: 图片上传接口, //线上接口
+    filePath: data.url,
+    name: 'img',
+    success: function (res) {
+     if(res.data.code===0){
+       data.callback(res)
+     }else{
+       wx.showToast({
+         title: '图片上传失败',
+         icon: 'none'
+       });
+     }
+    },
+  })
+}
 module.exports.methods = {
   "mothod1": mothod1,
   "mothod2": httpRequest,
-  "sharePage": sharePage,
   "getLoginMess": getLoginMess,
   "setTabBarBadge": setTabBarBadge,
-  "getGraphCode": getGraphCode
+  "getGraphCode": getGraphCode,
+  "uploadImg": uploadImg
 }

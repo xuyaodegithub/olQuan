@@ -3,12 +3,11 @@ App({
   memberData:{
     levelCode:'store'
   },
-  type:'',
   dataNum:0,
   scene:'',//场景值
   uutype:1,//终端类型
-  // baseUrl: 'https://test-mobile.olquan.cn',
-  baseUrl: 'https://ol-site.olquan.cn',
+  baseUrl: 'https://test-mobile.olquan.cn',
+  // baseUrl: 'https://ol-site.olquan.cn',
   userId: '',//openId
   openId:'',
   isGetStoreCommission:'',//店主权益
@@ -43,9 +42,9 @@ App({
                           appid: _self.wx_appid,
                           secret: _self.wx_secret,
                           code: _self.wx_code,
-                          nickName: res.userInfo.nickName,
-                          headimgurl: res.userInfo.avatarUrl,
-                          sex: res.userInfo.gender
+                          nickName: res.userInfo.nickName,//用户呢城
+                          headimgurl: res.userInfo.avatarUrl,//用户头像
+                          sex: res.userInfo.gender//用户性别
                         },
                         dataType: 'json',
                         method: 'POST',
