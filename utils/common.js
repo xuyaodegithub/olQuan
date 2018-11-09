@@ -205,6 +205,6 @@ module.exports.methods = {
   "getLoginMess": getLoginMess,
   "setTabBarBadge": setTabBarBadge,
   "getGraphCode": getGraphCode,
-  "uploadImg": uploadImg
+  "uploadImg": uploadImg,
   "mothod3": mothod3
-}
+} 

@@ -43,7 +43,7 @@ Page({
         acconuntId: options.accountId
       })
     }
-    common.methods.getLoginMess(this.getMember)
+    common.methods.getLoginMess(this.getMember,this)
     
   },
   //输入验证码提现
