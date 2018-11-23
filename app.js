@@ -53,6 +53,7 @@ App({
                         },
                         success: function (res2) {
                           // console.log(res)
+                          wx.setStorageSync("sessionid", res2.header["Set-Cookie"])
                           if (res2.data.code === 0) {
                             _self.userId = res2.data.result.id
                             _self.openId = res2.data.result.openid

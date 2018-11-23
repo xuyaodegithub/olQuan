@@ -43,7 +43,7 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()
-    common.methods.getLoginMess(this.getMember);
+    common.methods.getLoginMess(this.getMember, this);
     if (options.isWaithDraw==1){
       this.setData({
         isWaithDraw: 1,
@@ -439,7 +439,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -452,7 +452,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  
 })

@@ -1,0 +1,46 @@
+<!--views/personal/myCollect/myCollect.wxml-->
+<view class='topOut'>
+  <view class="topbtn flex">
+  <view wx:for="{{topBtm}}" wx:key="{{index}}" class="{{status==index ? 'active' : ''}} widthClass" data-key="{{index}}" bindtap='changeType'>{{item}}</view>
+
+  <view class='checkedBot' bindtap='deitGoods' wx:if="{{isOneGoods}}">编辑</view>
+  <view class='checkedBot' bindtap='wanchengGoods' wx:else>完成</view>
+  </view>
+</view>
+
+<view wx:if="{{status===0}}" class='collectList' wx:for="{{collectList}}" wx:key="{{index}}" data-productId='{{item.productId}}' bindtap='getGoodsDetail'>
+  <view class='collectListDetail'>
+    <image bindtap='addGoods' data-Index='{{index}}' data-Addid='{{item.productId}}' wx:if="{{item.isCollectSon}}" class='chooseImgSon' src='../../../image/nochose.png'></image>
+    <image bindtap='removeGoods' data-Addid='{{item.productId}}' data-Index='{{index}}' wx:if="{{item.isCollect}}" class='chooseImgSon' src='../../../image/checked.png'></image>
+  </view>
+  <view>
+    <image class='productImg' src='{{item.image}}'></image>
+  </view>
+  <view>
+    <view class='productName'>{{item.productName}}</view>
+  </view>
+  <view class='productPrice'>{{item.price}}</view>
+</view>
+<view wx:if="{{status===1}}" class='collectList' wx:for="{{collectList}}" wx:key="{{index}}" data-sellerId='{{item.sellerId}}' data-sellerName='{{item.sellerName}}' data-logo='{{item.logo}}' bindtap='goSellerShop'>
+  <view class='collectListDetail'>
+    <image bindtap='addGoods' data-Index='{{index}}' data-Addid='{{item.sellerId}}' wx:if="{{item.isCollectSon}}" class='chooseImgSon' src='../../../image/nochose.png'></image>
+    <image bindtap='removeGoods' data-Addid='{{item.sellerId}}' data-Index='{{index}}' wx:if="{{item.isCollect}}" class='chooseImgSon' src='../../../image/checked.png'></image>
+  </view>
+  <view>
+    <image class='productImg' src='{{item.image}}'></image>
+  </view>
+  <view class='sellName'>
+   {{item.sellerName}}
+  </view>
+</view>
+<view class='submit' wx:if="{{!isOneGoods}}">
+  <view class='chooseAll'>
+    <view bindtap='chooseAllThings'>
+      <image wx:if="{{!chooseAll}}" class='chooseImgSon' src='../../../image/nochose.png'></image>
+      <image wx:if="{{chooseAll}}" class='chooseImgSon' src='../../../image/checked.png'></image>
+    </view>
+    <view class='chooseName'>全选</view>
+    
+  </view>
+  <view bindtap='removeAllThings' class='delBot'>删除</view>
+</view>

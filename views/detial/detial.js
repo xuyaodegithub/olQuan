@@ -37,7 +37,7 @@ Page({
   onLoad: function (options) {
     this.setData({
       productId: options.id,
-      productType: options.type,
+      productType: options.type ? options.type : '',
       levelCode: app.memberData.levelCode
     })
     console.log(options, options.id, options.type,'---------------------')    
@@ -78,7 +78,8 @@ Page({
               _self.setData({
                 productData: res.data.result,
                 propverImg: res.data.result.image,
-                isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1
+                isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1,
+                productType: (res.data.result.type).toString()
               })
             }
       }
@@ -303,7 +304,7 @@ Page({
         couponId: e.currentTarget.dataset.id
       },
       callback:function(res){
-        wx:showToast({title:'领取成功!',icon:'none'})
+        wx.showToast({title:'领取成功!',icon:'none'})
         let couponData = _self.data.couponList
         if (couponData[e.currentTarget.dataset.index].isCanUse===1){
           couponData[e.currentTarget.dataset.index].receivedStatus=3

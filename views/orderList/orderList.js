@@ -36,7 +36,7 @@ Page({
     this.setData({
       status: options.status,
     })
-    common.methods.getLoginMess(this.getOrderList)
+    common.methods.getLoginMess(this.getOrderList, this)
 
   },
 
@@ -134,13 +134,14 @@ Page({
             isMoreNone: true
           })
         }
-        if (isMore === 1) {
+        if (isMore === 2) {
+          
           _self.setData({
-            orderList: res.data.result
+            orderList: _self.data.orderList.concat(res.data.result)
           })
         } else {
           _self.setData({
-            orderList: _self.data.orderList.concat(res.data.result)
+            orderList: res.data.result
           })
         }
       }
@@ -250,7 +251,7 @@ Page({
       },
       callback: function (res) {
         if(res.data.code==0){
-          orderS.splice(_self.data.delectIndex, 1); // 删除购物车列表里这个商品
+          orderS.splice(_self.data.delectIndex, 1); 
           _self.setData({
             orderList: orderS,
             delectOrder: false,
@@ -358,7 +359,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+ 
 })

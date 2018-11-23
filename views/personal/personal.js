@@ -14,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    common.methods.getLoginMess(this.firstGoin)
+    
     //this.firstGoin()
   },
   //点击全部订单
@@ -62,6 +62,51 @@ Page({
       complete: function (res) { },
     })
   },
+  //点击我的优惠券
+  getMycoupon(){
+    wx: wx.navigateTo({
+      url: './myCoupon/myCoupon',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击邀请店主
+  invitePink(){
+    wx: wx.navigateTo({
+      url: './invitePink/invitePink',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击我的发现
+  getMyFind(){
+    wx: wx.navigateTo({
+      url: '../myFind/myFind',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击设置
+  getMySet(){
+    wx: wx.navigateTo({
+      url: './mySet/mySet',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击我的收藏
+  getMycollect(){
+    wx: wx.navigateTo({
+      url: './myCollect/myCollect',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   getDaiPingList() {
     wx: wx.navigateTo({
       url: '../orderList/orderList?status=4',
@@ -80,7 +125,16 @@ Page({
   },
     //首次进入
     firstGoin(){
-      let _self = this
+      let _self = this;
+      // this.setData({
+      //   personalList: app.memberData,
+      //   time: app.memberData.validTime.split("至")[1]
+      // })
+      if (app.memberData.isShowRenewButton!=0){
+        _self.setData({
+          showXufei: true,
+        })
+      }
       let banners = {
         url: '/mobile/member/getMember',
         data: {
@@ -123,7 +177,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    common.methods.getLoginMess(this.firstGoin, this)
   },
 
   /**
@@ -144,7 +198,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-      wx.stopPullDownRefresh()
+    let _self = this
+    // wx.startPullDownRefresh()
+    wx.showNavigationBarLoading()
+    this.firstGoin();
+    wx.hideNavigationBarLoading()
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -157,7 +216,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  
 })

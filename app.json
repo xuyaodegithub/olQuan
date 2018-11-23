@@ -1,11 +1,16 @@
 {
   "pages": [
+    "views/personal/personal",
+    "views/find/find",
     "views/firstIndex/firstIndex",
+    "views/personal/invitePink/invitePink",
+    "views/personal/myCollect/myCollect",
+    "views/personal/getCoupon/getCoupon",
+    "views/personal/myCoupon/myCoupon",
     "views/personal/withDraw/withDraw",
     "views/personal/bankCard/bankCard",
     "views/personal/myWallet/myWallet",
     "views/personal/addCard/addCard",
-    "views/personal/personal",
     "views/orderList/orderList",
     "views/tryPage/tryPage",
     "views/plusPage/plusPage",
@@ -13,17 +18,20 @@
     "pages/logs/logs",
     "views/shopcar/shopcar",
     "views/myonle/myonle",
-    "views/find/find",
+    "views/findPage/findPsge",
     "views/detial/detial",
     "views/seachSome/seachsome",
-    "views/findPage/findPsge",
     "views/getLogin/getLogin",
     "views/orderList/listMore/listMore",
     "views/orderList/returnList/returnList",
     "views/personal/presentRecord/presentRecord",
     "views/service/service",
     "views/personal/wllletList/walletList",
-    "views/detial/toSureBuy/toSureBuy"
+    "views/detial/toSureBuy/toSureBuy",
+    "views/personal/sellerShop/sellerShop",
+    "views/personal/buyPink/buyPink",
+    "views/myFind/myFind",
+    "views/personal/mySet/mySet"
   ],
   "find": [
     ""

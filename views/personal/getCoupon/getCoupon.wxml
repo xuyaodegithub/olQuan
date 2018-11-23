@@ -1,0 +1,36 @@
+<!--views/personal/getCoupon/getCoupon.wxml-->
+<view>
+  <image class='mainImg' mode="widthFix" src='{{couponList.mainImg}}'></image>
+</view>
+<view class='couponList' wx:for="{{couponList.dtos}}" wx:key="{{index}}">
+  <view class='getOut'>
+    <view data-productId='{{item.productId}}' data-productType='{{item.productType}}' bindtap='getGoodsDetail' style='position: relative;' wx:if="{{item.receivedStatus ==3}}">
+      <image class='getImg' src='../../../image/getted.png'></image>
+      <view style='color: #d0006c;'>立即使用</view>
+    </view>
+    <view style='position: relative;' wx:if="{{item.receivedStatus ==1 && item.vaildNum!=0}}" data-id='{{item.couponId}}' data-index='{{index}}' bindtap='getCoupon'>
+      <image class='getImg' src='../../../image/getting.png'></image>
+      <view>立即领取</view>
+    </view>
+    <view data-productId='{{item.productId}}' data-productType='{{item.productType}}' bindtap='getGoodsDetail' style='position: relative;' wx:if="{{item.receivedStatus ==1 && item.vaildNum==0}}">
+      <image class='getImg' src='../../../image/havenone.png'></image>
+      <view>已领完</view>
+    </view>
+    <view data-productId='{{item.productId}}' data-productType='{{item.productType}}' bindtap='getGoodsDetail' style='position: relative;' wx:if="{{item.receivedStatus ==2}}">
+      <image class='getImg' src='../../../image/havenone.png'></image>
+      <view>已领取</view>
+    </view>
+  </view>
+  <view class='coupon' data-productId='{{item.productId}}' data-productType='{{item.productType}}' bindtap='getGoodsDetail'> 
+    <image class='bakcImg' src='../../../image/dihong.png'></image>
+    <view class='couponDescribe'>
+      <view class='money'><text style='font-size:30rpx;'>￥</text>{{item.amount}}</view>
+      <view class='describe'>
+        <view class='couponName'>{{item.title}}</view>
+        <view class='getCoupon'>剩余{{item.vaildNum}}张</view>
+      </view>
+    </view>
+    <view class='couponTime'>有效期：{{item.startTime}} 至 {{item.endTime}}</view>
+  </view>
+  
+</view>

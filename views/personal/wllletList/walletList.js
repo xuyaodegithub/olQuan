@@ -69,7 +69,7 @@ Page({
         typeNum: options.type,
         scoreSure: true,
       })
-      common.methods.getLoginMess(_self.getScoresDetail)
+      common.methods.getLoginMess(_self.getScoresDetail,this)
       
     }
     wx.setNavigationBarTitle({
@@ -213,7 +213,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  
 })
