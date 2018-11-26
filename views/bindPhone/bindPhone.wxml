@@ -1,0 +1,19 @@
+<!--views/bindPhone/bindPhone.wxml-->
+<view class="phone">
+  <input type="number" placeholder='请输入手机号' value="{{phone}}" bindinput='changeValue' data-num="1" maxlength='11'></input>
+</view>
+<view class="yzma flex">
+  <input type="number" placeholder='请输入验证码' value="{{yzma}}"  bindinput='changeValue' data-num="2"></input>
+  <text class="smallbtn" bindtap='openAlert'>获取验证码</text>
+</view>
+<view class="btn" bindtap='allPhone'>绑定手机号</view>
+<view class="zhezhao" wx:if="{{isAlert}}"></view>
+<view class="alert" wx:if="{{isAlert}}">
+  <image src="../../image/duiClose.png" bindtap='closeAlert'></image>
+  <view class="text">请在下方输入图像验证码</view>
+  <view class="flex">
+    <input type="number" placeholder='请输入' value="{{txma}}"  bindinput='changeValue' data-num="3"></input>
+    <image src="{{TXmaimg}}" bindtap='getTXma'></image>
+  </view>
+  <view class="Abtn {{btnActive? 'active' : ''}}" bindtap='tosure'>确定</view>
+</view>

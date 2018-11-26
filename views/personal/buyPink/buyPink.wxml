@@ -1,0 +1,3 @@
+<!--views/personal/buyPink/buyPink.wxml-->
+<text>views/personal/buyPink/buyPink.wxml</text>
+<view>{{orderList.inviteId}}</view>

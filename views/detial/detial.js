@@ -82,6 +82,12 @@ Page({
                   })
                 }
               }
+              _self.setData({
+                productData: res.data.result,
+                propverImg: res.data.result.image,
+                isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1,
+                productType: (res.data.result.type).toString()
+              })
             }
       }
       common.methods.mothod1(data)      

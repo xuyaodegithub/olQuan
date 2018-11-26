@@ -1,0 +1,48 @@
+<!--views/personal/sellerShop/sellerShop.wxml-->
+<wxs src="../../../filters/filters.wxs" module="filters" />
+<view class='searchMore'>
+  <view class='seachsDetail'>
+    <view class='seachsOut' style='margin-bottom:-10rpx;'><seachs></seachs></view>
+    <view>
+     <image bindtap='addCollect' wx:if="{{isCollect!=1}}" class='collectImg' src='../../../image/shoucang2.png'></image>
+     <image bindtap='removeCollect' wx:if="{{isCollect==1}}" class='collectImg' src='../../../image/collected.png'></image>
+    </view>
+    
+  </view>
+  
+</view>
+<view class='logoOut'>
+  <image class='backIMg' src='{{sellerShopList.sellerImage}}'></image>
+  <view class='backBack'></view>
+  <image class='logoImg' src='{{sellerShopList.sellerLogo}}'></image>
+  <view style='font-size:32rpx;color:#fff;'>{{sellerShopList.sellerName}}</view>
+</view>
+<view class='tipTop'>
+  <view class='tipSon {{sort==1?"speTipSon":""}}' bindtap='getAllProduct'>综合</view>
+  <view class='tipSon {{sort==2?"speTipSon":""}}' bindtap='getSalesProduct'>销量</view>
+  <view class='tipSon {{isNew==1?"speTipSon":""}}' bindtap='getNewProduct'>新品</view>
+  <view class='tipSon {{sort==3 || sort==4 ?"speTipSon":""}}' bindtap='getPriceProduct'>
+    <view class='sonTIp'>
+      <text>价格</text>
+      <view style='margin-left:10rpx;'>
+       <image wx:if="{{sort==3}}" style='margin-bottom:10rpx;' class='rowMoney' src='../../../image/1.png'></image>
+       <image wx:if="{{sort!=3}}" style='margin-bottom:10rpx;' class='rowMoney' src='../../../image/3.png'></image>
+       <image wx:if="{{sort!=4}}" class='rowMoney' src='../../../image/4.png'></image>
+       <image wx:if="{{sort==4}}" class='rowMoney' src='../../../image/2.png'></image>
+      </view>
+      
+    </view>
+    
+  </view>
+</view>
+<view class='productList'>
+  <view class='productDetail' wx:for="{{productList}}" wx:key="{{index}}" data-productId='{{item.productId}}' data-type='{{item.type}}' bindtap='getGoodsDetail'>
+    <image class='productImg' mode="widthFix" src='{{item.image}}'></image>
+    <view class='productName'>{{item.productName}}</view>
+    <view class='productPrice'>
+      <text style='font-size: 28rpx;'>￥{{filters.changePrice(item.price)}}</text>
+      <text style=" font-size: 22rpx;text-decoration: line-through;color: #777777;margin-left: 10rpx;">￥{{filters.changePrice(item.marketPrice)}}</text>
+      <text class='speSpan' style="font-size: 22rpx; color: #E50F72;">{{item.score || item.score1 }}</text>
+    </view>
+  </view>
+</view>

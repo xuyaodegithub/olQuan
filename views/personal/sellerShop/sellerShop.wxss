@@ -1,0 +1,206 @@
+/* views/personal/sellerShop/sellerShop.wxss */
+page {
+  display: block;
+  background-color: #efeff4;
+  padding-top: 86rpx;
+ 
+}
+.searchMore{
+  height: 86rpx;
+  background: #fff;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 22;
+  border-bottom:2rpx solid #e5e5e5;
+}
+.seachsDetail{
+  padding: 0 30rpx;
+  height: 100%;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-justify-content:flex-start;
+  justify-content:flex-start;
+  -moz-box-pack:flex-start;
+  -webkit--moz-box-pack:flex-start;
+  align-items:center;
+  -webkit-align-items:center;
+  box-align:center;
+  -moz-box-align:center;
+  -webkit-box-align:center;
+}
+.seachsOut{
+  margin-bottom: -10rpx;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-right: 30rpx;
+}
+.collectImg{
+  display: block;
+  width: 48rpx;
+  height: 48rpx;
+}
+.logoOut{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-justify-content:flex-start;
+  justify-content:flex-start;
+  -moz-box-pack:flex-start;
+  -webkit--moz-box-pack:flex-start;
+  align-items:center;
+  -webkit-align-items:center;
+  box-align:center;
+  -moz-box-align:center;
+  -webkit-box-align:center;
+  height: 260rpx;
+  position: relative;
+}
+.backIMg{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -2;
+}
+.backBack{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.1)
+}
+.logoImg{
+  margin-left: 30rpx;
+  display: block;
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 20rpx;
+}
+.tipTop{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-justify-content:flex-start;
+  justify-content:flex-start;
+  -moz-box-pack:flex-start;
+  -webkit--moz-box-pack:flex-start;
+  align-items:center;
+  -webkit-align-items:center;
+  box-align:center;
+  -moz-box-align:center;
+  -webkit-box-align:center;
+  line-height: 100rpx;
+  height: 100rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.tipSon{
+  width: 25%;
+  font-size: 30rpx;
+  text-align: center;
+  color: #999;
+}
+.speTipSon{
+  color: #e50f71;
+}
+.productList{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -webkit-box-lines: multiple;
+  -moz-flex-wrap: wrap;
+  padding: 0 20rpx;
+}
+.productDetail{
+  background: #fff;
+  position: relative;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 6rpx;
+  overflow: hidden;
+  font-size: 24rpx;
+  width:48.5%;
+}
+.productImg{
+  display: block;
+  width: 100%;
+  margin-bottom: 22rpx;
+}
+.productName{
+  padding: 0 16rpx;
+  line-height: 30rpx;
+  height: 60rpx;
+  overflow: hidden
+}
+.productPrice{
+  margin-top: 16rpx;
+  padding: 0 16rpx;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -moz-box-pack: flex-start;
+  -webkit--moz-box-pack: flex-start;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -webkit-box-pack: flex-end;
+  -moz-box-pack: flex-end;
+  -ms-flex-align: flex-end;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+}
+.speSpan{
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: right;
+}
+.rowMoney{
+  display: block;
+  width: 24rpx;
+  height: 14rpx;
+}
+.sonTIp{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items:center;
+  -webkit-align-items:center;
+  box-align:center;
+  -moz-box-align:center;
+  -webkit-box-align:center;
+}

@@ -1,0 +1,123 @@
+<!--find/find.wxml-->
+ <!-- <web-view src="https://ol-h5-preview.olquan.cn/activity/newact?id=83&memberId=949574"></web-view>  -->
+<view class='personal'>
+  <view class='personalImg'>
+    <image src='{{accountList.logo}}'></image>
+  </view>
+  <view class='personalName'>{{accountList.name}}</view>
+  <view class='sundryCount'>
+    <view class='sundryTotalFind'>
+      <view>{{accountList.totalFindCount}}</view>
+      <view class='speNameDetai'>日记</view>
+    </view>
+    <view class='sundryTotalFind'>
+      <view>{{accountList.followCount}}</view>
+      <view class='speNameDetai'>关注</view>
+    </view>
+    <view class='sundryTotalFind'>
+      <view>{{accountList.doGoodCount}}</view>
+      <view class='speNameDetai'>获赞</view>
+    </view>
+  </view>
+  <view class='mineOrOther'>
+    <view class="{{isFollowId!=1?'accountSpe':''}}" bindtap='getFollowAccount'>我关注的</view>
+    <view style='margin: 0 110rpx;'>|</view>
+    <view class="{{isFollowId==1?'accountSpe':''}}" bindtap='getMyAccount'>我发布的</view>
+  </view>
+  <!-- <view bindtap='getFollow' data-num='{{0}}' data-accountId='{{accountList.accountId}}' class='follow' wx:if="{{accountList.isFollow!=1}}">+ 关注</view>
+  <view bindtap='getFollow' data-num='{{1}}' data-accountId='{{accountList.accountId}}' class='follow' wx:else>已关注</view> -->
+</view>
+<view class='findConcent' wx:for="{{findList}}" wx:key="{{index}}">
+  <view class='findTop'>
+    <image data-id='{{item.accountId}}' bindtap='getDetailAccount' class='logoImg' src='{{item.logo}}'></image>
+    <view class='newCent_nameTime'>
+      <view style='line-height:52rpx;font-size:28rpx;'>{{item.name}}</view>
+      <view>{{item.createTime}}</view>
+    </view>
+    <view wx:if="{{item.isAudit==0 && isFollowId!=1}}" class='follow' style='color:#E50F72'>待审核</view>
+    <view wx:if="{{item.isAudit==2 && isFollowId!=1}}" class='follow' style='color:#777;border: 2rpx solid #777;'>未通过</view>
+  </view>
+  <view class='titleTop'>{{item.title}}</view>
+  <view class="concentOut">
+    <view class="concent {{item.isShow? 'on' : ''}}"><text selectable='true' data-detail='{{item.content}}' bindlongtap='copy'>{{item.content}}</text></view>
+    <view data-Index='{{index}}' bindtap='lookAllMessage' wx:if="{{!item.isShow}}" class='lookAll'>全文</view>
+    <view data-Index='{{index}}' bindtap='colseAllMessage' wx:if="{{item.isShow}}" class='lookAll'>收起</view>
+  </view>
+  <view class='newScaleImg' wx:if="{{item.fileDtos.length<=2}}">
+    <view class="imgDetail imgDetailSpe" wx:for="{{item.fileDtos}}" wx:key="{{index}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:if="{{itemSon.type==1}}">
+      <image bindtap='previewImage' data-index="{{indexSon}}" data-item="{{item.fileDtos}}"  mode='widthFix'  class='detailImg' src='{{itemSon.linkUrl}}'></image>
+    </view>
+    
+    <view class="imgDetail imgDetailSpe" wx:for="{{item.fileDtos}}" wx:key="{{index}}" wx:for-item="itemSon" wx:for-index="{{indexSon}}" wx:if="{{itemSon.type==2}}" data-item='{{itemSon.linkUrl}}' bindtap='getVideo'>
+      <view wx:if="{{item.productImage==null}}" style='width:100%;height:100%;background: rgba(0,0,0,.2);border-radius:6rpx;'></view>
+      <image class='noProduct' src='../../image/bofang.png'></image>
+      <image  mode='widthFix' wx:if="{{item.productImage!=null}}" class='detailImg' src='{{item.productImage}}'></image>
+    </view>
+  </view>
+  <view class='newScaleImg' wx:if="{{item.fileDtos.length>2}}">
+    <view class="imgDetail" wx:for="{{item.fileDtos}}" wx:key="{{index}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:if="{{itemSon.type==1}}">
+      <image bindtap='previewImage' data-index="{{indexSon}}" data-item="{{item.fileDtos}}"  mode='widthFix'  class='detailImg' src='{{itemSon.linkUrl}}'></image>
+    </view>
+  </view>
+  <view class='prodtctList' wx:if="{{item.productName!=null && item.productName!=''}}">
+    <view class='productDescrip' data-type='{{item.productType}}' data-id='{{item.productId}}' data-recId='{{item.memberId}}' bindtap='getDetailUrl'>
+      <view class='prodtctImg'>
+        <image wx:if="{{item.productName!=null && item.productName!=''}}" class='prodtctImgDetail' src="{{item.productImage}}"></image>
+        <image wx:else class='prodtctImgDetail' src='https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/aaa.png' ></image>
+      </view>
+      <view class='prodtctDescript' wx:if="{{item.productType!=12 && item.productType!=13}}">
+        <view class='productName'>{{item.productName}}</view>
+        <view style='color: #E50F72;'>￥{{item.productPrice}}</view>
+      </view>
+      <view class='prodtctDescript' wx:else>
+        <view class='activeTitle'>
+          <view class='speName'>{{item.productName}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='shareErwei'>
+      <image src='../../image/erwei.png'></image>
+    </view>
+  </view>
+  <view class='giveGood'>
+    <view class='sureGood' bindtap='showAppLink'>
+      <image src='../../image/sucai.png'></image>
+      <view style='margin-left:12rpx;line-height: 38rpx;'>保存素材</view>
+    </view>
+    <view class='sureGood'>
+      <image data-index='{{index}}' data-findId='{{item.findId}}' data-Num='{{0}}' bindtap='addGoodsNum' src='../../image/giveUp01.png' wx:if="{{item.isDoGood==0}}"></image>
+      <image data-index='{{index}}' data-findId='{{item.findId}}' data-Num='{{1}}' bindtap='addGoodsNum' src='../../image/giveUp.png' wx:else></image>
+      <view style='margin-left:12rpx;line-height: 38rpx;'>{{item.goodCount}}</view>
+    </view>
+    <view class='howToShare' bindtap='getHowShareNew'>
+      <image src='../../image/shareMore.png'></image>
+    </view>
+  </view>
+</view>
+<view class='curObjNone' wx:if="{{findListShow}}">
+  <image src='../../image/noMorefind.png'></image>
+  <view style="width: 100%;text-align: center;">你还没有发过素材哦~</view>
+</view>
+<view class='videoList' wx:if="{{isVideo}}" bindtap='colseVideo'>
+  <video id="myVideo" class="myVideo {{isVideo?'myVideoSpe':''}}" src="{{videoDetail}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+</view>
+<view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+    <image src="../../image/goTop.png"></image>
+</view>
+<!-- 保存素材弹框 -->
+<view class='shareAppLink' wx:if="{{appLinkShow}}" bindtap='colseAppLink'>
+  <view class='linkCOntent'>
+    <view class='content'>发现自动保存素材仅支持APP端，请前往下载。</view>
+    <view class='linkBot'>知道了</view>
+  </view>
+</view>
+<view class='shareAppLink' bindtap='colseShare' wx:if="{{showShare}}">
+  <view class='shareDetail'>
+    <image class='colse' src='../../image/cha.png'></image>
+    <view class='shareImg'>
+      <image src='../../image/pinkShare.png'></image>
+    </view>
+    <view class='shareText'>您可以文本长按复制,图片点击大图长按保存。进入产品详情右上角分享。</view>
+    <view class='shareK'>我知道啦</view>
+  </view>
+</view>

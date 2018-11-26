@@ -59,8 +59,8 @@
     </view>
   </view>
 </view>
-<view class='useNavTab'bindtap='getMyWallet'>
-  <view class='navTab'>
+<view class='useNavTab'>
+  <view class='navTab'bindtap='getMyWallet'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/myPagekt.png'></image>
       <view class='navTabName'>我的钱包</view>
@@ -73,13 +73,13 @@
       <view class='severalNum' wx:if='{{orderCount.freeUseCount!=0}}'>{{orderCount.freeUseCount}}</view>
     </view>
   </view>
-  <view class='navTab'>
+  <view class='navTab' bindtap='getMycoupon'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/myCoupin.png'></image>
       <view class='navTabName'>我的优惠券</view>
     </view>
   </view>
-  <view class='navTab'>
+  <view class='navTab' bindtap='getMycollect'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/mycelect.png'></image>
       <view class='navTabName'>我的收藏</view>
@@ -91,7 +91,7 @@
       <view class='navTabName'>推广海报</view>
     </view>
   </view>
-  <view class='navTab' wx:if="{{personalList.levelCode!='white' && personalList.levelCode!='golden' && personalList.isShowRenewButton==0}}">
+  <view class='navTab' wx:if="{{personalList.levelCode!='white' && personalList.levelCode!='golden' && personalList.isShowRenewButton==0}}" bindtap='invitePink'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/user-icon09-02.png'></image>
       <view class='navTabName'>邀请店主</view>
@@ -127,7 +127,7 @@
       <view class='navTabName'>收款二维码</view>
     </view>
   </view>
-  <view class='navTab'>
+  <view class='navTab' bindtap='getMySet'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/mySetup.png'></image>
       <view class='navTabName'>设置</view>
@@ -152,7 +152,7 @@
       <view class='navTabName'>经理审核</view>
     </view>
   </view>
-  <view class='navTab' wx:if="{{personalList.isShowFind==1}}">
+  <view class='navTab' wx:if="{{personalList.isShowFind==1}}" bindtap='getMyFind'>
     <view class='navTabSon'>
       <image class='navTabImg'src='../../image/user-icon-20.png'></image>
       <view class='navTabName'>我的发现</view>

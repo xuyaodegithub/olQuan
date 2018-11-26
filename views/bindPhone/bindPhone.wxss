@@ -1,0 +1,81 @@
+/* views/bindPhone/bindPhone.wxss */
+page{
+  background-color: #f5f5fa;
+  padding:40rpx; 
+  width:-webkit-calc(100% - 80rpx); 
+  width:-moz-calc(100% - 80rpx); 
+  width:calc(100% - 80rpx);
+  font-size: 28rpx;
+}
+.phone, .yzma,.alert{
+  background-color: #ffffff;
+  line-height: 60rpx;
+  padding: 20rpx 0;
+}
+.phone input,.yzma input{
+  height: 60rpx;
+  text-indent: 1em;
+}
+.phone{
+  margin-bottom: 20rpx;
+}
+.flex{
+  justify-content: space-between;
+}
+.flex text{
+  border-left: 2rpx solid #f5f5fa;
+  color: #e50f72;
+  padding: 0 20rpx;
+}
+.btn{
+  margin: 0 auto;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #e50f72;
+  color: #fff;
+  margin-top: 40rpx;
+}
+.alert{
+  width: 560rpx;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -150rpx 0 0 -310rpx;
+  padding: 30rpx;
+}
+.alert > image{
+  float: right;
+  width: 24rpx;
+  height: 24rpx;
+}
+.alert > .text{
+  line-height: 100rpx;
+  text-align: center;
+}
+.alert .flex{
+  background-color: #f3f0f3;
+  padding: 15rpx 10rpx 15rpx 0;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.alert .flex image{
+  width: 140rpx;
+  height: 60rpx
+}
+.Abtn{
+  width: 400rpx;
+  margin: 0 auto;
+  line-height: 90rpx;
+  background-color: #f798c4;
+  text-align: center;
+  color: #fff;
+  border-radius: 8rpx;
+}
+.Abtn.active{
+  background-color: rgb(229, 15, 114)
+}

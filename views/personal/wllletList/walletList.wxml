@@ -16,7 +16,10 @@
 </view>
 <view class='integralsetail' wx:for="{{amountList}}"  wx:key="{{index}}">
   <view class='integralList'>
-    <view class='moneyDetail' class="{{item.amount < 0 ? 'moneyDetailSpe' : 'moneyDetail'}}">{{item.amount}}</view>
+    <view class='moneyDetail' class="{{item.amount < 0 ? 'moneyDetailSpe' : 'moneyDetail'}}">
+      <text wx:if="{{item.amount > 0}}">+</text>
+      <text>{{item.amount}}</text>
+    </view>
     <view class='listDetail'>
       <view>{{item.memo}}</view>
       <view>{{item.time}}</view>

@@ -1,0 +1,33 @@
+<!--views/personal/myCoupon/myCoupon.wxml-->
+<view class="topbtn flex">
+ <view wx:for="{{topBtm}}" wx:key="{{index}}" class="{{status==index ? 'active' : ''}}" data-key="{{index}}" bindtap='changeType'>{{item}}</view>
+</view>
+<view class='couponList'>
+  <view class='coupon' wx:for="{{couponList}}" wx:key="{{index}}" data-productId='{{item.productId}}' data-productType='{{item.productType}}' bindtap='getDetailGood'>
+    <image wx:if="{{status==0}}" class='backImg' src='../../../image/dihong.png'></image>
+    <image wx:else class='backImg' src='../../../image/dihei.png'></image>
+    <view class='couponDescribe'>
+      <view class="money" wx:if="{{status==0}}"><text style='font-size:30rpx;'>￥</text>{{item.price}}</view>
+			<view class="money" wx:else style="color: #333;"><text style='font-size:30rpx;'>￥</text>{{item.price}}</view>
+      <view class='describe'>
+        <view class='couponName'>{{item.title}}</view>
+        <view class='getCoupon'>
+          <text wx:if="{{status==1}}">已使用</text>
+          <text wx:if="{{status==2}}">已过期</text>
+          <view wx:if="{{status== 0 && item.isCanUse==1}}" class='speText'>
+            <view class='imgSte'>立即使用
+              <image class='imgSteSPe' src='../../../image/getting.png'></image>
+            </view>
+          </view>
+          
+        </view>
+      </view>
+      
+    </view>
+    <view class='couponTime'>
+      <text wx:if="{{status!=1}}">有效期: {{item.startDate}} 至 {{item.endDate}}</text>
+      <text wx:else>使用时间：{{item.useDate}}</text>
+    </view>
+  </view>
+  
+</view>

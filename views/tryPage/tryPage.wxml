@@ -27,14 +27,19 @@
 </view>
 <view class="productList">
     <view wx:if="{{productType===1}}" class="typeFirst">
-      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" bindtap='goDetial'  data-type="{{dataType}}">  
+      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" bindtap='goDetial'  data-type="{{dataType}}" style="position:relative;">  
         <image src="{{item.indexImage}}"  mode="widthFix" lazy-load class="border_radius"></image>
         <view class="over title">{{item.productName}}</view>
         <view class="smallTitle " wx:if="{{item.summery}}">{{item.summery}}</view>
         <view class="price flex">
           <view>保证金<text class="firstTitle">￥{{item.price}}</text></view>
-          <view>已试{{item.buyCount}}份</view>
+          <!-- 仅剩{{(item.dayLimitCount-item.saleCount)<0 ? 0 : item.dayLimitCount-item.saleCount}}件 -->
+          <view class="aloneR flex">
+            <image class="newChange" src="../../image/dianNew.png"></image> 剩<text style="color: rgb(229, 15, 114);font-size:24rpx;">{{item.alone.day}}</text>{{item.alone.danwei}} | {{(item.dayLimitCount-item.saleCount)<0 ? 0 : (item.dayLimitCount-item.saleCount)}}件
+          </view>
         </view>
+        <image src="../../image/dayNew.png" class="posiImg" wx:if="{{item.isFirstDay==1 && item.isLastDay!=1}}"></image>
+        <image src="../../image/lastDay.png" class="posiImg" wx:if="{{item.isLastDay==1}}"></image>
       </view>
     </view>
     <view  wx:elif="{{productType===5}}" class="typeSecond">
@@ -44,7 +49,7 @@
           <view class="smallTitle" wx:if="{{item.summery}}">{{item.summery}}</view>
           <view class="price flex">
             <view>保证金<text>￥{{item.price}}</text></view>
-            <view>已试{{item.buyCount}}份</view>
+            <view>仅剩{{(item.dayLimitCount-item.saleCount)<0 ? 0 : item.dayLimitCount-item.saleCount}}件</view>
           </view>
       </view>
     </view>

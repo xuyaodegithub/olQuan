@@ -1,0 +1,29 @@
+<!--views/detial/addAdress/addAdress.wxml-->
+<view class="Addbtn" bindtap='addNewAdress'>
+  新增地址
+</view>
+<view class="addressList">
+  <view wx:for="{{adressList}}" wx:key="{{index}}" class="oneaddress" bindtap='choseThis' data-id="{{item.id}}">
+    <view class="flex">
+      <text>{{item.name}}</text>
+      <text>{{item.mobile}}</text>
+    </view>
+    <view class="second">
+      <text>{{item.provinceName}}</text>
+      <text>{{item.cityName}}</text>
+      <text>{{item.districtName}}</text>
+      <text>{{item.address}}</text>
+    </view>
+    <view class="flex last">
+      <view class="left flex" catchtap='choseMo' data-id="{{item.id}}" data-index="{{index}}">
+        <image src="../../../image/task02.png" wx:if="{{item.type===1}}"></image>
+        <image src="../../../image/nochose.png" wx:else></image>
+        <view>设置为默认地址</view>
+      </view>
+      <view class="right flex">
+        <view catchtap='updataOne'  data-id="{{item.id}}">编辑</view>
+        <view style="margin-right:36rpx;" bindtap='deleteOne' data-id="{{item.id}}" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+  </view>
+</view>

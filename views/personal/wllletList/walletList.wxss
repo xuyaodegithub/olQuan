@@ -52,11 +52,11 @@ page {
 .moneyDetail{
   color: #3593DB;
   font-size: 36rpx;
-  width: 25%;
+  min-width: 25%;
 }
 .moneyDetailSpe{
   color: #e50f72;
-  width: 25%;
+  min-width: 25%;
 }
 .listDetail{
   font-size: 26rpx;

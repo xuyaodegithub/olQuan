@@ -14,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    common.methods.getLoginMess(this.getAccountList)
+    common.methods.getLoginMess(this.getAccountList, this)
   },
   //进入加载
   getAccountList() {
@@ -77,7 +77,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  
 })

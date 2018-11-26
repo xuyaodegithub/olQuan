@@ -87,6 +87,7 @@ page {
 }
 .useNavTab{
   width: 100%;
+  background: #fff;
   margin-bottom: 20rpx;
   display: flex;
   display:-webkit-box;

@@ -1,0 +1,26 @@
+/* views/detial/paySuccess/paySuccess.wxss */
+page{
+  background-color: #ffffff;
+  padding-top: 11%;
+  text-align: center;
+}
+.prder{
+  font-size: 48rpx;
+  color: #333;
+}
+.order{
+  font-size: 20rpx;
+  color: #666;
+  padding: 20rpx 0 48rpx 0;
+}
+.own,.btn{
+  width: 68%;
+  border: 1px #e50f71 solid;
+  font-size: 32rpx;
+  color: #e50f71;
+  line-height: 80rpx;
+  margin: 0 auto;
+}
+.btn{
+  margin-top: 30rpx;
+}

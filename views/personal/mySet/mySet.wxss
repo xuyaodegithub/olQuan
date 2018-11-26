@@ -1,0 +1,157 @@
+/* views/personal/mySet/mySet.wxss */
+page{
+  background: #f5f5fa;
+}
+.topMessage{
+  padding-left: 24rpx;
+  line-height: 64rpx;
+  color: #666;
+  font-size: 24rpx;
+  position: relative;
+}
+.setMessage{
+  background: #fff;
+  height: 88rpx;
+  padding: 0 26rpx;
+  border-bottom: 2rpx solid #e1e1e1;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  font-size: 26rpx;
+  color: #333;
+}
+.setLeft{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-justify-content:center;
+  justify-content:center;
+  -moz-box-pack:center;
+  -webkit--moz-box-pack:center;
+}
+.setLeft image{
+  display: block;
+  width: 21rpx;
+  height: 26rpx;
+}
+.setRight{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-justify-content:center;
+  justify-content:center;
+  -moz-box-pack:center;
+  -webkit--moz-box-pack:center;
+}
+.setRight .memLogo{
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
+}
+.setRight image{
+  display: block;
+  width: 16rpx;
+  height: 28rpx;
+}
+.picker{
+  -webkit-box-flex: 1;   /* OLD - iOS 6-, Safari 3.1-6 */  
+  -moz-box-flex: 1;     /* OLD - Firefox 19- */              
+  -webkit-flex: 1;      /* Chrome */  
+  -ms-flex: 1;           /* IE 10 */  
+  flex: 1; 
+}
+.openPasward{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+  z-index: 333;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-justify-content:center;
+  justify-content:center;
+  -moz-box-pack:center;
+  -webkit--moz-box-pack:center;
+}
+.message{
+  background: #fff;
+  width: 85%;
+  border-radius: 6rpx;
+  font-size: 34rpx;
+}
+.messageTop{
+  text-align: center;
+  padding:40rpx 20rpx;
+}
+.inputName{
+  padding:0 40rpx;
+}
+.sureOrdel{
+  width: 100%;
+  margin-top: 40rpx;
+  font-size:34rpx;
+  color: #333;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  line-height: 84rpx;
+  border-top:2rpx solid #E1E1E1;
+}
+.delBot{
+    width: 50%;
+    text-align: center;
+    border-right:0.01rem solid #E1E1E1 ;
+  }
+.sureBot{
+    width: 50%;
+    color: #0BB20C;
+    text-align: center;
+  }

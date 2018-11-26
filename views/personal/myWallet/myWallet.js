@@ -14,23 +14,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    common.methods.getLoginMess(this.getMember)
+    common.methods.getLoginMess(this.getMember, this)
   },
   //进入加载
   getMember(){
-    let _self = this
-    let banners = {
-      url: '/mobile/member/getMember',
-      data: {
-        memberId: app.userId
-      },
-      callback: function (res) {
-        _self.setData({
-          memberList: res.data.result,
-        })
-      }
-    }
-    common.methods.mothod1(banners)
+    let _self = this;
+    this.setData({
+      memberList: app.memberData,
+      
+    })
   },
   //点击我的银行卡
   accountCountDetail(){
@@ -164,7 +156,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  
 })

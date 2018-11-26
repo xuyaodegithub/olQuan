@@ -9,7 +9,7 @@ App({
   baseUrl: 'https://test-mobile.olquan.cn',
   // baseUrl: 'https://ol-site.olquan.cn',
   userId: '',//openId
-  openId:'',
+  openId:'778040',
   isGetStoreCommission:'',//店主权益
   unionid: '',//unionid
   wx_code:'',
@@ -53,7 +53,6 @@ App({
                         },
                         success: function (res2) {
                           // console.log(res)
-                          // console.log(res2.header)
                           wx.setStorageSync("sessionid", res2.header["Set-Cookie"])
                           if (res2.data.code === 0) {
                             _self.userId = res2.data.result.id

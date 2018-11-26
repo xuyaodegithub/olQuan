@@ -10,16 +10,16 @@ Page({
     dataType:4,
     banners:[],
     advers:[],
-    classNum:2,
+    classNum:0,
     page:1,
     rows:10,
     classBtn: [
-      { title: '精品试用', imgChose: '../../image/jingpinChoose.png', imgNoChose: '../../image/jingpinNo.png'},      { title: '|', imgChose: '', imgNoChose: '' },
+      { title: '限时试用', imgChose: '../../image/dianNew.png', imgNoChose: '../../image/dianNot.png'},      { title: '|', imgChose: '', imgNoChose: '' },
       { title: '付邮试用', imgChose: '../../image/youPay.png', imgNoChose: '../../image/youNoPay.png'},              { title: '|', imgChose: '', imgNoChose: '' },
       { title: '整点抢试', imgChose: '../../image/chooseClock.png', imgNoChose:'../../image/noChooseClock.png'}
       ],
     isGetStoreCommission:'',
-    productType:5,
+    productType:1,
     dataList:[],
     time:'',
     timeList:[],
@@ -92,15 +92,27 @@ Page({
         rows: _self.data.rows
       },
       callback: function (res) {
+        let resArr=res.data.result
+        if (_self.data.productType==1){
+          resArr.map(function(val,index){
+            let oneP = val.listEndDate.split('?')
+            let day = oneP[0].substring(1)
+            let danwei = oneP[1]
+            resArr[index].alone={
+              day: day, danwei: danwei
+            }
+          })
+        }
         if(num===1){
           _self.setData({
-            dataList: res.data.result
+            dataList: resArr
           })
         }else{
           _self.setData({
-            dataList: _self.data.dataList.concat(res.data.result)
+            dataList: _self.data.dataList.concat(resArr)
           })
         }
+        console.log(_self.data.dataList)
       }
     }
     if (_self.data.productType){
@@ -166,7 +178,7 @@ Page({
   },
   //进详情
   goDetial(e){
-    wx:wx.navigateTo({
+    wx.navigateTo({
       url: '../detial/detial?id=' + e.currentTarget.dataset.id + '&type=' + e.currentTarget.dataset.type,
       success: function(res) {},
       fail: function(res) {},
@@ -213,7 +225,7 @@ Page({
     let _self=this
     wx.showNavigationBarLoading()
       this.setData({
-        classNum:2,
+        classNum:0,
         page: 1,
         rows: 10,
         productType:5,

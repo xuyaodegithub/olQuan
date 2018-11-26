@@ -1,0 +1,172 @@
+<!--views/personal/mySet/mySet.wxml-->
+<view class='topMessage'>基本信息</view>
+<view class='setMessage' style='height: 128rpx;' bindtap='changeLogo'>
+  <view class='setLeft'>
+    <image src='../../../image/memlogo.png' style='width: 28rpx;height: .28rpx;'></image>
+    <view style="margin-left: 7rpx;">头像</view>
+  </view>
+  <view class='setRight'>
+    <image class="memLogo" src='{{ownLogo}}'></image>
+  </view>
+</view>
+<view class='setMessage' bindtap='changeNickName'>
+  <view class='setLeft'>
+    <image src='../../../image/nick.png'></image>
+    <view style="margin-left: 7rpx;">昵称</view>
+  </view>
+  <view class='setRight'>
+    <view style='color:#666;' wx:if="{{memberList.nickName==null}}">未填写</view>
+    <view wx:else>{{memberList.nickName}}</view>
+    <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
+  </view>
+</view>
+<view class='setMessage' bindtap='changeRealName'>
+  <view class='setLeft'>
+    <image src='../../../image/setName.png'></image>
+    <view style="margin-left: 7rpx;">姓名</view>
+  </view>
+  <view class='setRight'>
+    <view style='color:#666;' wx:if="{{memberList.realName==null}}">未填写</view>
+    <view wx:else>{{memberList.realName}}</view>
+    <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
+  </view>
+</view>
+<picker class='picker' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+  <view class='setMessage'>
+    <view class='setLeft'>
+      <image src='../../../image/sex.png'></image>
+      <view style="margin-left: 7rpx;">性别</view>
+    </view>
+    <view class='setRight'>
+      <view class="picker" style='text-align:right;line-height:88rpx;'>
+        {{array[index]}}
+      </view>
+      <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
+    </view>
+  </view>
+ </picker>
+<picker mode="date" class='picker' value="{{date}}" end="{{endDete}}" bindchange="bindDateChange">
+  <view class='setMessage'>
+    <view class='setLeft'>
+      <image src='../../../image/birthday.png'></image>
+      <view style="margin-left: 7rpx;">生日</view>
+    </view>
+    <view class='setRight'>
+      <view class="picker" style='text-align:right;line-height:88rpx;'>
+        {{date}}
+      </view>
+      <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
+    </view>
+  </view>
+</picker>
+<view class='setMessage' bindtap='changeIdCard'>
+  <view class='setLeft'>
+    <image src='../../../image/idCard.png'></image>
+    <view style="margin-left: 7rpx;">身份证</view>
+  </view>
+  <view class='setRight'>
+    <view style='color:#666;' wx:if="{{memberList.identityNo==null}}">未填写</view>
+    <view wx:else>{{memberList.identityNo}}</view>
+    <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
+  </view>
+</view>
+<view class='setMessage' bindtap=''>
+  <view class='setLeft'>
+    <image src='../../../image/bangTel.png'></image>
+    <view style="margin-left: 7rpx;">绑定手机号</view>
+  </view>
+  <view class='setRight'>
+    <view style='color:#666;' wx:if="{{memberList.viewMobile==null}}">未填写</view>
+    <view wx:else>{{memberList.viewMobile}}</view>
+    <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
+  </view>
+</view>
+<view class='topMessage'>账户信息</view>
+<view class='setMessage' bindtap=''>
+  <view class='setLeft'>
+    <image src='../../../image/chooseMem.png'></image>
+    <view style="margin-left: 7rpx;">选择账号</view>
+  </view>
+  <view class='setRight'>
+    <view >{{memberList.accountNo}}</view>
+    <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
+  </view>
+</view>
+<view class='topMessage'>安全提升</view>
+<view class='setMessage' bindtap=''>
+  <view class='setLeft'>
+    <image src='../../../image/pasWad.png'></image>
+    <view style="margin-left: 7rpx;">支付密码设置</view>
+  </view>
+  <view class='setRight'>
+    <view style='color:#D23172;' wx:if="{{memberList.hasPayPassWord==1}}">修改</view>
+    <view style='color:#666;' wx:else>未设置</view>
+    <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
+  </view>
+</view>
+<view class='setMessage'>
+  <view class='setLeft'>
+    <image src='../../../image/protuct.png'></image>
+    <view style="margin-left: 7rpx;">开启账号保护</view>
+  </view>
+  <view class='setRight'>
+    <switch checked='{{checkedSure}}' bindchange="switch1Change"/>
+  </view>
+</view>
+<!-- 弹窗-->
+<view class='openPasward' wx:if="{{changeNick}}">
+  <view class='message'>
+    <view class='messageTop'>
+      设置昵称
+    </view>
+    <view class='inputName'>
+      <input bindinput="changeNickNameSure" type="text" placeholder="请输入昵称" value='{{nickName}}'/>
+    </view>
+    <view class='sureOrdel'>
+      <view class='delBot' bindtap='delChange'>取消</view>
+      <view class='sureBot' bindtap='changeNickNameS'>确定</view>
+    </view>
+  </view>
+</view>
+<view class='openPasward' wx:if="{{changeReal}}">
+  <view class='message'>
+    <view class='messageTop'>
+      设置昵称
+    </view>
+    <view class='inputName'>
+      <input bindinput="changerealNameSure" type="text" placeholder="请输入真实姓名" value='{{realName}}'/>
+    </view>
+    <view class='sureOrdel'>
+      <view class='delBot' bindtap='delChange'>取消</view>
+      <view class='sureBot' bindtap='changerealNameS'>确定</view>
+    </view>
+  </view>
+</view>
+<view class='openPasward' wx:if="{{changeIdCard}}">
+  <view class='message'>
+    <view class='messageTop'>
+      设置身份证
+    </view>
+    <view class='inputName'>
+      <input bindinput="changerealIdCard" type="text" placeholder="请输入身份证号码" value='{{idCard}}'/>
+    </view>
+    <view class='sureOrdel'>
+      <view class='delBot' bindtap='delChange'>取消</view>
+      <view class='sureBot' bindtap='changerealIdCardS'>确定</view>
+    </view>
+  </view>
+</view>
+<view class='openPasward' wx:if="{{openPayPasswordSure}}">
+  <view class='message'>
+    <view class='messageTop'>
+      请输入支付密码
+    </view>
+    <view class='inputName'>
+      <input bindinput="openPayPasswordValue" password type="text" placeholder="请输入支付密码" value='{{passWord}}'/>
+    </view>
+    <view class='sureOrdel'>
+      <view class='delBot' bindtap='delChangeWord'>取消</view>
+      <view class='sureBot' bindtap='openPayPassword'>确定</view>
+    </view>
+  </view>
+</view>

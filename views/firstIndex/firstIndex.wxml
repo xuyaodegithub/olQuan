@@ -58,6 +58,6 @@
 </view>
 <view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
     <image src="../../image/goTop.png"></image>
-  </view>
+</view>
 <!-- <tryPage wx:elif="{{num===1}}" advers="{{advers}}" dataList="{{dataList}}"></tryPage>
 <findPage wx:else></findPage> -->

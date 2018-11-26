@@ -22,7 +22,7 @@ Page({
     this.setData({
       orderId: options.id,
     })
-    common.methods.getLoginMess(this.getOrderList)
+    common.methods.getLoginMess(this.getOrderList, this)
   },
   getOrderList() {
     let _self = this;
@@ -90,7 +90,7 @@ Page({
       callback: function (res) {
         if(res.data.code==0){
           wx: wx.navigateTo({
-            url: '../../orderList/orderList?status=0',
+            url: '../../orderList/orderList?status=5',
             success: function (res) { },
             fail: function (res) { },
             complete: function (res) { },
@@ -154,7 +154,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+ 
 })
