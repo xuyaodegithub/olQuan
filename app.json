@@ -1,8 +1,8 @@
 {
   "pages": [
+    "views/firstIndex/firstIndex",
     "views/personal/personal",
     "views/find/find",
-    "views/firstIndex/firstIndex",
     "views/personal/invitePink/invitePink",
     "views/personal/myCollect/myCollect",
     "views/personal/getCoupon/getCoupon",
