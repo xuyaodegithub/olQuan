@@ -12,7 +12,8 @@ function mothod1(data) {
     dataType: 'json',
     method: 'POST',
     header: {
-  'content-type': 'application/x-www-form-urlencoded' // 默认值
+      'content-type': 'application/x-www-form-urlencoded',
+      'cookie': wx.getStorageSync("sessionid")//读取cookie
     },
     success: function (res) {
       if (res.data.code == 0) {

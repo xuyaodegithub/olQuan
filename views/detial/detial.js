@@ -29,6 +29,7 @@ Page({
     rows:10,
     canvasImg:'',//canvas图片
     ewmImg:'',
+    recId:''//发现关联id
   },
 
   /**
@@ -37,8 +38,9 @@ Page({
   onLoad: function (options) {
     this.setData({
       productId: options.id,
-      productType: options.type,
-      levelCode: app.memberData.levelCode
+      productType: options.type ? options.type : '',
+      levelCode: app.memberData.levelCode,
+      recId: options.recId ? options.recId : ''
     })
     console.log(options, options.id, options.type,'---------------------')    
     common.methods.getLoginMess(this.getProductDetial, this, options)
@@ -52,8 +54,7 @@ Page({
               productId: this.data.productId,
               memberId: app.userId,
               uutype: app.uutype,
-              type: this.data.productType,
-              viewType: this.data.viewType ? 1 : ''
+              type: this.data.productType
             },
             callback:res => {
               let resData = res.data.result
@@ -61,25 +62,26 @@ Page({
               if (res.data.result.detail) {
                 res.data.result.detail = res.data.result.detail.replace(/\<img/g, "<img style='display:block;width:100%;'")
                }
-              if ((_self.data.productType === '4' && resData.freeUseSubType === 3) || (_self.data.productType === '9' && resData.status !== 5)) { 
+              _self.setData({
+                productData: res.data.result,
+                propverImg: res.data.result.image,
+                isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1,
+                productType: (res.data.result.type).toString()
+              })
+              if ((_self.data.productType === '4') || (_self.data.productType === '9' && resData.status !== 5)) { 
                 if (res.data.result.time) {
                   let time = res.data.result.time
                   _self.setData({
-                    timer: _self.overTime(time),
+                    timer: _self.overTime(time, resData.freeUseSubType),
                     overtimer: setInterval(function () {
                       time -= 1000
                       _self.setData({
-                        timer: _self.overTime(time)
+                        timer: _self.overTime(time, resData.freeUseSubType)
                       })
                     }, 1000)
                   })
                 }
               }
-              _self.setData({
-                productData: res.data.result,
-                propverImg: res.data.result.image,
-                isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1
-              })
             }
       }
       common.methods.mothod1(data)      
@@ -94,7 +96,7 @@ Page({
     })
   },
   //倒计时方法
-  overTime(val) {
+  overTime(val,num) {
     if(val<0){
       return {
         hours: 0,
@@ -102,16 +104,29 @@ Page({
         sec: 0
       }
     }
+    let day = Math.floor(val / 1000 / 60 / 60/24)
+    let hoursD = Math.floor(val / 1000 / 60 / 60 % 24)
     let hours = Math.floor(val / 1000 / 60 / 60)
     let mint = Math.floor(val / 1000 / 60 % 60)
     let sec = Math.floor(val / 1000 % 60)
+    if (day < 10) day = '0' + day
+    if (hoursD < 10) hoursD = '0' + hoursD
     if (hours < 10) hours = '0' + hours
     if (mint < 10) mint = '0' + mint
     if (sec < 10) sec = '0' + sec
-    return {
-      hours: hours,
-      mint: mint,
-      sec: sec
+    if ((this.data.productType == 4 && num == 1) || (this.data.productType == 4 && num == 5)){
+      return {
+        day:day,
+        hoursD: hoursD,
+        mint: mint,
+        sec: sec
+      }
+    }else{
+      return {
+        hours: hours,
+        mint: mint,
+        sec: sec
+      }
     }
   },
   //改变规格
@@ -166,6 +181,29 @@ Page({
   },
   //弹框确认按钮
   toSureBuy(){
+    if (!app.memberData.mobile && this.data.productType==4){
+      wx.showModal({
+        title: '提示',
+        content: '完成试用下单,请先绑定手机号码,是否前往绑定',
+        cancelText:'否',
+        confirmText:'去绑定',
+        // confirmColor:'#e50f72',
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/views/bindPhone/bindPhone',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+      return
+    }
+    if (this.data.productData.status == 5) {
+      wx.showToast({ title: '商品已下架', icon: 'none' })
+      return
+    }
     if (this.data.productData.normals.length>0){
       if (this.data.normalMess){
         if (this.data.isStore){
@@ -173,7 +211,6 @@ Page({
         }else{
           wx.showToast({ title: '库存不足请选择其他规格', icon: 'none' })
         }
-        
       }else{
         wx.showToast({ title:'请选择规格',icon:'none'})
       }
@@ -187,7 +224,8 @@ Page({
        productId: this.data.productId,
        num: this.data.isbuyMinCount,
        normalId: this.data.normalMess ? this.data.normalMess.id : '',
-       type: this.data.productType
+       type: this.data.productType,
+       recId: this.data.recId
      }
     wx.setStorageSync('productMess', productMess)
     wx.navigateTo({
@@ -303,7 +341,7 @@ Page({
         couponId: e.currentTarget.dataset.id
       },
       callback:function(res){
-        wx:showToast({title:'领取成功!',icon:'none'})
+        wx.showToast({title:'领取成功!',icon:'none'})
         let couponData = _self.data.couponList
         if (couponData[e.currentTarget.dataset.index].isCanUse===1){
           couponData[e.currentTarget.dataset.index].receivedStatus=3
@@ -511,6 +549,13 @@ Page({
   },
   preventD(){
     return
+  },
+  //进店逛逛
+  goStore(){
+    wx.navigateTo({
+      url: '../personal/sellerShop/sellerShop?id=' + this.data.productData.sellerId,
+      //  + '&logo=' + this.data.productData.sellerLogo + '&sellername=' + this.data.productData.sellerName 
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

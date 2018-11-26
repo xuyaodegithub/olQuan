@@ -23,7 +23,12 @@
     "views/personal/presentRecord/presentRecord",
     "views/service/service",
     "views/personal/wllletList/walletList",
-    "views/detial/toSureBuy/toSureBuy"
+    "views/detial/toSureBuy/toSureBuy",
+    "views/detial/addAdress/addAdress",
+    "views/detial/addNewAdress/addNewAdress",
+    "views/detial/paySuccess/paySuccess",
+    "views/bindPhone/bindPhone",
+    "views/activePage/activePage"
   ],
   "find": [
     ""

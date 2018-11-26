@@ -20,7 +20,7 @@ Component({
   methods: {
     toseach() {
       wx.navigateTo({
-        url: '../seachSome/seachsome'//跳转详情页，用options接受参数
+        url: '/views/seachSome/seachsome'//跳转详情页，用options接受参数
       })
     },
   }
