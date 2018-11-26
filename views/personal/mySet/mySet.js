@@ -1,5 +1,6 @@
 // views/personal/mySet/mySet.js
 var common = require("../../../utils/common.js");
+var utilMd5 = require('../../../utils/md5.js');
 const app = getApp()
 Page({
 
@@ -16,9 +17,14 @@ Page({
     endDete:'',
     changeNick:false,
     changeReal:false,
+    changeIdCard:false,
     nickNameStr:'',
     nickName:'',
     realName:'',
+    idCard:'',
+    checkedSure:true,
+    openPayPasswordSure:false,
+    passWord:'',
   },
 
   /**
@@ -65,7 +71,16 @@ Page({
             date: '未填写'
           })
         }
-        // console.log(_self.data.ownLogo)
+        if (res.data.result.enabledPayPassword==1){
+          _self.setData({
+            checkedSure: true
+          })
+        }else{
+          _self.setData({
+            checkedSure: false
+          })
+        }
+        console.log(_self.data.checkedSure)
       }
     }
     common.methods.mothod1(banners)
@@ -236,6 +251,7 @@ Page({
     }
     common.methods.mothod3(banners)
   },
+  //改变姓名
   changeRealName() {
     this.setData({
       changeReal: true,
@@ -273,12 +289,120 @@ Page({
     }
     common.methods.mothod3(banners)
   },
+  //改成身份证号
+  changeIdCard() {
+    this.setData({
+      changeIdCard: true,
+    })
+  },
+  changerealIdCard(e) {
+    this.setData({
+      idCard: e.detail.value
+    })
+  },
+  changerealIdCardS() {
+    let _self = this
+    let banners = {
+      url: '/mobile/member/update',
+      data: {
+        memberId: app.userId,
+        identityNo: _self.data.idCard
+      },
+      callback: function (res) {
+        if (res.data.code == 0) {
+          let memList = _self.data.memberList;
+          memList.identityNo = _self.data.idCard
+          _self.setData({
+            memberList: memList,
+            changeIdCard: false,
+          })
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          });
+        }
+      }
+    }
+    common.methods.mothod3(banners)
+  },
   //取消
   delChange(){
     this.setData({
       changeNick: false,
       changeReal:false,
+      changeIdCard:false,
     })
+  },
+  //是否开启账号保护
+  switch1Change(e){
+    this.setData({
+      openPayPasswordSure:true,
+      passWord:'',
+    })
+    if (this.data.memberList.enabledPayPassword == 1) {
+      this.setData({
+        checkedSure: true
+      })
+    } else {
+      this.setData({
+        checkedSure: false
+      })
+    }
+    console.log(this.data.checkedSure)
+  },
+  openPayPasswordValue(e){
+    this.setData({
+      passWord: e.detail.value
+    })
+  },
+  openPayPassword(){
+    let _self = this
+    let banners = {
+      url: '/mobile/member/openPayPassword',
+      data: {
+        memberId: app.userId,
+        payPassword: utilMd5.hexMD5(_self.data.passWord)
+      },
+      callback: function (res) {
+        if (res.data.code == 0) {
+          let memList = _self.data.memberList;
+          if (memList.enabledPayPassword==1){
+            memList.enabledPayPassword =0
+            _self.setData({
+              checkedSure:false
+            })
+          }else{
+            memList.enabledPayPassword = 1
+            _self.setData({
+              checkedSure: true
+            })
+          }
+           _self.setData({
+            memberList: memList,
+            openPayPasswordSure: false,
+          })
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          });
+          _self.setData({
+            openPayPasswordSure: false,
+          })
+        }
+      }
+    }
+    common.methods.mothod3(banners)
+  },
+  delChangeWord(){
+    this.setData({
+      openPayPasswordSure: false,
+    })
+    
+    // console.log(this.data.checkedSure)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,4 +1,4 @@
-<!--views/personal/addCard/addCard.wxml-->
+  <!--views/personal/addCard/addCard.wxml-->
 <view class='shade' wx:if="{{graphicCode}}" bindtap='colseCodeGet'></view>
 <view style='position: fixed;z-index:34;width:100%;top:300rpx;' wx:if="{{graphicCode}}">
   <view class='shadeBox'>
