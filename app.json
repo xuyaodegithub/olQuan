@@ -31,7 +31,8 @@
     "views/personal/sellerShop/sellerShop",
     "views/personal/buyPink/buyPink",
     "views/myFind/myFind",
-    "views/personal/mySet/mySet"
+    "views/personal/mySet/mySet",
+    "views/personal/boundMobile/boundMobile"
   ],
   "find": [
     ""
