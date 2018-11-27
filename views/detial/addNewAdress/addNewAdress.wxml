@@ -1,0 +1,55 @@
+<view class="top">
+  <view class="flex">
+    <text>收货人</text>
+    <input value="{{name}}" bindinput="getDetial" maxlength="6" data-num="1" placeholder="请输入收货人姓名" ></input>
+  </view>
+  <view class="flex"> 
+    <text>手机号</text>
+    <input value="{{phone}}" bindinput="getDetial" maxlength="11" data-num="2" placeholder="请输入收货人手机号" type="number" maxlength="11"></input>
+  </view>
+</view>
+<view class="picker">
+  <picker bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" mode="region">
+   <view class="pickerSize flex">
+    <text>省市区:</text>
+    <text>{{region[0]}}</text>
+    <text>{{region[1]}}</text>
+    <text>{{region[2]}}</text>
+    </view>
+  </picker>
+</view>
+ <view class="flex msgA">
+    <text>详细地址</text>
+    <input value="{{adressmsg}}" bindinput="getDetial" data-num="3" placeholder="请输入详细地址"></input>
+  </view>
+  <view wx:if="{{isShowCard||isShowPhoto}}">
+     <view class="weak">
+    <image src="../../../image/weakTo.png"></image>
+	  根据海关规定，购买跨境产品需要办理清关手续,请您如实填写以下信息,以保证您购买的产品顺利通过海关检查。
+  </view>
+  <view class="flex msgA"  wx:if="{{isShowCard||isShowPhoto}}">
+    <text>身份证号码</text>
+    <input value="{{cardNum}}" bindinput="getDetial" maxlength="18" data-num="4" placeholder="请输入身份证号码" type="number"></input>
+  </view>
+  <view class="flex card"  wx:if="{{isShowPhoto}}">
+    <view>
+      <text>上传国徽面照片</text>
+      <image src='../../../image/zhen.png'  mode="widthFix" data-index="1" bindtap='uploadImg' wx:if="{{!cardImgzhen}}"></image>
+      <image wx:else src="{{cardImgzhen}}"  mode="widthFix" data-index="1" bindtap='uploadImg'></image>
+    </view>
+     <view>
+      <text>上传人像面照片</text>
+      <image src='../../../image/fan.png' mode="widthFix" data-index="2" bindtap='uploadImg'wx:if="{{!cardImgfan}}"></image>
+      <image wx:else src="{{cardImgfan}}" mode="widthFix" data-index="2" bindtap='uploadImg'></image>
+    </view>
+  </view>
+  </view>
+  <!-- <view style="padding:0 "> -->
+    <view class="position">
+      <view class="tosure" bindtap='saveAdress'>
+        确定
+      </view>
+    </view>
+  <!-- </view> -->
+  
+ 

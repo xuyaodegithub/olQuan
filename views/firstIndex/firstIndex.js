@@ -120,8 +120,14 @@ Page({
       wx.navigateTo({
         url: '../plusPage/plusPage',
       })
+    } else if (e.currentTarget.dataset.type == 17) {
+      console.log('shiyong')
+    } else if (e.currentTarget.dataset.type == 19) {
+      console.log('faxian')
     }else{
-      console.log('活动')
+      wx.navigateTo({
+        url: '../activePage/activePage?id=' + e.currentTarget.dataset.item.otherInfo.id,
+      })
     }
    
   },
@@ -158,7 +164,7 @@ Page({
   },
   //跳转详情页
   goDetial(e){
-      wx:wx.navigateTo({
+      wx.navigateTo({
         url: '../detial/detial?id=' + e.currentTarget.dataset.id + '&type=' + e.currentTarget.dataset.type,
         success: function(res) {},
         fail: function(res) {},

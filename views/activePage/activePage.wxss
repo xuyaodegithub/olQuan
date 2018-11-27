@@ -1,0 +1,150 @@
+/* views/activePage/activePage.wxss */
+page{
+  height: 100%;
+}
+.titleproducttouch,.catlist1 .classBtn{
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.titleproducttouch image{
+  display: inline-block;
+  width: 250rpx;
+}
+.f5 .oneImg image{
+  display: block;
+  width: 100%;
+  /* height: 162.5rpx; */
+}
+.f5 .twoImg image{
+  display: block;
+  width: 50%;
+}
+.f5 .threeImg image{
+  display: block;
+  flex: 1
+}
+.f5 .fourImg image{
+  display: block;
+  width: 25%;
+}
+f5 .fiveImg image{
+  display: block;
+  width: 20%;
+}
+.productf5{
+  padding: 20rpx 20rpx 0 20rpx;
+  background-color: rgb(193, 201, 35);
+}
+.productf5 .twoP,.productf5 .threeP{
+  justify-content: space-between;
+}
+.productf5 .twoP > view,.productf5 .threeP > view{
+  width: 346rpx;
+  background-color: #ffffff;
+  /* padding-bottom: 20rpx; */
+}
+.productf5 .twoP view > image,.productf5 .threeP view > image{
+  width: 100%;
+  display: block;
+}
+.productf5 .twoP view .over2,.productf5 .threeP view .over2{
+  font-size: 24rpx;
+  color: #333;
+  line-height: 40rpx;
+  padding: 12rpx 20rpx 0;
+}
+.productf5 .twoP view .flex,.productf5 .threeP view .flex{
+  justify-content: space-between;
+  padding:10rpx 20rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+.productf5 .twoP view .flex text:last-child,.productf5 .threeP view .flex text:last-child,.productList .profuct .flex text:last-child{
+  font-size: 22rpx;
+  color: rgb(229, 15, 114);
+}
+.productf5 .twoP view .sureBtn,.productf5 .threeP view .sureBtn,.productList .profuct .sureBtn{
+  width: 306rpx;
+  line-height: 54rpx;
+  background-color: #e5006e;
+  color: #ffffff;
+  font-size: 28rpx;
+  margin: 0 auto;
+  /* margin-bottom: 20rpx;   */
+  text-align: center;
+}
+.productf5 .threeP > view{
+  width: 224rpx;
+}
+.productf5 .threeP view .flex{
+  font-size: 22rpx;
+}
+.productf5 .threeP view .flex text:last-child{
+  font-size: 20rpx;
+}
+.productf5 .threeP view .sureBtn{
+  width: 184rpx;
+}
+.catlist1{
+  background-color: #e50f72;
+}
+.catlist1 .classBtn{
+  background-color: #e50f72;
+  line-height: 88rpx;
+  color: #fff;
+}
+.catlist1 .classBtn.isFixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.catlist1 .classBtn view{
+  font-size: 30rpx;
+  display: inline-block;
+  padding: 0 30rpx;
+  text-align: center;
+}
+.catlist1 .classBtn .active{
+  background-color: #ffffff;
+  color: #e50f72;
+}
+.productList{
+  padding: 20rpx 20rpx 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.productList > .bannerIMG{
+  width: 100%;
+}
+.productList .banner image{
+  display:block;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.productList .profuct{
+  width: 346rpx;
+  font-size: 24rpx;
+  color: #333;
+  line-height: 40rpx;
+  background-color: #fff;
+  /* padding-bottom:20rpx;  */
+  margin-bottom: 20rpx;
+}
+.productList .profuct image{
+  display: block;
+  width:100%;
+  height: 300rpx;
+}
+.productList .profuct .over2{
+  padding: 12rpx 20rpx 0;
+  min-height: 80rpx;
+}
+.productList .profuct .flex{
+  padding:10rpx 20rpx;
+  color: #333;
+  justify-content: space-between;
+}
+.addPadding{
+  padding-bottom: 20rpx;
+}

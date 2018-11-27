@@ -1,0 +1,87 @@
+<wxs src="../../filters/filters.wxs" module="filters" />
+<scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" style="height:100%;" scroll-with-animation scroll-top="{{scrollTopNum}}">
+  <view wx:for="{{activeData}}" wx:key="{{index}}">
+  <!-- 轮播图 -->
+    <view wx:if="{{item.modelSampleCode==='advertisingFigure' && item.contents.length>0}}">
+      <swipers banner="{{item.contents}}"></swipers> 
+    </view>
+    <!-- 能滑动的 -->
+    <view wx:if="{{item.modelSampleCode==='titleproducttouch' && item.contents.length>0}}" class="titleproducttouch backGo">
+        <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"  mode="widthFix" bindtap='goDetial'></image>
+    </view>
+    <!-- 等分组件 -->
+    <view wx:if="{{item.modelSampleCode==='f5' && item.contents.length>0}}" class="f5">
+        <view wx:if="{{item.contents.length==1}}" class="oneImg"><!-- 1分组件 -->
+            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial'></image>
+        </view>
+        <view wx:if="{{item.contents.length==2}}" class="twoImg flex"><!-- 2分组件 -->
+            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial'></image>
+        </view>
+        <view wx:if="{{item.contents.length==3}}" class="threeImg flex"><!-- 3分组件 -->
+            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial'></image>
+        </view>
+        <view wx:if="{{item.contents.length==4}}" class="fourImg flex"><!-- 4分组件 -->
+            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial'></image>
+        </view>
+        <view wx:if="{{item.contents.length==5}}" class="fiveImg flex"><!-- 5分组件 -->
+            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial'></image>
+        </view>
+    </view>
+    <!-- 产品等分最多三等分 -->
+    <view wx:if="{{item.modelSampleCode==='productf5' && item.contents.length>0}}" class="productf5 {{activeData[index+1].modelSampleCode!=='productf5' ? 'addPadding' : ''}}">
+        <view wx:if="{{item.contents.length==2}}" class="twoP flex">
+          <view wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" bindtap='goDetial'>
+            <image src="{{itemSon.image}}" mode="widthFix" lazy-load></image>
+            <view class="over2">{{itemSon.productName}}</view>
+            <view class="flex">
+                <text>￥{{filters.changePrice(itemSon.salePriceView)}}</text>
+                <text>{{itemSon.goldenBean}}金豆</text>
+            </view>
+            <!-- <view class="sureBtn">立即购买</view> -->
+          </view>
+        </view>
+        <view wx:if="{{item.contents.length==3}}" class="threeP flex">
+          <view wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" bindtap='goDetial'>
+            <image src="{{itemSon.image}}" mode="widthFix" lazy-load></image>
+            <view class="over2">{{itemSon.productName}}</view>
+            <view class="flex">
+                <text>￥{{filters.changePrice(itemSon.salePriceView)}}</text>
+                <text>{{itemSon.goldenBean}}金豆</text>
+            </view>
+            <!-- <view class="sureBtn">立即购买</view> -->
+          </view>
+        </view>
+    </view>
+    <!-- 产品列表组件 -->
+          <view wx:if="{{item.modelSampleCode==='catlist1' && item.contents.length>0}}"  class="catlist1" style="background-color:{{backData.contents}};">
+            <view class="classBtn {{isFixed? 'isFixed' : ''}} backGo" id="classBtn" style="background-color:{{backData.contents}};">
+              <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scroll-into-view="{{toView2}}">
+                  <view wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" style="color:{{classBtnIndex==indexSon?  backData.contents : ''}}" class="{{classBtnIndex==indexSon ? 'active' : ''}}" data-index="{{indexSon}}" bindtap='changeTtle' id="Btn{{indexSon}}">
+                  {{itemSon.title}}
+                  </view>
+              </scroll-view>
+            </view>
+          <view style="height:88rpx;"  wx:if="{{isFixed}}">            
+          </view>
+          <view class="productList flex">
+            <view wx:for="{{productList}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" class="{{itemSon.classMore=='classBanner'? 'bannerIMG' : ''}}"  id="{{itemSon.id ? itemSon.id : ''}}">
+              <view wx:if="{{itemSon.classMore=='classBanner'}}" class="banner">
+                <image src="{{itemSon.image}}" mode="widthFix" wx:if="{{itemSon.image}}" lazy-load></image>
+              </view>
+              <view wx:else class="profuct" bindtap='goDetial'  data-item="{{itemSon}}">
+                <image src="{{itemSon.image}}" lazy-load></image>
+                <view class="over2">{{itemSon.productName}}</view>
+                <view class="flex">
+                  <text>￥{{filters.changePrice(itemSon.salePriceView)}}</text>
+                  <text>{{itemSon.goldenBean}}金豆</text>
+                </view>
+                <!-- <view class="sureBtn">立即购买</view> -->
+              </view>
+            </view>
+          </view>
+    </view>
+  </view>
+</scroll-view>
+<view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+    <image src="../../image/goTop.png"></image>
+</view>

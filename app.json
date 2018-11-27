@@ -1,8 +1,8 @@
 {
   "pages": [
+    "views/firstIndex/firstIndex",
     "views/personal/personal",
     "views/find/find",
-    "views/firstIndex/firstIndex",
     "views/personal/invitePink/invitePink",
     "views/personal/myCollect/myCollect",
     "views/personal/getCoupon/getCoupon",
@@ -28,6 +28,11 @@
     "views/service/service",
     "views/personal/wllletList/walletList",
     "views/detial/toSureBuy/toSureBuy",
+    "views/detial/addAdress/addAdress",
+    "views/detial/addNewAdress/addNewAdress",
+    "views/detial/paySuccess/paySuccess",
+    "views/bindPhone/bindPhone",
+    "views/activePage/activePage",
     "views/personal/sellerShop/sellerShop",
     "views/personal/buyPink/buyPink",
     "views/myFind/myFind",

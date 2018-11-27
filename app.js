@@ -6,10 +6,10 @@ App({
   dataNum:0,
   scene:'',//场景值
   uutype:1,//终端类型
-  baseUrl: 'https://test-mobile.olquan.cn',
-  // baseUrl: 'https://ol-site.olquan.cn',
+  // baseUrl: 'https://test-mobile.olquan.cn',
+  baseUrl: 'https://ol-site.olquan.cn',
   userId: '',//openId
-  openId:'778040',
+  openId:'',
   isGetStoreCommission:'',//店主权益
   unionid: '',//unionid
   wx_code:'',

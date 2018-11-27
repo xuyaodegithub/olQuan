@@ -50,3 +50,15 @@
   -o-border-radius: 50%;
   border-radius:50%;
 }
+.zhezhao{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,.5);
+    left: 0;
+    top: 0;
+  }
+  .backGo{
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;  
+  }

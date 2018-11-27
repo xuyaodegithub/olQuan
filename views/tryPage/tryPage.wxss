@@ -159,3 +159,21 @@ page{
   height: 150rpx;
   margin: -75rpx 0 0 -75rpx;
 }
+.productList > view .price .newChange{
+  display: inline-block;
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+.productList > view .price .aloneR{
+  color: #777;
+  align-items: center;
+}
+.productList > view .posiImg{
+  position: absolute;
+  display: block;
+  width: 134rpx;
+  height: 45rpx;
+  left: 50rpx;
+  top: 22rpx;
+}

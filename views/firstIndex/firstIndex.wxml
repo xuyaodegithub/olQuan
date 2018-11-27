@@ -8,7 +8,7 @@
 <swipers banner="{{banner}}" advers="{{advers}}"></swipers>    
   <view class="jindou flex">
       <view class="flex">
-      <text>您有{{jindouresult.canGetproductCount}}金豆，可白拿{{jindouresult.goldBeanStr}}件产品</text>
+      <text>您有{{jindouresult.goldBeanStr}}金豆，可白拿{{jindouresult.canGetproductCount}}件产品</text>
       <image src="../../image/right.png"></image>
       </view>
       <view>
@@ -18,7 +18,7 @@
   </view>
   <view class="flex dengfen">
     <block wx:for="{{icons.iconDto}}"  class="iconImage"  wx:key="{{index}}">
-    <image src="{{item.iconImage}}" data-link="{{item.link}}" data-type="{{item.type}}"  wx:if="icons.iconDto.length>0"  bindtap='goCalssF'></image>
+    <image src="{{item.iconImage}}" data-link="{{item.link}}" data-type="{{item.type}}" data-item="{{item}}" wx:if="icons.iconDto.length>0"  bindtap='goCalssF'></image>
     </block> 
   </view>
   <!-- <scroll-view>

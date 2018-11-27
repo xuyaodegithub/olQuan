@@ -1,0 +1,50 @@
+/* views/detial/addAdress/addAdress.wxss */
+page{
+  background-color: #f2f2f2;
+  padding-top: 88rpx;
+}
+.Addbtn{
+  font-size: 32rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background-color: #d23172;
+  color: #ffffff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.oneaddress{
+  background-color: #ffffff;
+  padding: 32rpx 24rpx 0;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.addressList .flex{
+  justify-content: space-between;
+  align-items: center;
+}
+.oneaddress > view:first-child text:last-child{
+  color:#999; 
+}
+.oneaddress .second{
+  line-height: 86rpx;
+  border-bottom: 2rpx solid #ebebeb;
+}
+.oneaddress .second text{
+  margin-right: 10rpx;
+}
+.oneaddress  .last{
+  line-height: 66rpx;
+  font-size: 24rpx
+}
+.oneaddress .last image{
+  display: block;
+  height: 32rpx;
+  width: 32rpx;
+  margin-right: 16rpx;
+}
+.oneaddress .last .right view{
+margin-right: 48rpx;
+}

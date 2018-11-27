@@ -1,0 +1,6 @@
+<!--views/detial/paySuccess/paySuccess.wxml-->
+<view class="prder">订单支付已完成</view>
+<view class="order">订单编号：{{isOrderMess}}</view>
+<view class="own" bindtap='goOwn'>去个人中心看看</view>
+<!-- <view><image src=""></image></view> -->
+<view class="btn" bindtap='goIndex'>返回首页</view>

@@ -32,11 +32,29 @@
       </view> -->
       <image src="../../image/back.png"></image>            
     </view>
-    <view wx:else class="price"><!--无倒计时 -->
-      <text class="promise" wx:if="{{productType === '4'}}">保证金</text>    
-      <text class="bigTest">￥{{productData.salePrice}}</text>
+    <view wx:else class="addposition"><!--无倒计时 -->
+    <!-- <view wx:else class="price">无倒计时 -->
+      <!-- <text class="promise" wx:if="{{productType === '4'}}">保证金</text>    
+      <text class="bigTest">￥{{productData.salePrice}}</text> -->
       <!-- <text class="delete">￥{{productData.marketPrice}}</text> -->
-      <image src="../../image/erwei.png" bindtap='drawImage' ></image>
+       <view wx:if="{{productData.time}}" class="tryPrice flex"><!-- 尚未开始 productData.status===1 && -->
+        <view class="left">
+          <text>保证金</text>
+          <text>￥{{productData.salePrice}}</text>
+        </view>
+        <view class="right">
+        <view>{{productData.status===1 ? '距开始' : '距结束'}}</view><!--是否开始-->
+        <view class="flex">
+          <view>{{timer.day}}</view><text style="color:#333;">天</text><view>{{timer.hoursD}}</view><text>:</text><view>{{timer.mint}}</view><text>:</text><view>{{timer.sec}}</view>
+        </view>
+        </view>
+      </view>
+      <!-- 已开始 -->
+      <!-- <view wx:else="{{productData.status===2 && productData.time}}" class="tryPrice flex">
+      1111
+      </view> -->
+      <!-- <image src="../../image/back.png"></image>           -->
+      <image src="../../image/dayBack.png" bindtap='drawImage' ></image>
     </view>
   </view>
   <view wx:elif="{{productType==='9'}}"><!--特卖-->
@@ -174,7 +192,7 @@
       </view>
       <view class="house flex">
         <image src="../../image/house.png"  mode="widthFix"></image>
-        <text>进店逛逛</text>
+        <text bindtap='goStore'>进店逛逛</text>
       </view>
   </view>
   <!--商品详情-->
@@ -201,7 +219,7 @@
       <view wx:if="{{productData.status===1}}"  class="noTime">尚未开始</view>    
       <view wx:else>
         <view wx:if="{{productData.isApply===0 }}">
-          <view wx:if="{{productData.store<1}}" class="buyColor noTime">申请试用</view>
+          <view wx:if="{{productData.store<1}}" class="buyColor noTime">试用完了</view>
           <view wx:else class="buyColor"  bindtap="openBuy">申请试用</view> 
         </view>
          <view wx:else>
