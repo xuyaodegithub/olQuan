@@ -7,16 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detailList:[],
-    memberList:[],
+    detailList: [],
+    memberList: [],
     isShowSuper: '',
-    inviteId:'',
-    bagId:'',
-    status:0,
-    bagGifImg:'',
-    isShow:false,
-    isPinkSure:false,
-    isPinkSureGet:false,
+    inviteId: '',
+    bagId: '',
+    status: 0,
+    bagGifImg: '',
+    isShow: false,
+    isPinkSure: false,
+    isPinkSureGet: false,
   },
 
   /**
@@ -24,106 +24,86 @@ Page({
    */
   onLoad: function (options) {
     common.methods.getLoginMess(this.getListDetail, this)
+    console.log(options.inviteId)
     if (options.inviteId != undefined) {
       this.setData({
         inviteId: options.inviteId
       })
     }
-    if (options.isShare == 1) {
-      if (this.data.memberList.isGetStoreCommission == 1 && this.data.memberList.isShowRenewButton == 0) {
-        this.setData({
-          isPinkSure: true
-        })
-      } else {
-        this.setData({
-          isPinkSure: false
-        })
-      }
-    }
+    
   },
   //关闭礼包弹窗
-  colseIsShow(){
+  colseIsShow() {
     this.setData({
-      isShow:false
+      isShow: false
     })
   },
   //打开礼包弹窗
-  openIsShow(){
+  openIsShow() {
     this.setData({
       isShow: true
     })
   },
   //开通粉领
-  buyPink(){
-    let data={
-      inviteId:this.data.inviteId,
-      bagId: this.data.detailList.gifts[this.data.status].bagId,
-     
+  buyPink() {
+    if (this.data.detailList.gifts[this.data.status].bagCanBuy==0){
+      wx.showToast({
+        title: '库存不足',
+        icon: 'none',
+        duration: 2000
+      });
+      return
     }
-    
+    if (this.memberList.isGetStoreCommission == 0){
+      wx.showToast({
+        title: '您还不是店主，请先升级店主',
+        icon: 'none',
+        duration: 2000
+      });
+      return
+    }
+    let data = {
+      inviteId: this.data.inviteId,
+      bagId: this.data.detailList.gifts[this.data.status].bagId,
+
+    }
+
     wx.setStorageSync('buyPink', data)
     wx.navigateTo({
       url: '/views/personal/buyPink/buyPink',
     })
   },
-  getIndex(){
-    console.log(1)
-    wx.switchTab({
-      url: '/views/firstIndex/firstIndex',
-    })
-  },
   //选择礼包
-  chooseBagDetail(e){
+  chooseBagDetail(e) {
     this.setData({
       status: e.currentTarget.dataset.index,
       bagGifImg: this.data.detailList.gifts[e.currentTarget.dataset.index].bagImage
     })
   },
   //获取邀请粉领信息
-  getListDetail(){
-    let _self = this
-    let member = {
-      url: '/mobile/member/getMember',
-      data: {
-        memberId: app.userId,
-      },
-      callback: function (res) {
-        _self.setData({
-          memberList: app.memberData,
-        })
-        console.log(_self.data.memberList)
-        if (_self.data.memberList.isShowRenewButton != 0) {
-          _self.setData({
-            isPinkSureGet: true
-          })
-        } else {
-          _self.setData({
-            isPinkSureGet: false
-          })
-        }
-        if (_self.data.memberList.isGetStoreCommission == 1) {
-          wx.setNavigationBarTitle({
-            title: '邀请店主'
-          })
-          _self.setData({
-            isShowSuper: true,
-          })
+  getListDetail() {
+    this.setData({
+      memberList: app.memberData,
+    })
+    if (this.data.memberList.levelCode == 'supervisor' || this.data.memberList.levelCode == 'starSupervisor' || this.data.memberList.levelCode == 'highSupervisor') {
+      wx.setNavigationBarTitle({
+        title: '邀请经理'
+      })
+      this.setData({
+        isShowSuper: true,
+      })
 
-        } else {
-          wx.setNavigationBarTitle({
-            title: '申请店主'
-          })
-          _self.setData({
-            isShowSuper: false,
-          })
-        }
-      }
+    } else {
+      wx.setNavigationBarTitle({
+        title: '申请经理'
+      })
+      this.setData({
+        isShowSuper: false,
+      })
     }
-    common.methods.mothod1(member)
-    
-    
+    let _self = this
     let banners = {
-      url: '/mobile/store/newGiftbags',
+      url: '/mobile/buySupervisor/getGiftBag',
       data: {
         memberId: app.userId,
       },
@@ -150,11 +130,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
-    
-    
-      
-    
+
   },
 
   /**
@@ -175,13 +151,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    let _self = this
-    // wx.startPullDownRefresh()
-    wx.showNavigationBarLoading()
-    this.getListDetail()
-    wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh()
-   
   },
 
   /**
@@ -195,12 +165,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
     return {
-      title: '您的好友' + this.data.memberList.nickName + '邀请您开通OL圈店主',
-      desc: this.data.detailList.shareDesc, 
+      title: this.data.detailList.shareTitle,
+      desc: this.data.detailList.shareDesc,
       imageUrl: this.data.detailList.shareLogo,
-      path: '/views/personal/invitePink/invitePink?isShare=1&inviteId=' + this.data.memberList.accountNo,//当前页面 path ，必须是以 / 开头的完整路径
+      path: '/views/personal/inviteSuper/inviteSuper?isShare=1&inviteId=' + this.data.memberList.accountNo,//当前页面 path ，必须是以 / 开头的完整路径
       success: function (res) {
         //成功
         console.log(999)

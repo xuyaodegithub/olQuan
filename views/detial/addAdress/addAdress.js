@@ -18,10 +18,14 @@ Page({
    */
   onLoad: function (options) {
       this.setData({
-        backType: options.backType,
-        isCrossBorderProduct: options.isCrossBorderProduct,
-        isOverseasDirectMailProduct: options.isOverseasDirectMailProduct
+        backType: options.backType ? options.backType : '',
       })
+      if(options.backType){
+        this.setData({
+          isCrossBorderProduct: options.isCrossBorderProduct ? options.isCrossBorderProduct : '',
+          isOverseasDirectMailProduct: options.isOverseasDirectMailProduct ? options.isOverseasDirectMailProduct : ''
+        })
+      }
     console.log(options)      
     this.getaddress()
   },
@@ -111,6 +115,10 @@ Page({
     if (this.data.backType==1){
       wx.navigateTo({
         url: '../toSureBuy/toSureBuy?adressID=' + e.currentTarget.dataset.id
+      })
+    } else if (this.data.backType == 3){
+      wx.navigateTo({
+        url: '/views/personal/buyPink/buyPink?addressId=' + e.currentTarget.dataset.id
       })
     }else return
   },

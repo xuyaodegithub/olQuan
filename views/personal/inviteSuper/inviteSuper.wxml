@@ -5,40 +5,9 @@
   <button class='sureBot' data-info='{{order}}' open-type="share" hover-class='none'>立即邀请</button> 
 </view>
 <view class='sureBotOut' wx:if="{{!isShowSuper}}">
-  <view class='sureBot' bindtap='openIsShow'>点击立即开通店主</view>
+  <view class='sureBot' bindtap='openIsShow'>立即申请</view>
 </view>
-<view class='yaoqingImg' wx:if="{{isPinkSure}}">
-  <view class='shareDiv'>
-    <view class='shareImgS'>
-      <image class='shareImgSon' src='../../../image/smile.png'></image>
-    </view>
-    <view class='shareDetail'>
-      亲爱的{{memberList.nickName}}
-     </view>
-     <view class='detailName'>
-      您已经开通过店主无需再次开通！
-     </view>
-     <view class='sureShare' bindtap='getIndex'>
-      <view class='shareSure'>去商城逛逛</view>
-     </view>
-  </view>
-</view>
-<view class='yaoqingImg' wx:if="{{isPinkSureGet}}">
-  <view class='shareDiv' style="height: 420rpx;">
-    <view class='shareImgS'>
-      <image class='shareImgSon' src='../../../image/bigsmile.png'></image>
-    </view>
-    <view class='shareDetail'>
-      亲爱的{{memberList.nickName}}
-     </view>
-     <view class='detailName'>
-     您的店主即将到期，为了保障您的店主特权，请及时续费，以免影响使用！
-     </view>
-     <view class='sureShare'>
-      <view class='shareSure'>马上续费</view>
-     </view>
-  </view>
-</view>
+
 <view wx:if="{{isShow}}" class='backImg' bindtap='colseIsShow'></view>
 <view class='chooseBag' wx:if="{{isShow}}">
   <view class='outBag'>
@@ -46,7 +15,7 @@
       <image class='bagImgSon' src='{{bagGifImg}}'></image>
     </view>
     <view class='bagName'>
-      <view style="margin-bottom: 16rpx;">开通店主大礼包</view>
+      <view style="margin-bottom: 16rpx;">选择经理礼包</view>
       <view>￥{{detailList.totalFee}}</view>
     </view>
     <view class='colseImg' bindtap='colseIsShow'>

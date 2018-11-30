@@ -27,6 +27,17 @@
     </view>
   </view>
 </view>
+<view class='delect' wx:if="{{cancelListOrder}}">
+  <view class='delectCent'>
+    <view class='centNor'>您确定取消订单?</view>
+    <view class='sureOrNot'>
+      <view class='noWay'>
+        <view style='border-right:1rpx solid #e1e1e1;' bindtap='cancelListOrderOver'>否</view>
+      </view>
+      <view class='noWay' style=' color:#40AFFE' bindtap='sureCancelListOrder'>是</view>
+    </view>
+  </view>
+</view>
 <view class="topbtn flex">
  <view wx:for="{{topBtm}}" wx:key="{{index}}" class="{{status==index ? 'active' : ''}}" data-key="{{index}}" bindtap='changeType'>{{item}}</view>
 </view>

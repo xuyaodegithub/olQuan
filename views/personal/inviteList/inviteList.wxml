@@ -1,0 +1,26 @@
+<!--views/personal/inviteList/inviteList.wxml-->
+<view class='agreementTop'>
+  【您还剩<text style="color: #E5006E;">{{memList.inviteSupervisorCount}}</text>个邀请名额】
+</view>
+<view class="topbtn flex">
+ <view wx:for="{{list}}" wx:key="{{index}}" class="{{speListAgree==index ? 'active' : ''}}" data-key="{{index}}" bindtap='changeType'>{{item}}</view>
+</view>
+<view class='applyList' wx:for="{{inviteList}}" wx:key="{{index}}">
+  <view class='listLeft'>
+    <image src='{{item.logo}}'></image>
+  </view>
+  <view class='listCent'>
+    <view class='top'>{{item.realName}}({{item.nickName}})</view>
+    <view class='bot'>手机号:{{item.mobile}}</view>
+  </view>
+  <view class='listRight' wx:if="{{item.status==1}}">
+    已同意
+  </view>
+  <view class='listRight' wx:if="{{item.status==2}}">
+    已拒绝
+  </view>
+  <view class='agreeOrNot' wx:if="{{item.status==0}}">
+    <view data-recordId='{{item.recordId}}' data-index='{{index}}' data-realName='{{item.realName}}' data-nickName='{{item.nickName}}' class='agree'>同意</view>
+    <view class='agreeNo'>拒绝</view>
+  </view>
+</view>

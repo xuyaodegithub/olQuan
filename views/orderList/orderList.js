@@ -27,6 +27,9 @@ Page({
     takeOver:false,
     overIndex:'',
     overOrderId:'',
+    cancelListOrder:false,
+    cancelOrderIndex:'',
+    cancelOrderId:'',
   },
 
   /**
@@ -165,8 +168,53 @@ Page({
   },
   //取消订单
   cancelOrder(e){
-    console.log(e.currentTarget.dataset.index)
-    console.log(e.currentTarget.dataset.key)
+    this.setData({
+      cancelListOrder:true,
+      cancelOrderIndex: e.currentTarget.dataset.index,
+      cancelOrderId: e.currentTarget.dataset.key,
+    })
+  },
+  cancelListOrderOver(){
+    this.setData({
+      cancelListOrder: false,
+      cancelOrderIndex: '',
+      cancelOrderId: '',
+    })
+  },
+  sureCancelListOrder(){
+    let _self = this;
+    let orderS = this.data.orderList;
+    let delect = {
+      url: '/mobile/order/cancelOrder',
+      data: {
+        memberId: app.userId,
+        orderId: this.data.cancelOrderId
+      },
+      callback: function (res) {
+        if (res.data.code == 0) {
+          orderS.splice(_self.data.cancelOrderIndex, 1);
+          _self.setData({
+            orderList: orderS,
+            cancelListOrder: false,
+          });
+          wx.showToast({
+            title: '取消成功',
+            icon: 'none',
+            duration: 2000
+          })
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+          _self.setData({
+            cancelListOrder: false,
+          });
+        }
+      }
+    }
+    common.methods.mothod1(delect)
   },
   //查看详情
   getDetail(e){
@@ -226,6 +274,9 @@ Page({
             icon: 'none',
             duration: 2000
           })
+          _self.setData({
+            takeOver: false,
+          });
         }
       }
     }
@@ -267,6 +318,9 @@ Page({
             icon: 'none',
             duration: 2000
           })
+          _self.setData({
+            delectOrder: false,
+          });
         }
       }
     }

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "views/firstIndex/firstIndex",
     "views/personal/personal",
+    "views/firstIndex/firstIndex",
     "views/find/find",
     "views/personal/invitePink/invitePink",
     "views/personal/myCollect/myCollect",
@@ -37,7 +37,12 @@
     "views/personal/buyPink/buyPink",
     "views/myFind/myFind",
     "views/personal/mySet/mySet",
-    "views/personal/boundMobile/boundMobile"
+    "views/personal/boundMobile/boundMobile",
+    "views/personal/inviteSuper/inviteSuper",
+    "views/personal/webView/webView",
+    "views/personal/amountRecord/amountRecord",
+    "views/personal/myCustom/myCustom",
+    "views/personal/inviteList/inviteList"
   ],
   "find": [
     ""

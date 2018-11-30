@@ -113,6 +113,16 @@
     <switch checked='{{checkedSure}}' bindchange="switch1Change"/>
   </view>
 </view>
+<view class='topMessage'>更多</view>
+<view class='setMessage' bindtap='getAdress'>
+  <view class='setLeft'>
+    <image src='../../../image/addressSet.png'></image>
+    <view style="margin-left: 7rpx;">收货地址</view>
+  </view>
+  <view class='setRight'>
+    <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
+  </view>
+</view>
 <!-- 弹窗-->
 <view class='openPasward' wx:if="{{changeNick}}">
   <view class='message'>
