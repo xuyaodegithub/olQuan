@@ -11,17 +11,28 @@ Page({
     isCrossBorderProduct:'',//跨境商品需要身份证号
     isOverseasDirectMailProduct:'',//海外直邮需要身份证号，身份证正反面照片
     adressList:[],//地址列表
+    ids:''//购物车id
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      // this.setData({
+      //   backType: options.backType,
+      //   isCrossBorderProduct: options.isCrossBorderProduct,
+      //   isOverseasDirectMailProduct: options.isOverseasDirectMailProduct
+      // })
+    this.setData({
+      backType: options.backType ? options.backType : '',
+      ids: options.ids ? options.ids : '',
+    })
+    if (options.backType) {
       this.setData({
-        backType: options.backType,
-        isCrossBorderProduct: options.isCrossBorderProduct,
-        isOverseasDirectMailProduct: options.isOverseasDirectMailProduct
+        isCrossBorderProduct: options.isCrossBorderProduct ? options.isCrossBorderProduct : '',
+        isOverseasDirectMailProduct: options.isOverseasDirectMailProduct ? options.isOverseasDirectMailProduct : ''
       })
+    }
     console.log(options)      
     this.getaddress()
   },
@@ -44,14 +55,14 @@ Page({
   //跳转新增
   addNewAdress(){
     wx.navigateTo({
-      url: '../addNewAdress/addNewAdress?backType=' + this.data.backType + '&isCrossBorderProduct=' + this.data.isCrossBorderProduct + '&isOverseasDirectMailProduct=' + this.data.isOverseasDirectMailProduct 
+      url: '../addNewAdress/addNewAdress?backType=' + this.data.backType + '&isCrossBorderProduct=' + this.data.isCrossBorderProduct + '&isOverseasDirectMailProduct=' + this.data.isOverseasDirectMailProduct+'&ids='+this.data.ids 
     })
   },
   //编辑
   updataOne(e){
     wx.navigateTo({
       url: '../addNewAdress/addNewAdress?backType=' + this.data.backType + '&isCrossBorderProduct=' + this.data.isCrossBorderProduct + '&isOverseasDirectMailProduct=' + this.data.isOverseasDirectMailProduct+
-        '&id=' + e.currentTarget.dataset.id+'&addType=updata'
+        '&id=' + e.currentTarget.dataset.id + '&addType=updata' + '&ids=' + this.data.ids 
     })
   },
   //删除
@@ -111,6 +122,10 @@ Page({
     if (this.data.backType==1){
       wx.navigateTo({
         url: '../toSureBuy/toSureBuy?adressID=' + e.currentTarget.dataset.id
+      })
+    } else if (this.data.backType == 2){
+      wx.navigateTo({
+        url: '../../carToBuy/carToBuy?adressID=' + e.currentTarget.dataset.id + '&ids=' + this.data.ids
       })
     }else return
   },

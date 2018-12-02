@@ -8,8 +8,8 @@ Page({
    */
   data: {
     backType: '',//上个页面type
-    isCrossBorderProduct: '',//跨境商品需要身份证号
-    isOverseasDirectMailProduct: '',//海外直邮需要身份证号，身份证正反面照片
+    isCrossBorderProduct: 1,//跨境商品需要身份证号
+    isOverseasDirectMailProduct: 1,//海外直邮需要身份证号，身份证正反面照片
     name:'',
     phone:'',
     region: ['请选择', '请选择', '请选择'],
@@ -24,7 +24,8 @@ Page({
     updataId:'',
     addType:'',
     isShowCard:true,
-    isShowPhoto:true
+    isShowPhoto:true,
+    ids:'',
   },
 
   /**
@@ -34,19 +35,24 @@ Page({
     this.setData({
       updataId: options.id ? options.id :'',
       addType: options.addType ? options.addType : '',
-      backType: options.backType,
-      isCrossBorderProduct: options.isCrossBorderProduct,
-      isOverseasDirectMailProduct: options.isOverseasDirectMailProduct
+      backType: options.backType ? options.backType : '',
+      ids: options.ids ? options.ids : '',
     })
-    if (options.isCrossBorderProduct==0){
+    if (options.backType) {
       this.setData({
-        isShowCard:false
+        isCrossBorderProduct: options.isCrossBorderProduct ? options.isCrossBorderProduct : 0,
+        isOverseasDirectMailProduct: options.isOverseasDirectMailProduct ? options.isOverseasDirectMailProduct : 0
       })
-    }
-    if (options.isOverseasDirectMailProduct == 0) {
-      this.setData({
-        isShowPhoto: false
-      })
+      if (this.data.isCrossBorderProduct == 0) {
+        this.setData({
+          isShowCard: false
+        })
+      }
+      if (this.data.isOverseasDirectMailProduct == 0) {
+        this.setData({
+          isShowPhoto: false
+        })
+      }
     }
     console.log(options)
     this.getAllAdress()
@@ -279,8 +285,12 @@ Page({
       callback:function(res){
         wx.showToast({ title: _self.data.addType=='updata' ? '修改成功' : '添加成功', icon: 'none' })
         if (_self.data.backType==1){
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../toSureBuy/toSureBuy?adressID='+res.data.result
+          })
+        } else if (_self.data.backType ==2){
+          wx.redirectTo({
+            url: '../../carToBuy/carToBuy?adressID=' + res.data.result+'&ids=' + _self.data.ids
           })
         }else{
           // ? backType = ' + _self.data.backType + ' & isCrossBorderProduct=' + _self.data.isCrossBorderProduct + '& isOverseasDirectMailProduct=' + _self.data.isOverseasDirectMailProduct
