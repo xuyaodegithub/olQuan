@@ -1,2 +1,2 @@
 <!--views/service/service.wxml-->
-<text>views/service/service.wxml</text>
+<web-view src="https://kefu.easemob.com/webim/im.html?tenantId=40231&ticket=false" bindload="changeTitle"></web-view>  

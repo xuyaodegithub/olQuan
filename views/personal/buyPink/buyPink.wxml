@@ -1,3 +1,149 @@
 <!--views/personal/buyPink/buyPink.wxml-->
-<text>views/personal/buyPink/buyPink.wxml</text>
-<view>{{orderList.inviteId}}</view>
+<view class='addrese' wx:if="{{!showAddress}}" bindtap='getOtherAddress'> 
+  <view class='addtop'>
+    <text style="color: #333;">{{addressObj.name}}</text>
+    <text style="color: #666; margin-left: .20rem;">{{dh}}</text>
+  </view>
+  <view class='addbbot'>
+    {{addressObj.provinceName}} {{addressObj.cityName}} {{addressObj.districtName}} {{addressObj.address}}
+  </view>
+  <view class='getAddressList'></view>
+</view>
+<view class='codeSure'>邀请人：{{orderList.inviteId}}</view>
+<view class='goodsDetail'>
+  <view wx:for="{{curObj.sellers}}" wx:key="{{index}}">
+    <view class='productDetail' wx:for="{{item.productDetails}}" wx:key="{{index}}">
+      <view class='productImage'>
+        <view><image mode='aspectFit' src='{{item.productImage}}'></image></view>
+      </view>
+      <view class='productName'>
+        <view class='nameTop'>
+          <view class='nameT-T'>{{item.productName}}</view>
+          <view style="color: #FA0072;margin-top: 40rpx;">{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='addressDetail' wx:if="{{showAddress}}">
+    <view class='peopleName'>
+      <view class='left'>收件人</view>
+      <input class='right' bindinput='getAddressName' placeholder-style='text-align: right;color: #999999;' placeholder="请填写真实姓名"></input>
+    </view>
+    <view class='peopleName'>
+      <view class='left'>收件人手机</view>
+      <input type='number' bindinput='clearMoregetGifTel' value='{{getGifTel}}' class='right' placeholder-style='text-align: right;color: #999999;' placeholder="收货手机号码"></input>
+    </view>
+    <view class='moreList'>
+      <view class='listDetail' style='margin-top:0rpx;margin-bottom:0;padding:0;border-bottom:1rpx solid #e5e5e5;'>
+        <view class='listName'>省市区</view>
+        <view class="section" style='width:70%;padding:0;'>
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+            <view class="picker" style='background:#fff;height:80rpx;'>
+              {{region[0]}} {{region[1]}} {{region[2]}}
+              <view style='text-align: right;color: #999999;' wx:if="{{region.length==0}}">{{cityDetail}}</view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class='peopleName'>
+      <view class='left'>地址</view>
+      <input class='right' bindinput='getAddress' placeholder-style='text-align: right;color: #999999;' placeholder="请填写详细地址，5-60字"></input>
+    </view>
+  </view>
+  
+</view>
+<view class='payment'>
+  <view class='account'>账户</view>
+  <view class='choosestores' wx:if="{{curObj.coffers>0}}">
+    <view class='stores'>
+      <view class='stores-l'>小金库<text decode="nbsp"> &nbsp;({{curObj.coffers}}元)</text></view>
+      <view class='stores-r'>
+        <text wx:if="{{pledgeMethod==2}}">-￥{{coffersFeeObj}}</text>
+        <view class='choosePay' bindtap='inputCoofers'>
+          <image wx:if="{{!coffersFeeShow}}" src='../../../image/nochose.png'></image>
+          <image wx:if="{{coffersFeeShow}}" src='../../../image/checked.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='choosestores' wx:if="{{curObj.amount>0}}">
+    <view class='stores'>
+      <view class='stores-l'>余额<text decode="nbsp"> &nbsp;({{curObj.amount}}元)</text></view>
+      <view class='stores-r'>
+        <text wx:if="{{pledgeMethod==3}}">-￥{{amountFeeObj}}</text>
+        <view class='choosePay' bindtap='inputAmount'>
+          <image wx:if="{{!amountFeeShow}}" src='../../../image/nochose.png'></image>
+          <image wx:if="{{amountFeeShow}}" src='../../../image/checked.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='totalDetail'>
+  <view style="font-size:28rpx;line-height: 72rpx;">合计</view>
+  <view class='detailFee'>
+    <view class='soloDetail'>
+      <view class='solo-l'>商品总额</view>
+      <view class='solo-r'>￥{{prodrctFee}}</view>
+    </view>
+    <view class='soloDetail' wx:if="{{coffersFeeShow}}">
+      <view class='solo-l'>小金库</view>
+      <view class='solo-r'>-￥{{coffersFeeObj}}</view>
+    </view>
+    <view class='soloDetail' wx:if="{{amountFeeShow}}">
+      <view class='solo-l'>余额</view>
+      <view class='solo-r'>-￥{{amountFeeObj}}</view>
+    </view>
+    <view class='soloDetail'>
+      <view class='solo-l'>应付</view>
+      <view class='solo-r'>￥{{finalPriceObj}}</view>
+    </view>
+  </view>
+</view>
+<view class='orderSure'>
+  <view class='chooseOrder'>支付方式</view>
+  <view class='orderWay'>
+    <view class='wayLeft'>
+      <image src='../../../image/weixin.png'></image>
+      <text decode="nbsp"> &nbsp;微信</text>
+    </view>
+    <view class='wayRight'>
+      <image src='../../../image/waychose.png'> </image>
+    </view>
+  </view>
+</view>
+<view class='orderPay'>
+  <view class='moneyPay'>
+    <view class='putOrder' wx:if="{{doubleClick}}" bindtap='payOrder'>提交订单</view>
+    <view class='putOrder' wx:if="{{!doubleClick}}">提交订单</view>
+  </view>
+</view>
+<view class='shade' wx:if="{{payPasswordShow}}">
+  <view class='passwordBox'>
+    <view class='passBoxTop' >请输入支付密码</view>
+    <view>
+      <input type='password' bindinput='getpayPassword' placeholder='请输入支付密码' class='passInput'></input>
+    </view>
+    <view class='passBot'>
+      <view class='passBotSure' bindtap='cancelTixian'>
+        <view style='border-right:2rpx solid #e5e5e5;'>取消</view>
+      </view>
+      <view class='passBotSure'  wx:if="{{!doubleClick}}" style='color:#e7317d;'>确定</view>
+      <view class='passBotSure' bindtap='passworeTixian'  wx:if="{{doubleClick}}" style='color:#e7317d;'>确定</view>
+    </view>
+  </view>
+</view>
+<view class='paySucessOut' wx:if="{{orderSucessBak}}">
+  <view class='paySucess'>
+    <view class='sureMIne'>
+      <image src='../../../image/pinkGift.png'></image>
+    </view>
+    <view class='sureSucess'>恭喜您成功开通店主</view>
+    <view class='sureSucess' style="color: #333333;font-size: 28rpx;">接下来的日子里面祝您购物愉快！</view>
+    <view class='orderSureBack'>
+      <view class='orderSureBackOut'>去首页</view>
+      <view class='orderSureBackOut'>去试用</view>
+    </view>
+  </view>
+</view>

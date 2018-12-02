@@ -18,7 +18,7 @@
      <view class='detailName'>
       您已经开通过店主无需再次开通！
      </view>
-     <view class='sureShare'>
+     <view class='sureShare' bindtap='getIndex'>
       <view class='shareSure'>去商城逛逛</view>
      </view>
   </view>

@@ -1,0 +1,7 @@
+/* views/personal/webView/webView.wxss */
+.spe{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999
+}

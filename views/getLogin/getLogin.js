@@ -27,8 +27,11 @@ Page({
       let callBackUrl = wx.getStorageSync('callBackUrl')
       if (callBackUrl){
         let url = '/' + callBackUrl.url
-        if (callBackUrl.id && callBackUrl.type){
-          url = '/' + callBackUrl.url + '?id=' + callBackUrl.id + '&type=' + callBackUrl.type
+        if (callBackUrl.id){
+          url = '/' + callBackUrl.url + '?id=' + callBackUrl.id
+        }
+        if (callBackUrl.type){
+          url += '&type=' + callBackUrl.type
         }
         wx.reLaunch({
           url: url

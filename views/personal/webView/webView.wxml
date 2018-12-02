@@ -1,0 +1,4 @@
+<!--views/personal/webView/webView.wxml-->
+<view>
+<web-view src="{{linkUrl}}" />
+</view>

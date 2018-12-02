@@ -38,7 +38,7 @@ Page({
       backType: options.backType ? options.backType : '',
       ids: options.ids ? options.ids : '',
     })
-    if (options.backType) {
+    if(options.backType){
       this.setData({
         isCrossBorderProduct: options.isCrossBorderProduct ? options.isCrossBorderProduct : 0,
         isOverseasDirectMailProduct: options.isOverseasDirectMailProduct ? options.isOverseasDirectMailProduct : 0
@@ -292,9 +292,13 @@ Page({
           wx.redirectTo({
             url: '../../carToBuy/carToBuy?adressID=' + res.data.result+'&ids=' + _self.data.ids
           })
+        } else if (_self.data.backType == 3){
+          wx.redirectTo({
+            url: '/views/personal/buyPink/buyPink?addressId=' + res.data.result
+          })
         }else{
           // ? backType = ' + _self.data.backType + ' & isCrossBorderProduct=' + _self.data.isCrossBorderProduct + '& isOverseasDirectMailProduct=' + _self.data.isOverseasDirectMailProduct
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../addAdress/addAdress'
           })
         }

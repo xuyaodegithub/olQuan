@@ -21,6 +21,7 @@ Page({
     toView:'banner0',//某个子元素id
     toView2:'Btn0',//btnid
     scrollTopNum:'',
+    topTrue:false,
     // windowHeight:''//设备高度
   },
 
@@ -35,7 +36,8 @@ Page({
     // this.setData({
     //   windowHeight: resd.windowHeight
     // })
-    this.getossID(options.id)
+    // this.getossID(options.id)
+    common.methods.getLoginMess(this.getossID, this,options)
   },
   //点击滚动
   setScrollTop(){
@@ -70,12 +72,12 @@ Page({
     })
   },
 //第一次进入请求活动ossid
-  getossID(id){
+  getossID(){
       let _self=this
       let data={
         url:'/mobile/buildblocks/getById',
         data:{
-          id: id
+          id: this.data.activeID
         },
         callback:function(res){
             _self.setData({
@@ -85,10 +87,6 @@ Page({
             title: res.data.result.name
           })
           _self.getFirstData(res.data.result.ossDataId)
-            setTimeout(function () {
-              _self.setScrollTop()
-              _self.setTop('#classBtn')
-              },1000)
         }
       }
     common.methods.mothod1(data)
@@ -157,6 +155,10 @@ Page({
                   classPIndex: classBanner,
                   classPIndex2: classBanner2
                 })
+                setTimeout(function () {
+                  _self.setScrollTop()
+                  _self.setTop('#classBtn')
+                }, 1300)
                 return
               }
             })
@@ -292,6 +294,14 @@ Page({
       })
     }
     let oLiDom= this.data.bannerList
+    // let h=0
+    // for (let i = 0; i < oLiDom.length; i++){
+    //   if (scrollTop > oLiDom[i]-10 && scrollTop < oLiDom[i+1]-10){
+    //     this.setData({
+    //       classBtnIndex: i
+    //     })
+    //   }
+    // }
     for (let i = 0; i < oLiDom.length; i++) {
       if (scrollTop < oLiDom[0] || scrollTop == oLiDom[0]) {
         this.setData({
@@ -304,7 +314,7 @@ Page({
           classBtnIndex: oLiDom.length - 1
         })
         break
-      } else  if (scrollTop > oLiDom[i]-5 && scrollTop < oLiDom[i + 1]-5) {
+      } else  if (scrollTop > oLiDom[i]-15 && scrollTop < oLiDom[i + 1]-15) {
         this.setData({
           classBtnIndex:i
         })
@@ -314,11 +324,11 @@ Page({
     // // console.log(this.data.classBtnIndex, this.data.classPIndex2)
     if (this.data.classBtnIndex% 4 ===0) { 
       this.setData({
-        toView2: this.data.classPIndex2[this.data.classBtnIndex]
+        toView2: this.data.classPIndex2[this.data.classBtnIndex] ? this.data.classPIndex2[this.data.classBtnIndex] :'Btn0'
       })
     } else if (this.data.classBtnIndex<4){
       this.setData({
-        toView2: this.data.classPIndex2[0]
+        toView2: this.data.classPIndex2[0] ? this.data.classPIndex2[0] : 'Btn0'
       })
     }
     // console.log(this.data.toView, this.data.toView2)
@@ -374,7 +384,24 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (ops) {
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮、、menu
+      console.log(ops.target)
+    }
+    return {
+      title: this.data.activeDetail.name,
+      path: '/views/activePage/activePage?id=' + this.data.activeDetail.id,//当前页面 path ，必须是以 / 开头的完整路径
+      desc: this.data.activeDetail.memo, 
+      imageUrl: "https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/"+this.data.activeDetail.shareImg,
+      success: function (res) {
+        //成功
+        console.log(999)
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log(res);
+      }
+    }
   }
 })

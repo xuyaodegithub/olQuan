@@ -39,7 +39,12 @@
     "views/personal/mySet/mySet",
     "views/personal/boundMobile/boundMobile",
     "views/carToBuy/carToBuy",
-    "views/detial/allComment/allComment"
+    "views/detial/allComment/allComment",
+    "views/personal/inviteSuper/inviteSuper",
+    "views/personal/webView/webView",
+    "views/personal/amountRecord/amountRecord",
+    "views/personal/myCustom/myCustom",
+    "views/personal/inviteList/inviteList"
   ],
   "find": [
     ""

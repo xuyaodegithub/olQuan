@@ -1,0 +1,182 @@
+<wxs src="../../filters/filters.wxs" module="filters" />
+<view class="moadress flex" bindtap='toAdress'>
+    <view class="left">
+      <view class="top">
+        <text>{{addressMess.name}}</text>
+        <text>{{addressMess.mobile}}</text>
+      </view>
+      <view class="adress">
+        <text>{{addressMess.provinceName}}</text>
+        <text>{{addressMess.cityName}}</text>
+        <text>{{addressMess.districtName}}</text>
+        <text>{{addressMess.address}}</text>
+      </view>
+    </view>
+    <image src="../../image/rowright.png"></image>
+</view>  
+<view class="pMess" wx:for="{{OrderList.sellers}}" wx:key="{{index}}">
+  <view class="seller">{{item.sellerName}}</view>
+  <view class="flex" wx:for="{{item.productDetails}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}">
+    <image src="{{itemSon.productImage}}"></image>
+    <view class="center">
+        <view class="title over2">{{itemSon.productName}}</view>
+        <view class="color" wx:for="{{itemSon.normal}}" wx:for-item="_itemson" wx:for-index="_indexson" wx:key="{{_indexson}}">{{_itemson}}</view>
+        <!-- <view class="chicun">{{OrderList.sellers[0].productDetails[0].normal[1]}}</view> -->
+    </view>
+    <view class="right">
+      <text>￥{{itemSon.price}}</text>
+      <text>x{{itemSon.num}}</text>
+      <text>{{itemSon.score}}</text>
+    </view>
+  </view>
+  <view class="fee flex"><text>运费</text><text>{{OrderList.postFeeView}}</text></view>
+  <view class="flex file">
+    <text>订单留言：</text>
+    <input type="text" placeholder="对本次交易的说明,限45字" maxlength="45" bindblur='getmemo' data-index="{{index}}"></input>
+  </view>
+</view>
+ <view class="userMess">
+    <view>账户</view>
+    <view wx:for="{{moneyClass}}" wx:key="{{index}}">
+        <view class="flex anyPay" wx:if="{{OrderList[item.mean]>0}}">
+          <view class="left">
+            <view wx:if="{{item.mean==='score' && OrderList.score>100 && productType!=='4'}}">
+            {{item.title}}<text>（{{OrderList.score}}可抵现{{OrderList.score/100}}元）</text>
+            </view>
+            <view wx:elif="{{item.mean==='goldBean' && OrderList.goldBean > 10  && productType!=='4'}}">
+            {{item.title}}<text>（{{OrderList.goldBean}}可抵现{{OrderList.goldBean/10}}元）</text>
+            </view>
+            <view wx:elif="{{item.mean==='amount' && OrderList.amount > 0}}">
+              {{item.title}}<text>（{{OrderList[item.mean]}}元）</text>
+            </view>
+             <view wx:elif="{{item.mean==='coffers' && OrderList.coffers > 0}}">
+              {{item.title}}<text>（{{OrderList[item.mean]}}元）</text>
+            </view>
+            <!-- <view wx:elif="{{item.mean==='coffers' && OrderList.coffers>0}}">
+              {{item.title}}<text>（{{OrderList[item.mean]}}元）</text>
+            </view> -->
+          </view>
+          <!-- wx:if="{{productType!=='4'}}" -->
+          <view class="right flex" wx:if="{{!((productType=='4' && index===0) ||(productType=='4' && index===3))}}"> 
+            <view wx:if="{{moneyNum===index}}" class="elenum"> 
+              <text wx:if="{{index===0}}"> {{isScore>99 ? '-￥'+isScore/100 : '最低100积分'}}</text>
+              <text wx:elif="{{index===3}}"> {{isGoldBean>9 ? '-￥'+isGoldBean/10 : '最低10金豆'}}</text>
+              <text wx:elif="{{index===1 && isAmount}}">-￥{{isAmount}}</text>
+              <text wx:elif="{{index===2 && isCoffers}}">-￥{{isCoffers}}</text>
+            <!-- -￥{{muchNum}} -->
+            </view>
+            <view class="border"  wx:if="{{moneyNum!==index}}" bindtap='checkedThis' data-item="{{item}}" data-index="{{index}}"></view>
+            <image src="../../image/checked.png"  wx:if="{{moneyNum===index}}" data-index="{{index}}" bindtap='checkedThis'></image>
+          </view>
+        </view>
+        <view wx:if="{{moneyNum===index}}" class="checkedBottom">
+          <view wx:if="{{item.mean==='score'}}">
+            <input type="number" value="{{isScore}}" data-item="{{item}}" bindinput="putinMoney"></input>{{item.title}}<text>(最低100积分)</text>
+          </view>
+          <view wx:elif="{{item.mean==='goldBean'}}">
+            <input type="number" value="{{isGoldBean}}" bindinput="putinMoney"  data-item="{{item}}"></input>
+            {{item.title}}<text>(最低10金豆)</text>    
+          </view>
+          <view wx:elif="{{item.mean==='amount'}}">
+            <input type="digit" value="{{isAmount}}" bindinput="putinMoney"  data-item="{{item}}"></input>元
+          </view>
+          <view wx:else>
+            <input type="digit" value="{{isCoffers}}" bindinput="putinMoney"  data-item="{{item}}"></input>元
+          </view>
+        </view>
+    </view>
+    <view class="couponClass flex" wx:if="{{couponMess.length>0}}" bindtap="openCoupon">
+      <view class="left">优惠券<text wx:if="{{!couponSell}}">（{{couponsNum}}可用/未选择）</text></view>
+      <view class="right flex">
+      <text style="color:#d33778;margin-right:20rpx;margin:0;" wx:if="{{couponSell}}">-￥{{couponSell}}</text>
+      <image src="../../image/moneyRow.png"></image>
+      </view>
+    </view>
+    <!-- 合计 -->
+    <view class="allPay">
+      <text>合计</text>
+      <view class="flex">
+        <text>商品总额</text>
+        <text>￥{{OrderList.totalFee}}</text>
+      </view>
+      <view wx:if="{{moneyNum===0 && isScore>99}}"  class="flex">
+        <text>{{deleTitle}}</text>
+        <text>-￥{{muchNum}}</text>
+      </view>
+      <view wx:elif="{{moneyNum===3 && isGoldBean>9}}"  class="flex">
+        <text>{{deleTitle}}</text>
+        <text>-￥{{muchNum}}</text>
+      </view>
+      <view wx:elif="{{(moneyNum===1 && isAmount) || (moneyNum===2 && isCoffers)}}"  class="flex">
+        <text>{{deleTitle}}</text>
+        <text>-￥{{muchNum}}</text>
+      </view>
+       <view wx:if="{{couponSell}}"  class="flex">
+        <text>优惠券</text>
+        <text>-￥{{couponSell}}</text>
+      </view>
+    </view>
+      <!-- 支付方式 -->
+    <view class="paymemoy">
+      <view>支付方式</view>
+      <view class="flex">
+        <view class="left flex">
+          <image src="../../image/weixin.png"></image>
+          <text>微信</text>
+        </view>
+        <view class="right">
+          <!-- <view class="border" data-index="1" bindtap='chosePay'></view>        -->
+          <image src="../../image/waychose.png"></image>        
+        </view>
+      </view>
+    </view>
+  </view>
+<!-- //优惠券弹框 -->
+<view class="couponList" wx:if="{{isCoupon}}">
+  <view class="couponContent">
+    <view class="top flex">
+      <text>可用优惠券</text>
+      <image src="../../image/duiClose.png"  class="close" bindtap='closeCoupon'></image>
+    </view>
+    <view class="list">
+      <!-- <text style="font-size:25rpx;line-height:88rpx;">可领优惠券</text> -->
+      <view wx:for="{{couponMess}}" wx:key="{{index}}">
+        <view style="font-size:28rpx;color:#333;margin:15rpx 0;">{{item.productName}}</view>
+        <view class="onecoupon" wx:for="{{item.coupons}}" wx:for-item="itemson" wx:for-index="indexson" wx:key="{{indexson}}"  data-item="{{itemson}}" data-index="{{index}}" data-indexson="{{indexson}}" bindtap='choseCoupon'>
+          <view style="position:relative;z-index:10;">
+            <view class="flex">
+              <view class="left"><text style="font-size:30rpx;">￥</text>{{itemson.amount}}</view>
+              <view class="right">
+                <view>{{itemson.title}}</view>
+                <view class="flex">
+                  <view class="border" wx:if="{{itemson.choseOr==0}}"></view>
+                  <image src="../../image/waychose.png"  wx:else></image>
+                </view>
+              </view>
+            </view>
+            <view class="bottom">有效期: {{itemson.startDate}} 至 {{itemson.endDate}}</view>
+          </view>        
+          <image src="../../image/dihong.png"></image>        
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 确认按钮 -->
+<view class="flex surebuy">
+  <view>应付金额:<text>￥{{lastMoney}}</text><text style="font-size:24rpx;">共{{allNum}}件</text></view>
+  <view bindtap='upDataList'>提交订单</view>
+</view>
+<!-- //支付弹框 -->
+<view class="password" wx:if="{{isPasswordShow}}">
+  <view class="title">请输入支付密码</view>
+    <input type='password' placeholder='请输入支付密码' value="{{isPassword}}" bindinput="getparssword" ></input>
+    <view class="flex">
+      <view bindtap='concalPay'>取消</view>
+      <view bindtap='surePay'>确定</view>
+    </view>
+</view>
+<view class="zhezhao" wx:if="{{isPasswordShow}}"></view>
+<!-- <view>
+  <input value="{{nummmmm}}" type="number" bindinput='ffffffff'></input>
+</view> -->

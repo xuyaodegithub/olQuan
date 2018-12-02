@@ -12,9 +12,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
   },
-
+  changeTitle(e){
+    console.log(11)
+    wx.setNavigationBarTitle({//动态设置页面标题
+      title: '客服'
+    })
+    console.log(22)
+    
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

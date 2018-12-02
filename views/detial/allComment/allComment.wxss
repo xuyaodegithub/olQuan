@@ -1,0 +1,39 @@
+/* views/detial/allComment/allComment.wxss */
+page{
+  background-color: rgb(242, 242, 242)
+}
+.tryImage{
+padding: 20rpx 30rpx;
+background-color: #ffffff;
+margin-bottom: 2rpx;
+}
+.tryImage .user{
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #8c8c8c;
+  line-height: 60rpx;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.tryImage .user image{
+  display:block;
+  width:60rpx;
+  height:60rpx;
+  margin-right: 24rpx;
+}
+.tryImage .tell{
+  font-size: 26rpx;
+  color: #333333;
+  line-height: 46rpx;
+  margin-bottom: 10rpx;
+}
+.tryImage .image {
+  /* justify-content: space-between; */
+}
+.tryImage .image image{
+  display: block;
+  width: 32%;
+  height:240rpx;
+  margin-right: 1%;
+}

@@ -1,2 +1,60 @@
 <!--shopcar/shopcar.wxml-->
-<text>{{num}}</text>
+<view class="header">
+  <view>购物车</view>
+  <view class="setAll" bindtap='setAll'>{{setAll==0 ? '编辑全部' : '完成'}}</view>
+</view>
+<view wx:for="{{shopCarMess}}" wx:key="{{index}}" class="oneSeller">
+    <view class="flex seller" wx:if="{{item.detailDtos.length>0}}">
+      <view class="flex">
+        <image src="../../image/nochose.png" wx:if="{{item.choseOr==0}}" bindtap='choseStore' data-index="{{index}}"></image>
+        <image src="../../image/checked.png" wx:else  bindtap='concalStore' data-index="{{index}}"></image>
+        <view class="title" style="color:#000;">{{item.sellerName}}</view>
+      </view>
+      <view wx:if="{{setAll==0}}" bindtap='setSelfchose' data-index="{{index}}" data-item="{{item}}">{{item.setAll==0 ? '编辑' : '完成'}}</view>
+    </view>
+    <view wx:for="{{item.detailDtos}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" class="product_mess flex">
+        <image src="../../image/nochose.png" wx:if="{{itemSon.choseOr==0}}" data-index="{{index}}" data-indexson="{{indexSon}}" bindtap='choseOneProduct'></image>
+        <image src="../../image/checked.png" wx:else data-index="{{index}}" data-indexSon="{{indexSon}}"  bindtap='cancalOneProduct'></image>
+        <view class="cneter">
+          <view wx:if="{{item.setAll==0}}" class="first flex">
+            <image src="{{itemSon.productImage}}"></image>
+            <view class="name">
+              <view class="over2">{{itemSon.productName}}</view>
+              <view class="normal">{{itemSon.normal}}</view>
+            </view>
+          </view>
+          <view wx:else class="second flex">
+            <image src="{{itemSon.productImage}}"></image>
+            <view data-index="{{index}}" data-indexson="{{indexSon}}" bindtap='downNum'>-</view>
+            <view>{{itemSon.num}}</view>
+            <view data-index="{{index}}" data-indexson="{{indexSon}}" bindtap='addNum'>+</view>
+          </view>
+        </view>
+        <view class="left">
+             <view  class="secondC" wx:if="{{item.setAll!=0 && setAllNocha}}">
+              <image src="../../image/cha.png"  data-index="{{index}}" data-indexson="{{indexSon}}" bindtap='deleteThis'></image>
+            </view>
+            <view wx:elif="{{item.setAll==0}}" class="firstC">
+              <view class="price">￥{{itemSon.appPrice}}</view>  
+              <view>x{{itemSon.num}}</view>  
+            </view>
+           
+        </view>
+    </view>
+</view>
+<!-- 价格 -->
+<view class="payfor flex">
+  <view class="flex">
+    <image src="../../image/nochose.png" wx:if="{{!choseAll}}" bindtap='choseAllProduct'></image>
+    <image src="../../image/checked.png" wx:else  bindtap='cancalAllProduct'></image>
+    <view>全选</view>
+  </view>
+  <view class="left flex">
+    <view wx:if="{{!setAll}}">
+      合计：￥{{allprice}}
+    </view>
+    <view wx:if="{{!setAll}}" bindtap='toOrder'>结算({{allnum}})</view>
+    <view wx:else bindtap='setAllDelete'>删除</view>
+  </view>
+
+</view>

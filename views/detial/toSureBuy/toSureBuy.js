@@ -33,7 +33,8 @@ Page({
     adressID:'',//地址id
     isPassword:'',//支付密码
     isPasswordShow:false,//支付密码弹框
-    isPayAnother:0//是否代付
+    isPayAnother:0,//是否代付
+    openOrClose:true
   },
 
   /**
@@ -237,14 +238,14 @@ Page({
     let price = this.data.couponSell ? this.data.productPrice - this.data.couponSell : this.data.productPrice
     console.log(price)
     if (e.currentTarget.dataset.item.mean === "amount"){
-      if (parseFloat(valueNum) > parseFloat(price) && parseFloat(valueNum) < parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])){
+      if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])){
         console.log(valueNum,price)
         this.setData({
           muchNum: Math.floor(price*100)/100,
           isAmount: Math.floor(price*100)/100,
           lastMoney:(0).toFixed(2)
         })
-      } else if (parseFloat(valueNum) > parseFloat(price) && parseFloat(valueNum) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])){
+      } else if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])){
         if (parseFloat(price) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])){
           this.setData({
             muchNum: this.data.OrderList[e.currentTarget.dataset.item.mean],
@@ -258,7 +259,7 @@ Page({
             lastMoney: (0).toFixed(2)
           })
         }
-      } else if (parseFloat(valueNum) < parseFloat(price) && parseFloat(valueNum) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])){
+      } else if (parseFloat(valueNum) <= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])){
         this.setData({
           muchNum: this.data.OrderList[e.currentTarget.dataset.item.mean],
           isAmount: this.data.OrderList[e.currentTarget.dataset.item.mean],
@@ -273,14 +274,14 @@ Page({
         })
       }
     } else if (e.currentTarget.dataset.item.mean === "coffers"){
-      if (parseFloat(valueNum) > parseFloat(price) && parseFloat(valueNum) < parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
+      if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         console.log(valueNum, price)
         this.setData({
           muchNum: Math.floor(price * 100) / 100,
           isCoffers: Math.floor(price * 100) / 100,
           lastMoney: (0).toFixed(2)
         })
-      } else if (parseFloat(valueNum) > parseFloat(price) && parseFloat(valueNum) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
+      } else if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         if (parseFloat(price) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
           this.setData({
             muchNum: this.data.OrderList[e.currentTarget.dataset.item.mean],
@@ -294,7 +295,7 @@ Page({
             lastMoney: (0).toFixed(2)
           })
         }
-      } else if (parseFloat(valueNum) < parseFloat(price) && parseFloat(valueNum) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
+      } else if (parseFloat(valueNum) <= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         this.setData({
           muchNum: this.data.OrderList[e.currentTarget.dataset.item.mean],
           isCoffers: this.data.OrderList[e.currentTarget.dataset.item.mean],
@@ -309,14 +310,14 @@ Page({
         })
       }
     } else if (e.currentTarget.dataset.item.mean === "score"){
-      if (parseFloat(valueNum/100) > parseFloat(price) && parseFloat(valueNum) < parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
+      if (parseFloat(valueNum/100) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         console.log(valueNum, price)
         this.setData({
           muchNum: Math.floor(price * 100) / 100,
           isScore: Math.floor(price * 100),
           lastMoney: (0).toFixed(2)
         })
-      } else if (parseFloat(valueNum/100) > parseFloat(price) && parseFloat(valueNum) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
+      } else if (parseFloat(valueNum/100) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         if (parseFloat(price) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean]/100)) {
           this.setData({
             muchNum: parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean]/100),
@@ -330,7 +331,7 @@ Page({
             lastMoney: (0).toFixed(2)
           })
         }
-      } else if (parseFloat(valueNum/100) < parseFloat(price) && parseFloat(valueNum) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
+      } else if (parseFloat(valueNum/100) <= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         this.setData({
           muchNum: parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean]/100),
           isScore: this.data.OrderList[e.currentTarget.dataset.item.mean],
@@ -344,14 +345,14 @@ Page({
         })
       }
     }else{
-      if (parseFloat(valueNum / 10) > parseFloat(price) && parseFloat(valueNum) < parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
+      if (parseFloat(valueNum / 10) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         console.log(valueNum, price)
         this.setData({
           muchNum: Math.floor(price * 100) / 100,
           isGoldBean: Math.floor(price * 100) / 10,
           lastMoney: (0).toFixed(2)
         })
-      } else if (parseFloat(valueNum / 10) > parseFloat(price) && parseFloat(valueNum) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
+      } else if (parseFloat(valueNum / 10) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         if (parseFloat(price) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean] / 10)) {
           this.setData({
             muchNum: parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean] / 10),
@@ -365,7 +366,7 @@ Page({
             lastMoney: (0).toFixed(2)
           })
         }
-      } else if (parseFloat(valueNum / 10) < parseFloat(price) && parseFloat(valueNum) > parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
+      } else if (parseFloat(valueNum / 10) <= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         this.setData({
           muchNum: parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean]/10),
           isGoldBean: this.data.OrderList[e.currentTarget.dataset.item.mean],
@@ -536,6 +537,9 @@ Page({
   },
   //确定
   surePay() {
+    wx.showLoading({
+      mask:true
+      })
     console.log(this.data.pagFangshi)
         let data={
           productId: this.data.productData.productId,
@@ -555,7 +559,7 @@ Page({
       data.normalId = this.data.productData.normalId
     }
     if (this.data.couponSell > 0 && this.data.whichCoupon !== '') {
-      data.couponRecordId = this.data.OrderList.coupons[0].coupons[this.data.whichCoupon]
+      data.couponRecordId = this.data.OrderList.coupons[0].coupons[this.data.whichCoupon].id
     }
     if (this.data.pagFangshi == 'score') data.score = this.data.isScore
     else if (this.data.pagFangshi == 'coffers') data.coffers = this.data.isCoffers
@@ -572,7 +576,11 @@ Page({
         // if (res.data.code == 1) wx.showToast({ title: '库存不足', icon: 'none' })
         // else if (res.data.code == 1) wx.showToast({ title: '库存不足', icon: 'none' })
         console.log(res)
-        if(res.data.code==0){
+        // if(res.data.code==0){
+          wx.hideLoading({})
+          // _self.setData({
+          //   GoShouQuan:false
+          // })
           if (res.data.result.payInfo) {
             wx.requestPayment({
               timeStamp: res.data.result.payInfo.timeStamp,
@@ -596,9 +604,9 @@ Page({
               url: '../paySuccess/paySuccess?orderMess=' + res.data.result.orderPayRecordNo
             })
           }
-        }else{
-          wx.showToast({ title:res.data.message , icon: 'none' })
-        }
+        // }else{
+        //   wx.showToast({ title:res.data.message , icon: 'none' })
+        // }
         
       }
     }

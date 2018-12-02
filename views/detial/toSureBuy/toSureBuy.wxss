@@ -336,6 +336,7 @@ width:200rpx;
    align-items: center;
    color: #888;
    border-top: 2rpx solid #e1e1e1;
+   z-index:555;
   }
   .surebuy view:first-child text:first-child{
       color: rgb(230, 29, 121);

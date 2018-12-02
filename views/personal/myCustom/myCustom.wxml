@@ -1,0 +1,4 @@
+<!--views/personal/myCustom/myCustom.wxml-->
+<view>
+<web-view src="{{linkUrl}}" />
+</view>

@@ -1,0 +1,29 @@
+<!--views/personal/invitePink/invitePink.wxml-->
+<rich-text class='speImg' wx:if="{{isShowSuper}}" nodes="{{detailList.inviteContent}}"></rich-text>
+<rich-text class='speImg' wx:if="{{!isShowSuper}}" nodes="{{detailList.inviteContent}}"></rich-text>
+<view class='sureBotOut' wx:if="{{isShowSuper}}">
+  <button class='sureBot' data-info='{{order}}' open-type="share" hover-class='none'>立即邀请</button> 
+</view>
+<view class='sureBotOut' wx:if="{{!isShowSuper}}">
+  <view class='sureBot' bindtap='openIsShow'>立即申请</view>
+</view>
+
+<view wx:if="{{isShow}}" class='backImg' bindtap='colseIsShow'></view>
+<view class='chooseBag' wx:if="{{isShow}}">
+  <view class='outBag'>
+    <view class='bagImg'>
+      <image class='bagImgSon' src='{{bagGifImg}}'></image>
+    </view>
+    <view class='bagName'>
+      <view style="margin-bottom: 16rpx;">选择经理礼包</view>
+      <view>￥{{detailList.totalFee}}</view>
+    </view>
+    <view class='colseImg' bindtap='colseIsShow'>
+      <image class='colseImgSon' src='../../../image/duiClose.png'></image>
+    </view>
+    <view class='bagMore'>
+      <view wx:for="{{detailList.gifts}}" wx:key="{{index}}" class=" gifsName {{status==index ? 'active' : ''}}" data-index='{{index}}' bindtap='chooseBagDetail'>{{item.bagName}}</view>
+    </view>
+    <view class='sureChoose' bindtap='buyPink'>确定</view>
+  </view>
+</view>

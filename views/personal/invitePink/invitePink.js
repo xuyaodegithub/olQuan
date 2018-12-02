@@ -24,33 +24,22 @@ Page({
    */
   onLoad: function (options) {
     common.methods.getLoginMess(this.getListDetail, this)
-    console.log(options.inviteId)
-    if (options.inviteId!=undefined){
+    if (options.inviteId != undefined) {
       this.setData({
         inviteId: options.inviteId
       })
     }
-    if (options.isShare==1){
-      if (this.data.memberList.isGetStoreCommission == 1 && this.data.memberList.isShowRenewButton==0){
+    if (options.isShare == 1) {
+      if (this.data.memberList.isGetStoreCommission == 1 && this.data.memberList.isShowRenewButton == 0) {
         this.setData({
           isPinkSure: true
         })
-      }else{
+      } else {
         this.setData({
           isPinkSure: false
         })
       }
-      if (this.data.memberList.isShowRenewButton != 0){
-        this.setData({
-          isPinkSureGet: true
-        })
-      }else{
-        this.setData({
-          isPinkSureGet: false
-        })
-      }
     }
-    
   },
   //关闭礼包弹窗
   colseIsShow(){
@@ -77,6 +66,12 @@ Page({
       url: '/views/personal/buyPink/buyPink',
     })
   },
+  getIndex(){
+    console.log(1)
+    wx.switchTab({
+      url: '/views/firstIndex/firstIndex',
+    })
+  },
   //选择礼包
   chooseBagDetail(e){
     this.setData({
@@ -86,26 +81,47 @@ Page({
   },
   //获取邀请粉领信息
   getListDetail(){
-    this.setData({
-      memberList: app.memberData,
-    })
-    if (this.data.memberList.isGetStoreCommission == 1) {
-      wx.setNavigationBarTitle({
-        title: '邀请店主'
-      })
-      this.setData({
-        isShowSuper: true,
-      })
-      
-    } else {
-      wx.setNavigationBarTitle({
-        title: '申请店主'
-      })
-      this.setData({
-        isShowSuper: false,
-      })
-    }
     let _self = this
+    let member = {
+      url: '/mobile/member/getMember',
+      data: {
+        memberId: app.userId,
+      },
+      callback: function (res) {
+        _self.setData({
+          memberList: app.memberData,
+        })
+        console.log(_self.data.memberList)
+        if (_self.data.memberList.isShowRenewButton != 0) {
+          _self.setData({
+            isPinkSureGet: true
+          })
+        } else {
+          _self.setData({
+            isPinkSureGet: false
+          })
+        }
+        if (_self.data.memberList.isGetStoreCommission == 1) {
+          wx.setNavigationBarTitle({
+            title: '邀请店主'
+          })
+          _self.setData({
+            isShowSuper: true,
+          })
+
+        } else {
+          wx.setNavigationBarTitle({
+            title: '申请店主'
+          })
+          _self.setData({
+            isShowSuper: false,
+          })
+        }
+      }
+    }
+    common.methods.mothod1(member)
+    
+    
     let banners = {
       url: '/mobile/store/newGiftbags',
       data: {
@@ -134,7 +150,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
+    
+    
+      
+    
   },
 
   /**
@@ -155,7 +175,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    let _self = this
+    // wx.startPullDownRefresh()
+    wx.showNavigationBarLoading()
+    this.getListDetail()
+    wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh()
+   
   },
 
   /**

@@ -1,4 +1,8 @@
 /**app.wxss**/
+/*万能清除法*/
+.clear{zoom:1;}
+.clear:after{content:"";clear:both;display:block;}
+
 .container {
   height: 100%;
   display: flex;

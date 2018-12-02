@@ -54,7 +54,7 @@ Page({
     }
     // console.log(this.route)
     common.methods.getLoginMess(this.getfirstBanner,this)
-    common.methods.setTabBarBadge(data)
+    // common.methods.setTabBarBadge(data)
     // app.getLogin().then(function(){
       
     // }).catch(function(err){
@@ -160,7 +160,27 @@ Page({
   },
   //分类下banner
   goActive(e){
-    console.log(e.currentTarget.dataset.url)
+    // console.log(e.currentTarget.dataset.url)
+    let item = e.currentTarget.dataset.item
+    if (item.linkType==9){
+      wx.navigateTo({
+        url: '../activePage/activePage?id=' + item.otherInfo.id,
+      })
+    } else if (item.linkType == 10){
+      wx.navigateTo({
+        url: '../plusPage/plusPage',
+      })
+    } else if (item.linkType == 13){
+      wx.navigateTo({
+        url: '../tryPage/tryPage',
+      })
+    } else if (item.linkType == 18){
+      wx.navigateTo({
+        url: '../findPage/findPage',
+      })
+    }else{
+      return
+    }
   },
   //跳转详情页
   goDetial(e){
@@ -280,7 +300,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function (e) {
-   console.log(e)
+  //  console.log(e)
   //  let _self=this
     this.setData({
       page:this.data.page+1

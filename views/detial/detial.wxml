@@ -97,7 +97,7 @@
   <view class="mess">
     <view class="title flex">
       <view class="over2">{{productData.productName}}</view>
-      <image src="../../image/erwei.png" wx:if="{{timer}}"></image>
+      <image src="../../image/erwei.png" wx:if="{{timer}}"  bindtap='drawImage'></image>
     </view>
     <view class="smalltitle">{{productData.summary}}</view>
     <view class="jindou flex" wx:if="{{productType==='1'}}">
@@ -164,7 +164,7 @@
     <view class="tryLiu flex" wx:if="{{productData.comments.length>0}}">
       <text>{{productType==='4' ? '试用报告' : '用户评价'}}({{productData.commentCount}})</text>
       <!-- <text wx:else>试用报告({{productData.commentCount}})</text> -->
-      <view>
+      <view bindtap='goCommonent'>
         查看全部
         <image src="../../image/rowright.png"></image>
       </view>
@@ -205,12 +205,13 @@
       <image src="../../image/kefu.png"></image>
       <text>客服</text>
     </view>
-    <view>
+    <view bindtap='goStore'>
       <image src="../../image/house.png"></image>
       <text>店铺</text>      
     </view>
-    <view>
-      <image src="../../image/shoucang2.png"></image>
+    <view bindtap='collect'>
+      <image src="../../image/shoucang2.png" wx:if="{{isCollect==0}}"></image>
+      <image src="../../image/collected.png" wx:else></image>
       <text>收藏</text>      
     </view>
   </view>
@@ -243,7 +244,7 @@
       </view>
     </view>
     <view wx:else class="flex typeOne">
-        <view wx:if="{{productData.personal!==1}}" class="darkNo">加入购物车</view>
+        <view wx:if="{{productData.personal!==1}}" class="darkNo" bindtap='addStore'>加入购物车</view>
         <view class="buyColor" bindtap="openBuy">立即购买</view>
     </view>
   </view>
@@ -342,7 +343,18 @@
 <!-- //canvas -->
   <view class="canvas flex" hidden="{{!canvasImg}}" catchtouchmove="preventD">
     <view catchtouchmove="preventD">
-      <canvas canvas-id="mycanvas" class="canvasId" style="width:750rpx;height:1150rpx;z-index:1200;backgroundColor: #ffffff;" bindtap='closeEwm' bindlongpress="saveImg"></canvas>
+      <canvas canvas-id="mycanvas" class="canvasId" style="z-index:1200;background-color: #ffffff;" bindtap='closeEwm' bindlongpress="saveImg"></canvas>
     </view>
   </view>
   <!-- <web-view src="{{productData.detailUrl}}"></web-view> -->
+  <!-- //再次授权按钮  size="mini"-->
+  <view class="GoShouQuan" wx:if="{{isSaveAlow}}">
+    <view>微信授权提示</view>
+    <view>保存图片权限还没同意,请先进行授权操作</view>
+    <view class="flex">
+      <button type="default" bindtap="calconShou">取消</button>
+      <button type="primary"  open-type="openSetting" 
+bindopensetting='calconShou'>去授权</button>
+    </view>
+  </view>
+  <view class="zhezhao" wx:if="{{isSaveAlow}}"></view>

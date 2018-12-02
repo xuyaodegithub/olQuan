@@ -1,0 +1,4 @@
+<!--views/personal/amountRecord/amountRecord.wxml-->
+<view>
+  <web-view src="{{linkUrl}}" />
+</view>

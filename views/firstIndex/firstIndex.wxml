@@ -36,7 +36,7 @@
       </view> 
     </view>
       <view wx:if="{{classBtn[classNum].advers.length>0}}" class="classBanner">
-        <image src="{{classBtn[classNum].advers[0].image}}" data-url="{{classBtn[classNum].advers[0].url}}" bindtap="goActive" mode="widthFix"></image>
+        <image src="{{classBtn[classNum].advers[0].image}}" data-item="{{classBtn[classNum].advers[0]}}" bindtap="goActive" mode="widthFix"></image>
       </view>
       <view class="dataList flex">
           <view class="Pitem" wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" data-type="{{item.type}}" bindtap='goDetial'>

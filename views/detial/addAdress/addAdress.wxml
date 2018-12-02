@@ -22,7 +22,7 @@
       </view>
       <view class="right flex">
         <view catchtap='updataOne'  data-id="{{item.id}}">编辑</view>
-        <view style="margin-right:36rpx;" bindtap='deleteOne' data-id="{{item.id}}" data-index="{{index}}">删除</view>
+        <view style="margin-right:36rpx;" catchtap='deleteOne' data-id="{{item.id}}" data-index="{{index}}">删除</view>
       </view>
     </view>
   </view>

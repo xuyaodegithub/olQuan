@@ -1,0 +1,17 @@
+<!--views/detial/allComment/allComment.wxml-->
+<view class="tryImage" wx:for="{{commontList}}" wx:key="{{index}}">
+      <view class="user flex">
+          <view class="flex">
+            <image src="{{item.memberLogo}}"  mode="widthFix" class="radius50"></image>
+            <text>{{item.memberName}}</text>
+          </view>
+          <view class="time">{{item.time}}</view>
+      </view>
+      <view class="tell">{{item.content}}</view>
+      <view class="image flex">
+        <image wx:for="{{item.images}}" wx:key="{{index}}" wx:for-item="itemson" wx:for-index="indexson" bindtap='previewImage' data-index="{{indexson}}" data-item="{{item.images}}" src="{{itemson}}" wx:if="{{indexson<3}}"></image>
+      </view>
+    </view>
+<view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+    <image src="../../../image/goTop.png"></image>
+  </view>

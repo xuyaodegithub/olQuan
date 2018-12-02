@@ -29,7 +29,10 @@ Page({
     rows:10,
     canvasImg:'',//canvas图片
     ewmImg:'',
-    recId:''//发现关联id
+    recId:'',//发现关联id
+    isSaveAlow:false,//授权弹框
+    isCollect:0,//是否收藏
+    addOrBuy:1//1add2buy
   },
 
   /**
@@ -63,6 +66,7 @@ Page({
                 res.data.result.detail = res.data.result.detail.replace(/\<img/g, "<img style='display:block;width:100%;'")
                }
               _self.setData({
+                isCollect: res.data.result.isCollect,
                 productData: res.data.result,
                 propverImg: res.data.result.image,
                 isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1,
@@ -82,12 +86,12 @@ Page({
                   })
                 }
               }
-              _self.setData({
-                productData: res.data.result,
-                propverImg: res.data.result.image,
-                isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1,
-                productType: (res.data.result.type).toString()
-              })
+              // _self.setData({
+              //   productData: res.data.result,
+              //   propverImg: res.data.result.image,
+              //   isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1,
+              //   productType: (res.data.result.type).toString()
+              // })
             }
       }
       common.methods.mothod1(data)      
@@ -99,6 +103,12 @@ Page({
     wx.previewImage({
       current: e.currentTarget.dataset.item[e.currentTarget.dataset.index], // 当前显示图片的http链接  
       urls: e.currentTarget.dataset.item // 需要预览的图片http链接列表  
+    })
+  },
+  //产看全部评价
+  goCommonent(){
+    wx.navigateTo({
+      url: './allComment/allComment?id=' + this.data.productId,
     })
   },
   //倒计时方法
@@ -182,7 +192,16 @@ Page({
     // }
     this.setData({
       isShow: false,
-      isStore: this.data.productData.store
+      isStore: this.data.normalMess ? this.data.normalMess.store : this.data.productData.store,
+      addOrBuy:2//购买
+    })
+  },
+  //加入购物车按钮
+  addStore(){
+    this.setData({
+      isShow: false,
+      isStore: this.data.normalMess ? this.data.normalMess.store : this.data.productData.store,
+      addOrBuy:1//加入购物车
     })
   },
   //弹框确认按钮
@@ -213,7 +232,11 @@ Page({
     if (this.data.productData.normals.length>0){
       if (this.data.normalMess){
         if (this.data.isStore){
-          this.saveProductMess()
+          if (this.data.addOrBuy==2){
+            this.saveProductMess()
+          }else{
+            this.addShopStore()
+          }
         }else{
           wx.showToast({ title: '库存不足请选择其他规格', icon: 'none' })
         }
@@ -221,8 +244,36 @@ Page({
         wx.showToast({ title:'请选择规格',icon:'none'})
       }
     }else{
-      this.saveProductMess()
+      if (this.data.isStore) {
+        if (this.data.addOrBuy == 2) {
+          this.saveProductMess()
+        } else {
+          this.addShopStore()
+        }
+      } else {
+        wx.showToast({ title: '库存不足', icon: 'none' })
+      }
     }
+  },
+  //加入购物车
+  addShopStore(){
+    let _self=this
+    let data={
+      url:'/mobile/carItem/addProduct',
+      data:{
+        productId: this.data.productId,
+        memberId:app.userId,
+        normalId: this.data.normalMess ? this.data.normalMess.id : '',
+        num: this.data.isbuyMinCount
+      },
+      callback:function(res){
+        wx.showToast({ title: '添加成功', icon: 'none' })
+        _self.setData({
+          isShow:true
+        })
+      }
+    }
+    common.methods.mothod1(data)
   },
   //跳转确认订单页储存信息
   saveProductMess(){
@@ -389,7 +440,7 @@ Page({
   //canvas画图
   getErweima(erweima){
     var resd = wx.getSystemInfoSync();
-    var radio = resd.screenWidth / 750;
+    var radio = resd.screenWidth / 750;//屏幕宽度比例
     let _self=this
     const ctx = wx.createCanvasContext('mycanvas');
     // ctx.drawImage(app.memberData.logo, 15, 20, 50, 50);    //绘制背景图
@@ -398,6 +449,9 @@ Page({
     var d = 2 * R;
     var cx = 15 + R;
     var cy = 15 + R;
+    ctx.setFillStyle('white')
+    ctx.fillRect(0, 0, 650, 1000)
+    ctx.draw()
     ctx.beginPath();
     ctx.arc(cx, cy, R, 0, 2 * Math.PI);
     ctx.save();    
@@ -417,7 +471,7 @@ Page({
         ctx.setFillStyle('#333333')
         ctx.fillText('发现好物，与您分享!', 72, 57)
         ctx.save();
-        ctx.translate(radio * 700, 20);//设置画布上的(0,0)位置，也就是旋转的中心点
+        ctx.translate(radio * 600, 20);//设置画布上的(0,0)位置，也就是旋转的中心点
         ctx.rotate(90 * Math.PI / 180);
         ctx.setFillStyle('#777777');
         ctx.setFontSize(12);
@@ -426,7 +480,7 @@ Page({
         wx.getImageInfo({//////////////////////////////
           src: _self.data.productData.image,
           success(res) {
-            ctx.drawImage(res.path, 0, 80, radio * 750, radio*750);
+            ctx.drawImage(res.path, 0, 80, radio * 650, radio*650);
             //商品名称
             var str = _self.data.productData.productName;
             //绘制简单的文字
@@ -434,8 +488,8 @@ Page({
             // ctx.setFontSize (12);
             ctx.lineWidth = 1;
             var lineWidth = 0;
-            var canvasWidth = 230;//计算canvas的宽度
-            var initHeight = (radio * 750)+100;//绘制字体距离canvas顶部初始的高度
+            var canvasWidth = 220;//计算canvas的宽度
+            var initHeight = (radio * 650)+100;//绘制字体距离canvas顶部初始的高度
             var lastSubStrIndex = 0; //每次开始截取的字符串的索引
             for (let i = 0; i < str.length; i++) {
               lineWidth += ctx.measureText(str[i]).width;
@@ -451,15 +505,15 @@ Page({
             }
             //价格
             ctx.setFillStyle('#ed0276')  // 文字颜色：黑色
-            ctx.setFontSize(16)         // 文字字号：22px
-            ctx.fillText('￥' + _self.data.productData.salePrice, 16, (radio * 750) + 150)
+            ctx.setFontSize(14)         // 文字字号：22px
+            ctx.fillText('￥' + _self.data.productData.salePrice, 16, (radio * 650) + 140)
             ctx.setFillStyle('#777777')  // 文字颜色：黑色
             ctx.setFontSize(12)         // 文字字号：22px
-            ctx.fillText('长按保存分享给好友哟！', 16, (radio * 750) + 180)
+            ctx.fillText('长按保存分享给好友哟！', 16, (radio * 650) + 160)
             wx.getImageInfo({////////////////////////
               src: erweima,
               success(res) {
-                ctx.drawImage(res.path, radio * 750 * 0.75, (radio * 750) + 80,90,90);                
+                ctx.drawImage(res.path, radio * 650 * 0.75, (radio * 650) + 90,80,80);                
                 ctx.draw(true,function(){
                   _self.setData({
                     ewmImg:'have'
@@ -488,12 +542,13 @@ Page({
               fail() {
                 // 如果用户拒绝过或没有授权，则再次打开授权窗口
                 //（ps：微信api又改了现在只能通过button才能打开授权设置，以前通过openSet就可打开，下面有打开授权的button弹窗代码）
-                wx.showToast({
-                  title: '授权失败无法保存',
-                  icon: 'none'
-                })
+                // wx.showToast({
+                //   title: '授权失败无法保存',
+                //   icon: 'none'
+                // })
                 _self.setData({
-                  canvasImg: false
+                  canvasImg: false,
+                  isSaveAlow:true
                 })
               }
             })
@@ -506,6 +561,7 @@ Page({
   },
   //保存图片
    afterCanSaveImg(){
+     let _self=this
      wx.showModal({
        title: '提示',
        content: '确认保存图片么？',
@@ -515,19 +571,22 @@ Page({
            wx.canvasToTempFilePath({ //把当前画布指定区域的内容导出生成指定大小的图片，并返回文件路径
              x: 0,
              y: 0,
-             width: 800,
+             width: 650,
              height: 1000,
              destWidth: 800,  //输出的图片的宽度
              destHeight: 1225,
              canvasId: 'mycanvas',
              success: function (res) {
-               console.log(res);
+              //  console.log(res);
                if (res.errMsg === "canvasToTempFilePath:ok") {
                  wx.saveImageToPhotosAlbum({
                    filePath: res.tempFilePath,
                    success() {
                      wx.showToast({
                        title: '保存成功'
+                     })
+                     _self.setData({
+                       canvasImg:false
                      })
                    },
                    fail() {
@@ -559,9 +618,40 @@ Page({
   //进店逛逛
   goStore(){
     wx.navigateTo({
-      url: '../personal/sellerShop/sellerShop?id=' + this.data.productData.sellerId,
-      //  + '&logo=' + this.data.productData.sellerLogo + '&sellername=' + this.data.productData.sellerName 
+      url: '../personal/sellerShop/sellerShop?id=' + this.data.productData.sellerId
+       + '&logo=' + this.data.productData.sellerLogo + '&sellername=' + this.data.productData.sellerName 
     })
+  },
+  calconShou(){
+    this.setData({
+      isSaveAlow:false
+    })
+  },
+  //收藏产品
+  collect(){
+    let _self=this
+    let data={
+      url:'/mobile/collect/doCollect',
+      data:{
+        objId: this.data.productId,
+        memberId:app.userId,
+        type:1
+      },
+      callback:function(res){
+        if (_self.data.isCollect==0){
+          wx.showToast({ title: '收藏成功', icon: 'none' }) 
+          _self.setData({
+            isCollect:1
+          })  
+        }else{
+          wx.showToast({ title: '取消收藏成功', icon: 'none' })
+          _self.setData({
+            isCollect: 0
+          })  
+        }
+      }
+    }
+    common.methods.mothod1(data)      
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -618,7 +708,8 @@ Page({
     return {
       title: this.data.productData.productName,
       path: '/views/detial/detial?id=' + this.data.productId + '&type=' + this.data.productType,//当前页面 path ，必须是以 / 开头的完整路径
-      // imageUrl:'',//转发图标
+      imageUrl: this.data.productData.image,//转发图标
+      desc: this.data.productData.summary,
       success: function (res) {
         //成功
         console.log(999)

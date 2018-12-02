@@ -123,6 +123,48 @@ Page({
       complete: function (res) { },
     })
   },
+  inviteSuper(){
+    wx: wx.navigateTo({
+      url: './inviteSuper/inviteSuper',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  getPerson(){
+    wx: wx.navigateTo({
+      url: './webView/webView?id=' + app.userId,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //我的客户
+  getCounstom(){
+    wx: wx.navigateTo({
+      url: './myCustom/myCustom',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //报表中心
+  amountRecord(){
+    wx: wx.navigateTo({
+      url: './amountRecord/amountRecord?memberId=' + app.userId,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  getInviteList(){
+    wx: wx.navigateTo({
+      url: './inviteList/inviteList',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
     //首次进入
     firstGoin(){
       let _self = this;
@@ -143,7 +185,7 @@ Page({
         callback: function (res) {
           _self.setData({
             personalList: res.data.result,
-            time: res.data.result.validTime.split("至")[1]
+            time: res.data.result.validTime!=''?res.data.result.validTime.split("至")[1]:''
           })
           if (res.data.result.isShowRenewButton != 0){
             _self.setData({

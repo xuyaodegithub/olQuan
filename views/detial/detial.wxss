@@ -223,13 +223,14 @@ margin-bottom: 2rpx;
   line-height: 46rpx;
   margin-bottom: 10rpx;
 }
-.tryImage .image {
+/* .tryImage .image {
   justify-content: space-between;
-}
+} */
 .tryImage .image image{
   display: block;
   width: 32%;
   height:240rpx;
+  margin-right: 1%;
 }
 .instore{
   padding: 10rpx 30rpx;
@@ -252,7 +253,7 @@ margin-bottom: 2rpx;
   margin-right: 20rpx;
 }
 .instore .house{
- width: 160rpx;
+ width: 150rpx;
  justify-content: space-between;
  padding: 0 10rpx;
  align-items: center;
@@ -609,6 +610,37 @@ width:200rpx;
   left: 50%;
   margin: -575rpx 0 0 -375rpx; */
   background-color: #ffffff;
+  width: 650rpx;
+  margin: 0 auto;
+  height:1000rpx;
   /* width: 85%; */
   /* width: 800rpx;height: 1220rpx; */
+}
+.GoShouQuan{
+  position: fixed;
+  width:460rpx;
+  height: 270rpx;
+  top: 50%;
+  left: 50%;
+  margin: -130rpx 0 0 -260rpx;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 24rpx;
+  z-index: 20000;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+}
+.GoShouQuan view:first-child{
+  text-align: center;
+  font-size:28rpx;
+  line-height: 60rpx; 
+}
+.GoShouQuan view:nth-child(2){
+  line-height: 50rpx;
+  color: #666666;
+  text-align: center;
+}
+.GoShouQuan .flex{
+  margin-top: 30rpx;
+  justify-content: space-between;
 }

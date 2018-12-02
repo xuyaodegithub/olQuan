@@ -201,6 +201,36 @@ function uploadImg(data){//上传图片接口
     },
   })
 }
+function goMoreType(val){
+  let item = val
+  if (item.linkType == 9) {
+    wx.navigateTo({
+      url: '/views/activePage/activePage?id=' + item.url.split('id=')[1],
+    })
+  } else if (item.linkType == 10) {
+    wx.navigateTo({
+      url: '/views/plusPage/plusPage',
+    })
+  } else if (item.linkType == 13) {
+    wx.navigateTo({
+      url: '/views/tryPage/tryPage',
+    })
+  } else if (item.linkType == 19) {
+    wx.navigateTo({
+      url: '/views/findPage/findPage',
+    })
+  } else if (item.linkType == 18 || item.linkType == 15 || item.linkType == 16 || item.linkType == 17) {
+    let url=item.url.split('id/')
+    let url2=url[1].split('?')
+    let id=url2[0]
+    let typeP = item.url.split('type=')[1]
+    wx.navigateTo({
+      url: '/views/detial/detial?id=' + id + '&type=' + typeP,
+    })
+  } else {
+    return
+  }
+}
 module.exports.methods = {
   "mothod1": mothod1,
   "mothod2": httpRequest,
@@ -208,5 +238,6 @@ module.exports.methods = {
   "setTabBarBadge": setTabBarBadge,
   "getGraphCode": getGraphCode,
   "uploadImg": uploadImg,
-  "mothod3": mothod3
+  "mothod3": mothod3,
+  "goMoreType": goMoreType
 } 
