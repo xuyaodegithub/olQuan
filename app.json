@@ -1,8 +1,11 @@
 {
   "pages": [
-    "views/firstIndex/firstIndex",
+    "views/personal/renewPink/renewPink",
     "views/personal/personal",
+    "views/personal/applyManger/applyManager",
+    "views/personal/payMent/payMent",
     "views/find/find",
+    "views/firstIndex/firstIndex",
     "views/personal/invitePink/invitePink",
     "views/personal/myCollect/myCollect",
     "views/personal/getCoupon/getCoupon",
@@ -45,6 +48,7 @@
     "views/personal/amountRecord/amountRecord",
     "views/personal/myCustom/myCustom",
     "views/personal/inviteList/inviteList"
+    
   ],
   "find": [
     ""

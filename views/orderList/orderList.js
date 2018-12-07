@@ -331,6 +331,16 @@ Page({
       delectOrder: false,
     });
   },
+  //立即付款
+  payMent(e){
+
+    wx: wx.navigateTo({
+      url: '/views/personal/payMent/payMent?id=' + e.currentTarget.dataset.id,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
