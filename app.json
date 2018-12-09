@@ -44,7 +44,10 @@
     "views/personal/webView/webView",
     "views/personal/amountRecord/amountRecord",
     "views/personal/myCustom/myCustom",
-    "views/personal/inviteList/inviteList"
+    "views/personal/inviteList/inviteList",
+    "views/goldBeanPage/goldBeanPage",
+    "views/goldBeanPage/putHaibao/putHaibao",
+    "views/screenProduct/screenProduct"
   ],
   "find": [
     ""

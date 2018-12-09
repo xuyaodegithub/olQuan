@@ -7,8 +7,8 @@ App({
   dataNum:0,
   scene:'',//场景值
   uutype:1,//终端类型
-  // baseUrl: 'https://test-mobile.olquan.cn',
-  baseUrl: 'https://ol-site.olquan.cn',
+  baseUrl: 'https://test-mobile.olquan.cn',
+  // baseUrl: 'https://ol-site.olquan.cn',
   userId: '',//openId
   openId:'',
   isGetStoreCommission:'',//店主权益
@@ -63,7 +63,7 @@ App({
                             _self.memberData = res2.data.result
                             resolve(res2)
                           } else {
-                            console.log('获取用户信息失败')
+                            // console.log('获取用户信息失败')
                             wx.showToast({
                               title: '获取用户信息失败',
                               icon: 'none',
