@@ -19,7 +19,10 @@ Page({
       isGetStoreCommission:'',
       topTrue:false,
       classTop: false,
-      classTopNum:''
+      classTopNum:'',
+      DialogMess: [],
+      isDialog: false,
+      seachValue:''
   },
 
   /**
@@ -63,6 +66,25 @@ Page({
     }
     common.methods.mothod1(banners)
     this.getDatalist('/mobile/plus/timeProduct',1)
+    this.getTankuang()
+    this.getSeachValue()
+  },
+  //搜索内容
+  getSeachValue() {
+    let _self = this
+    let data = {
+      url: '/mobile/find/getSearchRemind',
+      data: {
+        memberId: app.userId,
+        type: 2
+      },
+      callback: function (res) {
+        _self.setData({
+          seachValue: res.data.result
+        })
+      }
+    }
+    common.methods.mothod1(data)
   },
   //分类切换
   changClass(e){
@@ -156,6 +178,65 @@ Page({
       classTop: false
     })
   },
+  //分享赚
+  sharePeople(){
+
+  },
+  //弹框类型
+  goactiveAA(e) {
+    11//活动
+    let item = e.currentTarget.dataset.item
+    if (item.type == 11) {
+      wx.navigateTo({
+        url: '/views/activePage/activePage?id=' + item.url.split('id=')[1],
+      })
+    }
+  },
+  //弹框记录
+  setdialog() {
+    let data = {
+      url: '/mobile/index/openDialog',
+      data: {
+        memberId: app.userId,
+        dialogId: id
+      },
+      callback: function (res) {
+        console.log('success')
+      }
+    }
+    common.methods.mothod1(data)
+  },
+  //关闭弹框
+  closeDG() {
+    this.setData({
+      isDialog: false,
+    })
+  },
+  //弹框信息
+  getTankuang() {
+    let _self = this
+    let data = {
+      url: '/mobile/index/getDialog',
+      data: {
+        memberId: app.userId
+      },
+      callback: function (res) {
+        if (res.data.result.length > 0) {
+          _self.setData({
+            isDialog: true
+          })
+        }
+        _self.setData({
+          DialogMess: res.data.result
+        })
+      }
+    }
+    common.methods.mothod1(data)
+  },
+  //遮罩穿透
+  myCatchTouch() {
+    return
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -236,18 +317,32 @@ Page({
   onShareAppMessage: function (ops) {
     if (ops.from === 'button') {
       // 来自页面内转发按钮、、menu
-      console.log(ops.target)
-    }
-    return {
-      title: '特卖',
-      path: '/views/plusPage/plusPage',//当前页面 path ，必须是以 / 开头的完整路径
-      success: function (res) {
-        //成功
-        console.log(999)
-      },
-      fail: function (res) {
-        // 转发失败
-        console.log(res);
+      console.log(ops)
+      return{
+        title: ops.target.dataset.item.productName,
+        path: '/views/detial/detial?id=' + ops.target.dataset.item.productId + '&recId=' + app.userId,//当前页面 path ，必须是以 / 开头的完整路径
+        imageUrl: ops.target.dataset.item.productImage,
+        success: function (res) {
+          //成功
+          console.log(999)
+        },
+        fail: function (res) {
+          // 转发失败
+          console.log(res);
+        }
+      }
+    }else{
+      return {
+        title: '特卖',
+        path: '/views/plusPage/plusPage',//当前页面 path ，必须是以 / 开头的完整路径
+        success: function (res) {
+          //成功
+          console.log(999)
+        },
+        fail: function (res) {
+          // 转发失败
+          console.log(res);
+        }
       }
     }
   }

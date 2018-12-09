@@ -1,0 +1,57 @@
+<!--views/personal/renewPink/renewPink.wxml-->
+<view class='payment'>
+  <view class='choosestores'>
+    <view class='stores'>
+      <view class='stores-l'>小金库支付<text decode="nbsp"> &nbsp;({{memberList.coffers}}元)</text></view>
+      <view class='stores-r'>
+        <view class='choosePay' bindtap='inputCoffers'>
+          <image wx:if="{{!coffersFeeShow}}" src='../../../image/nochose.png'></image>
+          <image wx:if="{{coffersFeeShow}}" src='../../../image/checked.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='choosestores'>
+    <view class='stores'>
+      <view class='stores-l'>账户余额<text decode="nbsp"> &nbsp;({{memberList.amount}}元)</text></view>
+      <view class='stores-r'>
+        <view class='choosePay' bindtap='inputAmount'>
+          <image wx:if="{{!amountFeeShow}}" src='../../../image/nochose.png'></image>
+          <image wx:if="{{amountFeeShow}}" src='../../../image/checked.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='orderSure'>
+  <view class='chooseOrder'>支付方式</view>
+  <view class='orderWay'>
+    <view class='wayLeft'>
+      <image src='../../../image/weixin.png'></image>
+      <text decode="nbsp"> &nbsp;微信</text>
+    </view>
+    <view class='wayRight'>
+      <image src='../../../image/waychose.png'> </image>
+    </view>
+  </view>
+</view>
+<view class='content'>1、在到期日之前续费的，试用次数更新日期遵循之前的更新日期。2、到期之后续费的，有2种情况：a、到期之日后30天内续费，试用次数更新日期遵循之前的更新日期。b、到期之日后超过30天续费，试用次数更新日期自续费之日起，每30天更新3次试用机会。</view>
+<view class='sure'>
+  <text class='money'>应付金额：<text style='color:#e61d79;font-size:24rpx;'>￥</text><text style='color:#e61d79;'>{{memberList.totalFee}}</text></text>
+  <view class='sureOrder' bindtap="submitOrder">提交订单</view>
+</view>
+<view class='shade' wx:if="{{payPasswordShow}}">
+  <view class='passwordBox'>
+    <view class='passBoxTop' >请输入支付密码</view>
+    <view>
+      <input type='password' bindinput='getpayPassword' placeholder='请输入支付密码' class='passInput'></input>
+    </view>
+    <view class='passBot'>
+      <view class='passBotSure' bindtap='cancelTixian'>
+        <view style='border-right:2rpx solid #e5e5e5;'>取消</view>
+      </view>
+      <view class='passBotSure'  wx:if="{{!doubleClick}}" style='color:#e7317d;'>确定</view>
+      <view class='passBotSure' bindtap='passworeTixian'  wx:if="{{doubleClick}}" style='color:#e7317d;'>确定</view>
+    </view>
+  </view>
+</view>

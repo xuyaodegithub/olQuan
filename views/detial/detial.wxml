@@ -136,7 +136,7 @@
       <view>分享奖励金豆</view>
       <view>分享好友下单成功可获得<text style="color:#E50F72;">{{productType==='1' ? productData.score1 : productData.promotionAward}}</text>金豆</view>
       <view class="flex">
-        <button plain>海报邀请</button>
+        <button plain bindtap='drawImage'>海报邀请</button>
         <button plain open-type="share">分享邀请</button>
       </view>
   </view>
@@ -201,7 +201,7 @@
 <rich-text nodes="{{productData.detail}}"></rich-text> 
 <view class="buyBtn flex"><!--购买按钮-->
   <view class="buyLeft flex">
-    <view>
+    <view bindtap='goServers'>
       <image src="../../image/kefu.png"></image>
       <text>客服</text>
     </view>
@@ -234,7 +234,7 @@
     <view wx:elif="{{productType==='9'}}">
       <view wx:if="{{productData.status!==1 && levelCode!=='white' && levelCode!=='golden'}}" class="typeOne flex">
         <view class="darkNo" bindtap="openBuy">买</view>
-        <view class="buyColor">卖</view>
+        <button class="buyColor" open-type='share'>卖</button>
       </view>
        <view wx:elif="{{productData.status===1}}" class="activenoTime">
         尚未开始

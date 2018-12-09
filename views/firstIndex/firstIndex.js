@@ -19,7 +19,10 @@ Page({
       smallclassNum:'',
       scrollNum:false,
       topTrue:false,
-      pcatId:''
+      pcatId:'',
+      DialogMess:[],
+      isDialog:false,
+      seachValue:'',
   },
   callBack(res){
     this.setData({
@@ -61,6 +64,62 @@ Page({
     //   console.log(err)
     // })
    
+  },
+  //弹框类型
+  goactiveAA(e) {
+    11//活动
+    let item = e.currentTarget.dataset.item
+    if (item.type==11) {
+      wx.navigateTo({
+        url: '/views/activePage/activePage?id=' + item.url.split('id=')[1],
+      })
+     }
+
+  },
+  //弹框记录
+  setdialog(){
+    let data={
+      url:'/mobile/index/openDialog',
+      data:{
+        memberId: app.userId,
+        dialogId:id
+      },
+      callback:function(res){
+        console.log('success')
+      }
+    }
+    common.methods.mothod1(data)     
+  },
+  //关闭弹框
+  closeDG(){
+    this.setData({
+      isDialog:false,
+    })
+  },
+  //弹框信息
+  getTankuang(){
+    let _self=this
+    let data={
+      url:'/mobile/index/getDialog',
+      data:{
+        memberId:app.userId
+      },
+      callback:function(res){
+        if(res.data.result.length>0){
+          _self.setData({
+            isDialog: true
+          })
+        }
+          _self.setData({
+            DialogMess:res.data.result
+          })
+      }
+    }
+    common.methods.mothod1(data)     
+  },
+  //遮罩穿透
+  myCatchTouch(){
+    return
   },
   //首次进入
   getfirstBanner(){
@@ -112,6 +171,25 @@ Page({
     common.methods.mothod1(data)
     common.methods.mothod1(obj)
     common.methods.mothod1(classF)
+    this.getTankuang()
+    this.getSeachValue()
+  },
+  //搜索内容
+  getSeachValue(){
+    let _self = this            
+    let data = {
+      url: '/mobile/find/getSearchRemind',
+      data: {
+        memberId: app.userId,
+        type: 2
+      },
+      callback: function (res) {
+        _self.setData({
+          seachValue: res.data.result
+        })
+      }
+    }
+    common.methods.mothod1(data)
   },
   //等分点击事件
   goCalssF(e){
@@ -235,6 +313,15 @@ Page({
       })
     }
   },
+  //金豆页面
+  gogloldBean(){
+    wx.navigateTo({
+      url: '../goldBeanPage/goldBeanPage',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -295,7 +382,11 @@ Page({
     }
     common.methods.mothod1(data)      
   },
-
+  goscreen(){
+    wx.navigateTo({
+      url: '../screenProduct/screenProduct?goldBean=' + app.memberData.goldBean
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */
@@ -306,24 +397,7 @@ Page({
       page:this.data.page+1
     })
     this.getdataList(2)
-    // let data={
-    //   url:'/mobile/product/productList',
-    //   data:{
-    //     page: this.data.page,
-    //     rows:this.data.rows,
-    //     memberId: app.userId,
-    //     pcatId: this.classBtn[classNum].catId
-    //   },
-    //   callback:function(res){
-    //     _self.setData({
-    //         dataList: _self.data.dataList.concat(res.data.result)
-    //     })
-    //     // if (res.data.result.length<10) { 
-    //     // }
-    //   }
-    // }
   },
-
   /**
    * 用户点击右上角分享
    */

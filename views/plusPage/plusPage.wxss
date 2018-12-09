@@ -85,7 +85,7 @@ margin-right: 14rpx;
   color: #E5006E;
   font-size: 26rpx;
 }
-.dataList .right view:first-child,.dataList .right view:last-child{
+.dataList .right view:first-child,.dataList .right button{
 color: #E5006E;
 text-align: center;
 font-size: 24rpx;
@@ -97,9 +97,9 @@ border: 2rpx solid #E5006E;
 -ms-border-radius: 6rpx;
 -o-border-radius: 6rpx;
 border-radius:6rpx;
-
+padding: 0;
 }
-.dataList .right view:last-child{
+.dataList .right button{
   color: #FFFFFF;
   background-color: #E5006E;
   margin-left: 18rpx;
@@ -116,5 +116,25 @@ border-radius:6rpx;
   -ms-border-radius: 6rpx;
   -o-border-radius: 6rpx;
   border-radius:6rpx;
-
+}
+.DialogMess{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 730rpx;
+  min-height: 500rpx;
+  margin-left: -365rpx;
+  margin-top: -250rpx;
+  z-index: 9999;
+}
+.DialogMess image:first-child{
+  position: absolute;
+  top: -50rpx;
+  right: 50rpx;
+  width: 44rpx;
+  height: 44rpx;
+}
+.DialogMess image:last-child{
+  display: block;
+  width: 100%;
 }

@@ -1,0 +1,13 @@
+<!--views/goldBeanPage/putHaibao/putHaibao.wxml-->
+<!-- <text>views/goldBeanPage/putHaibao/putHaibao.wxml</text> -->
+<image src="{{imgUrl}}" mode='widthFix'  bindlongpress="saveImg"></image>
+<view class="GoShouQuan" wx:if="{{isSaveAlow}}">
+    <view>微信授权提示</view>
+    <view>保存图片权限还没同意,请先进行授权操作</view>
+    <view class="flex">
+      <button type="default" bindtap="calconShou">取消</button>
+      <button type="primary"  open-type="openSetting" 
+bindopensetting='calconShou'>去授权</button>
+    </view>
+  </view>
+  <view class="zhezhao" wx:if="{{isSaveAlow}}"></view>

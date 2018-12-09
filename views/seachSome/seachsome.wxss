@@ -1,10 +1,17 @@
 /* seachSome/seachsome.wxss */
+page{
+  background-color: #f3f5f7;
+}
 .seaxhFlex{
-  padding-left: 30rpx;
- font-size: 28rpx;
+  z-index: 999;
+  position: fixed;
+  left: 5%;
+  top: 0;
+  /* width:calc(100%-30rpx); */
+  font-size: 28rpx;
   line-height: 56rpx;
   width: 90%;
-  background-color: #f7f7f7;
+  background-color: #fff;
   margin: 20rpx auto;
   -webkit-border-radius:28rpx;
   -moz-border-radius:28rpx;
@@ -14,5 +21,52 @@
 }
 .seaxhFlex input{
   flex: 1;
+  padding-left: 30rpx;
   height: 66rpx
+}
+.list{
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;  
+  max-height: 700rpx;
+  padding: 0 30rpx;
+  /* background-color: #f5f5fa; */
+  margin-top: 100rpx;
+  font-size: 28rpx;
+  line-height: 72rpx;
+  color: #666666;
+  /* overflow-y: auto; */
+}
+.list view{
+  border-bottom: 2rpx solid #eee;
+}
+.list .flex{
+  justify-content: space-between;
+  align-items: center;
+}
+.list .flex icon{
+  align-items: center;
+}
+.host{
+  font-size: 24rpx;
+  line-height: 60rpx;
+  color: #666666;
+}
+.host > view:first-child{
+  background-color: #fff;
+  padding-left: 30rpx;
+  font-size: 28rpx;
+  line-height: 72rpx;
+}
+.host .flex{
+  /* padding-top: 20rpx; */
+  padding: 20rpx;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.host .flex view{
+  padding: 0 25rpx;
+  margin:0 20rpx 20rpx 0;
+  border: 1px solid #ccc;
+  border-radius: 8rpx;
+
 }

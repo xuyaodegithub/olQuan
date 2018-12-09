@@ -381,13 +381,15 @@ margin-bottom: 2rpx;
  .buyBtn .buyRight .buyColor{
    background-color: #E50F72;
  }
- .buyBtn .buyRight .typeOne view{
+ .buyBtn .buyRight .typeOne view,.buyBtn .buyRight .typeOne button{
    flex: 1;
    -webkit-border-radius:4rpx;
   -moz-border-radius:4rpx;
   -ms-border-radius: 4rpx;
   -o-border-radius: 4rpx;
   border-radius:4rpx;
+  padding: 0;
+  color:#fff;
  }
  .buyBtn .buyRight .typeOne .noTime,.buyBtn .buyRight .activenoTime{
    background-color: #BDBCBC;

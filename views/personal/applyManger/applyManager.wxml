@@ -1,0 +1,71 @@
+<!--views/personal/applyManger/applyManager.wxml-->
+<view wx:if="{{isAppleSure}}" style='background:#fff;'>
+  <view class='xian'></view>
+  <view class='inviteTop'>{{memList.nickName}}邀请你成为OL圈经理</view>
+  <view class='inviteTop' style='background: #f2f2f2;'>请提交资料等待审核：</view>
+  <view class='center'>
+    <view class='centerList'>
+      <view style='width:30%;'>申请人</view>
+      <input type='text' value='{{memberList.nickName}}' disabled placeholder='请输入昵称' placeholder-style='color:#aaa;'></input>
+    </view>
+    <view class='centerList'>
+      <view style='width:30%;'>手机号</view>
+      <input bindinput='getMobile' type='text' placeholder='请输入手机号码' placeholder-style='color:#aaa;'></input>
+    </view>
+    <view class='centerList' style='border:none;'>
+      <view style='width:30%;'>验证码</view>
+      <input bindinput='getSureCode' type='text' placeholder='请输入验证码' placeholder-style='color:#aaa;'></input>
+      <view wx:if="{{isDisabled}}" class='getCode' bindtap='getWxGraphCode'>获取验证码</view>
+      <view wx:if="{{!isDisabled}}" class='getCode'style='background:#ddd;'>{{time}}</view>
+    </view>
+  </view>
+  <view class='xian'></view>
+  <view class='center'>
+  <view class='centerList'>
+      <view style='width:30%;'>真实姓名</view>
+      <input bindinput='getRealName' type='text' placeholder='请填写真实姓名' placeholder-style='color:#aaa;'></input>
+    </view>
+    <view class='centerList'>
+      <view style='width:30%;'>省市区</view>
+      <picker style='width:70%;' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker" style='background:#fff;height:80rpx;'>
+          {{region[0]}} {{region[1]}} {{region[2]}}
+          <view style='color: #999999;' wx:if="{{region.length==0}}">{{cityDetail}}</view>
+        </view>
+      </picker>
+    </view>
+    <view class='centerList'>
+      <view style='width:30%;'>详细地址</view>
+      <input bindinput='getAddress' type='text' placeholder='请输入详细地址' placeholder-style='color:#aaa;'></input>
+    </view>
+  </view>
+  <view class='bot' wx:if="{{isClickSure}}" bindtap='applyManager'>提交申请</view>
+  <view class='bot' wx:if="{{!isClickSure}}" style='background: #ddd;'>提交申请</view>
+</view>
+
+
+<view class='shade' wx:if="{{graphicCode}}" bindtap='colseCodeGet'></view>
+<view style='position: fixed;z-index:34;width:100%;top:300rpx;' wx:if="{{graphicCode}}">
+  <view class='shadeBox'>
+    <view bindtap='colseCodeGet' class='colseIcon'>
+      <image bindtap='colseCodeGet' style='display:block;width:100%;height:100%;' src='../../../image/duiClose.png'></image>
+    </view>
+    <view class='iconTip'>请在下方输入图片验证码</view>
+    <view class='inputIcon'>
+      <input bindinput='inputGraphicCode' type="number" class='inputIconIn'></input>
+      <view class='codeImg' bindtap='codeRefresh'>
+        <image style='width:100%;height:100%;' src='{{imgurl}}'></image>
+      </view>
+      
+    </view>
+    <view>
+      <view wx:if="{{!cangetCode}}" class='sureCodeGet'>确认</view>
+      <view bindtap='sendCode' wx:if="{{cangetCode}}" class='sureCodeGet' style='background:#e50f72;'>确认</view>
+    </view>
+  </view>
+</view>
+<view class='zhezhao' wx:if="{{zhezhaoSure}}"></view>
+<view class='isApplyOut' wx:if="{{!isAppleSure}}">
+  <image src='../../../image/applyManager.png'></image>
+  <view>资料提交成功！请等待审核</view>
+</view>

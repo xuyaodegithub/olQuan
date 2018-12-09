@@ -1,7 +1,10 @@
 {
   "pages": [
     "views/firstIndex/firstIndex",
+    "views/personal/renewPink/renewPink",
     "views/personal/personal",
+    "views/personal/applyManger/applyManager",
+    "views/personal/payMent/payMent",
     "views/find/find",
     "views/personal/invitePink/invitePink",
     "views/personal/myCollect/myCollect",

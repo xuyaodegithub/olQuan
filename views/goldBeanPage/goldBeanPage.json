@@ -1,0 +1,11 @@
+{
+  "component": false,
+  "usingComponents": {},
+  "navigationBarTitleText": "领金豆",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#9e9e9e",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": "30px",
+  "disableScroll": false
+}

@@ -185,3 +185,24 @@ overflow: hidden;
   -o-border-bottom-left-radius: 20rpx;
   border-bottom-left-radius:20rpx;
 }
+.DialogMess{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 730rpx;
+  min-height: 500rpx;
+  margin-left: -365rpx;
+  margin-top: -250rpx;
+  z-index: 9999;
+}
+.DialogMess image:first-child{
+  position: absolute;
+  top: -50rpx;
+  right: 50rpx;
+  width: 44rpx;
+  height: 44rpx;
+}
+.DialogMess image:last-child{
+  display: block;
+  width: 100%;
+}

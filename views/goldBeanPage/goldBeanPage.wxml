@@ -1,0 +1,22 @@
+<!--views/detial/goldBeanPage/goldBeanPage.wxml-->
+<view class="header">
+  <view class="flex">
+    <view>我的金豆:{{isGoldBean}}</view>
+    <view bindtap='watchDetial'>查看明细</view>
+  </view>
+  <image src="../../image/goldBean.png" mode='widthFix'></image>
+</view>
+<view class="mess">
+  <view wx:for="{{dataMess}}" wx:key="{{index}}" class='flex'>
+    <view class="left">
+      <view>{{item.title}}</view>
+      <view wx:if="{{item.which!=9}}">奖励<text> + {{item.goldBean}}金豆</text> <text wx:if="{{item.frequency>0}}" style="color:rgb(153, 153, 153);"> (最多{{item.frequency}}次)</text></view>
+      <view wx:else>奖励<text> {{item.goldBean}}</text></view>
+    </view>
+    <view class="right">
+      <view class="go" wx:if="{{item.allow==0}}" bindtap='toGetDold' data-item="{{item}}">{{item.btn}}</view>
+      <view class='allow' wx:else>已完成</view>
+    </view>
+  </view>
+</view>
+<image src="../../image/guize.png" class="lastimg" mode='widthFix'></image>

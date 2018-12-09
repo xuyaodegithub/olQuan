@@ -1,0 +1,62 @@
+/* views/detial/goldBeanPage/goldBeanPage.wxss */
+page{
+  background-color: #fbfbfb;
+}
+.header{
+  height: 240rpx;
+  width: 100%;
+  background-color: #ec2c85;
+}
+.header .flex{
+  padding: 70rpx 30rpx 0;
+  font-size: 28rpx;
+  color: #fff;
+  justify-content: space-between;
+}
+.header image{
+  display: block;
+  width:690rpx;
+  height: 180rpx;
+  margin: 0 auto;
+  margin-top: 45rpx;
+}
+.mess{
+  padding: 0 30rpx;
+  margin-top: 110rpx;
+}
+.mess > view{
+  justify-content: space-between;
+  background-color: #ffffff;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  border-radius: 6rpx;
+  align-items: center;
+  padding: 0 30rpx;
+  color: #333;
+  height: 140rpx;
+}
+.mess > view .left view:first-child{
+  margin-bottom: 14rpx;
+}
+.mess > view .left view:last-child{
+  color: rgb(153, 153, 153)
+}
+.mess > view .left text{
+  color: rgb(229, 0, 110);
+}
+.mess > view .right view{
+  text-align: center;
+  width: 100rpx;
+  line-height: 48rpx;
+  color: #fff;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  background-color: #f74497;
+}
+.mess > view .right .allow{
+  background-color: #d2d1d1;
+}
+.lastimg{
+  display: block;
+  width: 100%;
+}

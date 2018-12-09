@@ -1,4 +1,17 @@
 <!--seachSome/seachsome.wxml-->
 <view class="flex seaxhFlex">
-<input type="text" confirm-type="search" bindconfirm="seachSome" placeholder='搜索' focus></input>
+<input type="text" confirm-type="search" bindconfirm="seachSome" placeholder='大家都在搜"{{placeholder}}"' focus></input>
+</view>
+<view class="list">
+  <view class="flex" wx:if="{{seachList.length>0}}">
+    <text>最近搜索</text>
+    <icon type="clear" size="24" class="flex" bindtap='deleteThose'/>
+  </view>
+  <view wx:for="{{seachList}}" wx:key="{{index}}" data-item="{{item}}" bindtap='goscreen'>{{item.value}}</view>
+</view>
+<view class="host">
+   <view>热门搜索</view>
+   <view class="flex">
+      <view wx:for="{{hostseachList}}" wx:key="{{index}}" data-item="{{item}}" bindtap='goscreen'>{{item.value}}</view>
+   </view>
 </view>

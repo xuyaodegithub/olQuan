@@ -28,6 +28,8 @@ Page({
     isAddGoods:true,//点赞
     appLinkShow:false,
     showShare:false,
+    canvasImg: '',//canvas图片
+    isSaveAlow: false,//授权弹框
   },
 
   /**
@@ -267,9 +269,13 @@ Page({
         rows:10,
       },
       callback: function (res) {
-        if (res.data.result.length==0){
+        if (res.data.result.length == 0 && isMore!=2){
           _self.setData({
             findListShow: true
+          })
+        }else{
+          _self.setData({
+            findListShow: false
           })
         }
         if (res.data.result.length < 10) {
@@ -354,9 +360,19 @@ Page({
   getDetailUrl(e){
     // console.log(e.currentTarget.dataset)
     if (e.currentTarget.dataset.type==12){
-      
+      wx: wx.navigateTo({
+        url: '/views/activePage/activePage?id=' + e.currentTarget.dataset.id,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
     } else if (e.currentTarget.dataset.type == 13){
-
+      wx: wx.navigateTo({
+        url: '/views/personal/getCoupon/getCoupon?id=' + e.currentTarget.dataset.id,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
     }else{
       wx: wx.navigateTo({
         url: '../detial/detial?id=' + e.currentTarget.dataset.id + '&type=' + e.currentTarget.dataset.type + '&recId=' + e.currentTarget.dataset.recid,
@@ -407,6 +423,211 @@ Page({
     wx.pageScrollTo({
       scrollTop: 0,
       duration: 400
+    })
+  },
+  //canvas画图
+  getShareImg(e){
+    // console.log(e.currentTarget.dataset)
+    let _self = this;
+    let productPrice = e.currentTarget.dataset.price;
+    let productImage = e.currentTarget.dataset.productimage;
+    let productName = e.currentTarget.dataset.productname;
+    _self.setData({
+      canvasImg: true
+    })
+    let obj = {
+      url: '/mobile/product/getLocalCodePath',
+      data: {
+        productId: e.currentTarget.dataset.id,
+        memberId: app.userId,
+        type: e.currentTarget.dataset.type
+      },
+      callback: function (res) {
+        _self.getErweima(res.data.result, productPrice, productImage, productName)
+      }
+    }
+    wx.showLoading({
+      title: '图片生成中...',
+    })
+    common.methods.mothod1(obj)
+    
+  },
+  //canvas画图
+  getErweima(erweima, productPrice, productImage, productName) {
+    var resd = wx.getSystemInfoSync();
+    var radio = resd.screenWidth / 750;//屏幕宽度比例
+    let _self = this
+    const ctx = wx.createCanvasContext('mycanvas');
+    // ctx.drawImage(app.memberData.logo, 15, 20, 50, 50);    //绘制背景图
+    //ctx.setTextAlign('center')    // 文字居中
+    var R = 25;
+    var d = 2 * R;
+    var cx = 15 + R;
+    var cy = 15 + R;
+    ctx.setFillStyle('white')
+    ctx.fillRect(0, 0, 650, 1000)
+    ctx.draw()
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, 2 * Math.PI);
+    ctx.save();
+    ctx.clip();
+    wx.getImageInfo({////////////////////////
+      src: app.memberData.logo,
+      success(res) {
+        // console.log(res)
+        ctx.drawImage(res.path, 15, 15, d, d);
+        ctx.restore();
+        ctx.setFillStyle('#777777')  // 文字颜色：黑色
+        ctx.setFontSize(12)         // 文字字号：22px
+        ctx.fillText(app.memberData.nickName, 72, 33) //开始绘制文本的 x/y 坐标位置（相对于画布） 
+        // ctx.stroke();//stroke() 方法会实际地绘制出通过 moveTo() 和 lineTo() 方法定义的路径。默认颜色是黑色
+        // ctx.fillText('ENJOY', 770, 35)
+        // ctx.rotate(90 * Math.PI / 180)
+        ctx.setFillStyle('#333333')
+        ctx.fillText('发现好物，与您分享!', 72, 57)
+        ctx.save();
+        ctx.translate(radio * 600, 20);//设置画布上的(0,0)位置，也就是旋转的中心点
+        ctx.rotate(90 * Math.PI / 180);
+        ctx.setFillStyle('#777777');
+        ctx.setFontSize(12);
+        ctx.fillText('E N J O Y', 0, 0)
+        ctx.restore();
+        wx.getImageInfo({//////////////////////////////
+          src: productImage,
+          success(res) {
+            ctx.drawImage(res.path, 0, 80, radio * 650, radio * 650);
+            //商品名称
+            var str = productName;
+            //绘制简单的文字
+            ctx.setFillStyle("#333"); // black color
+            // ctx.setFontSize (12);
+            ctx.lineWidth = 1;
+            var lineWidth = 0;
+            var canvasWidth = 220;//计算canvas的宽度
+            var initHeight = (radio * 650) + 100;//绘制字体距离canvas顶部初始的高度
+            var lastSubStrIndex = 0; //每次开始截取的字符串的索引
+            for (let i = 0; i < str.length; i++) {
+              lineWidth += ctx.measureText(str[i]).width;
+              if (lineWidth > canvasWidth) {
+                ctx.fillText(str.substring(lastSubStrIndex, i), 16, initHeight, 250);//绘制截取部分
+                initHeight += 12;//20为字体的高度
+                lineWidth = 0;
+                lastSubStrIndex = i;
+              }
+              if (i == str.length - 1) {//绘制剩余部分
+                ctx.fillText(str.substring(lastSubStrIndex, i + 1), 16, initHeight, 250);
+              }
+            }
+            //价格
+            ctx.setFillStyle('#ed0276')  // 文字颜色：黑色
+            ctx.setFontSize(14)         // 文字字号：22px
+            ctx.fillText('￥' + productPrice, 16, (radio * 650) + 140)
+            ctx.setFillStyle('#777777')  // 文字颜色：黑色
+            ctx.setFontSize(12)         // 文字字号：22px
+            ctx.fillText('长按保存分享给好友哟！', 16, (radio * 650) + 160)
+            wx.getImageInfo({////////////////////////
+              src: erweima,
+              success(res) {
+                ctx.drawImage(res.path, radio * 650 * 0.75, (radio * 650) + 90, 80, 80);
+                ctx.draw(true, function () {
+                  
+                })
+                wx.hideLoading()
+              }
+            })
+          }
+        });
+      }
+    });
+  },
+  saveImg() {
+    // this.closeEwm=null
+    let _self = this
+    wx.getSetting({
+      success(res) {
+        // 如果没有则获取授权
+        if (!res.authSetting['scope.writePhotosAlbum']) {
+          wx.authorize({
+            scope: 'scope.writePhotosAlbum',
+            success() {
+              _self.afterCanSaveImg()
+            },
+            fail() {
+              // 如果用户拒绝过或没有授权，则再次打开授权窗口
+              //（ps：微信api又改了现在只能通过button才能打开授权设置，以前通过openSet就可打开，下面有打开授权的button弹窗代码）
+              // wx.showToast({
+              //   title: '授权失败无法保存',
+              //   icon: 'none'
+              // })
+              _self.setData({
+                canvasImg: false,
+                isSaveAlow: true
+              })
+            }
+          })
+        } else {
+          // 有则直接保存
+          _self.afterCanSaveImg()
+        }
+      }
+    })
+  },
+  //保存图片
+  afterCanSaveImg() {
+    let _self = this
+    wx.showModal({
+      title: '提示',
+      content: '确认保存图片么？',
+      success: function (res) {
+        if (res.confirm) {
+          // console.log('用户点击确定')
+          wx.canvasToTempFilePath({ //把当前画布指定区域的内容导出生成指定大小的图片，并返回文件路径
+            x: 0,
+            y: 0,
+            width: 650,
+            height: 1000,
+            destWidth: 800,  //输出的图片的宽度
+            destHeight: 1225,
+            canvasId: 'mycanvas',
+            success: function (res) {
+              //  console.log(res);
+              if (res.errMsg === "canvasToTempFilePath:ok") {
+                wx.saveImageToPhotosAlbum({
+                  filePath: res.tempFilePath,
+                  success() {
+                    wx.showToast({
+                      title: '保存成功'
+                    })
+                    _self.setData({
+                      canvasImg: false
+                    })
+                  },
+                  fail() {
+                    wx.showToast({
+                      title: '保存失败',
+                      icon: 'none'
+                    })
+                  }
+                })
+              } else {
+                console.log(res)
+              }
+            },
+          })
+        }
+      }
+    })
+  },
+  //关闭二维码
+  closeEwm() {
+    this.setData({
+      canvasImg: false
+    })
+    wx.hideLoading()
+  },
+  calconShou() {
+    this.setData({
+      isSaveAlow: false
     })
   },
   /**

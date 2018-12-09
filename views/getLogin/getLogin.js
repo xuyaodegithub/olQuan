@@ -33,6 +33,9 @@ Page({
         if (callBackUrl.type){
           url += '&type=' + callBackUrl.type
         }
+        if (callBackUrl.recId) {
+          url += '&recId=' + callBackUrl.recId
+        }
         wx.reLaunch({
           url: url
         })

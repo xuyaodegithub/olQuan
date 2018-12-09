@@ -1,0 +1,135 @@
+<!--views/personal/payMent/payMent.wxml-->
+<view class='payment'>
+  <view class='account'>账户</view>
+  <view class='choosestores' wx:if="{{curObj.type!=2 && memberList.score>0}}">
+    <view class='stores'>
+      <view class='stores-l'>积分<text decode="nbsp"> &nbsp;({{memberList.score}}积分)</text></view>
+      <view class='stores-r'>
+        <text wx:if="{{scoreFeeShow && scoreFee>=100}}">-￥{{scoreFeeObj}}</text>
+        <text wx:if="{{scoreFeeShow && scoreFee<100}}">最低100积分</text>
+        <view class='choosePay' bindtap='inputScore'>
+          <image wx:if="{{!scoreFeeShow}}" src='../../../image/nochose.png'></image>
+          <image wx:if="{{scoreFeeShow}}" src='../../../image/checked.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='usestore' wx:if="{{scoreFeeShow}}">
+      <input class="storeNum" value='{{scoreFee}}' bindinput='inputScoreFee' type='number'></input>
+      <text style='color:#888;'>积分(最低100积分)</text>
+    </view>
+  </view>
+  <view class='choosestores' wx:if="{{memberList.coffers>0}}">
+    <view class='stores'>
+      <view class='stores-l'>小金库<text decode="nbsp"> &nbsp;({{memberList.coffers}}元)</text></view>
+      <view class='stores-r'>
+        <text wx:if="{{coffersFeeShow}}">-￥{{coffersFeeObj}}</text>
+        <view class='choosePay' bindtap='inputCoofers'>
+          <image wx:if="{{!coffersFeeShow}}" src='../../../image/nochose.png'></image>
+          <image wx:if="{{coffersFeeShow}}" src='../../../image/checked.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='usestore' wx:if="{{coffersFeeShow}}">
+      <input class="storeNum" value='{{coffersFee}}' bindinput='inputCoffersFee' type='number'></input>
+      <text>元</text>
+    </view>
+  </view>
+  <view class='choosestores' wx:if="{{memberList.amount>0}}">
+    <view class='stores'>
+      <view class='stores-l'>余额<text decode="nbsp"> &nbsp;({{memberList.amount}}元)</text></view>
+      <view class='stores-r'>
+        <text wx:if="{{amountFeeShow}}">-￥{{amountFeeObj}}</text>
+        <view class='choosePay' bindtap='inputAmount'>
+          <image wx:if="{{!amountFeeShow}}" src='../../../image/nochose.png'></image>
+          <image wx:if="{{amountFeeShow}}" src='../../../image/checked.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='usestore' wx:if="{{amountFeeShow}}">
+      <input class="storeNum" value='{{amountFee}}' bindinput='inputAmountFee' type='number'></input>
+      <text>元</text>
+    </view>
+  </view>
+  <view class='choosestores' wx:if="{{curObj.type!=2 && memberList.goldBean>0 && curObj.personal!=1}}">
+    
+    <view class='stores'>
+      <view class='stores-l'>金豆<text decode="nbsp"> &nbsp;({{memberList.goldBean}}可抵现{{memberList.goldBean/10}}元)</text></view>
+      <view class='stores-r'>
+        <text wx:if="{{goldBeanFeeShow && goldBeanFee>=10}}">-￥{{goldBeanFeeObj}}</text>
+        <text wx:if="{{goldBeanFeeShow && goldBeanFee<10}}">最低10金豆</text>
+        <view class='choosePay' bindtap='inputGoldBean'>
+          <image wx:if="{{!goldBeanFeeShow}}" src='../../../image/nochose.png'></image>
+          <image wx:if="{{goldBeanFeeShow}}" src='../../../image/checked.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='usestore' wx:if="{{goldBeanFeeShow}}">
+      <input class="storeNum" value='{{goldBeanFee}}' bindinput='inputGoldBeanFee' type='number'></input>
+      <text style='color:#888;'>金豆(最低10金豆)</text>
+    </view>
+  </view>
+</view>
+<view class='totalDetail'>
+  <view style="font-size:28rpx;line-height: 72rpx;">合计</view>
+  <view class='detailFee'>
+    <view class='soloDetail'>
+      <view class='solo-l'>商品总额</view>
+      <view class='solo-r'>￥{{totalFeeObj}}</view>
+    </view>
+    <view class='soloDetail' wx:if="{{scoreFeeShow && scoreFee>=100}}">
+      <view class='solo-l'>积分</view>
+      <view class='solo-r'>-￥{{scoreFeeObj}}</view>
+    </view>
+    <view class='soloDetail' wx:if="{{coffersFeeShow}}">
+      <view class='solo-l'>小金库</view>
+      <view class='solo-r'>-￥{{coffersFeeObj}}</view>
+    </view>
+    <view class='soloDetail' wx:if="{{amountFeeShow}}">
+      <view class='solo-l'>余额</view>
+      <view class='solo-r'>-￥{{amountFeeObj}}</view>
+    </view>
+    <view class='soloDetail' wx:if="{{goldBeanFeeShow && goldBeanFee>=10}}">
+      <view class='solo-l'>金豆</view>
+      <view class='solo-r'>-￥{{goldBeanFeeObj}}</view>
+    </view>
+    <view class='soloDetail' wx:if="{{curObj.couponFee>0}}">
+      <view class='solo-l'>优惠券</view>
+      <view class='solo-r'>-￥{{couponFeeObj}}</view>
+    </view>
+    <view class='soloDetail'>
+      <view class='solo-l'>应付</view>
+      <view class='solo-r'>￥{{finalFeeObj}}</view>
+    </view>
+  </view>
+</view>
+<view class='orderSure'>
+  <view class='chooseOrder'>支付方式</view>
+  <view class='orderWay'>
+    <view class='wayLeft'>
+      <image src='../../../image/weixin.png'></image>
+      <text decode="nbsp"> &nbsp;微信</text>
+    </view>
+    <view class='wayRight'>
+      <image src='../../../image/waychose.png'> </image>
+    </view>
+  </view>
+</view>
+<view class='sure'>
+  <text class='money'>应付金额：<text style='color:#e61d79;font-size:24rpx;'>￥</text><text style='color:#e61d79;'>{{finalFeeObj}}</text></text>
+  <view class='sureOrder' bindtap="submitOrder">提交订单</view>
+</view>
+<view class='shade' wx:if="{{payPasswordShow}}">
+  <view class='passwordBox'>
+    <view class='passBoxTop' >请输入支付密码</view>
+    <view>
+      <input type='password' bindinput='getpayPassword' placeholder='请输入支付密码' class='passInput'></input>
+    </view>
+    <view class='passBot'>
+      <view class='passBotSure' bindtap='cancelTixian'>
+        <view style='border-right:2rpx solid #e5e5e5;'>取消</view>
+      </view>
+      <view class='passBotSure'  wx:if="{{!doubleClick}}" style='color:#e7317d;'>确定</view>
+      <view class='passBotSure' bindtap='passworeTixian'  wx:if="{{doubleClick}}" style='color:#e7317d;'>确定</view>
+    </view>
+  </view>
+</view>

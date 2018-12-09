@@ -56,7 +56,7 @@ page{
   color:#666666;
   /* width:50%; */
   line-height: 36rpx;
-  margin-top: 10rpx;
+  margin-top: 15rpx;
 }
 .pMess > .flex .right{
   flex: 1;
@@ -187,7 +187,7 @@ page{
     top: 0;
     height: 100%;
     width: 100%;
-    z-index: 99;
+    z-index: 666;
     background: rgba(0,0,0,.5);
  }
  .couponContent{

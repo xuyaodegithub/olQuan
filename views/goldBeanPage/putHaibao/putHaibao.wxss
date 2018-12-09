@@ -1,0 +1,33 @@
+/* views/goldBeanPage/putHaibao/putHaibao.wxss */
+image{
+  display: block;
+  width: 100%;
+}
+.GoShouQuan{
+  position: fixed;
+  width:460rpx;
+  height: 270rpx;
+  top: 50%;
+  left: 50%;
+  margin: -130rpx 0 0 -260rpx;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 24rpx;
+  z-index: 20000;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+}
+.GoShouQuan view:first-child{
+  text-align: center;
+  font-size:28rpx;
+  line-height: 60rpx; 
+}
+.GoShouQuan view:nth-child(2){
+  line-height: 50rpx;
+  color: #666666;
+  text-align: center;
+}
+.GoShouQuan .flex{
+  margin-top: 30rpx;
+  justify-content: space-between;
+}

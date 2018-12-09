@@ -160,7 +160,10 @@ function getLoginMess(callback,_self,options){
         url: _self.route,
         id: options ? options.id : "",
         type: options ? options.type : "",
-
+        // recId: options ? options.recId : ''
+      }
+      if (options && options.recId){
+        callBackUrl.recId = options.recId
       }
       wx.setStorageSync('callBackUrl', callBackUrl)
       app.getLogin().then(function (res) {

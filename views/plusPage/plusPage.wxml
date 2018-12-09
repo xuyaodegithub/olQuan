@@ -1,7 +1,7 @@
 <!--views/plusPage/plusPage.wxml-->
 <wxs src="../../filters/filters.wxs" module="filters" />
 <view class="header">
-<seachs></seachs>
+<seachs seachValue="{{seachValue}}"></seachs>
 <swipers banner="{{banners}}"  advers="{{advers}}"></swipers>
 </view>
 <view class="classBtn flex {{classTop ? 'classTop' : ''}}" id="classTopTT">
@@ -10,8 +10,8 @@
   </view>
 </view>
 <view class="dataList">
-  <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" data-type="{{dataType}}" class="product" bindtap='goDetial'>
-    <image src="{{item.productImage}}" mode="widthFix" lazy-load></image>
+  <view wx:for="{{dataList}}" wx:key="{{index}}" class="product">
+    <image src="{{item.productImage}}" mode="widthFix" lazy-load  data-id="{{item.productId}}" data-type="{{dataType}}" bindtap='goDetial'></image>
     <view class="title over">{{item.productName}}</view>
     <view class="smalltitle over">{{item.summary}}</view>
     <view class="price flex">
@@ -21,13 +21,18 @@
         <view>{{item.score}}</view>
        </view> 
        <view class="flex right" wx:if="{{isGetStoreCommission}}">
-        <view>自购省</view>
-        <view>分享赚</view>
+        <view data-id="{{item.productId}}" data-type="{{dataType}}" bindtap='goDetial'>自购省</view>
+        <button open-type='share' data-item="{{item}}">分享赚</button>
        </view>
-       <view wx:else class="rightte">立即购买</view>
+       <view wx:else class="rightte" data-id="{{item.productId}}" data-type="{{dataType}}" bindtap='goDetial'>立即购买</view>
     </view> 
   </view>
 </view>
 <view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
     <image src="../../image/goTop.png"></image>
-  </view>
+</view>
+<view class="zhezhao" wx:if="{{isDialog}}" catchtouchmove="myCatchTouch"></view>
+<view class="DialogMess" wx:if="{{isDialog}}" catchtouchmove="myCatchTouch">
+    <image src="../../image/colseIcon.png" bindtap='closeDG'></image>
+    <image src="{{DialogMess[0].image}}" mode='widthFix' bindtap='goactiveAA' data-item="{{DialogMess[0]}}" wx:if="{{DialogMess.length>0}}"></image>
+</view>

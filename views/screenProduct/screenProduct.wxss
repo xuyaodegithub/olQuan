@@ -1,0 +1,142 @@
+/* views/screenProduct/screenProduct.wxss */
+page{
+  background-color: #f3f5f7;
+}
+.header{
+  background: #fff;
+  line-height: 80rpx;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+  color: #999;
+  align-items: center;
+}
+.header > view{
+  width: 25%;
+  align-items: center;
+  text-align: center;
+}
+.header > view.flex{
+  justify-content: center;
+}
+.header > view image{
+  display: block;
+  width: 25rpx;
+  height: 15rpx;
+  margin-left: 10rpx;
+}
+.header > view view image:first-child{
+  margin-bottom: 10rpx;
+}
+.position{
+  position: absolute;
+  top: 120rpx;
+  width: 100%;
+  left: 0;
+  background-color: #fff;
+}
+.position .flex{
+  justify-content: space-between;
+  padding: 10rpx 50rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.position .flex view{
+  background-color: #e8e8e8;
+  border-radius: 10rpx;
+  width: 40%;
+  text-align: center;
+}
+.position .flex .active{
+  background-color: #e50f71;
+  color: #fff;
+}
+.position .chose{
+  max-height: 500rpx;
+  padding: 0 30rpx;  
+}
+.position .chose label{
+  display: block;
+  border-bottom: 1px solid #e5e5e5;
+  color: #333;
+  font-size: 26rpx;
+  line-height: 70rpx;
+}
+/* .position .chose checkbox{
+ font-size: 26rpx;
+} */
+checkbox .wx-checkbox-input{
+  display: inline-block;
+   width: 40rpx; /* 背景的宽 */
+   height: 40rpx; /* 背景的高 */
+}
+.position .btn{
+  width: 90%;
+  color: #fff;
+  background-color: #e50f71;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  margin: 20rpx auto;
+  border-radius: 10rpx;
+}
+.dataList{
+  justify-content: space-between;
+  flex-wrap: wrap;  
+}
+.dataList > view{
+  position: relative;
+  width: 48.725%;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #333;
+  padding-bottom: 20rpx;
+}
+.dataList > view image{
+  display: block;
+  width: 100%;
+}
+.dataList > view .price{
+  font-size: 24rpx;
+  margin: 10rpx 0;
+  color: #e71f1d;
+}
+.dataList > view .flex{
+  font-size: 24rpx;
+  color: #808080;
+  justify-content: space-between;
+}
+.dataList > view .flex text:first-child{
+  text-decoration:line-through;
+}
+.dataList > view .flex,.dataList > view .over2,.dataList > view .price{
+  padding: 0 20rpx;
+}
+.dataList > view .over2{
+  margin-top: 10rpx;
+}
+.activeT{
+  color: #e50f71;
+}
+.typeTitle{
+  position: absolute;
+  right: 0;
+  top: 18rpx;
+  line-height: 40rpx;
+  padding: 0 20rpx 0 32rpx;
+  background-color: #E50F72;
+  color: #FFFFFF;
+  font-size: 26rpx;
+  -webkit-border-top-left-radius:20rpx;
+  -moz-border-top-left-radius:20rpx;
+  -ms-border-top-left-radius: 20rpx;
+  -o-border-top-left-radius: 20rpx;
+  border-top-left-radius:20rpx;
+   -webkit-border-bottom-left-radius:20rpx;
+  -moz-border-bottom-left-radius:20rpx;
+  -ms-border-bottom-left-radius: 20rpx;
+  -o-border-bottom-left-radius: 20rpx;
+  border-bottom-left-radius:20rpx;
+}

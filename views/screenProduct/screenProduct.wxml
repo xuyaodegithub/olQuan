@@ -1,0 +1,63 @@
+<view class="header flex">
+  <view bindtap='changeSort' data-index="1" class="{{indexSort==1 ? 'activeT' : ''}}">综合</view>
+  <view bindtap='changeSort' data-index="2" class="{{indexSort==2 ? 'activeT' : ''}}">销量</view>
+  <view class="flex"  bindtap='changeupDown'>
+    <text class="{{indexPrice ? 'activeT' : ''}}">价格</text>
+      <view wx:if="{{!isPrice}}">
+        <image src="../../image/3.png"></image>
+        <image src="../../image/4.png"></image>
+      </view>
+      <view wx:else>
+        <image src="../../image/1.png" wx:if="{{isUp}}"></image>
+        <image src="../../image/3.png" wx:if="{{!isUp}}"></image>
+        <image src="../../image/4.png" wx:if="{{isUp}}"></image>
+        <image src="../../image/2.png" wx:if="{{!isUp}}"></image>        
+      </view>
+  </view>
+  <view class="flex" bindtap='changeIsshow'>
+    <text>筛选</text>
+    <image src="../../image/3.png" wx:if="{{isShow}}"></image>    
+    <image src="../../image/4.png" wx:else></image>
+  </view>
+</view>
+<view class="dataList flex">
+  <view wx:for="{{dataList}}" wx:key="{{index}}" bindtap='goDetial' data-item="{{item}}">
+    <image src="{{item.image}}" mode='widthFix'></image>
+    <view class="over2">{{item.productName}}</view>
+    <view class="price">￥<text style="font-size:36rpx;">{{item.price}}</text></view>
+    <view class="flex">
+      <text>￥{{item.marketPrice}}</text>
+      <text>{{item.score}}</text>
+    </view>
+     <view class="typeTitle" wx:if="{{item.type===4}}">
+              试用
+     </view>
+     <view class="typeTitle" wx:if="{{item.type===9}}">
+              特卖
+     </view>
+  </view>
+</view>
+<view class="position"  wx:if="{{isShow}}">
+  <view class="flex">
+    <view class="{{isShownum==1 ? 'active' : ''}}" data-num="1" bindtap='changeBC'>品牌</view>
+    <view class="{{isShownum==2 ? 'active' : ''}}" data-num="2" bindtap='changeBC'>分类</view>
+  </view>
+  <view wx:if="{{isShownum==1}}" class="chose backGo">
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox" wx:for="{{allBrand}}" wx:key="{{index}}">
+        <checkbox value="{{item.brandId}}" checked="{{item.checked}}" />{{item.brandName}}
+      </label>
+    </checkbox-group>
+  </view>
+  <view wx:else  class="chose backGo">
+      <checkbox-group bindchange="checkboxChange2">
+        <label class="checkbox" wx:for="{{allClass}}"  wx:key="{{index}}">
+          <checkbox value="{{item.catId}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="btn" bindtap='seachScreen'>确定</view>
+</view>
+<view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+    <image src="../../image/goTop.png"></image>
+</view>

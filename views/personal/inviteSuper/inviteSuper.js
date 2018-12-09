@@ -170,7 +170,7 @@ Page({
       title: this.data.detailList.shareTitle,
       desc: this.data.detailList.shareDesc,
       imageUrl: this.data.detailList.shareLogo,
-      path: '/views/personal/inviteSuper/inviteSuper?isShare=1&inviteId=' + this.data.memberList.accountNo,//当前页面 path ，必须是以 / 开头的完整路径
+      path: '/views/personal/applyManger/applyManager?inviteId=' + this.data.memberList.accountNo + '&inviteMemberId=' + this.data.memberList.id,//当前页面 path ，必须是以 / 开头的完整路径
       success: function (res) {
         //成功
         console.log(999)

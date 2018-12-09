@@ -39,11 +39,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     this.setData({
       productId: options.id,
       productType: options.type ? options.type : '',
       levelCode: app.memberData.levelCode,
-      recId: options.recId ? options.recId : ''
+      recId: (options.recId && options.recId!='null') ? options.recId : '',
     })
     console.log(options, options.id, options.type,'---------------------')    
     common.methods.getLoginMess(this.getProductDetial, this, options)
@@ -653,6 +654,12 @@ Page({
     }
     common.methods.mothod1(data)      
   },
+  //客服
+  goServers(){
+    wx.switchTab({
+      url:'/views/service/service'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -705,9 +712,13 @@ Page({
       // 来自页面内转发按钮、、menu
       console.log(ops.target)
     }
+    let url = '/views/detial/detial?id=' + this.data.productId + '&type=' + this.data.productType
+    if (this.data.productType == 4 || this.data.productType == 9){
+      url = url +'&recId='+app.userId
+    }
     return {
       title: this.data.productData.productName,
-      path: '/views/detial/detial?id=' + this.data.productId + '&type=' + this.data.productType,//当前页面 path ，必须是以 / 开头的完整路径
+      path:url,//当前页面 path ，必须是以 / 开头的完整路径
       imageUrl: this.data.productData.image,//转发图标
       desc: this.data.productData.summary,
       success: function (res) {

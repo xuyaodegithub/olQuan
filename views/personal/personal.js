@@ -35,7 +35,7 @@ Page({
       complete: function (res) { },
     })
   },
-  //点击待付款订单
+  //点击待送订单
   getDaiSongList() {
     wx: wx.navigateTo({
       url: '../orderList/orderList?status=2',
@@ -160,6 +160,15 @@ Page({
   getInviteList(){
     wx: wx.navigateTo({
       url: './inviteList/inviteList',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //粉领续费
+  renewPink(){
+    wx: wx.navigateTo({
+      url: './renewPink/renewPink',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

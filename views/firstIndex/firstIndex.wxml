@@ -4,16 +4,16 @@
  <header  numkey="1"></header>
 <!-- <headerSub type="{{num}}"></headerSub>  -->
 <view class="content">
- <seachs></seachs>
+ <seachs seachValue="{{seachValue}}"></seachs>
 <swipers banner="{{banner}}" advers="{{advers}}"></swipers>    
   <view class="jindou flex">
-      <view class="flex">
+      <view class="flex" bindtap='goscreen'>
       <text>您有{{jindouresult.goldBeanStr}}金豆，可白拿{{jindouresult.canGetproductCount}}件产品</text>
       <image src="../../image/right.png"></image>
       </view>
-      <view>
-      <image src="../../image/jindou.png"></image>
-      <text>领金豆</text>      
+      <view bindtap='gogloldBean'>
+        <image src="../../image/jindou.png"></image>
+        <text>领金豆</text>      
       </view>
   </view>
   <view class="flex dengfen">
@@ -58,6 +58,11 @@
 </view>
 <view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
     <image src="../../image/goTop.png"></image>
+</view>
+<view class="zhezhao" wx:if="{{isDialog}}" catchtouchmove="myCatchTouch"></view>
+<view class="DialogMess" wx:if="{{isDialog}}" catchtouchmove="myCatchTouch">
+    <image src="../../image/colseIcon.png" bindtap='closeDG'></image>
+    <image src="{{DialogMess[0].image}}" mode='widthFix' bindtap='goactiveAA' data-item="{{DialogMess[0]}}" wx:if="{{DialogMess.length>0}}"></image>
 </view>
 <!-- <tryPage wx:elif="{{num===1}}" advers="{{advers}}" dataList="{{dataList}}"></tryPage>
 <findPage wx:else></findPage> -->

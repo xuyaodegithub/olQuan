@@ -22,6 +22,7 @@ Page({
     toView2:'Btn0',//btnid
     scrollTopNum:'',
     topTrue:false,
+    // isStartOrClose:false
     // windowHeight:''//设备高度
   },
 
@@ -125,6 +126,10 @@ Page({
             })
             res.data.subassembly.map(function (val, index) {
               if (val.modelSampleCode === 'catlist1') {
+                wx.showLoading({
+                  title: '加载中...',
+                  mask: true
+                })
                 let productList = []//产品
                 let classBanner = []//下标id
                 let classBanner2 = []//btnid
@@ -158,6 +163,7 @@ Page({
                 setTimeout(function () {
                   _self.setScrollTop()
                   _self.setTop('#classBtn')
+                  wx.hideLoading()    
                 }, 1300)
                 return
               }

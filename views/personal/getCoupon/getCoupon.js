@@ -7,13 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    activityId:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      activityId: options.id
+    })
     common.methods.getLoginMess(this.getCouponDetail, this);
     
   },
@@ -24,7 +27,7 @@ Page({
       url: '/mobile/coupon/getActivityInfo',
       data: {
         memberId: app.userId,
-        activityId:30
+        activityId:_self.data.activityId
       },
       callback: function (res) {
         _self.setData({
