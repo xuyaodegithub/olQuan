@@ -1,0 +1,114 @@
+/* views/personal/myTry/myTry.wxss */
+page{
+  background: #f2f2fa;
+}
+.tryTop{
+  background: #e50f71;
+  margin-bottom: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  padding: 0 30rpx;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+}
+.orderDetail{
+  background: #fff;
+  padding-left: 30rpx;
+  position: relative;
+}
+.orderTop{
+  line-height: 100rpx;
+  border-bottom: 2rpx solid #e1e1e1;
+  font-size: 30rpx;
+  color: #333;
+}
+.orderDetail image{
+  display: block;
+  width: 10rpx;
+  height: 19rpx;
+  position: absolute;
+  right:30rpx;
+  top: 50%;
+  margin-top: -10rpx;
+}
+.orderList{
+  background: #fff;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+}
+.orderStatus{
+  padding: 40rpx 0;
+  font-size: 24rpx;
+  color: #808080;
+  width: 20%;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-justify-content:center;
+  justify-content:center;
+  -moz-box-pack:center;
+  -webkit--moz-box-pack:center;
+  flex-wrap:wrap;
+  -webkit-flex-wrap:wrap;
+  -webkit-box-lines:multiple;
+  -moz-flex-wrap:wrap;
+  position: relative;
+}
+.orderStatus image{
+  display: block;
+  width: 48rpx;
+  height: 48rpx;
+}
+.orderStatus .text{
+  width: 100%;
+  text-align: center;
+  margin-top: 14rpx;
+}
+.speSpan{
+  width: 28rpx;
+  height: 28rpx;
+  text-align: center;
+  line-height: 28rpx;
+  font-size: 16rpx;
+  color: #fff;
+  background: #e50f71;
+  position: absolute;
+  right: 15%;
+  top: 35rpx;
+  border-radius: 50%;
+}
+.explain{
+  position: fixed;
+  bottom: 30rpx;
+  width: 100%;
+}
+.exDian{
+  width: 40%;
+  text-align: center;
+  font-size: 30rpx;
+  color: #637489;
+  margin: 0 auto;
+}

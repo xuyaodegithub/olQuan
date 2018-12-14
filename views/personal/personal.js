@@ -19,7 +19,7 @@ Page({
   },
   //点击全部订单
   getAllList(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../orderList/orderList?status=0',
       success: function (res) { },
       fail: function (res) { },
@@ -28,7 +28,7 @@ Page({
   },
   //点击待付款订单
   getDaifuList() {
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../orderList/orderList?status=1',
       success: function (res) { },
       fail: function (res) { },
@@ -37,7 +37,7 @@ Page({
   },
   //点击待送订单
   getDaiSongList() {
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../orderList/orderList?status=2',
       success: function (res) { },
       fail: function (res) { },
@@ -46,7 +46,7 @@ Page({
   },
   //点击待付款订单
   getDaiShouList() {
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../orderList/orderList?status=3',
       success: function (res) { },
       fail: function (res) { },
@@ -55,7 +55,7 @@ Page({
   },
   //点击我的钱包
   getMyWallet(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './myWallet/myWallet',
       success: function (res) { },
       fail: function (res) { },
@@ -64,7 +64,7 @@ Page({
   },
   //点击我的优惠券
   getMycoupon(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './myCoupon/myCoupon',
       success: function (res) { },
       fail: function (res) { },
@@ -73,7 +73,7 @@ Page({
   },
   //点击邀请店主
   invitePink(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './invitePink/invitePink',
       success: function (res) { },
       fail: function (res) { },
@@ -82,7 +82,7 @@ Page({
   },
   //点击我的发现
   getMyFind(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../myFind/myFind',
       success: function (res) { },
       fail: function (res) { },
@@ -91,7 +91,7 @@ Page({
   },
   //点击设置
   getMySet(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './mySet/mySet',
       success: function (res) { },
       fail: function (res) { },
@@ -100,7 +100,7 @@ Page({
   },
   //点击我的收藏
   getMycollect(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './myCollect/myCollect',
       success: function (res) { },
       fail: function (res) { },
@@ -108,7 +108,7 @@ Page({
     })
   },
   getDaiPingList() {
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../orderList/orderList?status=4',
       success: function (res) { },
       fail: function (res) { },
@@ -116,7 +116,7 @@ Page({
     })
   },
   getDaiTuiList() {
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../orderList/orderList?status=5',
       success: function (res) { },
       fail: function (res) { },
@@ -124,7 +124,7 @@ Page({
     })
   },
   inviteSuper(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './inviteSuper/inviteSuper',
       success: function (res) { },
       fail: function (res) { },
@@ -132,7 +132,7 @@ Page({
     })
   },
   getPerson(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './webView/webView?id=' + app.userId,
       success: function (res) { },
       fail: function (res) { },
@@ -141,7 +141,7 @@ Page({
   },
   //我的客户
   getCounstom(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './myCustom/myCustom',
       success: function (res) { },
       fail: function (res) { },
@@ -150,7 +150,7 @@ Page({
   },
   //报表中心
   amountRecord(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './amountRecord/amountRecord?memberId=' + app.userId,
       success: function (res) { },
       fail: function (res) { },
@@ -158,7 +158,7 @@ Page({
     })
   },
   getInviteList(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './inviteList/inviteList',
       success: function (res) { },
       fail: function (res) { },
@@ -167,12 +167,43 @@ Page({
   },
   //粉领续费
   renewPink(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: './renewPink/renewPink',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
     })
+  },
+  //我的试用
+  getMyTry(){
+    wx.navigateTo({
+      url: './myTry/myTry',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //帮助中心
+  getHelp(){
+    wx: wx.navigateTo({
+      url: './helpCent/helpCent',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //合伙人
+  getPartent(){
+    wx: wx.navigateTo({
+      url: './partner/partner',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //推广海报
+  getHaiBao(){
+    wx.navigateTo({ url: '/views/goldBeanPage/putHaibao/putHaibao'})
   },
     //首次进入
     firstGoin(){

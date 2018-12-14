@@ -1,1 +1,117 @@
 /* views/personal/boundMobile/boundMobile.wxss */
+page{
+  background: #f2f2f2;
+}
+.titleTop{
+  padding-left: 30rpx;
+  font-size: 28rpx;
+  color: #666;
+  padding-top: 40rpx;
+}
+.inputIcon{
+  margin-top: 40rpx;
+  position: relative;
+  padding: 0 30rpx;
+}
+.codeImg{
+  display: block;
+  width: 140rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  margin-top: -30rpx;
+  z-index: 2;
+}
+.inputIconIn{
+  width: 100%;
+  background: #F3F0F3;
+  border-radius: 8rpx;
+  height: 90rpx;
+  margin: 0 auto;
+}
+.sureCodeGet{
+  width: 400rpx;
+  height: 90rpx;
+  background: #F798C4;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  border-radius: 8rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+.viewMobile{
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  padding-top: 30rpx;
+}
+.getCodeImg{
+  width: 35%;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  border-left: 1rpx solid #e5e5e5;
+  position: absolute;
+  right: 45rpx;
+  color: #e50f72;
+  z-index: 22;
+  top: 0;
+}
+.next{
+  width: 90%;
+  margin: 0 auto;
+  height: 75rpx;
+  line-height: 75rpx;
+  color: #fff;
+  background: #e50f72;
+  text-align: center;
+  font-size: 24rpx;
+
+}
+.alert{
+  width: 560rpx;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  color: #333;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -150rpx 0 0 -310rpx;
+  padding: 30rpx;
+  background: #fff;
+  z-index: 999;
+}
+.alert > image{
+  float: right;
+  width: 24rpx;
+  height: 24rpx;
+}
+.alert > .text{
+  line-height: 100rpx;
+  text-align: center;
+}
+.alert .flex{
+  background-color: #f3f0f3;
+  padding: 15rpx 10rpx 15rpx 0;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.alert .flex image{
+  width: 140rpx;
+  height: 60rpx
+}
+.Abtn{
+  width: 400rpx;
+  margin: 0 auto;
+  line-height: 90rpx;
+  background-color: #f798c4;
+  text-align: center;
+  color: #fff;
+  border-radius: 8rpx;
+}
+.Abtn.active{
+  background-color: rgb(229, 15, 114)
+}

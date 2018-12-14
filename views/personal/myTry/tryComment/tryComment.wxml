@@ -1,0 +1,23 @@
+<!--views/personal/myTry/tryComment/tryComment.wxml-->
+<view class='orderDetail'>
+  <image src='{{orderCount.items[0].productImage}}'></image>
+  <view class='productDetail'>
+    <view class='productName'>{{orderCount.items[0].productName}}</view>
+    <view class='productPrice'>
+      ￥<text style='font-size:36rpx;font-weight:700;'>{{orderCount.items[0].price}}</text>
+    </view>
+  </view>
+</view>
+<view class='tryTitle'>试用报告标题</view>
+<view class='inputTitle'>
+  <input bindinput='getTitle' value='{{title}}' placeholder='请填写试用报告标题'></input>
+</view>
+<view class='tryTitle'>试用感受</view>
+<view class='inputContent'> 
+  <textarea bindinput='getContent' value='{{content}}' auto-height maxlength='1000' placeholder='请输入您的试用感受（至少30字）'></textarea>
+  <view class='contenLength'>{{length}}/1000</view>
+</view>
+<view class='chooseImage'>
+  <image mode='widthFix' wx:for="{{imgList}}" wx:key="{{index}}" src='{{item}}'></image>
+  <image mode='widthFix' bindtap='addImage' src='../../../../image/add02.png'></image>
+</view>

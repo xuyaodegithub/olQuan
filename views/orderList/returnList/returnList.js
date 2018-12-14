@@ -89,12 +89,22 @@ Page({
       data:data,
       callback: function (res) {
         if(res.data.code==0){
-          wx: wx.navigateTo({
+          if (_self.data.orderList.type==2){
+            wx: wx.redirectTo({
+              url: '/views/personal/myTry/tryList/tryList?status=2',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          }else{
+            wx: wx.redirectTo({
             url: '../../orderList/orderList?status=5',
             success: function (res) { },
             fail: function (res) { },
             complete: function (res) { },
           })
+          }
+          
         }else{
           wx.showToast({
             title: res.data.message,

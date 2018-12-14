@@ -1,0 +1,43 @@
+<!--views/personal/myTry/myTry.wxml-->
+<view class='tryTop'>
+  <view>本月整点抢试剩余机会：<text style='font-weight:700;font-size:36rpx;'>{{memList.subFreeUseCount}}</text></view>
+  <view bindtap='getDetailed'>明细</view>
+</view>
+<view class='orderDetail' bindtap='getTryList'>
+  <view class='orderTop'>试用订单</view>
+  <image src='../../../image/rowright.png'></image>
+</view>
+<view class='orderList'>
+  <view class='orderStatus' bindtap='getDaifuList'>
+    <image src='../../../image/user_order_01.png'></image>
+    <view class='text'>待付款</view>
+    <view class='speSpan' wx:if="{{orderDetail.waitPayCount>0}}">{{orderDetail.waitPayCount}}</view>
+  </view>
+  <view class='orderStatus' bindtap='getDaiSongList'>
+    <image src='../../../image/user_order_02.png'></image>
+    <view class='text'>待配送</view>
+    <view class='speSpan' wx:if="{{orderDetail.waitSendCount>0}}">{{orderDetail.waitSendCount}}</view>
+  </view>
+  <view class='orderStatus' bindtap='getDaiShouList'>
+    <image src='../../../image/user_order_03.png'></image>
+    <view class='text'>待收货</view>
+    <view class='speSpan' wx:if="{{orderDetail.waitConfirmCount>0}}">{{orderDetail.waitConfirmCount}}</view>
+  </view>
+  <view class='orderStatus' bindtap='getDaiPingList'>
+    <image src='../../../image/user_order_04.png'></image>
+    <view class='text'>待评价</view>
+    <view class='speSpan' wx:if="{{orderDetail.waitCommentCount>0}}">{{orderDetail.waitCommentCount}}</view>
+  </view>
+  <view class='orderStatus' bindtap='getDaiTuiList'>
+    <image src='../../../image/user_order_05.png'></image>
+    <view class='text'>退款</view>
+    <view class='speSpan' wx:if="{{orderDetail.waitRefundCount>0}}">{{orderDetail.waitRefundCount}}</view>
+  </view>
+</view>
+<view class='orderDetail' style='border:none;margin-top:20rpx;' bindtap='getTryShow'>
+  <view class='orderTop' style='border:none;'>我的试用秀</view>
+  <image src='../../../image/rowright.png'></image>
+</view>
+<view class='explain'>
+  <view class='exDian' bindtap='getExplain'>关于试用机会说明</view>
+</view>

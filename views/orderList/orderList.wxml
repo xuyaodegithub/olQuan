@@ -96,7 +96,7 @@
       <view class='orderNormal'>
         <view class='normalDetail'>
           <view class='norDtai' data-orderId="{{item.orderId}}" bindtap='getDetail'>查看详情</view>
-          <view class='norDtai' wx:if="{{item.status==2}}">查看物流</view>
+          <view class='norDtai' data-no='{{item.expressNo}}' data-Name='{{item.express}}' bindtap='getLogistics' wx:if="{{item.status==2}}">查看物流</view>
           <view wx:if="{{item.type!=3 && item.type!=9}}">
             <view class='norDtai'  data-orderId="{{item.orderId}}" bindtap='getReturn' wx:if="{{item.status==1 ||  item.status==2}}">申请售后</view>
           </view>

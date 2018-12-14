@@ -1,0 +1,45 @@
+/* views/personal/myTry/tryDetailed/tryDetailed.wxss */
+page{
+  background: #f2f2fa;
+}
+.tryTop{
+  background: #e50f71;
+  margin-bottom: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+}
+.explainList{
+  padding-left:30rpx;
+}
+.listDetail{
+  padding: 20rpx 30rpx 20rpx 0;
+  border-bottom: 2rpx solid #e5e5e5;
+}
+.listTop{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  font-size: 36rpx;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+.listReson{
+  font-size: 28rpx;
+  color: #666;
+  line-height: 48rpx;
+
+}

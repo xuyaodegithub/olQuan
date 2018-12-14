@@ -1,0 +1,2 @@
+<!--views/personal/partner/partner.wxml-->
+<web-view src="{{linkUrl}}"></web-view>

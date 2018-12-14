@@ -20,7 +20,7 @@
     已拒绝
   </view>
   <view class='agreeOrNot' wx:if="{{item.status==0}}">
-    <view data-recordId='{{item.recordId}}' data-index='{{index}}' data-realName='{{item.realName}}' data-nickName='{{item.nickName}}' class='agree'>同意</view>
-    <view class='agreeNo'>拒绝</view>
+    <view data-recordId='{{item.recordId}}' data-index='{{index}}' data-realName='{{item.realName}}' data-nickName='{{item.nickName}}' bindtap='agreeMent' class='agree'>同意</view>
+    <view data-recordId='{{item.recordId}}' data-index='{{index}}' data-realName='{{item.realName}}' data-nickName='{{item.nickName}}' bindtap='agreeNoMent' class='agreeNo'>拒绝</view>
   </view>
 </view>

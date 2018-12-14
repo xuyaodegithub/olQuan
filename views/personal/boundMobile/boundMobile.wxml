@@ -1,2 +1,22 @@
 <!--views/personal/boundMobile/boundMobile.wxml-->
-<text>views/personal/boundMobile/boundMobile.wxml</text>
+<view style='background:#f2f2fa;padding-bottom:180rpx;'>
+  <view class='titleTop'>你当前绑定的手机号为：{{phoneStr}}</view>
+  <view class='inputIcon'>
+    <input bindinput="getCodeDetail" style='font-size:30rpx;background:#fff;' placeholder='请输入验证码' type="number" class='inputIconIn'></input>
+    <view wx:if="{{isDisabled}}" class='getCodeImg' bindtap='getWxGraphCode'>获取验证码</view>
+    <view wx:if="{{!isDisabled}}" class='getCodeImg' >{{time}}</view>
+  </view>
+  <view style='margin-top:40rpx;'>
+    <view class='next' bindtap='doNext'>下一步</view>
+  </view>
+</view>
+<view class="zhezhao" wx:if="{{isAlert}}"></view>
+<view class="alert" wx:if="{{isAlert}}">
+  <image src="../../../image/duiClose.png" bindtap='closeAlert'></image>
+  <view class="text">请在下方输入图像验证码</view>
+  <view class="flex">
+    <input type="number" placeholder='请输入' value="{{txma}}"  bindinput='changeValue' data-num="3"></input>
+    <image src="{{TXmaimg}}" bindtap='getTXma'></image>
+  </view>
+  <view class="Abtn {{btnActive? 'active' : ''}}" bindtap='tosure'>确定</view>
+</view>

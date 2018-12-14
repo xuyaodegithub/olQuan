@@ -1,0 +1,65 @@
+<!--views/personal/myTry/showDetail/showDetail.wxml-->
+<view style='background:#fff;'>
+  <view class='showDetailTop'>{{orderList.title}}</view>
+  <view style='padding:0 20rpx; margin-bottom:20rpx;'>
+    <view class='showName'>
+      <image src='{{orderList.memberLogo}}'></image>
+      <view style='margin-left:10rpx;'>
+        <view>{{orderList.memberName}}</view>
+        <view style='color:#999;font-size:24rpx;margin-top:8rpx'>{{orderList.time}}</view>
+      </view>
+    </view>
+    <view class='showContent'>
+      <view class='imageBox'>
+        <image wx:for="{{orderList.images}}" wx:key="{{index}}" src='{{item}}' data-Index='{{index}}' data-ItemList='{{orderList.images}}' bindtap='previewImage'></image>
+      </view>
+    </view>
+    <view class='showContTop'>{{orderList.content}}</view>
+  </view>
+</view>
+<view style='background:#fff; margin-bottom:20rpx;'>
+  <view class='showDetailTop' style='font-size:30rpx;'>本文中的商品</view>
+  <view class='productDetail' bindtap='getGoodsDetail'>
+    <image src='{{orderList.productImage}}'></image>
+    <view class='productName'>
+      <view style='height: 72rpx; overflow: hidden;'>{{orderList.productName}}</view>
+      <view class='productSure'>
+        <view>￥<text style='font-size:36rpx;font-weight:700;'>{{orderList.productPrice}}</text></view>
+        <view class='bot'>去购买</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view style='background:#fff;position: relative;'>
+  <view class='showDetailTop' style='font-size:30rpx;'>评论({{orderList.commentCount}})</view>
+  <image class='speImage' src='../../../../image/comm.png'></image>
+</view>
+<view class='countList' wx:for="{{orderList.commentCommentDtos}}" wx:key="{{index}}">
+  <view class='showName'>
+    <image src='{{item.memberLogo}}'></image>
+    <view class='countName'>
+      <view>{{item.memberName}}</view>
+      <view style='font-size:24rpx;color:#999;'>{{item.time}}</view>
+    </view>
+    
+  </view>
+  <view class='countCent'>
+    <view data-name='{{item.memberName}}' data-Id='{{item.id}}' data-index='{{index}}' bindtap='getOneName' class='contern'>{{item.content}}</view>
+    <view class='contern' wx:for="{{item.children}}" wx:key="{{index}}" wx:for-item="itemson" wx:for-index="indexson" data-name='{{itemson.memberName}}' data-Id='{{itemson.id}}' data-index='{{index}}' bindtap='getOneNameMore'>
+      <text style='color:#5a7cab'>{{itemson.parentMemberName}}</text>回复<text style='color:#5a7cab'>{{itemson.memberName}}</text>：{{itemson.content}}
+    </view>
+  </view>
+</view>
+<view class='button'>
+  <view class='botcont'>
+    <view class='zan' bindtap='addGoods'>
+     <image wx:if="{{orderList.isGood!=1}}" src='../../../../image/zan01.png'></image>
+     <image wx:if="{{orderList.isGood==1}}" src='../../../../image/zan02.png'></image>
+     <text style='color:#999;font-size:24rpx;'>{{orderList.goodCount}}</text>
+    </view>
+    <input value='{{content}}' bindinput='getContent' placeholder='{{placeValue}}'></input>
+    <view class='sureBot' bindtap='getBotton'>提交</view>
+  </view>
+</view>
+
+

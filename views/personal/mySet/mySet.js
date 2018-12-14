@@ -413,6 +413,40 @@ Page({
       complete: function (res) { },
     })
   },
+  boundMobile(){
+    if (this.data.memberList.mobile==''){
+      wx: wx.navigateTo({
+        url: '/views/bindPhone/bindPhone',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }else{
+      wx: wx.navigateTo({
+        url: '/views/personal/boundMobile/boundMobile?phone=' + this.data.memberList.mobile,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+    
+  },
+  changePassword(){
+    if (this.data.memberList.mobile == ''){
+      wx.showToast({
+        title: '请先绑定手机号',
+        icon: 'none',
+        duration: 2000
+      });
+    }else{
+      wx: wx.navigateTo({
+        url: '/views/personal/updatepayPassword/updatepayPassword?phone=' + this.data.memberList.mobile,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

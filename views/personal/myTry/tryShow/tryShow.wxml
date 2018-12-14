@@ -1,0 +1,35 @@
+<!--views/personal/myTry/tryShow/tryShow.wxml-->
+<view class='showList' wx:for="{{orderList}}" wx:key="{{key}}">
+  <view class='showTop'>
+    <view>{{item.title}}</view>
+    <view class='status' wx:if="{{item.status==1}}">已通过</view>
+    <view class='status' wx:if="{{item.status==2}}">未通过</view>
+    <view class='status' wx:if="{{item.status==0}}">待审核</view>
+  </view>
+  <view data-commentId='{{item.id}}' bindtap='getShowDetail'>
+    <view class='showName'>
+      <image src='{{item.memberLogo}}'></image>
+      <view style='margin-left:10rpx;'>
+        <view>{{item.memberName}}</view>
+        <view style='color:#999;font-size:24rpx;margin-top:8rpx'>{{item.time}}</view>
+      </view>
+    </view>
+    <view class='showContent'>
+      <view class='showContTop'>{{item.content}}</view>
+      <view class='imageBox'>
+        <image wx:for="{{item.images}}" wx:key="{{index}}" wx:for-item="itemson" wx:for-index="indexson" src='{{itemson}}' wx:if="{{indexson<3}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class='doGoods'>
+    <view class='zan' style='margin-right:20rpx;' data-Id='{{item.id}}' data-Index='{{index}}' bindtap='addGoods'>
+     <image wx:if="{{item.isGood!=1}}" src='../../../../image/zan01.png'></image>
+     <image wx:if="{{item.isGood==1}}" src='../../../../image/zan02.png'></image>
+     <text>{{item.goodCount}}</text>
+    </view>
+    <view class='zan'>
+     <image src='../../../../image/comm.png'></image>
+     <text>{{item.commentCount}}</text>
+    </view>
+  </view>
+</view>

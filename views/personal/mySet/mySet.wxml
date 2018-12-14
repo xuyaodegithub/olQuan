@@ -70,7 +70,7 @@
     <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
   </view>
 </view>
-<view class='setMessage' bindtap=''>
+<view class='setMessage' bindtap='boundMobile'>
   <view class='setLeft'>
     <image src='../../../image/bangTel.png'></image>
     <view style="margin-left: 7rpx;">绑定手机号</view>
@@ -93,7 +93,7 @@
   </view>
 </view>
 <view class='topMessage'>安全提升</view>
-<view class='setMessage' bindtap=''>
+<view class='setMessage' bindtap='changePassword'>
   <view class='setLeft'>
     <image src='../../../image/pasWad.png'></image>
     <view style="margin-left: 7rpx;">支付密码设置</view>
