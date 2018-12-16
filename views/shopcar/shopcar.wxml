@@ -44,9 +44,9 @@
 </view>
 <!-- 价格 -->
 <view class="payfor flex">
-  <view class="flex">
-    <image src="../../image/nochose.png" wx:if="{{!choseAll}}" bindtap='choseAllProduct'></image>
-    <image src="../../image/checked.png" wx:else  bindtap='cancalAllProduct'></image>
+  <view class="flex" bindtap='choseAllProduct'>
+    <image src="../../image/nochose.png" wx:if="{{!choseAll}}"></image>
+    <image src="../../image/checked.png" wx:else></image>
     <view>全选</view>
   </view>
   <view class="left flex">

@@ -1,0 +1,2 @@
+<!--views/personal/helpCent/helpCent.wxml-->
+<web-view src="{{linkUrl}}"></web-view>

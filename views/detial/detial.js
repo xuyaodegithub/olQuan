@@ -32,21 +32,23 @@ Page({
     recId:'',//发现关联id
     isSaveAlow:false,//授权弹框
     isCollect:0,//是否收藏
-    addOrBuy:1//1add2buy
+    addOrBuy:1,//1add2buy
+    topTrue:false,
+    openlink:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     this.setData({
       productId: options.id,
       productType: options.type ? options.type : '',
       levelCode: app.memberData.levelCode,
       recId: (options.recId && options.recId!='null') ? options.recId : '',
     })
-    console.log(options, options.id, options.type,'---------------------')    
+    // console.log(options, options.id, options.type,'---------------------')    
     common.methods.getLoginMess(this.getProductDetial, this, options)
   },
 //firstin
@@ -658,6 +660,43 @@ Page({
   goServers(){
     wx.switchTab({
       url:'/views/service/service'
+    })
+  },
+  //回到顶部
+  toScrollTop() {//回到顶部方法
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 400
+    })
+  },
+  //滚轮
+  onPageScroll: function (e) { // 页面滚动触发事件的处理函数
+    // console.log(e.scrollTop)
+    if (e.scrollTop > 200) {
+      this.setData({
+        topTrue: true
+      })
+    } else {
+      this.setData({
+        topTrue: false
+      })
+    }
+  },
+  openlink(){
+    this.setData({
+      openlink: !this.data.openlink
+    })
+  },
+  changeLink(e){
+    let index = e.currentTarget.dataset.index
+    if (index == 1) wx.switchTab({ url: '/views/firstIndex/firstIndex', })
+    else if (index == 2) wx.switchTab({ url: '/views/shopcar/shopcar', })
+    else if (index == 3) wx.switchTab({ url: '/views/personal/personal',})
+  },
+  //试用说明
+  goShuoming(){
+    wx.navigateTo({
+      url: './tryExplain/tryExplain',
     })
   },
   /**

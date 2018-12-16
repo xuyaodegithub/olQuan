@@ -1,11 +1,13 @@
 {
   "pages": [
     "views/firstIndex/firstIndex",
-    "views/personal/renewPink/renewPink",
+    "views/find/find",
     "views/personal/personal",
+    "views/personal/myTry/tryShow/tryShow",
+    "views/personal/myTry/myTry",
+    "views/personal/renewPink/renewPink",
     "views/personal/applyManger/applyManager",
     "views/personal/payMent/payMent",
-    "views/find/find",
     "views/personal/invitePink/invitePink",
     "views/personal/myCollect/myCollect",
     "views/personal/getCoupon/getCoupon",
@@ -57,9 +59,11 @@
     "views/personal/myTry/tryDetailed/tryDetailed",
     "views/personal/myTry/showDetail/showDetail",
     "views/personal/myTry/tryComment/tryComment",
-    "views/personal/myTry/tryShow/tryShow",
-    "views/personal/myTry/myTry",
-    "views/detial/tryExplain/tryExplain"
+    "views/detial/tryExplain/tryExplain",
+    "views/personal/updatepayPassword/updatepayPassword",
+    "views/logistics/logistics",
+    "views/personal/helpCent/helpCent",
+    "views/personal/partner/partner"
   ],
   "find": [
     ""

@@ -297,6 +297,7 @@ Page({
   },
   //提交订单
   submitOrder(){
+    console.log(this.data.curObj)
     if (this.data.coffersFeeShow || this.data.goldBeanFeeShow || this.data.scoreFeeShow || this.data.amountFeeShow) {
       this.setData({
         isShowPass: true
@@ -356,12 +357,22 @@ Page({
         })
         if(res.data.code==1){
           wx.hideLoading()
-          wx: wx.redirectTo({
-            url: '/views/orderList/orderList?status=2',
-            success: function (res) { },
-            fail: function (res) { },
-            complete: function (res) { },
-          })
+          if(_self.data.curObj.type==2){
+            wx: wx.redirectTo({
+              url: '/views/personal/myTry/tryList/tryList?status=2',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          }else{
+            wx: wx.redirectTo({
+              url: '/views/orderList/orderList?status=2',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          }
+          
         }else if(res.data.code==0){
           wx.requestPayment({
             timeStamp: res.data.result.timeStamp,

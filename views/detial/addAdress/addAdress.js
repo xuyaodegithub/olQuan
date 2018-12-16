@@ -131,11 +131,14 @@ Page({
   },
   choseThis(e){
     if (this.data.backType==1){
-      wx.navigateTo({
+      wx.redirectTo({
         url: '../toSureBuy/toSureBuy?adressID=' + e.currentTarget.dataset.id
       })
+      // wx.navigateBack({
+      //   delta:1
+      // })
     } else if (this.data.backType == 2){
-      wx.navigateTo({
+      wx.redirectTo({
         url: '../../carToBuy/carToBuy?adressID=' + e.currentTarget.dataset.id + '&ids=' + this.data.ids
       })
     } else if (this.data.backType == 3){

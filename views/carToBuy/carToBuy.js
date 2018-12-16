@@ -511,7 +511,7 @@ Page({
   },
   //跳转地址页面
   toAdress() {
-    wx: wx.navigateTo({
+    wx.redirectTo({
       url: '../detial/addAdress/addAdress?backType=' + 2 + '&ids=' + this.data.ids + '&isCrossBorderProduct=' + this.data.OrderList.isCrossBorderProduct + '&isOverseasDirectMailProduct=' + this.data.OrderList.isOverseasDirectMailProduct,
     })
   },
@@ -658,7 +658,7 @@ Page({
               success(res1) {
                 // wx.showToast({ title: '支付成功', icon: 'none' })
                 wx.reLaunch({
-                  url: '../paySuccess/paySuccess?orderMess=' + res.data.result.orderPayRecordNo
+                  url: '../detial/paySuccess/paySuccess?orderMess=' + res.data.result.orderPayRecordNo
                 })
               },
               fail(res) {
@@ -668,7 +668,7 @@ Page({
           } else {
             wx.showToast({ title: '支付成功', icon: 'none' })
             wx.reLaunch({
-              url: '../paySuccess/paySuccess?orderMess=' + res.data.result.orderPayRecordNo
+              url: '../detial/paySuccess/paySuccess?orderMess=' + res.data.result.orderPayRecordNo
             })
           }
         // } else {

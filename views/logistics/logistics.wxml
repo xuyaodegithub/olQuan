@@ -1,0 +1,2 @@
+<!--views/logistics/logistics.wxml-->
+<web-view src="{{linkUrl}}"></web-view>

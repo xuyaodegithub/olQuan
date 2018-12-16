@@ -20,12 +20,12 @@ page{
 }
 .header > view image{
   display: block;
-  width: 25rpx;
-  height: 15rpx;
+  width: 24rpx;
+  height: 14rpx;
   margin-left: 10rpx;
 }
 .header > view view image:first-child{
-  margin-bottom: 10rpx;
+  margin-bottom: 5rpx;
 }
 .position{
   position: absolute;

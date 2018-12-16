@@ -27,6 +27,7 @@ margin-bottom: 2rpx;
   color: #333333;
   line-height: 46rpx;
   margin-bottom: 10rpx;
+  word-break:break-all;
 }
 .tryImage .image {
   /* justify-content: space-between; */

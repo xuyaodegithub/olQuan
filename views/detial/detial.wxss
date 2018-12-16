@@ -222,6 +222,7 @@ margin-bottom: 2rpx;
   color: #333333;
   line-height: 46rpx;
   margin-bottom: 10rpx;
+  word-break:break-all;
 }
 /* .tryImage .image {
   justify-content: space-between;
@@ -400,7 +401,7 @@ margin-bottom: 2rpx;
     top: 0;
     height: 100%;
     width: 100%;
-    z-index: 99;
+    z-index: 1000;
     background: rgba(0,0,0,.5);
  }
  .buyContent,.couponContent{
@@ -454,6 +455,8 @@ margin-bottom: 2rpx;
   font-size: 26rpx;
   color: #000000;
   border-bottom: 2rpx solid #cfcfcf;  
+  max-height: 700rpx;
+  overflow-y: scroll;
 }
 .buyContent .center .valueItem .index_son{
     border: 2rpx solid #e30067;
@@ -645,4 +648,26 @@ width:200rpx;
 .GoShouQuan .flex{
   margin-top: 30rpx;
   justify-content: space-between;
+}
+.link{
+  position: fixed;
+  bottom: 210rpx;
+  right: 100rpx;
+  font-size: 26rpx;
+  line-height: 56rpx;
+  z-index:1111;
+}
+.link image{
+  display: block;
+  width: 60rpx;
+  height: 60rpx;
+}
+.link .classLink{
+  position: absolute;
+  top: -168rpx;
+  background-color: #f0f0f0;
+  text-align: center;
+  width: 170rpx;
+  left: -85rpx;
+  color: #333;
 }

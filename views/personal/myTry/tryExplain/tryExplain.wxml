@@ -1,0 +1,10 @@
+<!--views/personal/myTry/tryExplain/tryExplain.wxml-->
+<view class='explainTop'>如何获得试用机会：</view>
+<view class='explainList'>
+  1、<text style='color:#ee3333;'>金领会员</text>可获得一次试用机会。
+</view>
+<view class='explainList'>
+  2、<text style='color:#ee3333;'>开通粉领会员</text>即可享受试用特权，自开通之日起每30天可获得3次试用机会；30天内未使用，自动作废。
+</view><view class='explainList'>
+  3、粉领会员可<text style='color:#ee3333;'>邀请好友</text>开通粉领，邀请成功后，奖励一次试用机会，无时间限制，可累计使用。
+</view>

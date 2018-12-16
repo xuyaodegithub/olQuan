@@ -24,7 +24,7 @@
   <view class='addDetail'>{{orderList.address}}</view>
 </view>
 <view class='productList'>
-  <view class='productDetail' wx:for="{{orderList.items}}">
+  <view class='productDetail' wx:for="{{orderList.items}}" wx:key="{{index}}">
     <view>
       <image class='productImage' src='{{item.productImage}}'></image>
     </view>

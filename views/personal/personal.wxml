@@ -66,8 +66,12 @@
       <view class='navTabName'>我的钱包</view>
     </view>
   </view>
+<!-- <<<<<<< HEAD -->
   <view class='navTab'>
     <view class='navTabSon' bindtap='getMyTry'>
+<!-- =======
+  <view class='navTab' bindtap='getMyTry'>
+    <view class='navTabSon'> -->
       <image class='navTabImg' src='../../image/myTryUes.png'></image>
       <view class='navTabName'>我的试用</view>
       <view class='severalNum' wx:if='{{orderCount.freeUseCount!=0}}'>{{orderCount.freeUseCount}}</view>
@@ -85,7 +89,7 @@
       <view class='navTabName'>我的收藏</view>
     </view>
   </view>
-  <view class='navTab'>
+  <view class='navTab' bindtap='getHaiBao'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/myBook.png'></image>
       <view class='navTabName'>推广海报</view>
@@ -115,7 +119,7 @@
       <view class='navTabName'>报表中心</view>
     </view>
   </view>
-  <view class='navTab' wx:if="{{personalList.partnerLevel!=null || personalList.isCityPartner==1 || personalList.isBrandPartner==1}}">
+  <view class='navTab' wx:if="{{personalList.partnerLevel!=null || personalList.isCityPartner==1 || personalList.isBrandPartner==1}}" bindtap='getPartent'>
     <view class='navTabSon'>
       <image class='navTabImg' src='../../image/myPartent.png'></image>
       <view class='navTabName'>合伙人</view>
@@ -133,7 +137,7 @@
       <view class='navTabName'>设置</view>
     </view>
   </view>
-  <view class='navTab'>
+  <view class='navTab' bindtap='getHelp'>
     <view class='navTabSon'>
       <image class='navTabImg'src='../../image/myHelp.png'></image>
       <view class='navTabName'>帮助中心</view>

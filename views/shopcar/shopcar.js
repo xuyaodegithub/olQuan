@@ -311,32 +311,36 @@ Page({
   },
   //全选
   choseAllProduct() { 
-    let item = this.data.shopCarMess
-    item.map(function(items,index){
-      items.choseOr=1
-      items.detailDtos.map(function(val,key){
-        val.choseOr=1
+    let item = this.data.shopCarMess    
+    if (!this.data.choseAll){
+      item.map(function (items, index) {
+        items.choseOr = 1
+        items.detailDtos.map(function (val, key) {
+          val.choseOr = 1
+        })
       })
-    })
+    }else{
+      item.map(function (items, index) {
+        items.choseOr = 0
+        items.detailDtos.map(function (val, key) {
+          val.choseOr = 0
+        })
+      })
+    }
     this.setData({
       shopCarMess: item,
-      choseAll:true
+      choseAll: !this.data.choseAll
     }, this.makeallNum)
   },
   //取消全选
-  cancalAllProduct(){
-    let item = this.data.shopCarMess
-    item.map(function (items, index) {
-      items.choseOr = 0
-      items.detailDtos.map(function (val, key) {
-        val.choseOr = 0
-      })
-    })
-    this.setData({
-      shopCarMess: item,
-      choseAll: false
-    }, this.makeallNum)
-  },
+  // cancalAllProduct(){
+  //   let item = this.data.shopCarMess
+    
+  //   this.setData({
+  //     shopCarMess: item,
+  //     choseAll: false
+  //   }, this.makeallNum)
+  // },
   //计算总件数和总价格
   makeallNum(){
     let item = this.data.shopCarMess

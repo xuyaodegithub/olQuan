@@ -457,7 +457,7 @@ Page({
   },
   //跳转地址页面
   toAdress(){
-    wx: wx.navigateTo({
+    wx.redirectTo({
       url: '../addAdress/addAdress?backType=' + 1 + '&isCrossBorderProduct=' + this.data.OrderList.isCrossBorderProduct + '&isOverseasDirectMailProduct=' + this.data.OrderList.isOverseasDirectMailProduct,
     })
   },
@@ -502,7 +502,7 @@ Page({
         return
       }
     }
-    if (this.data.OrderList.isCrossBorderProduct == 1) {
+    if (this.data.OrderList.isOverseasDirectMailProduct == 1) {
       if (!this.data.addressMess.identityNo || !this.data.addressMess.identityFrontImage || !this.data.addressMess.identityOppImage) {
         //  wx.showToast({ title: '跨境商品收货地址需填写身份证号,请去管理收货地址确保拥有身份证号', icon: 'none' })
         wx.showModal({
@@ -526,7 +526,8 @@ Page({
     //判断是否需要输入支付密码
     if (this.data.OrderList.enabledPayPassword == 1 && this.data.pagFangshi){
         this.setData({
-          isPasswordShow:true
+          isPasswordShow:true,
+          isPassword:''
         })
     }else{
       this.setData({

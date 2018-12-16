@@ -29,10 +29,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(this.route)
-    if (options.type) {
-      app.type = options.type
-    }
+    // console.log(this.route)
+    // if (options.type) {
+    //   app.type = options.type
+    // }
     common.methods.getLoginMess(this.firstPage,this)
     this.setTop('#classTopTT')
   },

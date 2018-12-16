@@ -1,0 +1,15 @@
+<!--views/personal/myTry/tryDetailed/tryDetailed.wxml-->
+<view class='tryTop'>
+  <view>本月整点抢试剩余机会：<text style='font-weight:700;font-size:36rpx;'>{{frequency}}</text></view>
+</view>
+<view class='explainList'>
+  <view class='listDetail' wx:for="{{orderList}}" wx:key="{{index}}">
+    <view class='listTop'>
+      <view wx:if="{{item.type==1}}" style='color:#e50f72;font-weight:700;'>{{item.freeUseCount}}</view>
+      <view wx:if="{{item.type==0}}" style='color:#3593DB;font-weight:700;'>{{item.freeUseCount}}</view>
+      <view style='color:#999;font-size: 26rpx;'>{{item.time}}</view>
+    </view>
+     <view class='listReson'>{{item.desc}}</view>
+  </view>
+ 
+</view>

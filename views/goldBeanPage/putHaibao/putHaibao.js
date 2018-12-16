@@ -8,13 +8,19 @@ Page({
    */
   data: {
       imgUrl:'',
-    isSaveAlow:false
+    isSaveAlow:false,
+    id:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.id){
+      this.setData({
+        id: options.id
+      })
+    }
     this.putHaibao()
   },
   //推广海报
@@ -27,7 +33,7 @@ Page({
     let data = {
       url: '/mobile/member/getShareCodeUrl',
       data: {
-        memberId: app.userId
+        memberId: this.data.id ? this.data.id : app.userId
       },
       callback: function (res) {
         _self.setData({
@@ -153,6 +159,19 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: 'OL圈，带你搜罗全球好货',
+      desc: '快来看看吧',
+      imageUrl: this.data.imgUrl,
+      path: "/views/goldBeanPage/putHaibao/putHaibao?id="+app.userId,//当前页面 path ，必须是以 / 开头的完整路径
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功:" + JSON.stringify(res));
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
+      }
+    }
   }
 })

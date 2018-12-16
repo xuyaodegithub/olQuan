@@ -40,6 +40,26 @@ Page({
     // this.getossID(options.id)
     common.methods.getLoginMess(this.getossID, this,options)
   },
+  //监听
+  setBindDiv(){
+    this._observer = wx.createIntersectionObserver(this, {observeAll:true})
+    this._observer
+      .relativeToViewport()
+      .observe('.banner', (res) => {
+        console.log(res);
+        console.log(res.id.split('er')[1]);
+        // if (res.boundingClientRect.top<0){
+          this.setData({
+            classBtnIndex: res.id.split('er')[1]
+          })
+        // }else{
+        //   this.setData({
+        //     classBtnIndex: res.id.split('er')[1] - 1 < 0 ? 0 : res.id.split('er')[1] - 1
+        //   })
+        // }
+        
+      })
+  },
   //点击滚动
   setScrollTop(){
     let _self = this
@@ -93,18 +113,53 @@ Page({
     common.methods.mothod1(data)
   },
   //进详情
-  goDetial(e){
-    let id = e.currentTarget.dataset.item.productId ? e.currentTarget.dataset.item.productId :''
-    let typeP = e.currentTarget.dataset.item.productType ? e.currentTarget.dataset.item.productType : ''
-    if (id){
+  goDetial(e){//这里可以跳type
+    let item = e.currentTarget.dataset.item
+    // let id = e.currentTarget.dataset.item.productId ? e.currentTarget.dataset.item.productId :''
+    // let typeP = e.currentTarget.dataset.item.productType ? e.currentTarget.dataset.item.productType : ''
+    // if (id){
+    //   wx.navigateTo({
+    //     url: '../detial/detial?id=' + id + '&type=' + typeP,
+    //     success: function (res) { },
+    //     fail: function (res) { },
+    //     complete: function (res) { },
+    //   })
+    // }
+    if (item.type == 2 || item.type == 21 ){
+      let id = e.currentTarget.dataset.item.productId ? e.currentTarget.dataset.item.productId : ''
+      let typeP = e.currentTarget.dataset.item.productType ? e.currentTarget.dataset.item.productType : ''
       wx.navigateTo({
         url: '../detial/detial?id=' + id + '&type=' + typeP,
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
       })
+    } else if (item.type == 19) {
+      wx.navigateTo({
+        url: '../personal/renewPink/renewPink'
+      })
+    } else if (item.type == 11) {
+      wx.navigateTo({
+        url: '../personal/invitePink/invitePink'
+      })
+    } else if (item.type == 1) {
+      wx.navigateTo({
+        url: '/views/tryPage/tryPage'
+      })
+    } else if (item.type == 18) {
+      wx.navigateTo({
+        url: '/views/activePage/activePage?id=' + item.url.split('id=')[1],
+      })
+    } else if (item.type == 20) {
+      wx.navigateTo({
+        url: '/views/plusPage/plusPage',
+      })
+    } else if (item.type == 22) {
+      wx.navigateTo({
+        url: '/views/personal/getCoupon/getCoupon?id=' + item.url.split('/id/')[1],
+      })
+    } else if (item.type == 0){
+        return
     }
-   
+
+
   },
   //ossid获取详细数据
   getFirstData(ossid){
@@ -159,9 +214,9 @@ Page({
                   productList: productList,
                   classPIndex: classBanner,
                   classPIndex2: classBanner2
-                })
+                })//, _self.setBindDiv
                 setTimeout(function () {
-                  _self.setScrollTop()
+                  // _self.setScrollTop()
                   _self.setTop('#classBtn')
                   wx.hideLoading()    
                 }, 1300)
@@ -263,20 +318,20 @@ Page({
       toView: this.data.classPIndex[e.currentTarget.dataset.index]
     })
     console.log(this.data.toView)
-    wx.pageScrollTo({
-      scrollTop: this.data.bannerList[e.currentTarget.dataset.index],
-      duration: 200
-    })
-    console.log(this.data.scrollTopNum)
+    // wx.pageScrollTo({
+    //   scrollTop: this.data.bannerList[e.currentTarget.dataset.index],
+    //   duration: 200
+    // })
+    // console.log(this.data.scrollTopNum)
   },
   upper(e) {
-    console.log(e)
+    // console.log(e)
    },
   lower(e) { 
-    console.log(e)
+    // console.log(e)
   },
   scroll(e){
-    console.log(e.detail.scrollTop )//classPIndex2
+    // console.log(e.detail)//classPIndex2
     let scrollTop = e.detail.scrollTop    
     // let _self=this
     // _self.setScrollTop()
@@ -290,7 +345,7 @@ Page({
         topTrue: false
       })
     }
-    if (scrollTop > this.data.timeTopNum){
+    if (this.data.timeTopNum && scrollTop > this.data.timeTopNum){
       this.setData({
         isFixed: true
       })
@@ -299,34 +354,26 @@ Page({
         isFixed: false
       })
     }
-    let oLiDom= this.data.bannerList
-    // let h=0
-    // for (let i = 0; i < oLiDom.length; i++){
-    //   if (scrollTop > oLiDom[i]-10 && scrollTop < oLiDom[i+1]-10){
+    // let oLiDom= this.data.bannerList
+    // for (let i = 0; i < oLiDom.length; i++) {
+    //   if (scrollTop < oLiDom[0] || scrollTop == oLiDom[0]) {
     //     this.setData({
-    //       classBtnIndex: i
+    //       classBtnIndex: 0
     //     })
-    //   }
+    //     break
+    //   }//				console.log(oLiDom[i].offsetTop,i,scrollTop)
+    //   else if (scrollTop > oLiDom[oLiDom.length - 1] || scrollTop == oLiDom[oLiDom.length - 1] ) {
+    //     this.setData({
+    //       classBtnIndex: oLiDom.length - 1
+    //     })
+    //     break
+    //   } else  if (scrollTop > oLiDom[i]-15 && scrollTop < oLiDom[i + 1]-15) {
+    //     this.setData({
+    //       classBtnIndex:i
+    //     })
+    //     break
+    //   } 
     // }
-    for (let i = 0; i < oLiDom.length; i++) {
-      if (scrollTop < oLiDom[0] || scrollTop == oLiDom[0]) {
-        this.setData({
-          classBtnIndex: 0
-        })
-        break
-      }//				console.log(oLiDom[i].offsetTop,i,scrollTop)
-      else if (scrollTop > oLiDom[oLiDom.length - 1] || scrollTop == oLiDom[oLiDom.length - 1] ) {
-        this.setData({
-          classBtnIndex: oLiDom.length - 1
-        })
-        break
-      } else  if (scrollTop > oLiDom[i]-15 && scrollTop < oLiDom[i + 1]-15) {
-        this.setData({
-          classBtnIndex:i
-        })
-        break
-      } 
-    }
     // // console.log(this.data.classBtnIndex, this.data.classPIndex2)
     if (this.data.classBtnIndex% 4 ===0) { 
       this.setData({

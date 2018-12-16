@@ -359,7 +359,7 @@ width:200rpx;
     top: 50%;
     left: 50%;
     margin: -235rpx 0 0 -42.5%;
-    z-index: 999;
+    z-index: 1999;
   }
   .password .title{
     text-align: center;

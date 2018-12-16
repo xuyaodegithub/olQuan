@@ -582,7 +582,7 @@ Page({
       title: '您的好友' + this.data.memberList.nickName + '在OL圈发布了一篇达人日记，快去看看吧！',
       desc: '发现好物 分享赚钱',
       imageUrl: 'https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/aaa.png',
-      path: "/pages/findPage/findPsge?id=" + this.data.accountId,//当前页面 path ，必须是以 / 开头的完整路径
+      path: "/views/findPage/findPsge?id=" + this.data.accountId,//当前页面 path ，必须是以 / 开头的完整路径
       success: function (res) {
         // 转发成功
         console.log("转发成功:" + JSON.stringify(res));

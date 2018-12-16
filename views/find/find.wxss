@@ -150,6 +150,16 @@ page{
   overflow: hidden;
   margin-bottom: 21rpx;
 }
+.shangluCent{
+  padding-left: 100rpx;
+  font-weight: 700;
+  color: #333;
+  font-size: 30rpx;
+  line-height: 36rpx;
+  
+  overflow: hidden;
+  margin-bottom: 21rpx;
+}
 .concentOut{
   padding-left: 100rpx;
   font-size: 28rpx;
@@ -243,7 +253,7 @@ page{
   background: rgba(0,0,0,.5);
   left: 0;
   top: 0;
-  z-index: 999;
+  z-index: 1001;
   display: flex;
   display:-webkit-box;
   display: -moz-box;
@@ -258,6 +268,11 @@ page{
 }
 .myVideo{
   width: 0;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  margin-top: -25%;
+  z-index: 1002;
 }
 .myVideoSpe{
   width: 100%;
@@ -381,9 +396,32 @@ page{
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center;
+  
   height: 38rpx;
   line-height: 38rpx;
   color: #aaa;
+}
+.sureGoodNew{
+  -webkit-justify-content:flex-end;
+  justify-content:flex-end;
+  -moz-box-pack:flex-end;
+  -webkit--moz-box-pack:flex-end;
+  -webkit-box-flex: 1;   /* OLD - iOS 6-, Safari 3.1-6 */  
+  -moz-box-flex: 1;     /* OLD - Firefox 19- */              
+  -webkit-flex: 1;      /* Chrome */  
+  -ms-flex: 1;           /* IE 10 */  
+  flex: 1; 
+  height: 44rpx;
+  line-height: 44rpx;
+}
+.sureBuy{
+  height: 44rpx;
+  width: 126rpx;
+  text-align: center;
+  line-height: 44rpx;
+  color: #fff;
+  background: #E50F72;
+  border-radius: 22rpx;
 }
 .sureGood image{
   display: block;
@@ -547,4 +585,133 @@ page{
 .GoShouQuan .flex{
   margin-top: 30rpx;
   justify-content: space-between;
+}
+.buyPopver,.couponList{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    background: rgba(0,0,0,.5);
+ }
+ .buyContent,.couponContent{
+   position: absolute;
+   left: 0;
+   width: 100%;
+   bottom: 0;
+   background-color: #ffffff;
+   z-index: 111
+ }
+ .buyContent image{
+   display: block;
+   width: 154rpx;
+   height: 154rpx;
+   margin-top: -20rpx;
+   margin-right: 20rpx;
+ }
+ .buyContent .top{
+   border: 2rpx solid #e1e1e1;
+   padding: 0 28rpx 30rpx;
+ }
+ .buyContent .imgbord{
+   border:2rpx solid #e1e1e1;
+ }
+ .buyContent image.close,.couponContent .top .close{
+   display: block;
+   width: 32rpx;
+   height: 32rpx;
+   margin: 0;
+ }
+ .buyContent .right{
+   flex: 1;
+ }
+.buyContent .right .priceBuy{
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  color: #000000;
+  line-height: 80rpx;
+}
+.buyContent .right .priceBuy text{
+  font-size: 36rpx;
+}
+.buyContent .right > text{
+  font-size: 20rpx;
+  color: #a2a2a2;
+  margin-top: 6rpx;
+}
+.buyContent .center{
+  padding: 0 28rpx;
+  font-size: 26rpx;
+  color: #000000;
+  max-height: 600rpx;
+  overflow-y: auto;
+ 
+}
+.buyContent .center .valueItem .index_son{
+    border: 2rpx solid #e30067;
+    color: #e30067;
+}
+.buyContent .center > view{
+ border-bottom:2rpx solid #e1e1e1;
+}
+.buyContent .center > view:last-child{
+  border: none;
+}
+.buyContent .center text{
+  padding-top: 6rpx;
+  line-height: 74rpx;
+}
+.buyContent .center .valueItem{
+  font-size: 24rpx;
+  line-height: 56rpx;
+  
+}
+.buyContent .center .valueItem view{
+  text-align: center;  
+  min-width: 90rpx;
+  border-radius: 2rpx;
+  margin:0 20rpx 24rpx 1rpx; 
+  border: 2rpx solid #cfcfcf;
+  display: inline-block;
+  padding: 0 15rpx;
+}
+.buyNumKey{
+  padding: 0 28rpx;
+  padding-bottom: 26rpx;
+  border-bottom: 2rpx solid #cfcfcf; 
+}
+.speText{
+  padding-top: 6rpx;
+  line-height: 74rpx;
+  font-size:26rpx;
+
+}
+.buyContent .addOrDel{
+  align-items: center;
+}
+.buyContent .addOrDel image{
+  display: block;
+  height: 56rpx;
+  width: 86rpx;
+  margin: 0;
+}
+.buyContent .addOrDel text{
+  line-height: 56rpx;
+  font-size: 32rpx;
+  min-width: 48rpx;
+  color: #000000;
+  text-align: center;
+  margin: 0 20rpx;
+}
+.buyContent .bottom{
+  padding: 18rpx 26rpx;
+}
+.buyContent .bottom view{
+  background-color: #e50f72;
+  font-size: 34rpx;
+  line-height: 96rpx;
+  color: #ffffff;
+  text-align: center;
 }

@@ -30,6 +30,22 @@ Page({
     showShare:false,
     canvasImg: '',//canvas图片
     isSaveAlow: false,//授权弹框
+    isShanglu: 1,
+    shangluList:[],
+    isbuyMinCount:1,
+    chooseNor: false,
+    normalList: [],
+    addSelect: '',
+    getVlaueOne: '',
+    getVlaueTwo: '',
+    addSelectTwo: '',
+    productId: '',
+    productPrice: '',
+    normalDetail: [],
+    normalImg: '',
+    showNoNormal: false,
+    showNum: false,
+    limitBuyCount:'',
   },
 
   /**
@@ -92,9 +108,29 @@ Page({
     });
   },
   //素材提示
-  showAppLink(){
+  showAppLink(e){
+    // console.log(e.currentTarget.dataset.item)
+    // let list = e.currentTarget.dataset.item
+    // for (let i = 0; i < list.length;i++){
+    //   if(list[i].type==1){
+    //     this.saveIamge(list[i].linkUrl)
+    //   }
+    // }
     this.setData({
       appLinkShow:true,
+    })
+  },
+  //保存图片
+  saveIamge(ulr){
+    wx.getImageInfo({
+      src: ulr,
+      success(res) {
+        wx.saveImageToPhotosAlbum({
+        filePath: res.path,
+        success(res) {}
+        
+        })  
+      }
     })
   },
   colseAppLink() {
@@ -156,6 +192,14 @@ Page({
   },
   //搜索
   onSerach(){
+    if(this.data.isShanglu==1){
+      wx.showToast({
+        title: '好物暂不支持搜索',
+        icon: 'none',
+        duration: 2000
+      });
+      return
+    }
     this.setData({
       isShowCancel : true,
       page: 1,
@@ -178,12 +222,27 @@ Page({
     })
     this.getFindList();
   },
+  //点击好物
+  getShanglu(){
+    this.setData({
+      isFollowId: 0,
+      page: 1,
+      isMoreNone: true,
+      isShanglu: 1,
+    })
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 400
+    })
+    this.getShangLuList()
+  },
   //点击关注
   changeFollowList(){
     this.setData({
       isFollowId:1,
       page:1,
       isMoreNone:true,
+      isShanglu:0,
     })
     wx.pageScrollTo({
       scrollTop: 0,
@@ -197,6 +256,7 @@ Page({
       isFollowId: '',
       page: 1,
       isMoreNone: true,
+      isShanglu:0,
     })
     wx.pageScrollTo({
       scrollTop: 0,
@@ -254,7 +314,39 @@ Page({
     }
     common.methods.mothod1(hasFollow)
     common.methods.mothod1(banners)
-    this.getFindList();
+    this.getShangLuList();
+  },
+  //
+  getShangLuList(isMore){
+    let _self = this;
+    let find = {
+      url: '/mobile/shanglu/store/productList',
+      data: {
+        memberId: app.userId,
+        page: _self.data.page,
+        rows: 10,
+      },
+      callback: function (res) {
+        if (res.data.result.length < 10) {
+          _self.setData({
+            isMoreNone: false
+          })
+        }
+        if (isMore === 2) {
+
+          _self.setData({
+            shangluList: _self.data.shangluList.concat(res.data.result)
+          })
+        } else {
+          _self.setData({
+            shangluList: res.data.result
+          })
+        }
+        console.log(_self.data.shangluList)
+      }
+     
+    }
+    common.methods.mothod1(find)
   },
   //发现列表
   getFindList(isMore){
@@ -315,6 +407,28 @@ Page({
     let str = "findList[" + e.currentTarget.dataset.index + "].isShow";
     this.setData({
       [str]: false,
+    })
+  },
+  //商陆好物放大图片
+  seeNewIamg(e){
+    // console.log(e.currentTarget.dataset)
+    let list = e.currentTarget.dataset.list;
+    let urlList=[];
+    let url = e.currentTarget.dataset.url;
+    let index;
+    for (let i = 0; i < list.length;i++){
+      if (list[i].type==1){
+        urlList.push(list[i].linkUrl)
+      }
+    }
+    for (let y = 0; y < urlList.length; y++){
+      if (urlList[y] == url){
+        index=y
+      }
+    }
+    wx.previewImage({
+      current: urlList[index], // 当前显示图片的http链接  
+      urls: urlList // 需要预览的图片http链接列表  
     })
   },
   previewImage(e) {//点击图片大图预览
@@ -630,6 +744,155 @@ Page({
       isSaveAlow: false
     })
   },
+  changenormal(e){
+    this.setData({
+      addSelect: e.currentTarget.dataset.index,
+      getVlaueOne: e.currentTarget.dataset.id
+    })
+    if (this.data.getVlaueOne != '' && this.data.getVlaueTwo != '') {
+      this.getNormalDetail();
+    }
+  },
+  changenormalTwo(e){
+    this.setData({
+      addSelectTwo: e.currentTarget.dataset.index,
+      getVlaueTwo: e.currentTarget.dataset.id
+    })
+    if (this.data.getVlaueOne != '' && this.data.getVlaueTwo!=''){
+      this.getNormalDetail();
+    }
+  },
+  //获取规格详情
+  getNormalDetail(){
+    let _self = this;
+    let obj = {
+      url: '/mobile/shanglu/store/getNorms',
+      data: {
+        productId: _self.data.productId,
+        memberId: app.userId,
+        spec1Id:_self.data.getVlaueTwo,
+        spec2Id:_self.data.getVlaueOne
+      },
+      callback: function (res) {
+        if (res.data.result.normal){
+          _self.setData({
+            normalDetail: res.data.result.normal,
+            normalImg: res.data.result.productMainImg,
+            limitBuyCount: res.data.result.normal.num,
+            showNum:true,
+          })
+        }else{
+          _self.setData({
+            limitBuyCount:0,
+            showNoNormal:true,
+          })
+        }
+        
+      }
+    }
+
+    common.methods.mothod1(obj)
+  },
+  //点击好物购买
+  sureBuyChoose(e){
+    this.setData({
+      productPrice: e.currentTarget.dataset.price,
+      productId: e.currentTarget.dataset.productid
+    })
+    let _self=this;
+    let obj = {
+      url: '/mobile/shanglu/store/getNorms',
+      data: {
+        productId: e.currentTarget.dataset.productid,
+        memberId: app.userId,
+      },
+      callback: function (res) {
+        _self.setData({
+          normalList:res.data.result,
+          chooseNor:true,
+        })
+      }
+    }
+   
+    common.methods.mothod1(obj)
+  },
+  //改变数量
+  changeNum(e){
+    if (e.currentTarget.dataset.key === "1"){
+      this.setData({
+        isbuyMinCount: this.data.isbuyMinCount - 1
+      })
+      if (this.data.isbuyMinCount<=1){
+        this.setData({
+          isbuyMinCount: 1
+        })
+      }
+    }
+    if (e.currentTarget.dataset.key === "2") {
+      this.setData({
+        isbuyMinCount: this.data.isbuyMinCount + 1
+      })
+      if (this.data.limitBuyCount!==''){
+        if (this.data.isbuyMinCount > this.data.limitBuyCount){
+          this.setData({
+            isbuyMinCount: this.data.limitBuyCount
+          })
+          wx.showToast({
+            title: '该产品最多购买' + this.data.limitBuyCount+'件',
+            icon: 'none',
+            duration: 2000
+          });
+        }
+      }
+    }
+  },
+  //关闭购买弹窗
+  closeBuy(){
+    this.setData({
+      chooseNor: false,
+      addSelectTwo: '',
+      getVlaueTwo:'',
+      addSelect:'',
+      isbuyMinCount:1,
+      getVlaueOne:'',
+      productPrice:'',
+      productId:'',
+      normalDetail:[],
+      limitBuyCount:'',
+      normalImg:'',
+      showNoNormal:false,
+      showNum:false
+    })
+  },
+  //购买好物
+  toSureBuy(){
+    if (this.data.getVlaueTwo == '' || this.data.getVlaueOne==''){
+      wx.showToast({
+        title: '请选择规格',
+        icon: 'none',
+        duration: 2000
+      });
+      return
+    }
+    if(this.data.limitBuyCount==0){
+      wx.showToast({
+        title: '库存不足',
+        icon: 'none',
+        duration: 2000
+      });
+      return
+    }
+    let productMess = {
+      productId: this.data.productId,
+      num: this.data.isbuyMinCount,
+      normalId: this.data.normalDetail.skuId,
+      type: 12,
+    }
+    wx.setStorageSync('productMess', productMess)
+    wx.navigateTo({
+      url: '/views/detial/toSureBuy/toSureBuy',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -667,7 +930,12 @@ Page({
       page: 1,
       isMoreNone: true,
     })
-    this.getFindList();
+    if(this.data.isShanglu==1){
+      this.getShangLuList();
+    }else{
+      this.getFindList();
+    }
+    
     wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh()
   },
@@ -680,7 +948,12 @@ Page({
       this.setData({
         page: this.data.page + 1
       })
-      this.getFindList(2);
+      if(this.data.isShanglu==1){
+        this.getShangLuList(2)
+      }else{
+        this.getFindList(2);
+      }
+     
     }
   },
 

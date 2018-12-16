@@ -1,0 +1,39 @@
+<!--views/orderList/evaluate/evaluate.wxml-->
+<!-- <text>views/orderList/evaluate/evaluate.wxml</text> -->
+<view wx:for="{{pArrayData}}" wx:key="{{index}}" class="pMess">
+  <view class="flex product">
+      <image src="{{item.productImage}}"></image>
+      <view class="center">
+          <view class="title over2">{{item.productName}}</view>
+          <view class="color" wx:for="{{item.normal}}" wx:for-item="_itemson" wx:for-index="_indexson" wx:key="{{_indexson}}">{{_itemson}}</view>
+          <!-- <view class="chicun">{{OrderList.sellers[0].productDetails[0].normal[1]}}</view> -->
+      </view>
+      <view class="right">
+        <text>￥{{item.price}}</text>
+        <text>x{{item.num}}</text>
+        <!-- <text>{{item.score}}</text> -->
+      </view>
+  </view>
+  <view class="five flex">
+    <view>评分</view>
+    <view class="flex">
+      <image wx:for="{{item.fiveImg}}" wx:key="{{indexson}}" wx:for-item="itemson" wx:for-index="indexson" data-index="{{index}}" data-indexson="{{indexson}}" bindtap='choseFive' src="{{indexson<= item.chose ? '../../../image/collected02.png' : itemson}}"></image>
+    </view>
+  </view>
+  <view class="content">
+    <textarea maxlength="50" placeholder="说点什么吧~" placeholder-class="place" bindinput="changeCon" data-index="{{index}}"></textarea>
+    <view class="maxlength">{{item.content.length}}/50</view>
+  </view>
+  <view class="upadd flex">
+    <view wx:for="{{pArrayData[index].upAddimg}}" wx:key="{{indexsonl}}"  wx:for-item="itemsonl" wx:for-index="indexsonl"  data-index="{{index}}"  data-indexson="{{indexsonl}}" bindtap='uploadImg'>
+      <image src="{{itemsonl}}" ></image>
+      <image src="../../../image/photo_delete@2x.png" class="position" data-indexson="{{indexsonl}}" data-index="{{index}}" catchtap='deleteThis'></image>
+    </view>
+    <view>
+      <image src="../../../image/add02.png" bindtap='uploadImg' data-indexson="999" data-index="{{index}}"></image>
+    </view>
+    
+  </view>
+</view>
+ <view class="btn" bindtap='uploadMess'>提交</view>
+

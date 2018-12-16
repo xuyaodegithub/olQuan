@@ -143,7 +143,7 @@
   <view wx:if="{{productType==='4'}}">
     <view class="tryLiu flex">
       <text>试用流程</text>
-      <view>
+      <view bindtap='goShuoming'>
         试用说明
         <image src="../../image/rowright.png"></image>
       </view>
@@ -358,3 +358,14 @@ bindopensetting='calconShou'>去授权</button>
     </view>
   </view>
   <view class="zhezhao" wx:if="{{isSaveAlow}}"></view>
+  <view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+    <image src="../../image/goTop.png"></image>
+</view>
+  <view class="link">
+    <view class="classLink" wx:if="{{openlink}}">
+      <view bindtap='changeLink' data-index="1">首页</view>
+      <view bindtap='changeLink' data-index="2">购物车</view>
+      <view bindtap='changeLink' data-index="3">个人中心</view>
+    </view>
+    <image src="../../image/link.png" bindtap='openlink'></image>
+  </view>

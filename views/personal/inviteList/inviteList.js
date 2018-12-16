@@ -13,6 +13,10 @@ Page({
     inviteList:[],
     page:1,
     speListAgree:0,
+    index:'',
+    nickName:'',
+    realName:'',
+    recordId:'',
   },
 
   /**
@@ -70,6 +74,82 @@ Page({
     })
     this.getApplyList();
     console.log(this.data.status)
+  },
+  //同意
+  agreeMent(e){
+    console.log(e.currentTarget.dataset)
+    this.setData({
+      index: e.currentTarget.dataset.index,
+      nickName: e.currentTarget.dataset.nickname,
+      realName: e.currentTarget.dataset.realname,
+      recordId: e.currentTarget.dataset.recordid,
+    })
+    let _self=this;
+    let data={
+      memberId: app.userId,
+      recordId: e.currentTarget.dataset.recordid,
+      status: 1,
+    }
+    wx.showModal({
+      title: '提示',
+      content: '您确定要通过' + e.currentTarget.dataset.realname + '(' + e.currentTarget.dataset.nickname+')的申请吗?',
+      success(res) {
+        if (res.confirm) {
+          _self.doAudit(data)
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  //拒绝申请
+  agreeNoMent(e){
+    this.setData({
+      index: e.currentTarget.dataset.index,
+      nickName: e.currentTarget.dataset.nickname,
+      realName: e.currentTarget.dataset.realname,
+      recordId: e.currentTarget.dataset.recordid,
+    })
+    let _self = this;
+    let data = {
+      memberId: app.userId,
+      recordId: e.currentTarget.dataset.recordid,
+      status: 2,
+    }
+    wx.showModal({
+      title: '提示',
+      content: '您确定要拒绝' + e.currentTarget.dataset.realname + '(' + e.currentTarget.dataset.nickname + ')的申请吗?',
+      success(res) {
+        if (res.confirm) {
+          _self.doAudit(data)
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  doAudit(dataList,type){
+    let _self = this
+    let banners = {
+      url: '/mobile/memberInvite/doAudit',
+      data: dataList,
+      callback: function (res) {
+        let list = _self.data.inviteList
+        if (dataList.status==1){
+          list[_self.data.index].status=2;
+          _self.setData({
+            inviteList: list,
+          })
+        }else{
+          list[_self.data.index].status = 1;
+          _self.setData({
+            inviteList: list,
+          })
+          console.log(_self.data.inviteList)
+        }
+      }
+    }
+    common.methods.mothod3(banners)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
