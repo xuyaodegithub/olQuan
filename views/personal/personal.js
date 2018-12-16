@@ -174,6 +174,15 @@ Page({
       complete: function (res) { },
     })
   },
+  //我的试用
+  getMyTry() {
+     wx.navigateTo({
+      url: './myTry/myTry',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
     //首次进入
     firstGoin(){
       let _self = this;

@@ -405,7 +405,18 @@ Page({
     }
     common.methods.mothod1(data)
   },
-
+//评价
+  goevelave(e){
+    console.log(e.currentTarget.dataset.item)
+    let items = e.currentTarget.dataset.item
+    let ids=[]
+    items.items.map(function(val,index){
+      ids.push(val.productId)
+    })
+    wx.navigateTo({
+      url: './evaluate/evaluate?orderId=' + items.orderId+'&ids='+ids.join(','),
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */

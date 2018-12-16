@@ -20,11 +20,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      // if(options.backType){
-      //   this.setData({
-      //     backType: options.backType
-      //   })
-      // }
+    if (options.type){
+        this.setData({
+          type: options.type,
+          oldCode: options.code
+        })
+      }
+    console.log(options)
+    console.log(options.type==1)
   },
   closeAlert(){
     this.setData({
@@ -104,27 +107,41 @@ Page({
   },
   //绑定手机号
   allPhone(){
+    if (this.data.phone===''){
+      wx.showToast({ title: '请输入手机号', icon: 'none' })
+      return
+    }
+    if (this.data.yzma===''){
+      wx.showToast({ title: '请输入验证码', icon: 'none' })
+      return
+    }
     let _self=this
+    let dataList={
+      memberId: app.userId,
+      mobile: this.data.phone,
+      code: this.data.yzma
+    }
+    if(this.data.type==1){
+      dataList.oldCode=this.data.oldCode
+    }
+    console.log(dataList)
     let data={
       url:'/mobile/member/boundMobile',
-      data:{
-        memberId: app.userId,
-        mobile:this.data.phone,
-        code: this.data.yzma
-      },
+      data: dataList,
       callback:function(res){
-        // if (_self.data.backType==1){
-        app.memberData.mobile = _self.data.phone
+        if (_self.data.type==1){
+          wx.redirectTo({
+            url: '/views/personal/mySet/mySet',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+        }else{
+          app.memberData.mobile = _self.data.phone
           wx.navigateBack({
             delta: 1
           })
-          // wx.navigateTo({
-          //   url: '../detial/detial',
-          //   success: function (res) { },
-          //   fail: function (res) { },
-          //   complete: function (res) { },
-          // })
-        // }
+        }
       }
     }
     common.methods.mothod1(data)

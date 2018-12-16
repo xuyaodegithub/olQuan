@@ -50,7 +50,16 @@
     "views/personal/inviteList/inviteList",
     "views/goldBeanPage/goldBeanPage",
     "views/goldBeanPage/putHaibao/putHaibao",
-    "views/screenProduct/screenProduct"
+    "views/screenProduct/screenProduct",
+    "views/orderList/evaluate/evaluate",
+    "views/personal/myTry/tryList/tryList",
+    "views/personal/myTry/tryExplain/tryExplain",
+    "views/personal/myTry/tryDetailed/tryDetailed",
+    "views/personal/myTry/showDetail/showDetail",
+    "views/personal/myTry/tryComment/tryComment",
+    "views/personal/myTry/tryShow/tryShow",
+    "views/personal/myTry/myTry",
+    "views/detial/tryExplain/tryExplain"
   ],
   "find": [
     ""
