@@ -155,15 +155,21 @@ function getLoginMess(callback,_self,options){
     if (app.userId) {
       callback()
     } else {
-      // console.log(_self.route)
+      console.log(_self.route+'-----------------------------------')
       let callBackUrl={
         url: _self.route,
         id: options ? options.id : "",
         type: options ? options.type : "",
         // recId: options ? options.recId : ''
+        // inviteId: options.inviteId ? options.inviteId : '',
+        // inviteMemberId: options.inviteMemberId ? options.inviteMemberId : '',
+        // isShare: options.isShare ? options.isShare : '',
       }
-      if (options && options.recId){
-        callBackUrl.recId = options.recId
+      if (options){
+        callBackUrl.recId = options.recId ? options.recId : ''
+        callBackUrl.inviteId = options.inviteId ? options.inviteId : ''
+        callBackUrl.inviteMemberId = options.inviteMemberId ? options.inviteMemberId : ''
+        callBackUrl.isShare = options.isShare ? options.isShare : ''
       }
       wx.setStorageSync('callBackUrl', callBackUrl)
       app.getLogin().then(function (res) {

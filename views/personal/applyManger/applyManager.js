@@ -35,7 +35,7 @@ Page({
       inviteMemberId: options.inviteMemberId,
       inviteId: options.inviteId
     })
-    common.methods.getLoginMess(this.getFirst, this);
+    common.methods.getLoginMess(this.getFirst, this, options);
     
   },
   getFirst(){
@@ -50,6 +50,8 @@ Page({
         inviteMemberId:_self.data.inviteMemberId
       },
       callback: function (res) {
+        console.log(res.data)
+        
         if(res.data.code==0){
           _self.getMember();
         }else if(res.data.code==1){

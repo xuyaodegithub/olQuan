@@ -36,6 +36,16 @@ Page({
         if (callBackUrl.recId) {
           url += '&recId=' + callBackUrl.recId
         }
+        if (callBackUrl.inviteId) {
+          url += '?inviteId=' + callBackUrl.inviteId
+        }
+        if (callBackUrl.inviteMemberId) {
+          url += '&inviteMemberId=' + callBackUrl.inviteMemberId
+        }
+        if (callBackUrl.isShare) {
+          url += '&isShare=' + callBackUrl.isShare
+        }
+        console.log(url)
         wx.reLaunch({
           url: url
         })

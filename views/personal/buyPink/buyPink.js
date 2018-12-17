@@ -31,6 +31,7 @@ Page({
     addressId:'',
     addressObj:[],
     dh:'',
+    isSuper:'',
   },
 
   /**
@@ -43,10 +44,29 @@ Page({
       })
     }
     this.setData({
-      orderList: wx.getStorageSync('buyPink')
+      orderList: wx.getStorageSync('buyPink'),
+      isSuper: options.isSuper ? options.isSuper:''
     })
     this.getList();
     console.log(this.data.orderList)
+  },
+  //点击去首页
+  getIndex(){
+    wx.reLaunch({
+      url: '/views/firstIndex/firstIndex',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //点击去试用
+  getTryIndex() {
+    wx.reLaunch({
+      url: '/views/tryPage/tryPage"',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
   getAddressList(id){
     let _self = this
@@ -66,13 +86,26 @@ Page({
   },
   getList(){
     let _self = this
-    let banners = {
-      url: '/mobile/store/applyToStoreConfirm',
-      data: {
+    let url
+    let dataList
+    if (this.data.isSuper!=1){
+      url ='/mobile/store/applyToStoreConfirm';
+      dataList={
         memberId: app.userId,
         giftBagId: _self.data.orderList.bagId,
-        uutype:1
-      },
+        uutype: 1
+      }
+    }else{
+      url = '/mobile/buySupervisor/newConfirmOrder';
+      dataList = {
+        memberId: app.userId,
+        bagId: _self.data.orderList.bagId,
+        uutype: 1
+      }
+    }
+    let banners = {
+      url: url,
+      data: dataList,
       callback: function (res) {
         _self.setData({
           curObj: res.data.result,
@@ -81,11 +114,21 @@ Page({
           finalPriceObj: res.data.result.totalFee.toFixed(2),
         })
         if (res.data.result.receiveAddress==null){
-          _self.getAllcity();
-          _self.setData({
-            showAddress: true,
-            addressId:'',
-          })
+          if(_self.data.isSuper!=1){
+            _self.getAllcity();
+            _self.setData({
+              showAddress: true,
+              addressId: '',
+            })
+          }else{
+            wx.navigateTo({
+              url: '/views/detial/addAdress/addAdress?backType=3',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          }
+          
         }else{
           if(_self.data.addressId!=''){
             _self.getAddressList(_self.data.addressId)
@@ -319,22 +362,40 @@ Page({
   //提交订单
   sureOrderPay(){
     let _self=this;
-    let dataList = {
-      memberId: app.userId,
-      giftBagId: _self.data.orderList.bagId,
-      addressId: _self.data.addressId,
-      payMethod:6,//小程序支付
-      pledgeMethod: _self.data.pledgeMethod,
-      inviteCode: _self.data.orderList.inviteId,
-      // inviteCode:"15658160809",
-      uutype: app.uutype,
-      provinceId: _self.data.regionID[0],
-      cityId: _self.data.regionID[1],
-      districtId: _self.data.regionID[2],
-      address:_self.data.address,
-      addressMobile: _self.data.getGifTel,
-      addressName: _self.data.addressName,
+    let dataList
+    let url
+    if(this.data.isSuper!=1){
+      url ='/mobile/store/newApplyToStore'
+      dataList = {
+        memberId: app.userId,
+        giftBagId: _self.data.orderList.bagId,
+        addressId: _self.data.addressId,
+        payMethod: 6,//小程序支付
+        pledgeMethod: _self.data.pledgeMethod,
+        inviteCode: _self.data.orderList.inviteId,
+        // inviteCode:"15658160809",
+        uutype: app.uutype,
+        provinceId: _self.data.regionID[0],
+        cityId: _self.data.regionID[1],
+        districtId: _self.data.regionID[2],
+        address: _self.data.address,
+        addressMobile: _self.data.getGifTel,
+        addressName: _self.data.addressName,
+      }
+    }else{
+      dataList = {
+        memberId: app.userId,
+        bagId: _self.data.orderList.bagId,
+        addressId: _self.data.addressId,
+        payMethod: 6,//小程序支付
+        pledgeMethod: _self.data.pledgeMethod,
+        inviteCode: _self.data.orderList.inviteId,
+        // inviteCode:"15658160809",
+        uutype: app.uutype,
+      }
+      url = '/mobile/buySupervisor/newCreateOrder'
     }
+    
     if (_self.data.payPasswordShow){
       dataList.payPassword = utilMd5.hexMD5(this.data.payPassword)
     }
@@ -343,7 +404,7 @@ Page({
     })
     console.log(dataList)
     let banners = {
-      url: '/mobile/store/newApplyToStore',
+      url: url,
       data: dataList,
       callback: function (res) {
         wx.hideLoading()
