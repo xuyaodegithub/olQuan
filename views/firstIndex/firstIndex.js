@@ -2,7 +2,6 @@
 var common = require("../../utils/common.js")
 const app=getApp()
 Page({
-
   /**
    * 页面的初始数据
    */

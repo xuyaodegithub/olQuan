@@ -1,0 +1,36 @@
+<!--views/personal/listSNRC/listSNRC.wxml-->
+<view class='agreeListTop'>
+  <view class='outView'>
+    <view wx:for="{{topList}}" wx:key="{{index}}" class="{{speListAgree==index ? 'speAgreeMent' : ''}}" data-key="{{index}}" bindtap='changeType'>{{item}}</view>
+  </view>
+</view>
+<view class="{{speListAgree==0 ? 'listDetailSpe' : ''}}">
+  <view class='listCent' wx:for="{{listDetail}}" wx:key="{{index}}">
+    <view class='left' style='width: 75%;'>
+      <view class='leftTop'>
+        <view style="margin-bottom: 12rpx;">
+          <text style="color: #3593DB;" wx:if="{{speListAgree==0}}">-{{item.goldBeans}}金豆,+{{item.snrccoins}}SNRC</text>
+          <text style="color: #3593DB;" wx:if="{{speListAgree==1}}">-{{item.snrccoins}}SNRC,+{{item.goldBeans}}金豆</text>
+        </view>
+        <view class='qiangzhi'>NC钱包地址: {{item.walletAccount}}</view>
+        <view  style="margin-top: 12rpx;color: #777777;">{{item.time}}</view>
+      </view>
+    </view>
+    <view class="right">
+      <view class="leftTop">
+        <view wx:if='{{item.result==1}}' style="color: #349506;">
+          已完成
+        </view>
+        <view wx:if='{{item.result==2}}' style="color: #E60012;">
+          交易失败
+        </view>
+        <view wx:if='{{item.result==0}}' style="color: #333333;">
+          交易进行中
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='botton' wx:if="{{speListAgree==0}}">
+  <view class='botName' bindtap='changeSnrc'>金豆兑换SNRC</view>
+</view>

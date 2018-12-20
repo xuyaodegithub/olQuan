@@ -105,7 +105,10 @@ Page({
             _self.getaddressMess(res.data.result.receiveAddress.id)
           }
           let arr = res.data.result
-          arr.totalFee = Math.floor(arr.totalFee*100)/100
+          // console.log(arr.totalFee)
+          arr.totalFee = parseFloat(arr.totalFee).toFixed(2)
+          // console.log(arr.totalFee)
+          
           if (arr.sellers[0].productDetails[0].normal){
             let normalArr = arr.sellers[0].productDetails[0].normal.split(' ')
             arr.sellers[0].productDetails[0].normal = normalArr
@@ -154,8 +157,8 @@ Page({
         })
       }else{
         this.setData({
-          muchNum: Math.floor(price * 100) / 100,
-          isAmount: Math.floor(price * 100) / 100,
+          muchNum: parseFloat(price).toFixed(2),
+          isAmount: parseFloat(price).toFixed(2),
           lastMoney: (parseFloat(this.data.lastMoney) - parseFloat(price)).toFixed(2)
         })
       }
@@ -172,8 +175,8 @@ Page({
         })
       } else {
         this.setData({
-          muchNum: Math.floor(price * 100) / 100,
-          isCoffers: Math.floor(price * 100) / 100,
+          muchNum: parseFloat(price).toFixed(2),
+          isCoffers: parseFloat(price).toFixed(2),
           lastMoney: (parseFloat(this.data.lastMoney) - parseFloat(price)).toFixed(2)
         })
       }
@@ -190,8 +193,8 @@ Page({
         })
       }else{
         this.setData({
-          muchNum: Math.floor(price * 100) / 100,
-          isScore: Math.floor(price * 100) ,
+          muchNum: parseFloat(price).toFixed(2),
+          isScore: parseFloat(price * 100).toFixed(0) ,
           lastMoney: (parseFloat(this.data.lastMoney) - parseFloat(price)).toFixed(2)
         })
       }
@@ -208,8 +211,8 @@ Page({
         })
       } else {
         this.setData({
-          muchNum: Math.floor(price * 100) / 100,
-          isGoldBean: Math.floor(price * 100) / 10,
+          muchNum: parseFloat(price).toFixed(2),
+          isGoldBean: parseFloat(price * 100) / 10,
           lastMoney: (parseFloat(this.data.lastMoney) - parseFloat(price)).toFixed(2)
         })
       }
@@ -241,8 +244,8 @@ Page({
       if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])){
         console.log(valueNum,price)
         this.setData({
-          muchNum: Math.floor(price*100)/100,
-          isAmount: Math.floor(price*100)/100,
+          muchNum: parseFloat(price*100)/100,
+          isAmount: parseFloat(price*100)/100,
           lastMoney:(0).toFixed(2)
         })
       } else if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])){
@@ -254,8 +257,8 @@ Page({
           })
         }else{
           this.setData({
-            muchNum: Math.floor(price * 100) / 100,
-            isAmount: Math.floor(price * 100) / 100,
+            muchNum: parseFloat(price * 100) / 100,
+            isAmount: parseFloat(price * 100) / 100,
             lastMoney: (0).toFixed(2)
           })
         }
@@ -277,8 +280,8 @@ Page({
       if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         console.log(valueNum, price)
         this.setData({
-          muchNum: Math.floor(price * 100) / 100,
-          isCoffers: Math.floor(price * 100) / 100,
+          muchNum: parseFloat(price * 100) / 100,
+          isCoffers: parseFloat(price * 100) / 100,
           lastMoney: (0).toFixed(2)
         })
       } else if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
@@ -290,8 +293,8 @@ Page({
           })
         } else {
           this.setData({
-            muchNum: Math.floor(price * 100) / 100,
-            isCoffers: Math.floor(price * 100) / 100,
+            muchNum: parseFloat(price * 100) / 100,
+            isCoffers: parseFloat(price * 100) / 100,
             lastMoney: (0).toFixed(2)
           })
         }
@@ -313,8 +316,8 @@ Page({
       if (parseFloat(valueNum/100) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         console.log(valueNum, price)
         this.setData({
-          muchNum: Math.floor(price * 100) / 100,
-          isScore: Math.floor(price * 100),
+          muchNum: parseFloat(price * 100) / 100,
+          isScore: parseFloat(price * 100),
           lastMoney: (0).toFixed(2)
         })
       } else if (parseFloat(valueNum/100) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
@@ -326,8 +329,8 @@ Page({
           })
         } else {
           this.setData({
-            muchNum: Math.floor(price * 100) / 100,
-            isScore: Math.floor(price * 100),
+            muchNum: parseFloat(price * 100) / 100,
+            isScore: parseFloat(price * 100),
             lastMoney: (0).toFixed(2)
           })
         }
@@ -348,8 +351,8 @@ Page({
       if (parseFloat(valueNum / 10) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
         console.log(valueNum, price)
         this.setData({
-          muchNum: Math.floor(price * 100) / 100,
-          isGoldBean: Math.floor(price * 100) / 10,
+          muchNum: parseFloat(price * 100) / 100,
+          isGoldBean: parseFloat(price * 100) / 10,
           lastMoney: (0).toFixed(2)
         })
       } else if (parseFloat(valueNum / 10) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.OrderList[e.currentTarget.dataset.item.mean])) {
@@ -361,8 +364,8 @@ Page({
           })
         } else {
           this.setData({
-            muchNum: Math.floor(price * 100) / 100,
-            isGoldBean: Math.floor(price * 100) / 10,
+            muchNum: parseFloat(price * 100) / 100,
+            isGoldBean: parseFloat(price * 100) / 10,
             lastMoney: (0).toFixed(2)
           })
         }

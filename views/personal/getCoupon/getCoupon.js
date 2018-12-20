@@ -67,7 +67,7 @@ Page({
   },
   //跳转商品详情
   getGoodsDetail(e){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../../detial/detial?id=' + e.currentTarget.dataset.productid + '&type=' + e.currentTarget.dataset.producttype,
       success: function (res) { },
       fail: function (res) { },

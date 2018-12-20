@@ -7,31 +7,31 @@
     </view>
     <!-- 能滑动的 -->
     <view wx:if="{{item.modelSampleCode==='titleproducttouch' && item.contents.length>0}}" class="titleproducttouch backGo">
-        <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"  mode="widthFix" bindtap='goDetial'></image>
+        <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"  mode="widthFix" bindtap='goDetial' lazy-load	></image>
     </view>
     <!-- 等分组件 -->
     <view wx:if="{{item.modelSampleCode==='f5' && item.contents.length>0}}" class="f5">
         <view wx:if="{{item.contents.length==1}}" class="oneImg"><!-- 1分组件 -->
-            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial'></image>
+            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial' lazy-load ></image>
         </view>
         <view wx:if="{{item.contents.length==2}}" class="twoImg flex"><!-- 2分组件 -->
-            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial'></image>
+            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial' lazy-load></image>
         </view>
         <view wx:if="{{item.contents.length==3}}" class="threeImg flex"><!-- 3分组件 -->
-            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial'></image>
+            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial' lazy-load></image>
         </view>
         <view wx:if="{{item.contents.length==4}}" class="fourImg flex"><!-- 4分组件 -->
-            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial'></image>
+            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial' lazy-load></image>
         </view>
         <view wx:if="{{item.contents.length==5}}" class="fiveImg flex"><!-- 5分组件 -->
-            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial'></image>
+            <image src="{{itemSon.image}}" wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}"   mode="widthFix" bindtap='goDetial' lazy-load></image>
         </view>
     </view>
     <!-- 产品等分最多三等分 -->
     <view wx:if="{{item.modelSampleCode==='productf5' && item.contents.length>0}}" class="productf5 {{activeData[index+1].modelSampleCode!=='productf5' ? 'addPadding' : ''}}">
         <view wx:if="{{item.contents.length==2}}" class="twoP flex">
           <view wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" bindtap='goDetial'>
-            <image src="{{itemSon.image}}" mode="widthFix" ></image>
+            <image src="{{itemSon.image}}" mode="widthFix" lazy-load ></image>
             <view class="over2">{{itemSon.productName}}</view>
             <view class="flex">
                 <text>￥{{filters.changePrice(itemSon.salePriceView)}}</text>
@@ -42,7 +42,7 @@
         </view>
         <view wx:if="{{item.contents.length==3}}" class="threeP flex">
           <view wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" bindtap='goDetial'>
-            <image src="{{itemSon.image}}" mode="widthFix" ></image>
+            <image src="{{itemSon.image}}" mode="widthFix" lazy-load ></image>
             <view class="over2">{{itemSon.productName}}</view>
             <view class="flex">
                 <text>￥{{filters.changePrice(itemSon.salePriceView)}}</text>
@@ -66,10 +66,10 @@
           <view class="productList flex">
             <view wx:for="{{productList}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" class="{{itemSon.classMore=='classBanner'? 'bannerIMG' : ''}}"  id="{{itemSon.id ? itemSon.id : ''}}">
               <view wx:if="{{itemSon.classMore=='classBanner'}}" class="banner" id="{{itemSon.id}}">
-                <image src="{{itemSon.image}}" mode="widthFix" wx:if="{{itemSon.image}}" ></image>
+                <image src="{{itemSon.image}}" mode="widthFix" wx:if="{{itemSon.image}}" lazy-load ></image>
               </view>
               <view wx:else class="profuct" bindtap='goDetial'  data-item="{{itemSon}}">
-                <image src="{{itemSon.image}}"  mode="widthFix" ></image>
+                <image src="{{itemSon.image}}"  mode="widthFix" lazy-load ></image>
                 <view class="over2">{{itemSon.productName}}</view>
                 <view class="flex">
                   <text>￥{{filters.changePrice(itemSon.salePriceView)}}</text>

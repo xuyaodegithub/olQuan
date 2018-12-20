@@ -57,6 +57,28 @@ function mothod3(data) {
     }
   })
 }
+function mothod4(data) {
+  wx.request({
+    url: app.snrcUrl + data.url,
+    data: data.data,
+    dataType: 'json',
+    method: 'POST',
+    header: {
+      'cookie': wx.getStorageSync("sessionid"),//读取cookie
+      'content-type': 'application/x-www-form-urlencoded' // 默认值
+    },
+    success: function (res) {
+      data.callback(res)
+    },
+    fail: function (res) {
+      wx.showToast({
+        title: '请求错误',
+        icon: 'none',
+        duration: 2000
+      });
+    }
+  })
+}
 function getGraphCode(data) {
   wx.request({
     url: app.baseUrl + '/mobile/code/wxGraphCode',
@@ -248,5 +270,6 @@ module.exports.methods = {
   "getGraphCode": getGraphCode,
   "uploadImg": uploadImg,
   "mothod3": mothod3,
+  "mothod4": mothod4,
   "goMoreType": goMoreType
 } 

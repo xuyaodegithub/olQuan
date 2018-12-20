@@ -1,4 +1,48 @@
-<!--views/personal/withDraw/withDraw.wxml-->
+<!--views/personal/changeSnrc/changeSnrc.wxml-->
+<view class='changeScale'>
+  <view class='circular'>
+    <image src='../../../image/circular.png'></image>
+    <text>今日剩余{{limitCount.exchangeSNRCLimitCount}}个SNRC可兑</text>
+  </view>
+  <view class='scaleLeft'>
+    <view class='speScale'>
+      {{memList.goldBean}}
+    </view>
+    <view>可兑金豆(个)</view>
+  </view>
+  <view class='scaleRight'>
+    <view class='speScale'>
+      1:10
+    </view>
+    <view>当前汇率(SNRC:金豆)</view>
+  </view>
+</view>
+<view class='changeAcconut'>
+  <view class='changeAcconutList'>
+    <view class='top'>钱包地址</view>
+    <view class='importMoney'>
+      <input placeholder="长按粘贴需要兑换的NC钱包地址" value='{{walletAccount}}' bindinput='getWalletAccount'/>
+      <image bindtap='celearWalletAccount' wx:if="{{walletAccount!=''}}" class='cancelBean' src='../../../image/cancelBean.png'></image>
+    </view>
+  </view>
+</view>
+<view class='changeDetail'>
+  <view class='changeList'>
+    <view class='top'>兑换数量(个)</view>
+    <view class='importMoney'>
+      <input placeholder="请输入需要兑换SNRC个数" value='{{amountNum}}' bindinput='getAmount'/>
+      <image bindtap='celearAmount' wx:if="{{amountNum!=''}}" class='cancelBean' src='../../../image/cancelBean.png'></image>
+    </view>
+    <view class='changeNum'>
+      <view style='float: left;'>可兑换SNRC数：{{goldenDou}}个</view>
+      <view style='float: right;color: #029BFC;' bindtap='changeAll'>全部兑换</view>
+    </view>
+  </view>
+</view>
+<view class='changeBot'>
+  <view class='bottomSure' bindtap='sureChangeMoney'>兑换</view>
+</view>
+<view class='changeRecord' bindtap='getListSnrc'>兑换记录</view>
 <view class='shade' wx:if="{{isPassword}}">
   <view class='passwordBox'>
     <view class='passBoxTop' >请输入支付密码</view>
@@ -37,7 +81,7 @@
 <view class='shade' wx:if="{{sureMobile}}"style='z-index:20;' bindtap='colseMobile'></view>
 <view wx:if="{{sureMobile}}" style='position: fixed;z-index:21;width:100%;top:300rpx;' >
   <view class='shadeBox' style='width:85%;background:#f5f5fa;height:400rpx;'>
-    <view class='viewMobile'>你当前绑定的手机号码为：{{memberList.viewMobile}}</view>
+    <view class='viewMobile'>你当前绑定的手机号码为：{{memList.viewMobile}}</view>
     <view class='inputIcon'>
       <input bindinput="getCodeDetail" style='font-size:30rpx;background:#fff;' placeholder='请输入验证码' type="number" class='inputIconIn'></input>
       <view wx:if="{{isDisabled}}" class='getCodeImg' bindtap='getWxGraphCode'>获取验证码</view>
@@ -47,39 +91,4 @@
     <view wx:if="{{!doubleClick}}" class='sureTixian'>确认</view>
   </view>
 </view>
-<view class='withDrawOut'>
-  <view class='withDrawAcount' bindtap='chooseAccountId'>
-    <view   wx:if="{{acconuntNo!=null}}">
-      <view class='acountName' wx:if="{{accountName=='' || accountType==1}}" >支付宝</view>
-      <view class='acountName' wx:else >{{accountName}}</view>
-      <view class='acountNum'>{{acconuntNo}}</view>
-    </view>
-    <view class='acountName' wx:if="{{acconuntNo==null}}" >请选择提现账号</view>
-    <image class='iconImg' src='../../../image/moneyRow.png'></image>
-  </view>
-  <view class='poundage'>
-    提现金额(收取1%手续费)
-  </view>
-  <view class='inputOut'>
-    <input value='{{inputValue}}' bindinput="bindKeyInput" class='inputSure' type="digit" placeholder="请输入提现金额,最低200元"/>
-  </view>
-  <view class='moneyDetail'>
-    <view wx:if="{{!moreMoney}}">余额：{{memberList.amount}}</view>
-    <view wx:if="{{moreMoney}}">含：{{poundage}}元手续费,实际到账￥{{accountMoney}}</view>
-    <view style='color:#ed0477' bindtap='getAllMoney'>全部提现</view>
-  </view>
-  <view class='sureMoney'>
-    <view class='sureBot' bindtap='sureGetAllMoney'>确认提现</view>
-  </view>
-  <view class='tipOut'>
-    <view style='color:#333;' class=' speTip'>提现说明:</view>
-    <view>1、为了保障你的利益,请正确填写收款账户所有人信息，否则无法审核通过。</view>
-    <view>2、提现将收取1%转账手续费。</view>
-    <view>3、最低起提金额为200元，申请成功后15个工作日内到账。</view>
-  </view>
-  <view class='lookMore'>
-    <view bindtap='lookMoney'>余额明细</view>
-    <view style='margin:0 50rpx;'>|</view>
-    <view bindtap='presentRecrdList'>提现记录</view>
-  </view>
-</view>
+

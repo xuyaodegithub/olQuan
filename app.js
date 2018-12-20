@@ -9,6 +9,7 @@ App({
   uutype:1,//终端类型
   // baseUrl: 'https://test-mobile.olquan.cn',
   baseUrl: 'https://ol-site.olquan.cn',
+  snrcUrl: 'https://moco.olquan.cn/',//正式SNRC
   userId: '',//openId
   openId:'',
   isGetStoreCommission:'',//店主权益

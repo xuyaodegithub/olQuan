@@ -17,6 +17,7 @@ Page({
     acconuntNo:'',
     acconuntId:'',
     optionsId:'',
+    accountType:'',
     graphicCode: false,
     cangetCode: false,
     imgurl:'',
@@ -40,7 +41,8 @@ Page({
         optionsId:1,
         accountName: options.accountName,
         acconuntNo: options.accountNo,
-        acconuntId: options.accountId
+        acconuntId: options.accountId,
+        accountType: options.accountType
       })
     }
     common.methods.getLoginMess(this.getMember,this)
