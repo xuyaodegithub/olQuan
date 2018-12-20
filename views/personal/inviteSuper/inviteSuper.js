@@ -54,7 +54,7 @@ Page({
       });
       return
     }
-    if (this.memberList.isGetStoreCommission == 0){
+    if (this.data.memberList.isGetStoreCommission == 0){
       wx.showToast({
         title: '您还不是店主，请先升级店主',
         icon: 'none',
@@ -70,7 +70,7 @@ Page({
 
     wx.setStorageSync('buyPink', data)
     wx.navigateTo({
-      url: '/views/personal/buyPink/buyPink',
+      url: '/views/personal/buyPink/buyPink?isSuper=1',
     })
   },
   //选择礼包

@@ -40,8 +40,8 @@ Page({
   chooseAccount(e){
     if(this.data.isWaithDraw){
       let index = e.currentTarget.dataset.index;
-      wx: wx.navigateTo({
-        url: '../withDraw/withDraw?accountId=' + this.data.accountList[index].accountId + '&accountName=' + this.data.accountList[index].accountBank + '&accountNo=' + this.data.accountList[index].accountNo,
+      wx.navigateBack({
+        url: '../withDraw/withDraw?accountId=' + this.data.accountList[index].accountId + '&accountName=' + this.data.accountList[index].accountBank + '&accountNo=' + this.data.accountList[index].accountNo + '&accountType=' + this.data.accountList[index].type,
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },
@@ -49,7 +49,7 @@ Page({
     }
   },
   modifyCardMore(e){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../addCard/addCard?modify=1&isWaithDraw=' + this.data.isWaithDraw + '&accountId=' + e.currentTarget.dataset.accountid,
       success: function (res) { },
       fail: function (res) { },

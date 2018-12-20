@@ -1,0 +1,87 @@
+/* views/personal/listSNRC/listSNRC.wxss */
+page{
+  background: #f2f2f2;
+  padding-top: 110rpx;
+}
+.agreeListTop{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 99;
+  font-size: 32rpx;
+  color: #777;
+  line-height:90rpx;
+  border-bottom: 2rpx solid #E1E1E1;
+}
+.outView{
+  position: relative;
+  left: 0;
+  top: 0;
+  padding: 0 64rpx;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  webkit--moz-box-pack:space-between;
+}
+.speAgreeMent{
+  border-bottom:4rpx solid #E50F72;
+  color: #E50F72;
+}
+.listCent{
+  padding:20rpx 30rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  webkit--moz-box-pack:space-between;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+
+.qiangzhi{
+  color: #777777;
+  font-size: 24rpx;
+  width: 100%;
+  word-break: break-all;
+}
+.botton{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 128rpx;
+  background: #fff;
+  width: 100%;
+}
+.botName{
+  width:690rpx;
+  background: #E60012;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 88rpx;
+  font-size: 34rpx;
+  color: #FFF;
+  border-radius: 6rpx;
+}
+.listDetailSpe{
+  padding-bottom: 128rpx;
+}

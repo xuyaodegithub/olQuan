@@ -1,8 +1,10 @@
 {
   "pages": [
+    "views/personal/personal",
+    "views/personal/listSNRC/listSNRC",
+    "views/personal/changeSnrc/changeSnrc",
     "views/firstIndex/firstIndex",
     "views/find/find",
-    "views/personal/personal",
     "views/personal/myTry/tryShow/tryShow",
     "views/personal/myTry/myTry",
     "views/personal/renewPink/renewPink",
@@ -64,6 +66,7 @@
     "views/logistics/logistics",
     "views/personal/helpCent/helpCent",
     "views/personal/partner/partner"
+    
   ],
   "find": [
     ""

@@ -29,6 +29,7 @@ page {
   padding: 40rpx 20rpx 30rpx;
    text-align: center;
   font-size: 30rpx;
+  
 }
 .shdowTipS{
   padding: 0 40rpx;
@@ -109,4 +110,12 @@ page {
 }
 .speBot{
   margin-right: 32rpx;
+}
+.butSpe{
+  position: absolute;
+  right: 0;
+  bottom: 28rpx;
+  font-size:30rpx;
+  color:#fff;
+  z-index: 2;
 }

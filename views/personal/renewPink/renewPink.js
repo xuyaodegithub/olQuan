@@ -139,26 +139,26 @@ Page({
         _self.setData({
           doubleClick: true,
         })
+        wx.hideLoading()
         if (res.data.code == 1) {
-          wx.hideLoading()
-          // wx: wx.redirectTo({
-          //   url: '/views/orderList/orderList?status=2',
-          //   success: function (res) { },
-          //   fail: function (res) { },
-          //   complete: function (res) { },
-          // })
+          wx.reLaunch({
+            url: '/views/personal/personal'
+          })
         } else if (res.data.code == 0) {
           wx.requestPayment({
-            timeStamp: res.data.result.timeStamp,
-            nonceStr: res.data.result.nonceStr,
-            package: res.data.result.package_,
-            signType: res.data.result.signType,
-            paySign: res.data.result.paySign,
+            timeStamp: res.data.result.payInfo.timeStamp,
+            nonceStr: res.data.result.payInfo.nonceStr,
+            package: res.data.result.payInfo.package_,
+            signType: res.data.result.payInfo.signType,
+            paySign: res.data.result.payInfo.paySign,
             success(res1) {
               // wx.showToast({ title: '支付成功', icon: 'none' })
               _self.setData({
                 payPasswordShow: false,
                 orderSucessBak: true
+              })
+              wx.reLaunch({
+                url: '/views/personal/personal'
               })
             },
             fail(res) {

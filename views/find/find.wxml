@@ -18,7 +18,7 @@
 </view>
 <view class='findConcent' wx:for="{{shangluList}}" wx:key="{{index}}" wx:if="{{isShanglu==1}}">
   <view class='findTop'>
-    <image class='logoImg' src='../../image/shanglu.png'></image>
+    <image class='logoImg' src='../../image/haowu.png'></image>
     <view class='newCent_nameTime'>
       <view style='line-height:52rpx;font-size:28rpx;'>天天好物</view>
       <view>{{item.createTime}}</view>

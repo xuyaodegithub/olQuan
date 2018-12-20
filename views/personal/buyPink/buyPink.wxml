@@ -142,7 +142,7 @@
     <view class='sureSucess'>恭喜您成功开通店主</view>
     <view class='sureSucess' style="color: #333333;font-size: 28rpx;">接下来的日子里面祝您购物愉快！</view>
     <view class='orderSureBack'>
-      <view class='orderSureBackOut'>去首页</view>
+      <view class='orderSureBackOut' bindtap='getIndex'>去首页</view>
       <view class='orderSureBackOut'>去试用</view>
     </view>
   </view>

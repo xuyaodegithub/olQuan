@@ -24,6 +24,15 @@ Page({
       
     })
   },
+  //兑换SNRC
+  getChangeSnrc(){
+    wx.navigateTo({
+      url: '/views/personal/changeSnrc/changeSnrc',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   //点击我的银行卡
   accountCountDetail(){
     wx: wx.navigateTo({

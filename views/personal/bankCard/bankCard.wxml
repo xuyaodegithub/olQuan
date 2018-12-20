@@ -15,22 +15,26 @@
    <image class='addImg' src='../../../image/addList.png'></image>
    <view style='margin-top:20rpx;'>添加账户</view>
   </view>
-  <view class='accountList' wx:for="{{accountList}}" wx:key="{{index}}" data-index='{{index}}' bindtap='chooseAccount'>
-    <view class='accountDetail'>
-      <view class='detailMore'>
-        <view class='speView' wx:if="{{item.type!=1}}">{{item.accountBank}}</view>
-        <view class='speView' wx:else>支付宝</view>
-        <view class='speView' style='font-size:26rpx;'>{{item.accountName}}</view>
-        <view class='speView' class='accountNum'>
-          <view>
-            {{item.accountNo}}
-          </view>
-          <view>
-           <text class='speBot' data-accountId='{{item.accountId}}' data-index='{{index}}' bindtap='removeList'>删除</text>
-           <text class='speBot' data-accountId='{{item.accountId}}' bindtap='modifyCardMore'>修改</text>
-          </view>
+  <view style='position: relative;' wx:for="{{accountList}}" wx:key="{{index}}">
+    <view class='accountList' data-index='{{index}}' bindtap='chooseAccount'>
+      <view class='accountDetail'>
+        <view class='detailMore'>
+          <view class='speView' wx:if="{{item.type!=1}}">{{item.accountBank}}</view>
+          <view class='speView' wx:else>支付宝</view>
+          <view class='speView' style='font-size:26rpx;'>{{item.accountName}}</view>
+          <view class='speView' class='accountNum'>
+            <view>
+              {{item.accountNo}}
+            </view>
+            
         </view>
       </view>
     </view>
+    <view class='butSpe'>
+      <text class='speBot' data-accountId='{{item.accountId}}' data-index='{{index}}' catchtap='removeList'>删除</text>
+      <text class='speBot' data-accountId='{{item.accountId}}' catchtap='modifyCardMore'>修改</text>
+      </view>
+    </view>
   </view>
+  
 </view>

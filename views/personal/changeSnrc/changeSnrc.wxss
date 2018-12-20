@@ -1,0 +1,278 @@
+/* views/personal/changeSnrc/changeSnrc.wxss */
+page{
+  background: #f2f2f2;
+}
+.changeScale{
+  padding-bottom: 50rpx;
+  padding-top: 144rpx;
+  background: #E60012;
+  font-size: 28rpx;
+  color: #fff;
+  overflow: hidden;
+  text-align: center;
+}
+.scaleLeft{
+  float: left;
+  width: 50%;
+}
+.scaleRight{
+  float: left;
+  width: 50%;
+}
+.speScale{
+  max-width: 100%;
+  word-break: break-all;
+  word-wrap: break-word;
+  font-size: 78rpx;
+  margin-bottom: 30rpx;
+}
+.circular{
+  position: absolute;
+  left: 0;
+  top: 38rpx;
+  display: flex;
+  align-items: center;
+  padding:0 14rpx;
+  background: rgba(255,255,255,.30);
+  height: 56rpx;
+  border-radius: 0 56rpx 56rpx 0;
+  font-size: 24rpx;
+  color: #fff;
+}
+.circular image{
+  display: block;
+  width: 30rpx;
+  height: 26rpx;
+  margin-right: 12rpx;
+}
+.changeAcconut{
+  margin-top: 20rpx;
+  padding-left:30rpx;
+  padding-right:30rpx;
+  background: #fff;
+}
+.changeAcconutList .top{
+  padding-top: 28rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+.importMoney{
+  margin-top:32rpx;
+  padding-bottom: 16rpx;
+  font-size: 0;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:flex-start;
+  justify-content:flex-start;
+  -moz-box-pack:flex-start;
+  -webkit--moz-box-pack:flex-start;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  position: relative;
+  border-bottom:2rpx solid #E1E1E1;
+}
+.importMoney input{
+  width: 100%;
+  display:block;
+  min-height: 32rpx;
+  font-size:32rpx;
+  color: #333333;
+  line-height: 32rpx;
+  border:0;
+  padding: 0;
+  outline: none;	
+}
+.cancelBean{
+  position: absolute;
+  right: 0;
+  bottom: 16rpx;
+  display: block;
+  width: 48rpx;
+  height: 48rpx;
+  z-index: 2;
+}
+.changeDetail{
+  margin-top: 20rpx;
+  padding-left:30rpx;
+  padding-right:30rpx;
+  background: #fff;
+}
+.changeList .top{
+  padding-top: 28rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+.changeNum{
+  font-size: 30rpx;
+  color: #777777;
+  line-height: 88rpx;
+  overflow: hidden;
+}
+.changeBot{
+  margin-top: 40rpx;
+}
+.bottomSure{
+  width: 690rpx;
+  margin: 0 auto;
+  line-height: 88rpx;
+  background: #E60012;
+  border-radius: 6rpx;
+  font-size: 34rpx;
+  color: #fff;
+  text-align: center;
+}
+.shade{
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 33;
+}
+.passwordBox{
+  width: 85%;
+  height: 500rpx;
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  margin-top: -250rpx;
+  left: 50%;
+  margin-left: -42.5%;
+  z-index: 333;
+  overflow: hidden;
+}
+.passBoxTop{
+  font-size: 32rpx;
+  text-align: center;
+  padding-top: 60rpx;
+}
+.passInput{
+    width: 85%;
+    background: #fafafa;
+    border: 1rpx solid #e5e5e5;
+    font-size: 32rpx;
+    height: 100rpx;
+    margin: 80rpx auto;
+    display: block;
+    line-height: 100rpx;
+    padding-left: 20rpx;
+    outline: none;
+}
+.passBot{
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  border-top: 1rpx solid #e5e5e5;
+  height: 140rpx;
+}
+.passBotSure{
+  width: 50%;
+  text-align: center;
+  line-height: 135rpx;
+  font-size: 32rpx;
+}
+.shadeBox{
+  width: 75%;
+  height: 380rpx;
+  background: #fff;
+  margin: 0 auto;
+ 
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+.colseIcon{
+  display: block;
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  z-index: 2;
+}
+.iconTip{
+  text-align: center;
+  padding-top: 50rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+.inputIcon{
+  margin-top: 40rpx;
+  position: relative;
+}
+.codeImg{
+  display: block;
+  width: 140rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  margin-top: -30rpx;
+  z-index: 2;
+}
+.inputIconIn{
+  width: 85%;
+  background: #F3F0F3;
+  border-radius: 8rpx;
+  height: 90rpx;
+  margin: 0 auto;
+}
+.sureCodeGet{
+  width: 400rpx;
+  height: 90rpx;
+  background: #F798C4;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  border-radius: 8rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+.viewMobile{
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  padding-top: 30rpx;
+}
+.getCodeImg{
+  width: 35%;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  border-left: 1rpx solid #e5e5e5;
+  position: absolute;
+  right: 45rpx;
+  color: #e50f72;
+  z-index: 22;
+  top: 0;
+}
+.sureTixian{
+  width: 85%;
+  margin: 0 auto;
+  background: #e50f72;
+  font-size: 28rpx;
+  text-align: center;
+  color: #fff;
+  line-height: 90rpx;
+  margin-top: 30rpx;
+  border-radius: 8rpx;
+}
+.changeRecord{
+  padding: 0 30rpx;
+  margin-top:28rpx;
+  text-align: right;
+  font-size: 30rpx;
+  color: #029BFC;
+}

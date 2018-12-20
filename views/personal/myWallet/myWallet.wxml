@@ -49,6 +49,13 @@
       <image class='iconImg' src='../../../image/moneyRow.png'></image>
     </view>
   </view>
+  <view class='walletList' bindtap='getChangeSnrc'>
+    <view>金豆兑换SNRC</view>
+    <view class='lookMore'>
+      <!-- <view style='color:#e50f72;'>{{memberList.waitGoldBean}}</view> -->
+      <image class='iconImg' src='../../../image/moneyRow.png'></image>
+    </view>
+  </view>
 </view>
 <view class='accountCount' bindtap='accountCountDetail'>
   <view class='walletList'>
