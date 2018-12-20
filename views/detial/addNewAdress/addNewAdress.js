@@ -26,6 +26,7 @@ Page({
     isShowCard:true,
     isShowPhoto:true,
     ids:'',
+    isCardTrue:false,//设置里面进入身份证不用管
   },
 
   /**
@@ -40,6 +41,7 @@ Page({
     })
     if(options.backType){
       this.setData({
+        isCardTrue:true,
         isCrossBorderProduct: options.isCrossBorderProduct ? options.isCrossBorderProduct : 0,
         isOverseasDirectMailProduct: options.isOverseasDirectMailProduct ? options.isOverseasDirectMailProduct : 0
       })
@@ -53,6 +55,10 @@ Page({
           isShowPhoto: false
         })
       }
+    }else{
+      this.setData({
+        isCardTrue: false
+      })
     }
     console.log(options)
     this.getAllAdress()
@@ -250,9 +256,9 @@ Page({
       memberId: app.userId,
       frontServerId: this.data.cardImgzhen,
       oppServerId: this.data.cardImgfan,
-      uutype: app.uutype,
+      uutype: 2,
     }
-    if (this.data.isCrossBorderProduct==1){
+    if (this.data.isCrossBorderProduct == 1 && this.data.isCardTrue){
       if (this.data.cardNum){
         // data.identityNo = this.data.cardNum
         console.log(data.identityNo.length)
@@ -265,12 +271,14 @@ Page({
         return
       }
     }
-    if (this.data.isOverseasDirectMailProduct==1) {
+    if (this.data.isOverseasDirectMailProduct == 1 && this.data.isCardTrue) {
       if (this.data.cardNum && this.data.cardImgzhen && this.data.cardImgfan){
         // data.identityNo = this.data.cardNum
         // data.frontServerId = this.data.cardImgzhen
         // data.oppServerId = this.data.cardImgfan
-        if (data.identityNo.length !== 18 || data.identityNo.length !== 15) {
+        if (data.identityNo.length !== 18 && data.identityNo.length !== 15) {
+          console.log(data.identityNo)
+          
           wx.showToast({ title: '身份证号格式不正确', icon: 'none' })
           return
         }

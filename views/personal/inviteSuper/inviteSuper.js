@@ -23,8 +23,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    common.methods.getLoginMess(this.getListDetail, this)
-    console.log(options.inviteId)
+    common.methods.getLoginMess(this.getListDetail, this, options)
+    // console.log(options.inviteId)
     if (options.inviteId != undefined) {
       this.setData({
         inviteId: options.inviteId
@@ -54,6 +54,7 @@ Page({
       });
       return
     }
+    // console.log(this.memberList.isGetStoreCommission)
     if (this.data.memberList.isGetStoreCommission == 0){
       wx.showToast({
         title: '您还不是店主，请先升级店主',
@@ -85,6 +86,7 @@ Page({
     this.setData({
       memberList: app.memberData,
     })
+    // console.log(this.data.memberList)
     if (this.data.memberList.levelCode == 'supervisor' || this.data.memberList.levelCode == 'starSupervisor' || this.data.memberList.levelCode == 'highSupervisor') {
       wx.setNavigationBarTitle({
         title: '邀请经理'

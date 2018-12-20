@@ -34,13 +34,13 @@
   <view class="flex card"  wx:if="{{isShowPhoto}}">
     <view>
       <text>上传国徽面照片</text>
-      <image src='../../../image/zhen.png'  mode="widthFix" data-index="1" bindtap='uploadImg' wx:if="{{!cardImgzhen}}"></image>
-      <image wx:else src="{{cardImgzhen}}"  mode="widthFix" data-index="1" bindtap='uploadImg'></image>
+      <image src='../../../image/zhen.png'  data-index="1" bindtap='uploadImg' wx:if="{{!cardImgzhen}}"></image>
+      <image wx:else src="{{cardImgzhen}}"  data-index="1" bindtap='uploadImg'></image>
     </view>
      <view>
       <text>上传人像面照片</text>
-      <image src='../../../image/fan.png' mode="widthFix" data-index="2" bindtap='uploadImg'wx:if="{{!cardImgfan}}"></image>
-      <image wx:else src="{{cardImgfan}}" mode="widthFix" data-index="2" bindtap='uploadImg'></image>
+      <image src='../../../image/fan.png' data-index="2" bindtap='uploadImg'wx:if="{{!cardImgfan}}"></image>
+      <image wx:else src="{{cardImgfan}}"  data-index="2" bindtap='uploadImg'></image>
     </view>
   </view>
   </view>
