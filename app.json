@@ -1,9 +1,9 @@
 {
   "pages": [
+    "views/firstIndex/firstIndex",
     "views/personal/personal",
     "views/personal/listSNRC/listSNRC",
     "views/personal/changeSnrc/changeSnrc",
-    "views/firstIndex/firstIndex",
     "views/find/find",
     "views/personal/myTry/tryShow/tryShow",
     "views/personal/myTry/myTry",

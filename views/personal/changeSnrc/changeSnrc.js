@@ -172,6 +172,12 @@ Page({
     }
 
   },
+  //关闭mobile
+  colseMobile(){
+    this.setData({
+      sureMobile:false
+    })
+  },
   //输入密码
   getpayPassword(e) {
     this.setData({

@@ -134,7 +134,7 @@ page{
   position: absolute;
   right: 0;
   top: 15rpx;
-  padding: 8rpx 18rpx;
+  padding: 6rpx 12rpx;
   font-size: 26rpx;
   color: #E50F72;
   border: 2rpx solid #E50F72;

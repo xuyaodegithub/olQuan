@@ -22,7 +22,7 @@ Page({
     toView2:'Btn0',//btnid
     scrollTopNum:'',
     topTrue:false,
-    // isStartOrClose:false
+    isStartOrClose:false
     // windowHeight:''//设备高度
   },
 
@@ -41,40 +41,44 @@ Page({
     common.methods.getLoginMess(this.getossID, this,options)
   },
   //监听
-  setBindDiv(){
-    this._observer = wx.createIntersectionObserver(this, {observeAll:true})
-    this._observer
-      .relativeToViewport()
-      .observe('.banner', (res) => {
-        console.log(res);
-        console.log(res.id.split('er')[1]);
-        // if (res.boundingClientRect.top<0){
-          this.setData({
-            classBtnIndex: res.id.split('er')[1]
-          })
-        // }else{
-        //   this.setData({
-        //     classBtnIndex: res.id.split('er')[1] - 1 < 0 ? 0 : res.id.split('er')[1] - 1
-        //   })
-        // }
+  // setBindDiv(){
+  //   this._observer = wx.createIntersectionObserver(this, {observeAll:true})
+  //   this._observer
+  //     .relativeToViewport()
+  //     .observe('.banner', (res) => {
+  //       console.log(res);
+  //       console.log(res.id.split('er')[1]);
+  //       // if (res.boundingClientRect.top<0){
+  //         this.setData({
+  //           classBtnIndex: res.id.split('er')[1]
+  //         })
+  //       // }else{
+  //       //   this.setData({
+  //       //     classBtnIndex: res.id.split('er')[1] - 1 < 0 ? 0 : res.id.split('er')[1] - 1
+  //       //   })
+  //       // }
         
-      })
-  },
+  //     })
+  // },
   //点击滚动
-  setScrollTop(){
+  setScrollTop(scrollTop){
     let _self = this
     let query = wx.createSelectorQuery()
     query.selectAll('.banner').boundingClientRect()//(rect) => {
     // query.selectViewport().scrollOffset()
     query.exec(function (rect) {
       console.log(rect)
-      let arr=[]
-      for (let i = 0; i < rect[0].length;i++){
-        arr.push(rect[0][i].top)
+      let arr = rect[0]
+      for (let i = 0; i < arr.length;i++){
+        if (arr[i].top <= 5 && arr[i+1].top>5){
+          _self.setData({
+          classBtnIndex: i
+        })
+        }
       }
-      _self.setData({
-        bannerList: arr
-      })
+      // _self.setData({
+      //   bannerList: arr
+      // })
     })
   },
   //标题悬浮
@@ -331,11 +335,8 @@ Page({
     // console.log(e)
   },
   scroll(e){
-    // console.log(e.detail)//classPIndex2
-    let scrollTop = e.detail.scrollTop    
-    // let _self=this
-    // _self.setScrollTop()
-    // _self.setTop('#classBtn') 
+    let scrollTop = e.detail.scrollTop  
+    this.setScrollTop(scrollTop)      
     if (scrollTop > 300) {
       this.setData({
         topTrue: true
@@ -356,6 +357,11 @@ Page({
     }
     // let oLiDom= this.data.bannerList
     // for (let i = 0; i < oLiDom.length; i++) {
+    //   // if (scrollTop > oLiDom[i] && scrollTop < oLiDom[i + 1]){
+    //   //   this.setData({
+    //   //     classBtnIndex:i
+    //   //   })
+    //   // }
     //   if (scrollTop < oLiDom[0] || scrollTop == oLiDom[0]) {
     //     this.setData({
     //       classBtnIndex: 0
@@ -391,19 +397,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    //  let _self=this
-    // setTimeout(function(){
-    //   _self.setScrollTop()
-    //   _self.setTop('#classBtn')          
-    // },1000)
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // this.setScrollTop()
-    // this.setTop('#classBtn')        
+      
   },
 
   /**

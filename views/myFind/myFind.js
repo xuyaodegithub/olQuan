@@ -266,11 +266,21 @@ Page({
   },
   //跳转详情
   getDetailUrl(e) {
-    // console.log(e.currentTarget.dataset)
+    console.log(e.currentTarget.dataset)
     if (e.currentTarget.dataset.type == 12) {
-
+      wx: wx.navigateTo({
+        url: '/views/activePage/activePage?id=' + e.currentTarget.dataset.id,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
     } else if (e.currentTarget.dataset.type == 13) {
-
+      wx: wx.navigateTo({
+        url: '/views/personal/getCoupon/getCoupon?id=' + e.currentTarget.dataset.id,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
     } else {
       wx: wx.navigateTo({
         url: '../detial/detial?id=' + e.currentTarget.dataset.id + '&type=' + e.currentTarget.dataset.type + '&recId=' + e.currentTarget.dataset.recid,

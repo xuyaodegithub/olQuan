@@ -10,7 +10,6 @@ App({
   // baseUrl: 'https://test-mobile.olquan.cn',
   baseUrl: 'https://ol-site.olquan.cn',
   snrcUrl: 'https://moco.olquan.cn/',//正式SNRC
-  // snrcUrl: 'http://mtest.olquan.cn/',
   userId: '',//openId
   openId:'',
   isGetStoreCommission:'',//店主权益
@@ -86,6 +85,8 @@ App({
                     },fail: function (err) {
                       wx.showModal({
                         title:  '警告',
+                        showCancel:false,
+                        // confirmText:'',
                         content:  '尚未进行授权，请点击确定跳转到授权页面进行授权。',
                         success:  function  (res)  {
                           if  (res.confirm)  {

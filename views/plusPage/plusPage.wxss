@@ -74,7 +74,7 @@ page{
 .dataList .left view:first-child{
 font-size: 28rpx;
 color: #131313;
-margin-right: 14rpx;
+margin-right: 8rpx;
 }
 .dataList .left view:nth-child(2){
 font-size: 24rpx;
@@ -98,11 +98,16 @@ border: 2rpx solid #E5006E;
 -o-border-radius: 6rpx;
 border-radius:6rpx;
 padding: 0;
+
 }
 .dataList .right button{
   color: #FFFFFF;
   background-color: #E5006E;
   margin-left: 18rpx;
+  border: none;
+}
+.dataList .right button::after{
+  border: none;
 }
 .rightte{
   width: 120rpx;

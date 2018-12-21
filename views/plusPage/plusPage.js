@@ -34,7 +34,7 @@ Page({
     //   app.type = options.type
     // }
     common.methods.getLoginMess(this.firstPage,this)
-    this.setTop('#classTopTT')
+    // this.setTop('#classTopTT')
   },
   setTop(str) {
     let _self = this
@@ -61,7 +61,7 @@ Page({
         _self.setData({
           banners: res.data.result.banners,
           advers: res.data.result.advers
-        })
+        }, _self.setTop('#classTopTT'))
       }
     }
     common.methods.mothod1(banners)

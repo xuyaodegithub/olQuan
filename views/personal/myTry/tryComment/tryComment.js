@@ -169,7 +169,7 @@ Page({
         images: imgs ,//图片集合
       },
       callback: function (res) {
-        //  wx.showToast({ title: '评论成功', icon: 'none' })
+         wx.showToast({ title: '提交成功', icon: 'none' })
         wx.redirectTo({
           url: '../myTry',
           success: function (res) { },

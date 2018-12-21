@@ -97,13 +97,13 @@
   </view>
   <view class='navTab' bindtap='invitePink'>
     <view class='navTabSon'>
-      <image class='navTabImg' src='../../image/user-icon09-02.png'></image>
+      <image style='width:50rpx;height:50rpx;' class='navTabImg' src='../../image/user-icon09-02.png'></image>
       <view class='navTabName'>邀请店主</view>
     </view>
   </view>
   <view class='navTab' wx:if="{{personalList.isShowRenewButton!=0}}" bindtap='renewPink'>
     <view class='navTabSon'>
-      <image class='navTabImg' src='../../image/user-icon09-02.png'></image>
+      <image style='width:50rpx;height:50rpx;' class='navTabImg' src='../../image/user-icon09-02.png'></image>
       <view class='navTabName'>店主续费</view>
     </view>
   </view>
@@ -145,20 +145,20 @@
   </view>
   <view class='navTab' wx:if="{{personalList.levelCode!='white' &&  personalList.levelCode!='golden'}}" bindtap='inviteSuper'>
     <view class='navTabSon'>
-      <image class='navTabImg'src='../../image/user-hua-02.png'></image>
+      <image style='width:50rpx;height:50rpx;' class='navTabImg'src='../../image/user-hua-02.png'></image>
       <view class='navTabName' wx:if="{{personalList.levelCode=='store'}}">申请经理</view>
       <view class='navTabName' wx:if="{{personalList.levelCode!='store'}}">邀请经理</view>
     </view>
   </view>
   <view class='navTab' wx:if="{{personalList.levelCode!='white' && personalList.levelCode!='golden' && personalList.levelCode!='store'}}" bindtap='getInviteList'>
     <view class='navTabSon'>
-      <image class='navTabImg'src='../../image/apply.png'></image>
+      <image style='width:50rpx;height:50rpx;' class='navTabImg'src='../../image/apply.png'></image>
       <view class='navTabName'>经理审核</view>
     </view>
   </view>
   <view class='navTab' wx:if="{{personalList.isShowFind==1}}" bindtap='getMyFind'>
     <view class='navTabSon'>
-      <image class='navTabImg'src='../../image/user-icon-20.png'></image>
+      <image style='width:50rpx;height:50rpx;' class='navTabImg'src='../../image/user-icon-20.png'></image>
       <view class='navTabName'>我的发现</view>
     </view>
   </view>
