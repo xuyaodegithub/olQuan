@@ -94,6 +94,7 @@ border: 2rpx solid #E5006E;
 -o-border-radius: 6rpx;
 border-radius:6rpx;
 padding: 0;
+
 }
 .dataList .right button{
   color: #FFFFFF;

@@ -79,7 +79,7 @@ page{
   position: absolute;
   right: 30rpx;
   top: 106rpx;
-  padding: 8rpx 18rpx;
+  padding: 6rpx 12rpx;
   font-size: 26rpx;
   color: #fff;
   border: 2rpx solid #fff;

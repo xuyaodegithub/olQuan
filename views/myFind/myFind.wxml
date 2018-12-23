@@ -96,7 +96,7 @@
 </view>
 <view class='curObjNone' wx:if="{{findListShow}}">
   <image src='../../image/noMorefind.png'></image>
-  <view style="width: 100%;text-align: center;">你还没有发过素材哦~</view>
+  <view style="width: 100%;text-align: center;">{{isFollowId==1? '你还没有关注的素材哦~' :'你还没有发过素材哦~' }}</view>
 </view>
 <view class='videoList' wx:if="{{isVideo}}" bindtap='colseVideo'>
   <video id="myVideo" class="myVideo {{isVideo?'myVideoSpe':''}}" src="{{videoDetail}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>

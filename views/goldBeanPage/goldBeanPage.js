@@ -95,7 +95,7 @@ Page({
   toGetDold(e){
     let index = e.currentTarget.dataset.item.which
     if (index == 1) this.showWatch('请前往公众号号搜索OL圈进行关注')
-    else if (index == 2) this.showWatch('请去app或公众号兑换')
+    else if (index == 2) wx.navigateTo({ url: '/views/personal/changeSnrc/changeSnrc' })
     else if (index == 3) wx.switchTab({ url: '/views/firstIndex/firstIndex' })
     else if (index == 4) this.showWatch('请联系OL圈店主,获取邀请链接或联系客服:400-900-0008')
     else if (index == 5) this.showWatch('请前往OL圈app端发布发现')

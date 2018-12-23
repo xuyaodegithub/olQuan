@@ -64,7 +64,7 @@
             <text>仅剩{{(item.dayLimitCount-item.saleCount)<0 ? 0 : item.dayLimitCount-item.saleCount}}件</text>
             <view class="flex btn">
               <view>保证金:￥{{item.price}}</view>
-              <view class="border_radius" wx:if="{{item.isStarted===1}}">马上试 ></view>
+              <view class="border_radius flex" wx:if="{{item.isStarted===1}}">马上试<image src="../../image/jiantou.png" />  </view>
               <view class="border_radius disno" wx:else>即将开始</view>
             </view>
           </view>

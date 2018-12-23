@@ -15,7 +15,10 @@ page{
 }
 .header image{
   display: block;
-  width:690rpx;
+  /* width:690rpx; */
+  width:-webkit-calc(100% - 50rpx); 
+  width:-moz-calc(100% - 50rpx); 
+  width:calc(100% - 50rpx);
   height: 180rpx;
   margin: 0 auto;
   margin-top: 45rpx;
@@ -34,6 +37,11 @@ page{
   padding: 0 30rpx;
   color: #333;
   height: 140rpx;
+  -moz-box-shadow:0 0 10rpx #f7f7f7;/*firefox*/ 
+	-webkit-box-shadow:0 0 10rpx #f7f7f7;/*webkit*/ 
+	-ms-box-shadow:0 0 10rpx #f7f7f7;/*webkit*/ 
+	-o-box-shadow:0 0 10rpx #f7f7f7;/*webkit*/ 
+	box-shadow:0 0 10rpx #f7f7f7;/*opera或ie9*/
 }
 .mess > view .left view:first-child{
   margin-bottom: 14rpx;
@@ -46,7 +54,7 @@ page{
 }
 .mess > view .right view{
   text-align: center;
-  width: 100rpx;
+  width: 110rpx;
   line-height: 48rpx;
   color: #fff;
   border-radius: 24rpx;
@@ -58,5 +66,8 @@ page{
 }
 .lastimg{
   display: block;
-  width: 100%;
+  width:-webkit-calc(100% - 50rpx); 
+  width:-moz-calc(100% - 50rpx); 
+  width:calc(100% - 50rpx);
+  margin: 0 auto;
 }

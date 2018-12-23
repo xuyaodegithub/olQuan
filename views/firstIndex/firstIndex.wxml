@@ -26,9 +26,7 @@
 </view>
 <view class="productList">
     <view class="classtitle">
-      <view wx:for="{{classBtn}}" wx:key="{{index}}" data-catId="{{item.catId}}" data-index="{{index}}" class="{{classNum===index ? 'classActive' : '' }}" bindtap='changeClass'>
-        {{item.name}}
-      </view>
+      <view wx:for="{{classBtn}}" wx:key="{{index}}" data-catId="{{item.catId}}" data-index="{{index}}" class="{{classNum===index ? 'classActive' : '' }}" bindtap='changeClass'>{{item.name}}</view>
     </view> 
     <view class="smallClass" wx:if="{{classBtn[classNum].children.length>0}}">
       <view wx:for="{{classBtn[classNum].children}}" data-index="{{index}}" wx:key="{{index}}" data-catId="{{item.catId}}" bindtap='smallClass'  class="{{smallclassNum===index ? 'smallActive' : ''}}">

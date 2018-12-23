@@ -329,14 +329,18 @@ Page({
     // console.log(this.data.scrollTopNum)
   },
   upper(e) {
-    // console.log(e)
+    this.setData({
+          classBtnIndex: 0
+        })
    },
   lower(e) { 
-    // console.log(e)
+    this.setData({
+      classBtnIndex: this.data.classPIndex2.length-1
+    })
   },
   scroll(e){
     let scrollTop = e.detail.scrollTop  
-    this.setScrollTop(scrollTop)      
+    // this.setScrollTop(scrollTop)      
     if (scrollTop > 300) {
       this.setData({
         topTrue: true
@@ -388,6 +392,10 @@ Page({
     } else if (this.data.classBtnIndex<4){
       this.setData({
         toView2: this.data.classPIndex2[0] ? this.data.classPIndex2[0] : 'Btn0'
+      })
+    }else{
+      this.setData({
+        toView2: this.data.classPIndex2[this.data.classBtnIndex]
       })
     }
     // console.log(this.data.toView, this.data.toView2)

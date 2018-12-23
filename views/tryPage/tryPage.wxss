@@ -138,6 +138,15 @@ page{
   margin-top: 20rpx;
   font-size: 24rpx;
 }
+.typeLast > view .btn image{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 15rpx;
+}
+.border_radius{
+  align-items: center;
+  justify-content: center;
+}
 .typeLast > view .btn view:last-child{
   line-height: 56rpx;
   color: #ffffff;

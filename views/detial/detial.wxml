@@ -1,7 +1,7 @@
 <!--detial/detial.wxml-->
 <wxs src="../../filters/filters.wxs" module="filters" /><!--引入过滤器-->
 <view style="position:relative;">
-  <swiper indicator-dots autoplay interval="5000" duration="400" style="height:750rpx" circular>
+  <swiper indicator-dots autoplay interval="5000" duration="400" style="height:750rpx" circular indicator-color='#d0cdd1' indicator-active-color='#ffffff'>
     <block wx:for="{{productData.images}}" wx:key="{{index}}">
       <swiper-item>
         <image src="{{item}}" mode="widthFix" style="display:block;width:100%;" />
@@ -196,7 +196,7 @@
       </view>
   </view>
   <!--商品详情-->
-  <view class="h5Title">————商品详情————</view>
+  <view class="h5Title">—— 商品详情 ——</view>
 </view>
 <rich-text nodes="{{productData.detail}}"></rich-text> 
 <view class="buyBtn flex"><!--购买按钮-->

@@ -63,6 +63,11 @@ Page({
     }
     common.methods.mothod4(banners)
   },
+  colseMobile(){
+    this.setData({
+      sureMobile:false,
+    })
+  },
   //获取SNRC地址
   getWalletAccount(e){
     this.setData({

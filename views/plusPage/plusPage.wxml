@@ -5,9 +5,7 @@
 <swipers banner="{{banners}}"  advers="{{advers}}"></swipers>
 </view>
 <view class="classBtn flex {{classTop ? 'classTop' : ''}}" id="classTopTT">
-  <view wx:for="{{classBtn}}" wx:key="{{index}}" data-index="{{index}}" bindtap='changClass' class="{{classNum===index ? 'alcssActive' : ''}}">
-    {{item}}
-  </view>
+  <view wx:for="{{classBtn}}" wx:key="{{index}}" data-index="{{index}}" bindtap='changClass' class="{{classNum===index ? 'alcssActive' : ''}}">{{item}}</view>
 </view>
 <view class="dataList">
   <view wx:for="{{dataList}}" wx:key="{{index}}" class="product">
