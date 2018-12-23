@@ -1,12 +1,7 @@
 /* views/plusPage/plusPage.wxss */
 page{
-  /* padding: 0 20rpx; */
-  /* width:-webkit-calc(100% - 40rpx); 
-  width:-moz-calc(100% - 40rpx); 
-  width:calc(100% - 40rpx);  */
   background-color: #F7F7F7;
   width: 100%;
-  /* overflow: hidden; */
 }
 .header{
   padding: 0 20rpx;
@@ -25,6 +20,7 @@ page{
   top: 0;
   left: 0;
   background-color: #ffffff;
+  z-index: 999;
 }
 .classBtn view:nth-child(n){
   margin:0 15rpx;
@@ -74,7 +70,7 @@ page{
 .dataList .left view:first-child{
 font-size: 28rpx;
 color: #131313;
-margin-right: 14rpx;
+margin-right: 8rpx;
 }
 .dataList .left view:nth-child(2){
 font-size: 24rpx;
@@ -103,6 +99,10 @@ padding: 0;
   color: #FFFFFF;
   background-color: #E5006E;
   margin-left: 18rpx;
+  border-color: #E5006E;
+}
+.dataList .right button::after{
+  border: none;
 }
 .rightte{
   width: 120rpx;
