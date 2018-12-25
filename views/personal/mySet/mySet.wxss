@@ -53,8 +53,7 @@ page{
 }
 .setLeft image{
   display: block;
-  width: 21rpx;
-  height: 26rpx;
+  width: 28rpx;
 }
 .setRight{
   display: flex;

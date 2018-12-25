@@ -29,6 +29,7 @@ page{
   border-radius: 8rpx;
   height: 90rpx;
   margin: 0 auto;
+  padding-left: 20rpx;
 }
 .sureCodeGet{
   width: 400rpx;

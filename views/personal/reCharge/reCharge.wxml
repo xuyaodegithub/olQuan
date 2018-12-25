@@ -1,0 +1,32 @@
+<!--views/personal/reCharge/reCharge.wxml-->
+<view class='lookMore' bindtap='getListMore'>
+  <view>充值明细</view>
+  <image src='../../../image/rowright.png'></image>
+</view>
+<view class='choose'>请选择充值金额</view>
+<view class='moneyList'>
+  <view data-index='{{index}}' bindtap='chooseMoney' class="moneyNum {{index==listIndex?'active':''}}" wx:for="{{list}}" wx:key="{{index}}">{{item}}</view>
+</view>
+<view class='inputIcon'wx:if="{{listIndex==list.length-1}}">
+  <input bindinput='amountObj' placeholder='请输入充值金额' value='{{amountNum}}'></input>
+</view>
+<view class='choose'>支付方式</view>
+<view class='orderSure'>
+  <view class='orderWay'>
+    <view class='wayLeft'>
+      <image src='../../../image/weixin.png'></image>
+      <text decode="nbsp"> &nbsp;微信</text>
+    </view>
+    <view class='wayRight'>
+      <image src='../../../image/waychose.png'> </image>
+    </view>
+  </view>
+</view>
+<view class='note'>
+  <view>温馨提醒：</view>
+  <view>余额充值后不支持退款，可用于平台消费，没有消费时间限制，充值前请认真考虑再操作。</view>
+</view>
+<view class='sure'>
+  <view style='background:#ddd;' wx:if="{{!doubleClick}}">确认充值</view>
+  <view wx:if="{{doubleClick}}" bindtap='sureRecharge'>确认充值</view>
+</view>

@@ -225,7 +225,7 @@ Page({
         callback: function (res) {
           _self.setData({
             personalList: res.data.result,
-            time: res.data.result.validTime!=''?res.data.result.validTime.split("至")[1]:''
+            time: res.data.result.validTime.split("至")[1]
           })
           if (res.data.result.isShowRenewButton != 0){
             _self.setData({

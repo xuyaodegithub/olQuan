@@ -15,6 +15,7 @@ page{
 .phone input,.yzma input{
   height: 60rpx;
   text-indent: 1em;
+  padding-left: 20rpx;
 }
 .phone{
   margin-bottom: 20rpx;

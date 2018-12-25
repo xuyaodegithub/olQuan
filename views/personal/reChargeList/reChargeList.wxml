@@ -1,0 +1,8 @@
+<!--views/personal/reChargeList/reChargeList.wxml-->
+<view class='list' wx:for="{{listObj}}" wx:key="{{index}}">
+  <view class='listTop'>
+    <view>{{item.amount}}</view>
+    <view style='font-size:32rpx;color:#999;'>{{item.time}}</view>
+  </view>
+  <view style='height:80rpx;font-size:32rpx;color:#666;'>{{item.payMethod}}</view>
+</view>

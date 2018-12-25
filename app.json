@@ -1,7 +1,9 @@
 {
   "pages": [
     "views/firstIndex/firstIndex",
+    "views/personal/reChargeList/reChargeList",
     "views/personal/personal",
+    "views/personal/reCharge/reCharge",
     "views/personal/listSNRC/listSNRC",
     "views/personal/changeSnrc/changeSnrc",
     "views/find/find",
@@ -66,7 +68,6 @@
     "views/logistics/logistics",
     "views/personal/helpCent/helpCent",
     "views/personal/partner/partner"
-    
   ],
   "find": [
     ""

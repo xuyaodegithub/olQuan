@@ -9,16 +9,6 @@ Page({
    */
   data: {
     limitCount:'',
-    memList:[],
-    goldenDou:'',
-    showLimitCount:false,
-    walletAccount:'',
-    amountNum:'',
-    sureMobile:false,
-    isPassword: false,
-    graphicCode: false,
-    doubleClick: true,//阻止二次点击
-    currentTime: 60, 
     isDisabled: true,   
     code:'',
     sign:'',

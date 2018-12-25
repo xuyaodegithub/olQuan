@@ -2,6 +2,7 @@
 page {
   display: block;
   background-color:#f5f5fa;
+  padding-bottom: 30rpx;
 }
 .walletTop{
   margin-top: 30rpx;

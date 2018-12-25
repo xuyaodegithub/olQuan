@@ -7,9 +7,10 @@
    <view class='personalName'>{{personalList.nickName}}</view>
    <view class='personalLevel'>
     <view class='perLevelName'>{{personalList.levelName}}</view>
-     <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.partnerLevel!=null}}'>{{personalList.partnerLevel}}</view>
-     <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.isCityPartner==1}}'>城市合伙人</view>
-     <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.isBrandPartner==1}}'>品牌合伙人</view>
+     <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.partnerLevel==1}}'>梦想合伙人</view>
+     <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.partnerLevel==2}}'>财富合伙人</view>
+     <!-- <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.isCityPartner==1}}'>城市合伙人</view>
+     <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.isBrandPartner==1}}'>品牌合伙人</view> -->
    </view>
 </view>
 <view class='renewGet' wx:if='{{showXufei}}' bindtap='renewPink'>

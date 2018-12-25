@@ -8,13 +8,13 @@
     <view class='speScale'>
       {{memList.goldBean}}
     </view>
-    <view>可兑金豆(个)</view>
+    <view style='text-align: center;'>可兑金豆(个)</view>
   </view>
   <view class='scaleRight'>
     <view class='speScale'>
       1:10
     </view>
-    <view>当前汇率(SNRC:金豆)</view>
+    <view style='text-align: center;'>当前汇率(SNRC:金豆)</view>
   </view>
 </view>
 <view class='changeAcconut'>
@@ -30,7 +30,7 @@
   <view class='changeList'>
     <view class='top'>兑换数量(个)</view>
     <view class='importMoney'>
-      <input placeholder="请输入需要兑换SNRC个数" value='{{amountNum}}' bindinput='getAmount'/>
+      <input style='font-size:68rpx;color:#666;height:68rpx;' placeholder-style='font-size:28rpx;' placeholder="请输入需要兑换SNRC个数" value='{{amountNum}}' bindinput='getAmount'/>
       <image bindtap='celearAmount' wx:if="{{amountNum!=''}}" class='cancelBean' src='../../../image/cancelBean.png'></image>
     </view>
     <view class='changeNum'>

@@ -1,0 +1,137 @@
+/* views/personal/reCharge/reCharge.wxss */
+page{
+  background: #f5f5fa;
+}
+.lookMore{
+  background: #fff;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  padding: 0 30rpx;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+}
+.lookMore image{
+  display: block;
+  width:15rpx;
+  height: 29rpx;
+}
+.choose{
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 80rpx;
+}
+.moneyList{
+  padding: 20rpx 30rpx 0 30rpx;
+  background: #fff;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+  flex-wrap: wrap;
+  -webkit-flex-wrap:wrap;
+  -webkit-box-lines:multiple;
+  -moz-flex-wrap:wrap;
+  color: #808080;
+}
+.moneyNum{
+  width: 22%;
+  
+  height: 56rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border: 2rpx solid #e5e5e5;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+}
+.active{
+  background: #e50f72;
+  
+  color: #fff;
+}
+.inputIcon{
+  padding:10rpx 30rpx;
+  background: #fff;
+  border-top: 2rpx solid #e5e5e5;
+  height: 58rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.inputIcon input{
+  line-height: 60rpx;
+  font-size: 30rpx;
+  height: 60rpx;
+}
+
+.orderWay{
+  padding: 24rpx;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  border-bottom:2rpx solid #e5e5e5;
+}
+.wayLeft{
+	font-size: 28rpx;
+}
+.wayLeft image{
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+  vertical-align: middle;
+}
+.wayRight{
+  position: absolute;
+  top: 50%;
+  margin-top: -20rpx;
+  right:24rpx;
+}
+.wayRight image{
+  display: block;
+  height: 40rpx;
+  width: 40rpx;
+}
+.note{
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+.note view{
+  font-size: 28rpx;
+  color: red;
+  margin-bottom: 10rpx;
+
+}
+.sure{
+  margin-top: 30rpx;
+}
+.sure view{
+  margin: 0 auto;
+  width: 90%;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border-radius: 4rpx;
+  background: #e50f72;
+  font-size: 30rpx;
+  color: #fff;
+}

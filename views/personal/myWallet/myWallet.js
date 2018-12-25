@@ -42,6 +42,15 @@ Page({
       complete: function (res) { },
     })
   },
+  //点击余额充值
+  reCharge(){
+    wx: wx.navigateTo({
+      url: '/views/personal/reCharge/reCharge',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   //点击体现
   withDraw(){
     wx: wx.navigateTo({

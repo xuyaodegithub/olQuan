@@ -2,16 +2,16 @@
 <view class='topMessage'>基本信息</view>
 <view class='setMessage' style='height: 128rpx;' bindtap='changeLogo'>
   <view class='setLeft'>
-    <image src='../../../image/memlogo.png' style='width: 28rpx;height: .28rpx;'></image>
+    <image mode='widthFix' src='../../../image/memlogo.png'></image>
     <view style="margin-left: 7rpx;">头像</view>
   </view>
   <view class='setRight'>
-    <image class="memLogo" src='{{ownLogo}}'></image>
+    <image mode='widthFix' class="memLogo" src='{{ownLogo}}'></image>
   </view>
 </view>
 <view class='setMessage' bindtap='changeNickName'>
   <view class='setLeft'>
-    <image src='../../../image/nick.png'></image>
+    <image mode='widthFix' src='../../../image/nick.png'></image>
     <view style="margin-left: 7rpx;">昵称</view>
   </view>
   <view class='setRight'>
@@ -22,7 +22,7 @@
 </view>
 <view class='setMessage' bindtap='changeRealName'>
   <view class='setLeft'>
-    <image src='../../../image/setName.png'></image>
+    <image mode='widthFix' src='../../../image/setName.png'></image>
     <view style="margin-left: 7rpx;">姓名</view>
   </view>
   <view class='setRight'>
@@ -34,7 +34,7 @@
 <picker class='picker' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
   <view class='setMessage'>
     <view class='setLeft'>
-      <image src='../../../image/sex.png'></image>
+      <image mode='widthFix' src='../../../image/sex.png'></image>
       <view style="margin-left: 7rpx;">性别</view>
     </view>
     <view class='setRight'>
@@ -48,7 +48,7 @@
 <picker mode="date" class='picker' value="{{date}}" end="{{endDete}}" bindchange="bindDateChange">
   <view class='setMessage'>
     <view class='setLeft'>
-      <image src='../../../image/birthday.png'></image>
+      <image mode='widthFix' src='../../../image/birthday.png'></image>
       <view style="margin-left: 7rpx;">生日</view>
     </view>
     <view class='setRight'>
@@ -61,7 +61,7 @@
 </picker>
 <view class='setMessage' bindtap='changeIdCard'>
   <view class='setLeft'>
-    <image src='../../../image/idCard.png'></image>
+    <image mode='widthFix' src='../../../image/idCard.png'></image>
     <view style="margin-left: 7rpx;">身份证</view>
   </view>
   <view class='setRight'>
@@ -72,7 +72,7 @@
 </view>
 <view class='setMessage' bindtap='boundMobile'>
   <view class='setLeft'>
-    <image src='../../../image/bangTel.png'></image>
+    <image mode='widthFix' src='../../../image/bangTel.png'></image>
     <view style="margin-left: 7rpx;">绑定手机号</view>
   </view>
   <view class='setRight'>
@@ -84,7 +84,7 @@
 <view class='topMessage'>账户信息</view>
 <view class='setMessage' bindtap=''>
   <view class='setLeft'>
-    <image src='../../../image/chooseMem.png'></image>
+    <image mode='widthFix' src='../../../image/chooseMem.png'></image>
     <view style="margin-left: 7rpx;">选择账号</view>
   </view>
   <view class='setRight'>
@@ -95,7 +95,7 @@
 <view class='topMessage'>安全提升</view>
 <view class='setMessage' bindtap='changePassword'>
   <view class='setLeft'>
-    <image src='../../../image/pasWad.png'></image>
+    <image mode='widthFix' src='../../../image/pasWad.png'></image>
     <view style="margin-left: 7rpx;">支付密码设置</view>
   </view>
   <view class='setRight'>
@@ -106,7 +106,7 @@
 </view>
 <view class='setMessage'>
   <view class='setLeft'>
-    <image src='../../../image/protuct.png'></image>
+    <image mode='widthFix' src='../../../image/protuct.png'></image>
     <view style="margin-left: 7rpx;">开启账号保护</view>
   </view>
   <view class='setRight'>
@@ -116,7 +116,7 @@
 <view class='topMessage'>更多</view>
 <view class='setMessage' bindtap='getAdress'>
   <view class='setLeft'>
-    <image src='../../../image/addressSet.png'></image>
+    <image mode='widthFix' src='../../../image/addressSet.png'></image>
     <view style="margin-left: 7rpx;">收货地址</view>
   </view>
   <view class='setRight'>

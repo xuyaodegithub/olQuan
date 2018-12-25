@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      linkUrl: app.baseUrl + 'weixin/partner/partner'
+      linkUrl: app.baseUrl + '/weixin/partner/partner'
     })
   },
 

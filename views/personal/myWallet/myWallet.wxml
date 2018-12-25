@@ -66,6 +66,9 @@
     </view>
   </view>
 </view>
+<view class='bot' bindtap='reCharge'>
+  <view style='background:#e50f72;color:#fff;' class='withDrawCash'>余额充值</view>
+</view>
 <view class='bot' bindtap='withDraw'>
   <view class='withDrawCash'>提现</view>
 </view>

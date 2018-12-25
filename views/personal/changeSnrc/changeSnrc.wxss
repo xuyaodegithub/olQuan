@@ -14,10 +14,12 @@ page{
 .scaleLeft{
   float: left;
   width: 50%;
+  text-align: center;
 }
 .scaleRight{
   float: left;
   width: 50%;
+  text-align: center;
 }
 .speScale{
   max-width: 100%;
@@ -25,6 +27,7 @@ page{
   word-wrap: break-word;
   font-size: 78rpx;
   margin-bottom: 30rpx;
+  text-align: center;
 }
 .circular{
   position: absolute;

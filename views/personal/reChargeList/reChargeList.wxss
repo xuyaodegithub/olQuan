@@ -1,0 +1,30 @@
+/* views/personal/reChargeList/reChargeList.wxss */
+page{
+  background: #f5f5fa;
+}
+.list{
+  padding: 0 30rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #eaeaea;
+}
+.listTop{
+  line-height: 120rpx;
+  font-size: 36rpx;
+  color: #000;
+  display: flex;
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-align:center;/* IE 10 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-justify-content:space-between;
+  justify-content:space-between;
+  -moz-box-pack:space-between;
+  -webkit--moz-box-pack:space-between;
+}
