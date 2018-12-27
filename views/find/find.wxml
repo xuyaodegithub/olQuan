@@ -9,7 +9,7 @@
   <view wx:if='{{isShowCancel}}' bindtap='cancelSearch' class='searchSure'>取消</view>
 </view>
 <view id='chooseIsFollow' class="chooseIsFollow {{isFixed?'chooseFixed':''}}">
-  <view bindtap='getShanglu' style='margin-right: 48rpx;' class="{{isShanglu==1? 'speDiv' :''}}">好物</view>
+  <!-- <view bindtap='getShanglu' style='margin-right: 48rpx;' class="{{isShanglu==1? 'speDiv' :''}}">好物</view> -->
   <view bindtap='changeNormalList' class="{{isFollowId!=1 && isShanglu==0? 'speDiv' :''}}">精选</view>
   <view bindtap='changeFollowList' class="hasFollowNew ">
     <text class="{{isFollowId==1? 'speDiv' :''}}">关注</text>

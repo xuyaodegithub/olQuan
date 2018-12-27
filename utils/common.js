@@ -189,6 +189,7 @@ function getLoginMess(callback,_self,options){
       }
       if (options){
         callBackUrl.recId = options.recId ? options.recId : ''
+        callBackUrl.isMore = options.isMore ? options.isMore : ''
         callBackUrl.inviteId = options.inviteId ? options.inviteId : ''
         callBackUrl.inviteMemberId = options.inviteMemberId ? options.inviteMemberId : ''
         callBackUrl.isShare = options.isShare ? options.isShare : ''
@@ -235,6 +236,7 @@ function uploadImg(data){//上传图片接口
 function goMoreType(val){
   let item = val
   if (item.linkType == 9) {
+    if (!item.url.split('id=')[1]){return}
     wx.navigateTo({
       url: '/views/activePage/activePage?id=' + item.url.split('id=')[1],
     })

@@ -1,1 +1,11 @@
-{}
+{
+  "component": false,
+  "usingComponents": {},
+  "navigationBarTitleText": "支付成功",
+  "navigationBarBackgroundColor": "#f7f7f7",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#9e9e9e",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": "30px",
+  "disableScroll": false
+}

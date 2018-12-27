@@ -320,7 +320,7 @@ Page({
       console.log(ops)
       return{
         title: ops.target.dataset.item.productName,
-        path: '/views/detial/detial?id=' + ops.target.dataset.item.productId + '&recId=' + app.userId,//当前页面 path ，必须是以 / 开头的完整路径
+        path: '/views/detial/detial?id=' + ops.target.dataset.item.productId + '&recId=' + app.userId+'&isMore=1',//当前页面 path ，必须是以 / 开头的完整路径
         imageUrl: ops.target.dataset.item.productImage,
         success: function (res) {
           //成功

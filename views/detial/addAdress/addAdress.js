@@ -27,23 +27,12 @@ Page({
       backType: options.backType ? options.backType : '',
       ids: options.ids ? options.ids : '',
     })
-//     if (options.backType) {
-//       this.setData({
-// <<<<<<< HEAD
-//         isCrossBorderProduct: options.isCrossBorderProduct ? options.isCrossBorderProduct : '',
-//         isOverseasDirectMailProduct: options.isOverseasDirectMailProduct ? options.isOverseasDirectMailProduct : ''
-//       })
-//     }
-// =======
-      //   backType: options.backType ? options.backType : '',
-      // })
       if(options.backType){
         this.setData({
           isCrossBorderProduct: options.isCrossBorderProduct ? options.isCrossBorderProduct : '',
           isOverseasDirectMailProduct: options.isOverseasDirectMailProduct ? options.isOverseasDirectMailProduct : ''
         })
       }
-// >>>>>>> d2a29a1e5d2580a1c943c5355131f92ab90cbe83
     console.log(options)      
     this.getaddress()
   },
@@ -131,12 +120,22 @@ Page({
   },
   choseThis(e){
     if (this.data.backType==1){
-      wx.redirectTo({
-        url: '../toSureBuy/toSureBuy?adressID=' + e.currentTarget.dataset.id
-      })
-      // wx.navigateBack({
-      //   delta:1
+      let item = e.currentTarget.dataset.item
+      if (item.mobile) {
+        let arrnum = item.mobile.split('')
+        arrnum.splice(3, 4, '****')
+        item.mobile = arrnum.join('')
+      }
+      let pages = getCurrentPages();
+      let prevPage = pages[pages.length - 2];  //上一个页面
+      let info = prevPage.data //取上页data里的数据也可以修改
+      prevPage.setData({ addressMess: item })//设置数据
+      // wx.redirectTo({
+      //   url: '../toSureBuy/toSureBuy?adressID=' + e.currentTarget.dataset.id
       // })
+      wx.navigateBack({
+        delta:1
+      })
     } else if (this.data.backType == 2){
       wx.redirectTo({
         url: '../../carToBuy/carToBuy?adressID=' + e.currentTarget.dataset.id + '&ids=' + this.data.ids

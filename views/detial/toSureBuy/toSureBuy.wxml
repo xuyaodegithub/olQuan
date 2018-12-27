@@ -35,7 +35,7 @@
     <input type="text" placeholder="对本次交易的说明,限45字" maxlength="45" value="{{memo}}" bindinput='getmemo'></input>
   </view>
   <view class="userMess">
-    <view>账户</view>
+    <view wx:hidden="{{(productType=='4' && OrderList.amount <1) || (productType=='4' && OrderList.coffers <1) || (productType!='4' && OrderList.amount < 1 && OrderList.coffers < 1 && OrderList.score < 100 && OrderList.score < 10)}}">账户</view>
     <view wx:for="{{moneyClass}}" wx:key="{{index}}">
         <view class="flex anyPay" wx:if="{{OrderList[item.mean]>0}}">
           <view class="left">

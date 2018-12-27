@@ -30,7 +30,7 @@ Page({
     showShare:false,
     canvasImg: '',//canvas图片
     isSaveAlow: false,//授权弹框
-    isShanglu: 1,
+    isShanglu: 0,
     shangluList:[],
     isbuyMinCount:1,
     chooseNor: false,
@@ -314,7 +314,8 @@ Page({
     }
     common.methods.mothod1(hasFollow)
     common.methods.mothod1(banners)
-    this.getShangLuList();
+    // this.getShangLuList();
+    this.getFindList();
   },
   //
   getShangLuList(isMore){
@@ -642,7 +643,7 @@ Page({
             wx.getImageInfo({////////////////////////
               src: erweima,
               success(res) {
-                ctx.drawImage(res.path, radio * 650 * 0.75, (radio * 650) + 84, 80, 80);
+                ctx.drawImage(res.path, radio * 650 * 0.75, (radio * 650) + 90, 80, 80);
                 ctx.draw(true, function () {
                   
                 })

@@ -66,17 +66,23 @@ Page({
   },
   //弹框类型
   goactiveAA(e) {
-    11//活动
+    11//活动1//试用、15
     let item = e.currentTarget.dataset.item
     if (item.type==11) {
       wx.navigateTo({
         url: '/views/activePage/activePage?id=' + item.url.split('id=')[1],
       })
+    } else if (item.type == 1){
+      wx.navigateTo({
+        url: '/views/tryPage/tryPage',
+      })
+     }else{
+      
      }
-
+    this.setdialog(item.id)
   },
   //弹框记录
-  setdialog(){
+  setdialog(id){
     let data={
       url:'/mobile/index/openDialog',
       data:{

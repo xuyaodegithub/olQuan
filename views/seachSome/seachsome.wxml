@@ -5,7 +5,7 @@
 <view class="list">
   <view class="flex" wx:if="{{seachList.length>0}}">
     <text>最近搜索</text>
-    <icon type="clear" size="24" class="flex" bindtap='deleteThose'/>
+    <icon type="clear" size="22" class="flex" bindtap='deleteThose'/>
   </view>
   <view wx:for="{{seachList}}" wx:key="{{index}}" data-item="{{item}}" bindtap='goscreen'>{{item.value}}</view>
 </view>

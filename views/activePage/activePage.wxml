@@ -1,5 +1,6 @@
 <wxs src="../../filters/filters.wxs" module="filters" />
-<scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" style="height:100%;" scroll-with-animation scroll-top="{{scrollTopNum}}">
+<scroll-view scroll-y bindscroll="scroll" scroll-into-view="{{toView}}" style="height:100%;" scroll-top="{{scrollTopNum}}">
+<!-- /* bindscrolltoupper="upper" bindscrolltolower="lower"*/ -->
   <view wx:for="{{activeData}}" wx:key="{{index}}">
   <!-- 轮播图 -->
     <view wx:if="{{item.modelSampleCode==='advertisingFigure' && item.contents.length>0}}">
@@ -54,14 +55,14 @@
     </view>
     <!-- 产品列表组件 -->
           <view wx:if="{{item.modelSampleCode==='catlist1' && item.contents.length>0}}"  class="catlist1" style="background-color:{{backData.contents}};">
-            <view class="classBtn {{isFixed? 'isFixed' : ''}} backGo" id="classBtn" style="background-color:{{backData.contents}};">
+            <view class="classBtn {{GetscrollTop > timeTopNum? 'isFixed' : ''}} backGo" id="classBtn" style="background-color:{{backData.contents}};">
               <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scroll-into-view="{{toView2}}">
                   <view wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" style="color:{{classBtnIndex==indexSon?  backData.contents : ''}}" class="{{classBtnIndex==indexSon ? 'active' : ''}}" data-index="{{indexSon}}" bindtap='changeTtle' id="Btn{{indexSon}}">
                   {{itemSon.title}}
                   </view>
               </scroll-view>
             </view>
-          <view style="height:88rpx;"  wx:if="{{isFixed}}">            
+          <view style="height:88rpx;"  wx:if="{{GetscrollTop > timeTopNum}}">            
           </view>
           <view class="productList flex">
             <view wx:for="{{productList}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" class="{{itemSon.classMore=='classBanner'? 'bannerIMG' : ''}}"  id="{{itemSon.id ? itemSon.id : ''}}">
@@ -82,7 +83,7 @@
     </view>
   </view>
 </scroll-view>
-<view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+<view class="toTop" wx:if="{{GetscrollTop>300}}" bindtap='toScrollTop'>
     <image src="../../image/goTop.png"></image>
 </view>
 <view class="zhezhao" wx:if="{{activeDetail.status==0 || activeDetail.status==-1}}"></view>

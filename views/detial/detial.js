@@ -34,7 +34,8 @@ Page({
     isCollect:0,//是否收藏
     addOrBuy:1,//1add2buy
     topTrue:false,
-    openlink:false
+    openlink:false,
+    isMore:''
   },
 
   /**
@@ -46,6 +47,7 @@ Page({
       productId: options.id,
       productType: options.type ? options.type : '',
       levelCode: app.memberData.levelCode,
+      isMore: options.isMore ? options.isMore : '',
       recId: (options.recId && options.recId!='null') ? options.recId : '',
     })
     // console.log(options, options.id, options.type,'---------------------')    
@@ -53,6 +55,10 @@ Page({
   },
 //firstin
     getProductDetial(){
+      wx.showLoading({
+        title: '加载中...',
+        mask: true
+      })
       let _self=this
       let data={
             url:'/mobile/product/productDetail',
@@ -95,6 +101,7 @@ Page({
               //   isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1,
               //   productType: (res.data.result.type).toString()
               // })
+              wx.hideLoading()    
             }
       }
       common.methods.mothod1(data)      
@@ -512,11 +519,11 @@ Page({
             ctx.fillText('￥' + _self.data.productData.salePrice, 16, (radio * 650) + 140)
             ctx.setFillStyle('#777777')  // 文字颜色：黑色
             ctx.setFontSize(12)         // 文字字号：22px
-            ctx.fillText('长按保存分享给好友哟！', 16, (radio * 650) + 160)
+            ctx.fillText('长按识别二维码查看详情', 16, (radio * 650) + 160)
             wx.getImageInfo({////////////////////////
               src: erweima,
               success(res) {
-                ctx.drawImage(res.path, radio * 650 * 0.75, (radio * 650) + 90,80,80);                
+                ctx.drawImage(res.path, radio * 650 * 0.75, (radio * 650) + 84,80,80);                
                 ctx.draw(true,function(){
                   _self.setData({
                     ewmImg:'have'
@@ -699,6 +706,18 @@ Page({
       url: './tryExplain/tryExplain',
     })
   },
+  //更多试用，特卖
+  goisMore(){
+    let url=''
+    if(this.data.productType==4){
+      url='/views/tryPage/tryPage'
+    } else if (this.data.productType == 9){
+      url ='/views/plusPage/plusPage'
+    }
+    wx.navigateTo({
+      url: url,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -754,9 +773,11 @@ Page({
     let url = '/views/detial/detial?id=' + this.data.productId + '&type=' + this.data.productType
     if (this.data.productType == 4 || this.data.productType == 9){
       url = url +'&recId='+app.userId
+      url+='&isMore=1'
     }
+    let ititle = this.data.productData.freeUseSubType == 1 ? "限时试用·" : "" 
     return {
-      title: this.data.productData.productName,
+      title: ititle+this.data.productData.productName,
       path:url,//当前页面 path ，必须是以 / 开头的完整路径
       imageUrl: this.data.productData.image,//转发图标
       desc: this.data.productData.summary,

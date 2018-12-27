@@ -84,16 +84,24 @@ page{
   color: #333333;
   font-size: 24rpx;
   align-items: center;
-  line-height: 80rpx
+  line-height: 80rpx;
+  width:-webkit-calc(100% - 60rpx); 
+  width:-moz-calc(100% - 60rpx); 
+  width:calc(100% - 60rpx);
+  overflow-x:auto; 
+ white-space:nowrap;
 }
 .content .tag > view{
-  align-items: center;
+  /* align-items: center; */
+  display: inline-block;
 }
 .content .tag image{
   width: 28rpx;
   height: 28rpx;
   margin-right: 12rpx;
-  /* vertical-align: middle; */
+  display: inline-block;
+  margin-top: -6rpx;
+  vertical-align: middle;
 }
 .content .tag text{
   margin-right: 52rpx;
@@ -604,7 +612,7 @@ width:200rpx;
   width: 100%;
   height: 100%;
   top: 0;
-  z-index: 1000;
+  z-index: 1222;
   background-color: rgba(0,0,0,.5);
   align-items: center;
   justify-content: center;
@@ -651,8 +659,8 @@ width:200rpx;
 }
 .link{
   position: fixed;
-  bottom: 210rpx;
-  right: 100rpx;
+  bottom: 204rpx;
+  right: 30rpx;
   font-size: 26rpx;
   line-height: 56rpx;
   z-index:1111;
@@ -670,4 +678,7 @@ width:200rpx;
   width: 170rpx;
   left: -85rpx;
   color: #333;
+}
+view.toTop{
+  bottom: 124rpx;
 }

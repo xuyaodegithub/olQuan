@@ -45,6 +45,9 @@ Page({
         if (callBackUrl.isShare) {
           url += '&isShare=' + callBackUrl.isShare
         }
+        if (callBackUrl.isMore) {
+          url += '&isMore=' + callBackUrl.isMore
+        }
         console.log(url)
         wx.reLaunch({
           url: url

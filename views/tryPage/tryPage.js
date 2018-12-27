@@ -225,22 +225,32 @@ Page({
     let _self=this
     wx.showNavigationBarLoading()
       this.setData({
-        classNum:0,
+        // classNum:0,
         page: 1,
         rows: 10,
-        productType:5,
-        time: '',
-        timeList: [],
-        timeActive: '',
+        // productType:1,
+        // time: '',
+        // timeList: [],
+        // timeActive: '',
       })
       let data={
-        url: '/mobile/freeUse/getFreeUseProducts',
-        data:{
+        url: this.data.classNum == 4 ? '/mobile/freeUse/getWholePointFreeUseProducts' : '/mobile/freeUse/getFreeUseProducts',
+        data: this.data.classNum == 4 ? { time: this.data.time} : {
           page:this.data.page,
           rows:this.data.rows,
           type: this.data.productType
         },
         callback:function(res){
+          // if (_self.data.classNum==4){
+          //   _self.data.timeList.forEach(function (val, index) {
+          //     if (val.isCurrentActivity === 1) {
+          //       _self.setData({
+          //         timeActive: index
+          //       })
+          //       return
+          //     }
+          //   })
+          // }
           _self.setData({
             dataList: res.data.result
           })

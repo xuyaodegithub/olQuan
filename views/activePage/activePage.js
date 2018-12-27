@@ -22,7 +22,8 @@ Page({
     toView2:'Btn0',//btnid
     scrollTopNum:'',
     topTrue:false,
-    isStartOrClose:false
+    isStartOrClose:true,
+    GetscrollTop:0
     // windowHeight:''//设备高度
   },
 
@@ -61,24 +62,37 @@ Page({
   //     })
   // },
   //点击滚动
-  setScrollTop(scrollTop){
+  setScrollTop(){
+    // let _self = this
+    // let query = wx.createSelectorQuery()
+    // query.selectAll('.banner').boundingClientRect()//(rect) => {
+    // // query.selectViewport().scrollOffset()
+    // query.exec(function (rect) {
+    //   console.log(rect)
+    //   let arr = rect[0]
+    //   for (let i = 0; i < arr.length;i++){
+    //     if (arr[i].top <= 5 && arr[i+1].top>5){
+    //       _self.setData({
+    //       classBtnIndex: i
+    //     })
+    //     }
+    //   }
+    // })
     let _self = this
     let query = wx.createSelectorQuery()
     query.selectAll('.banner').boundingClientRect()//(rect) => {
     // query.selectViewport().scrollOffset()
     query.exec(function (rect) {
       console.log(rect)
-      let arr = rect[0]
-      for (let i = 0; i < arr.length;i++){
-        if (arr[i].top <= 5 && arr[i+1].top>5){
-          _self.setData({
-          classBtnIndex: i
-        })
-        }
+      let arr = []
+      for (let i = 0; i < rect[0].length; i++) {
+        arr.push(rect[0][i].top)
       }
-      // _self.setData({
-      //   bannerList: arr
-      // })
+      console.log(arr)
+      // return arr
+      _self.setData({
+        bannerList: arr
+      }, _self.setDataF())
     })
   },
   //标题悬浮
@@ -255,152 +269,112 @@ Page({
     //   scrollTop: 0,
     //   duration: 400
     // })
+    let _self=this
     this.setData({
       scrollTopNum:0
     })
+    setTimeout(() => {
+      // let oLiDomTop = _self.setScrollTop()
+      _self.setScrollTop()
+    }, 10)
   },
-  //滚轮
-  // onPageScroll: function (e) { // 页面滚动触发事件的处理函数
-  //   let scrollTop = e.scrollTop
-  //   let _self = this
-  //   if (scrollTop > 300) {
-  //     this.setData({
-  //       topTrue: true
-  //     })
-  //   } else {
-  //     this.setData({
-  //       topTrue: false
-  //     })
-  //   }
-  //   if (scrollTop > this.data.timeTopNum) {
-  //     this.setData({
-  //       isFixed: true
-  //     })
-  //   } else {
-  //     this.setData({
-  //       isFixed: false
-  //     })
-  //   }
-  //   let oLiDom = this.data.bannerList
-  //   for (let i = 0; i < oLiDom.length; i++) {
-  //     if (scrollTop < oLiDom[0]) {
-  //       this.setData({
-  //         classBtnIndex: 0
-  //       })
-  //       break
-  //     }//				console.log(oLiDom[i].offsetTop,i,scrollTop)
-  //     else if (scrollTop > oLiDom[oLiDom.length - 1]) {
-  //       this.setData({
-  //         classBtnIndex: oLiDom[oLiDom.length - 1]
-  //       })
-  //       break
-  //     } else if (scrollTop > oLiDom[i] && scrollTop < oLiDom[i + 1]) {
-  //       this.setData({
-  //         classBtnIndex: i
-  //       })
-  //       break
-  //     }
-  //   }
-  //   // console.log(this.data.classBtnIndex, this.data.classPIndex2)
-  //   if (this.data.classBtnIndex % 4 === 0) {
-  //     this.setData({
-  //       toView2: this.data.classPIndex2[this.data.classBtnIndex]
-  //     })
-  //   } else if (this.data.classBtnIndex < 4) {
-  //     this.setData({
-  //       toView2: this.data.classPIndex2[0]
-  //     })
-  //   }
-  // },
   changeTtle(e){
     if (e.currentTarget.dataset.index==this.data.classBtnIndex){
       return
     }
-    console.log(e.currentTarget.dataset.item)
+    // console.log(e.currentTarget.dataset.item)
     this.setData({
-      classBtnIndex: e.currentTarget.dataset.index,
+      // classBtnIndex: e.currentTarget.dataset.index,
       toView: this.data.classPIndex[e.currentTarget.dataset.index]
     })
-    console.log(this.data.toView)
+    // console.log(this.data.toView)
+    let _self=this
+    setTimeout(() => {
+      // let oLiDomTop = _self.setScrollTop()
+      _self.setScrollTop()
+    }, 10)
     // wx.pageScrollTo({
     //   scrollTop: this.data.bannerList[e.currentTarget.dataset.index],
     //   duration: 200
     // })
     // console.log(this.data.scrollTopNum)
+    // this.scroll()
   },
-  upper(e) {
+  // upper(e) {
+  //   this.setData({
+  //         classBtnIndex: 0
+  //       })
+  //  },
+  // lower(e) { 
+  //   this.setData({
+  //     classBtnIndex: this.data.classPIndex2.length-1
+  //   })
+  // },
+  scroll(e){
+    if (!this.data.isStartOrClose) return
+    let scrollTop = e.detail.scrollTop  
+    let _self=this
     this.setData({
-          classBtnIndex: 0
-        })
-   },
-  lower(e) { 
-    this.setData({
-      classBtnIndex: this.data.classPIndex2.length-1
+      isStartOrClose:false,
+      GetscrollTop: scrollTop
+    },()=>{
+      setTimeout(()=>{
+        // let oLiDomTop = _self.setScrollTop()
+        _self.setScrollTop()
+      },50)
     })
   },
-  scroll(e){
-    let scrollTop = e.detail.scrollTop  
-    // this.setScrollTop(scrollTop)      
-    if (scrollTop > 300) {
-      this.setData({
-        topTrue: true
-      })
-    } else {
-      this.setData({
-        topTrue: false
-      })
+//function
+  setDataF(){
+    let _self=this
+    let oLiDomTop=this.data.bannerList
+    let num=0
+    for (let i = 0; i < oLiDomTop.length; i++) {
+      if (oLiDomTop[i]-50<0){
+        num+=1
+      }
+      // if (scrollTop <= oLiDomTop[0]) {
+      //   _self.setData({
+      //     classBtnIndex: 0,
+      //     toView2: _self.data.classPIndex2[0]
+      //   })
+      //   break
+      // }//				console.log(oLiDom[i].offsetTop,i,scrollTop)
+      // else if (scrollTop >= oLiDomTop[oLiDomTop.length - 1]) {
+      //   _self.setData({
+      //     classBtnIndex: oLiDomTop.length - 1,
+      //     toView2: _self.data.classPIndex2[oLiDomTop.length - 1]
+      //   })
+      //   break
+      // } else if (scrollTop >= oLiDomTop[i] && scrollTop <= oLiDomTop[i + 1]) {
+      //   _self.setData({
+      //     classBtnIndex: i,
+      //     toView2: _self.data.classPIndex2[i]
+      //   })
+      //   break
+      // }
     }
-    if (this.data.timeTopNum && scrollTop > this.data.timeTopNum){
-      this.setData({
-        isFixed: true
+    if(num<1){
+      _self.setData({
+          classBtnIndex: 0,
+          toView2: _self.data.classPIndex2[0]
+        })
+    } else if (num == oLiDomTop.length){
+      _self.setData({
+        classBtnIndex: oLiDomTop.length-1,
+        toView2: _self.data.classPIndex2[oLiDomTop.length - 1]
       })
     }else{
-      this.setData({
-        isFixed: false
+      _self.setData({
+        classBtnIndex: num - 1,
+        toView2: _self.data.classPIndex2[num - 1]
       })
     }
-    // let oLiDom= this.data.bannerList
-    // for (let i = 0; i < oLiDom.length; i++) {
-    //   // if (scrollTop > oLiDom[i] && scrollTop < oLiDom[i + 1]){
-    //   //   this.setData({
-    //   //     classBtnIndex:i
-    //   //   })
-    //   // }
-    //   if (scrollTop < oLiDom[0] || scrollTop == oLiDom[0]) {
-    //     this.setData({
-    //       classBtnIndex: 0
-    //     })
-    //     break
-    //   }//				console.log(oLiDom[i].offsetTop,i,scrollTop)
-    //   else if (scrollTop > oLiDom[oLiDom.length - 1] || scrollTop == oLiDom[oLiDom.length - 1] ) {
-    //     this.setData({
-    //       classBtnIndex: oLiDom.length - 1
-    //     })
-    //     break
-    //   } else  if (scrollTop > oLiDom[i]-15 && scrollTop < oLiDom[i + 1]-15) {
-    //     this.setData({
-    //       classBtnIndex:i
-    //     })
-    //     break
-    //   } 
-    // }
-    // // console.log(this.data.classBtnIndex, this.data.classPIndex2)
-    if (this.data.classBtnIndex% 4 ===0) { 
-      this.setData({
-        toView2: this.data.classPIndex2[this.data.classBtnIndex] ? this.data.classPIndex2[this.data.classBtnIndex] :'Btn0'
-      })
-    } else if (this.data.classBtnIndex<4){
-      this.setData({
-        toView2: this.data.classPIndex2[0] ? this.data.classPIndex2[0] : 'Btn0'
-      })
-    }else{
-      this.setData({
-        toView2: this.data.classPIndex2[this.data.classBtnIndex]
-      })
-    }
-    // console.log(this.data.toView, this.data.toView2)
+    //setScrollTop
+    _self.setData({
+      isStartOrClose: true
+    })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

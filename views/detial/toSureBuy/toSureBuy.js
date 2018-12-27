@@ -72,6 +72,9 @@ Page({
   },
 //确认订单信息
   getOrderList(options){
+    wx.showLoading({
+      mask: true
+    })
     let _self=this
     let callBackMess = wx.getStorageSync('productMess')
     console.log(callBackMess)
@@ -118,6 +121,7 @@ Page({
             lastMoney: arr.totalFee,
             productPrice: arr.totalFee
           })
+          wx.hideLoading()    
         }
     }
     if (callBackMess.normalId){
@@ -460,7 +464,7 @@ Page({
   },
   //跳转地址页面
   toAdress(){
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../addAdress/addAdress?backType=' + 1 + '&isCrossBorderProduct=' + this.data.OrderList.isCrossBorderProduct + '&isOverseasDirectMailProduct=' + this.data.OrderList.isOverseasDirectMailProduct,
     })
   },
@@ -599,7 +603,7 @@ Page({
                 })
               },
               fail(res) {
-                wx.showToast({ title: '支付失败', icon: 'none' })
+                // wx.showToast({ title: '支付失败', icon: 'none' })
               }
             })
           }else{

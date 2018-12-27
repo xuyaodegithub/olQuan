@@ -22,6 +22,10 @@ Page({
     console.log(22)
     
   },
+  handleContact(e) {
+    console.log(e.path)
+    console.log(e.query)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

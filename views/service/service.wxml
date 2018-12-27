@@ -1,2 +1,3 @@
 <!--views/service/service.wxml-->
-<web-view src="https://kefu.easemob.com/webim/im.html?tenantId=40231&ticket=false" bindload="changeTitle"></web-view>  
+<web-view src="https://ol-kefu.olquan.cn/webim/im.html?tenantId=40231&ticket=false" bindload="changeTitle"></web-view>  
+<!-- <button open-type="contact" bindcontact="handleContact">客服</button> -->

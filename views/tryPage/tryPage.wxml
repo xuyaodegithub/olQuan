@@ -29,7 +29,7 @@
     <view wx:if="{{productType===1}}" class="typeFirst">
       <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" bindtap='goDetial'  data-type="{{dataType}}" style="position:relative;">  
         <image src="{{item.indexImage}}"  mode="widthFix" lazy-load class="border_radius"></image>
-        <view class="over title">{{item.productName}}</view>
+        <view class="over title"><text wx:if="{{item.isYueXuan==1}}" class="yuexuan">悦选</text>{{item.productName}}</view>
         <view class="smallTitle " wx:if="{{item.summery}}">{{item.summery}}</view>
         <view class="price flex">
           <view>保证金<text class="firstTitle">￥{{item.price}}</text></view>

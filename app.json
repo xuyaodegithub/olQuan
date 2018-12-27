@@ -68,6 +68,7 @@
     "views/logistics/logistics",
     "views/personal/helpCent/helpCent",
     "views/personal/partner/partner"
+    
   ],
   "find": [
     ""
@@ -84,14 +85,14 @@
   "tabBar": {
     "selectedColor": "#E5006E",
     "backgroundColor": "#FFFFFF",
-    "borderStyle": "white",
+    "borderStyle": "black",
     "color": "#333333",
     "list": [
       {
         "pagePath": "views/firstIndex/firstIndex",
         "text": "首页",
         "iconPath": "image/iconPatch/index.png",
-        "selectedIconPath": "image/iconPatch/sindex.png"
+        "selectedIconPath": "image/iconPatch/logo.png"
       },
       {
         "pagePath": "views/shopcar/shopcar",

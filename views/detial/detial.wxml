@@ -96,7 +96,7 @@
   </view>
   <view class="mess">
     <view class="title flex">
-      <view class="over2">{{productData.productName}}</view>
+      <view class="over2"><text wx:if="{{productType==='4' && productData.isYueXuan==1}}" class="yuexuan">悦选</text>{{productData.productName}}</view>
       <image src="../../image/erwei.png" wx:if="{{timer}}"  bindtap='drawImage'></image>
     </view>
     <view class="smalltitle">{{productData.summary}}</view>
@@ -111,7 +111,7 @@
       <text>仅剩{{productData.store}}件</text>
     </view>
   </view>
-  <view class="tag flex" wx:if="{{productData.tags.length>0}}">
+  <view class="tag" wx:if="{{productData.tags.length>0}}">
     <view wx:for="{{productData.tags}}" wx:key="{{index}}" class="flex">
       <image src="../../image/choose.png"></image>
       <text>{{item}}</text>
@@ -201,9 +201,13 @@
 <rich-text nodes="{{productData.detail}}"></rich-text> 
 <view class="buyBtn flex"><!--购买按钮-->
   <view class="buyLeft flex">
-    <view bindtap='goServers'>
+    <view bindtap='goServers' wx:if="{{!isMore}}">
       <image src="../../image/kefu.png"></image>
       <text>客服</text>
+    </view>
+    <view bindtap='goisMore' wx:else>
+      <image src="../../image/moresale.png"></image>
+      <text>{{productType==4 ? '更多试用' : '更多特卖'}}</text>
     </view>
     <view bindtap='goStore'>
       <image src="../../image/house.png"></image>

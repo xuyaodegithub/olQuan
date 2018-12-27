@@ -3,7 +3,7 @@
   新增地址
 </view>
 <view class="addressList">
-  <view wx:for="{{adressList}}" wx:key="{{index}}" class="oneaddress" bindtap='choseThis' data-id="{{item.id}}">
+  <view wx:for="{{adressList}}" wx:key="{{index}}" class="oneaddress" bindtap='choseThis' data-id="{{item.id}}" data-item="{{item}}">
     <view class="flex">
       <text>{{item.name}}</text>
       <text>{{item.mobile}}</text>
