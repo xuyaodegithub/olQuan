@@ -28,8 +28,8 @@ page{
   align-items: center;
   -webkit-justify-content:space-between;
   justify-content:space-between;
-  -moz-box-pack:space-between;
-  -webkit--moz-box-pack:space-between;
+  /* -moz-box-pack:space-between; */
+  /* -webkit-box-pack:space-between; */
   font-size: 26rpx;
   color: #333;
 }
@@ -41,7 +41,7 @@ page{
   display: -webkit-flex;
   display: -moz-flex;
   -webkit-box-pack: center;
-  -moz-box-pack: center;
+  /* -moz-box-pack: center; */
   -ms-flex-align:center;/* IE 10 */
   -webkit-align-items: center;
   -moz-align-items: center;
@@ -63,7 +63,7 @@ page{
   display: -webkit-flex;
   display: -moz-flex;
   -webkit-box-pack: center;
-  -moz-box-pack: center;
+  /* -moz-box-pack: center; */
   -ms-flex-align:center;/* IE 10 */
   -webkit-align-items: center;
   -moz-align-items: center;
@@ -107,7 +107,7 @@ page{
   display: -webkit-flex;
   display: -moz-flex;
   -webkit-box-pack: center;
-  -moz-box-pack: center;
+  /* -moz-box-pack: center; */
   -ms-flex-align:center;/* IE 10 */
   -webkit-align-items: center;
   -moz-align-items: center;

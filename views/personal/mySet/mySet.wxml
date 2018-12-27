@@ -6,7 +6,7 @@
     <view style="margin-left: 7rpx;">头像</view>
   </view>
   <view class='setRight'>
-    <image mode='widthFix' class="memLogo" src='{{ownLogo}}'></image>
+    <image  class="memLogo" src='{{ownLogo}}'></image>
   </view>
 </view>
 <view class='setMessage' bindtap='changeNickName'>

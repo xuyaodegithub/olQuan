@@ -68,7 +68,7 @@
     overflow: scroll;
     -webkit-overflow-scrolling: touch;  
   }
-  .over .yuexuan{
+  .over .yuexuan,.over2 .yuexuan{
   border: 2rpx solid #e5006e;
   color: #e5006e;
   border-radius: 4rpx;
