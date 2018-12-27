@@ -643,7 +643,7 @@ Page({
             wx.getImageInfo({////////////////////////
               src: erweima,
               success(res) {
-                ctx.drawImage(res.path, radio * 650 * 0.75, (radio * 650) + 90, 80, 80);
+                ctx.drawImage(res.path, radio * 650 * 0.75, (radio * 650) + 84, 80, 80);
                 ctx.draw(true, function () {
                   
                 })
