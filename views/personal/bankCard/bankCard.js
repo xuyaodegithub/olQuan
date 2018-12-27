@@ -20,7 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    common.methods.getLoginMess(this.getAccountList,this)
+    // common.methods.getLoginMess(this.getAccountList,this)
     console.log(options.isWaithDraw)
     if (options.isWaithDraw){
       this.setData({
@@ -40,6 +40,15 @@ Page({
   chooseAccount(e){
     if(this.data.isWaithDraw){
       let index = e.currentTarget.dataset.index;
+      let pages = getCurrentPages();//当前页面    （pages就是获取的当前页面的JS里面所有pages的信息）
+      let prevPage = pages[pages.length - 2];//上一页面（prevPage 就是获取的上一个页面的JS里面所有pages的信息）
+      prevPage.setData({
+        optionsId: 1,
+        accountName: this.data.accountList[index].accountBank,
+        acconuntNo: this.data.accountList[index].accountNo,
+        acconuntId: this.data.accountList[index].accountId,
+        accountType: this.data.accountList[index].type
+      })
       wx.navigateBack({
         url: '../withDraw/withDraw?accountId=' + this.data.accountList[index].accountId + '&accountName=' + this.data.accountList[index].accountBank + '&accountNo=' + this.data.accountList[index].accountNo + '&accountType=' + this.data.accountList[index].type,
         success: function (res) { },
@@ -137,7 +146,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getAccountList()
   },
 
   /**

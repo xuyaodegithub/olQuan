@@ -8,7 +8,7 @@
   <view data-index='{{index}}' bindtap='chooseMoney' class="moneyNum {{index==listIndex?'active':''}}" wx:for="{{list}}" wx:key="{{index}}">{{item}}</view>
 </view>
 <view class='inputIcon'wx:if="{{listIndex==list.length-1}}">
-  <input bindinput='amountObj' placeholder='请输入充值金额' value='{{amountNum}}'></input>
+  <input type="digit" bindinput='amountObj' placeholder='请输入充值金额' value='{{amountNum}}'></input>
 </view>
 <view class='choose'>支付方式</view>
 <view class='orderSure'>

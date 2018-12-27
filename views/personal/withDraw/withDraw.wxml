@@ -50,7 +50,7 @@
 <view class='withDrawOut'>
   <view class='withDrawAcount' bindtap='chooseAccountId'>
     <view   wx:if="{{acconuntNo!=null}}">
-      <view class='acountName' wx:if="{{accountName=='' || accountType==1}}" >支付宝</view>
+      <view class='acountName' wx:if="{{accountName=='' || accountType==1 || accountName==null}}" >支付宝</view>
       <view class='acountName' wx:else >{{accountName}}</view>
       <view class='acountNum'>{{acconuntNo}}</view>
     </view>

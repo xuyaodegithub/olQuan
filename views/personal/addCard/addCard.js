@@ -161,7 +161,7 @@ Page({
       url: '/mobile/memberAccount/save',
       data: _self.data.dataList,
       callback: function (res) {
-        wx: wx.navigateTo({
+        wx.navigateBack({
           url: '../bankCard/bankCard?isWaithDraw=' + _self.data.isWaithDraw ,
           success: function (res) { },
           fail: function (res) { },

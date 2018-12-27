@@ -8,7 +8,7 @@
   </view>
 </view>
 
-<view wx:if="{{status===0}}" class='collectList' wx:for="{{collectList}}" wx:key="{{index}}" data-productId='{{item.productId}}' bindtap='getGoodsDetail'>
+<view class='collectList' wx:for="{{collectList}}" wx:key="{{index}}" data-productId='{{item.productId}}' bindtap='getGoodsDetail'  wx:if="{{status===0 && item.productId!=null}}">
   <view class='collectListDetail'>
     <image bindtap='addGoods' data-Index='{{index}}' data-Addid='{{item.productId}}' wx:if="{{item.isCollectSon}}" class='chooseImgSon' src='../../../image/nochose.png'></image>
     <image bindtap='removeGoods' data-Addid='{{item.productId}}' data-Index='{{index}}' wx:if="{{item.isCollect}}" class='chooseImgSon' src='../../../image/checked.png'></image>
@@ -21,7 +21,7 @@
   </view>
   <view class='productPrice'>{{item.price}}</view>
 </view>
-<view wx:if="{{status===1}}" class='collectList' wx:for="{{collectList}}" wx:key="{{index}}" data-sellerId='{{item.sellerId}}' data-sellerName='{{item.sellerName}}' data-logo='{{item.logo}}' bindtap='goSellerShop'>
+<view wx:if="{{status===1 && item.sellerId!=null}}" class='collectList' wx:for="{{collectList}}" wx:key="{{index}}" data-sellerId='{{item.sellerId}}' data-sellerName='{{item.sellerName}}' data-logo='{{item.logo}}' bindtap='goSellerShop'>
   <view class='collectListDetail'>
     <image bindtap='addGoods' data-Index='{{index}}' data-Addid='{{item.sellerId}}' wx:if="{{item.isCollectSon}}" class='chooseImgSon' src='../../../image/nochose.png'></image>
     <image bindtap='removeGoods' data-Addid='{{item.sellerId}}' data-Index='{{index}}' wx:if="{{item.isCollect}}" class='chooseImgSon' src='../../../image/checked.png'></image>

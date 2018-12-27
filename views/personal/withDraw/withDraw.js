@@ -35,8 +35,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    console.log(options.accountId)
     if (options.accountId){
+      console.log(1)
       this.setData({
         optionsId:1,
         accountName: options.accountName,
@@ -255,7 +256,7 @@ Page({
   },
   //选择提现账号
   chooseAccountId(){
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../bankCard/bankCard?isWaithDraw=1',
       success: function (res) { },
       fail: function (res) { },
