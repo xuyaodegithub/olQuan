@@ -1,7 +1,7 @@
 <!--views/personal/payMent/payMent.wxml-->
 <view class='payment'>
   <view class='account'>账户</view>
-  <view class='choosestores' wx:if="{{curObj.type!=2 && memberList.score>0}}">
+  <view class='choosestores' wx:if="{{curObj.type!=2 && memberList.score>0 && curObj.type!=3}}">
     <view class='stores'>
       <view class='stores-l'>积分<text decode="nbsp"> &nbsp;({{memberList.score}}积分)</text></view>
       <view class='stores-r'>
@@ -50,7 +50,7 @@
       <text>元</text>
     </view>
   </view>
-  <view class='choosestores' wx:if="{{curObj.type!=2 && memberList.goldBean>0 && curObj.personal!=1}}">
+  <view class='choosestores' wx:if="{{curObj.type!=2 && memberList.goldBean>0 && curObj.personal!=1  && curObj.type!=3}}">
     
     <view class='stores'>
       <view class='stores-l'>金豆<text decode="nbsp"> &nbsp;({{memberList.goldBean}}可抵现{{memberList.goldBean/10}}元)</text></view>
