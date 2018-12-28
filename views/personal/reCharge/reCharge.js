@@ -133,7 +133,7 @@ Page({
               })
             },
             fail(res) {
-              wx.showToast({ title: '支付失败', icon: 'none' })
+              // wx.showToast({ title: '支付失败', icon: 'none' })
             }
           })
         }else{

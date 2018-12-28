@@ -87,5 +87,5 @@
     <image src="../../image/goTop.png"></image>
 </view>
 <view class="zhezhao" wx:if="{{activeDetail.status==0 || activeDetail.status==-1}}"></view>
-<image src="../../image/active.png" wx:if="{{activeDetail.status==-1}}" class="alert"></image>
-<image src="../../image/actstart.png"wx:if="{{activeDetail.status==0}}" class="alert2"></image>
+<image src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/899c3ad9cbb3fed78f8589d92fdaaa121a48fe79?x-oss-process=style/zipig" wx:if="{{activeDetail.status==-1}}" class="alert"></image>
+<image src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/e17a95d404cb88762882b54480d398893d38815e?x-oss-process=style/zipig" wx:if="{{activeDetail.status==0}}" class="alert2"></image>

@@ -37,7 +37,7 @@
   <view class="userMess">
     <view wx:hidden="{{(productType=='4' && OrderList.amount <1) || (productType=='4' && OrderList.coffers <1) || (productType!='4' && OrderList.amount < 1 && OrderList.coffers < 1 && OrderList.score < 100 && OrderList.score < 10)}}">账户</view>
     <view wx:for="{{moneyClass}}" wx:key="{{index}}">
-        <view class="flex anyPay" wx:if="{{OrderList[item.mean]>0}}">
+        <view class="flex anyPay" wx:if="{{(index!=0 && index!=3 && OrderList[item.mean]>0) || (index==0 && OrderList[item.mean]>100) || (index==3 && OrderList[item.mean]>10)}}">
           <view class="left">
             <view wx:if="{{item.mean==='score' && OrderList.score>100 && productType!=='4'}}">
             {{item.title}}<text>（{{OrderList.score}}可抵现{{OrderList.score/100}}元）</text>
@@ -64,7 +64,7 @@
               <text wx:elif="{{index===2 && isCoffers}}">-￥{{isCoffers}}</text>
             <!-- -￥{{muchNum}} -->
             </view>
-            <view class="border"  wx:if="{{moneyNum!==index}}" bindtap='checkedThis' data-item="{{item}}" data-index="{{index}}"></view>
+            <view class="border" wx:if="{{moneyNum!==index}}" bindtap='checkedThis' data-item="{{item}}" data-index="{{index}}"></view>
             <image src="../../../image/checked.png"  wx:if="{{moneyNum===index}}" data-index="{{index}}" bindtap='checkedThis'></image>
           </view>
         </view>

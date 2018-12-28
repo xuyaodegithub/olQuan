@@ -333,26 +333,6 @@ Page({
       if (oLiDomTop[i]-50<0){
         num+=1
       }
-      // if (scrollTop <= oLiDomTop[0]) {
-      //   _self.setData({
-      //     classBtnIndex: 0,
-      //     toView2: _self.data.classPIndex2[0]
-      //   })
-      //   break
-      // }//				console.log(oLiDom[i].offsetTop,i,scrollTop)
-      // else if (scrollTop >= oLiDomTop[oLiDomTop.length - 1]) {
-      //   _self.setData({
-      //     classBtnIndex: oLiDomTop.length - 1,
-      //     toView2: _self.data.classPIndex2[oLiDomTop.length - 1]
-      //   })
-      //   break
-      // } else if (scrollTop >= oLiDomTop[i] && scrollTop <= oLiDomTop[i + 1]) {
-      //   _self.setData({
-      //     classBtnIndex: i,
-      //     toView2: _self.data.classPIndex2[i]
-      //   })
-      //   break
-      // }
     }
     if(num<1){
       _self.setData({

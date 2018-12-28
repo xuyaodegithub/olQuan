@@ -19,10 +19,18 @@ Page({
   //进入加载
   getMember(){
     let _self = this;
-    this.setData({
-      memberList: app.memberData,
-      
-    })
+    let banners = {
+      url: '/mobile/member/getMember',
+      data: {
+        memberId: app.userId
+      },
+      callback: function (res) {
+        _self.setData({
+          memberList: res.data.result,
+        })
+      }
+    }
+    common.methods.mothod1(banners)
   },
   //兑换SNRC
   getChangeSnrc(){

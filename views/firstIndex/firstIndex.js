@@ -22,6 +22,8 @@ Page({
       DialogMess:[],
       isDialog:false,
       seachValue:'',
+      isStartOrClose:true,
+      GetscrollTop:0
   },
   callBack(res){
     this.setData({
@@ -267,6 +269,9 @@ Page({
   },
   //跳转详情页
   goDetial(e){
+    wx.showLoading({
+      mask: true
+    })
       wx.navigateTo({
         url: '../detial/detial?id=' + e.currentTarget.dataset.id + '&type=' + e.currentTarget.dataset.type,
         success: function(res) {},
@@ -308,15 +313,27 @@ Page({
   //滚轮
   onPageScroll: function (e) { // 页面滚动触发事件的处理函数
     // console.log(e.scrollTop)
-    if(e.scrollTop>200){
-      this.setData({
-        topTrue:true
-      })
-    }else{
-      this.setData({
-        topTrue: false
-      })
-    }
+    if (!this.data.isStartOrClose) { return }
+    let _self = this
+    this.setData({
+      isStartOrClose: false,
+      GetscrollTop: e.scrollTop
+    }, () => {
+      setTimeout(() => {
+        _self.setData({
+          isStartOrClose: true
+        })
+      }, 50)
+    })
+    // if(e.scrollTop>200){
+    //   this.setData({
+    //     topTrue:true
+    //   })
+    // }else{
+    //   this.setData({
+    //     topTrue: false
+    //   })
+    // }
   },
   //金豆页面
   gogloldBean(){

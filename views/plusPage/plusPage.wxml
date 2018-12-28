@@ -4,7 +4,7 @@
 <seachs seachValue="{{seachValue}}"></seachs>
 <swipers banner="{{banners}}"  advers="{{advers}}"></swipers>
 </view>
-<view class="classBtn flex {{classTop ? 'classTop' : ''}}" id="classTopTT">
+<view class="classBtn flex {{GetscrollTop>classTopNum ? 'classTop' : ''}}" id="classTopTT">
   <view wx:for="{{classBtn}}" wx:key="{{index}}" data-index="{{index}}" bindtap='changClass' class="{{classNum===index ? 'alcssActive' : ''}}">{{item}}</view>
 </view>
 <view class="dataList">
@@ -26,7 +26,7 @@
     </view> 
   </view>
 </view>
-<view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+<view class="toTop" wx:if="{{GetscrollTop>300}}" bindtap='toScrollTop'>
     <image src="../../image/goTop.png"></image>
 </view>
 <view class="zhezhao" wx:if="{{isDialog}}" catchtouchmove="myCatchTouch"></view>

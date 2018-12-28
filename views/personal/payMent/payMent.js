@@ -386,6 +386,21 @@ Page({
                 payPasswordShow: false,
                 orderSucessBak: true
               })
+              if (_self.data.curObj.type == 2) {
+                wx: wx.redirectTo({
+                  url: '/views/personal/myTry/tryList/tryList?status=2',
+                  success: function (res) { },
+                  fail: function (res) { },
+                  complete: function (res) { },
+                })
+              } else {
+                wx: wx.redirectTo({
+                  url: '/views/orderList/orderList?status=2',
+                  success: function (res) { },
+                  fail: function (res) { },
+                  complete: function (res) { },
+                })
+              }
             },
             fail(res) {
               wx.showToast({ title: '支付失败', icon: 'none' })

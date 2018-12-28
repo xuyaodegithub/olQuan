@@ -54,7 +54,7 @@
           </view>
       </view>
 </view>
-<view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+<view class="toTop" wx:if="{{GetscrollTop>300}}" bindtap='toScrollTop'>
     <image src="../../image/goTop.png"></image>
 </view>
 <view class="zhezhao" wx:if="{{isDialog}}" catchtouchmove="myCatchTouch"></view>

@@ -29,6 +29,8 @@ Page({
     fixedNavTop:'',
     timeTop: false,
     timeTopNum:'',
+    isStartOrClose:true,
+    GetscrollTop:0
   },
 
   /**
@@ -178,6 +180,9 @@ Page({
   },
   //进详情
   goDetial(e){
+    wx.showLoading({
+      mask: true
+    })
     wx.navigateTo({
       url: '../detial/detial?id=' + e.currentTarget.dataset.id + '&type=' + e.currentTarget.dataset.type,
       success: function(res) {},
@@ -261,34 +266,46 @@ Page({
     common.methods.mothod1(data)
   },
   onPageScroll: function (e) { // 页面滚动触发事件的处理函数
+    if (!this.data.isStartOrClose){return}
+    let _self=this
+    this.setData({
+      isStartOrClose: false,
+      GetscrollTop: e.scrollTop
+    }, () => {
+      setTimeout(() => {
+        _self.setData({
+          isStartOrClose:true
+        })
+      }, 50)
+    })
     console.log(e.scrollTop)
-    if (e.scrollTop > 250) {
-      this.setData({
-        topTrue: true
-      })
-    } else {
-      this.setData({
-        topTrue: false
-      })
-    }
-    if (e.scrollTop > this.data.fixedNavTop){
-      this.setData({
-        fixedNav: true
-      })
-    }else{
-      this.setData({
-        fixedNav: false
-      })
-    }
-    if (e.scrollTop > 277){
-      this.setData({
-        timeTop: true
-      })
-    }else{
-      this.setData({
-        timeTop: false
-      })
-    }
+    // if (e.scrollTop > 250) {
+    //   this.setData({
+    //     topTrue: true
+    //   })
+    // } else {
+    //   this.setData({
+    //     topTrue: false
+    //   })
+    // }
+    // if (e.scrollTop > this.data.fixedNavTop){
+    //   this.setData({
+    //     fixedNav: true
+    //   })
+    // }else{
+    //   this.setData({
+    //     fixedNav: false
+    //   })
+    // }
+    // if (e.scrollTop > 277){
+    //   this.setData({
+    //     timeTop: true
+    //   })
+    // }else{
+    //   this.setData({
+    //     timeTop: false
+    //   })
+    // }
   },
   toScrollTop() {//回到顶部方法
     wx.pageScrollTo({

@@ -22,7 +22,9 @@ Page({
       classTopNum:'',
       DialogMess: [],
       isDialog: false,
-      seachValue:''
+      seachValue:'',
+    isStartOrClose: true,
+    GetscrollTop: 0
   },
 
   /**
@@ -147,6 +149,9 @@ Page({
     common.methods.mothod1(data)
   },
   goDetial(e){
+    wx.showLoading({
+      mask: true
+    })
     console.log(e)
     wx.navigateTo({
       url: '../detial/detial?id=' + e.currentTarget.dataset.id + '&type=' + e.currentTarget.dataset.type,
@@ -160,23 +165,35 @@ Page({
   },
   onPageScroll: function (e) { // 页面滚动触发事件的处理函数
     // console.log(e.scrollTop)
-    if (e.scrollTop > 250) {
-      this.setData({
-        topTrue: true
-      })
-    } else {
-      this.setData({
-        topTrue: false
-      })
-    }
-    if (e.scrollTop > this.data.classTopNum)
+    if (!this.data.isStartOrClose) { return }
+    let _self = this
     this.setData({
-      classTop:true
+      isStartOrClose: false,
+      GetscrollTop: e.scrollTop
+    }, () => {
+      setTimeout(() => {
+        _self.setData({
+          isStartOrClose: true
+        })
+      }, 50)
     })
-    else 
-    this.setData({
-      classTop: false
-    })
+    // if (e.scrollTop > 250) {
+    //   this.setData({
+    //     topTrue: true
+    //   })
+    // } else {
+    //   this.setData({
+    //     topTrue: false
+    //   })
+    // }
+    // if (e.scrollTop > this.data.classTopNum)
+    // this.setData({
+    //   classTop:true
+    // })
+    // else 
+    // this.setData({
+    //   classTop: false
+    // })
   },
   //分享赚
   sharePeople(){

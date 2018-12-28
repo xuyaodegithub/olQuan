@@ -1,1 +1,1 @@
-<web-view src="{{baseUrl}}"></web-view>
+<web-view src="{{baseUrl}}" binderror="errTap"></web-view>

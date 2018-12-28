@@ -2,7 +2,7 @@
 <header numkey="0"></header> 
 <view class="content">
  <swipers banner="{{banners}}"></swipers>  
-  <view class="classBtn flex {{fixedNav ? 'fixedNav' : ''}}" id="classBtnTop">
+  <view class="classBtn flex {{GetscrollTop > fixedNavTop ? 'fixedNav' : ''}}" id="classBtnTop">
     <block wx:for="{{classBtn}}" wx:key="{{index}}">
       <view data-index="{{index}}" bindtap='changeClass' class="flex" wx:if="{{index < 3}}">
         <image src="{{item.imgChose}}" wx:if="{{classNum===index && item.imgChose}}"></image>
@@ -19,7 +19,7 @@
   <view>
   </view>
 </view>
-<view class="timer flex {{timeTop ? 'timeTop' : ''}}" wx:if="{{!productType && timeList.length>0}}" id="timeTopId">
+<view class="timer flex {{GetscrollTop>277 ? 'timeTop' : ''}}" wx:if="{{!productType && timeList.length>0}}" id="timeTopId">
   <view wx:for="{{timeList}}" wx:key="{{index}}" data-time="{{item.time}}" data-index="{{index}}" bindtap='gettimeDataList' class="{{timeActive===index ? 'activeTime' : ''}}">
     <view>{{item.time}}</view>
     <view>{{item.isStarted === 1 ? '抢试中' : '预热中'}}</view>
@@ -71,6 +71,6 @@
       </view>
     </view>
 </view>
-<view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
+<view class="toTop" wx:if="{{GetscrollTop>300}}" bindtap='toScrollTop'>
     <image src="../../image/goTop.png"></image>
   </view>

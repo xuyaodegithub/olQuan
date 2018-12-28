@@ -53,6 +53,23 @@ Page({
     // console.log(options, options.id, options.type,'---------------------')    
     common.methods.getLoginMess(this.getProductDetial, this, options)
   },
+  //金豆任务
+  getGlobeRen(){
+    let data={
+      url:'/mobile/weixin/getProductSharePresent',
+      data: {
+        recId: this.data.recId,
+        productId: this.data.productId,
+        memberId: app.userId
+        },
+        callback:function(res){
+          if (res.data =='success'){
+            console.log('任务完成')
+          }
+        }
+    }
+    common.methods.mothod3(data)      
+  },
 //firstin
     getProductDetial(){
       wx.showLoading({
@@ -103,6 +120,9 @@ Page({
               // })
               wx.hideLoading()    
             }
+      }
+      if(this.data.recId){
+        this.getGlobeRen()
       }
       common.methods.mothod1(data)      
     },

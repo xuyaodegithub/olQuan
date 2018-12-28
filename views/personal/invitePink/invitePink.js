@@ -199,7 +199,7 @@ Page({
     return {
       title: '您的好友' + this.data.memberList.nickName + '邀请您开通OL圈店主',
       desc: this.data.detailList.shareDesc, 
-      imageUrl: this.data.detailList.shareLogo,
+      imageUrl: '/image/123.png',
       path: '/views/personal/invitePink/invitePink?isShare=1&inviteId=' + this.data.memberList.accountNo,//当前页面 path ，必须是以 / 开头的完整路径
       success: function (res) {
         //成功
