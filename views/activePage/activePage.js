@@ -83,12 +83,12 @@ Page({
     query.selectAll('.banner').boundingClientRect()//(rect) => {
     // query.selectViewport().scrollOffset()
     query.exec(function (rect) {
-      console.log(rect)
+      // console.log(rect)
       let arr = []
       for (let i = 0; i < rect[0].length; i++) {
         arr.push(rect[0][i].top)
       }
-      console.log(arr)
+      // console.log(arr)
       // return arr
       _self.setData({
         bannerList: arr
@@ -337,17 +337,17 @@ Page({
     if(num<1){
       _self.setData({
           classBtnIndex: 0,
-          toView2: _self.data.classPIndex2[0]
+        toView2: _self.data.classPIndex2[0] ? _self.data.classPIndex2[0] : ''
         })
     } else if (num == oLiDomTop.length){
       _self.setData({
         classBtnIndex: oLiDomTop.length-1,
-        toView2: _self.data.classPIndex2[oLiDomTop.length - 1]
+        toView2: _self.data.classPIndex2[oLiDomTop.length - 1] ? _self.data.classPIndex2[oLiDomTop.length - 1] : ''
       })
     }else{
       _self.setData({
         classBtnIndex: num - 1,
-        toView2: _self.data.classPIndex2[num - 1]
+        toView2: _self.data.classPIndex2[num - 1] ? _self.data.classPIndex2[num - 1] : ''
       })
     }
     //setScrollTop

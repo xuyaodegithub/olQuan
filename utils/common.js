@@ -64,7 +64,6 @@ function mothod4(data) {
     dataType: 'json',
     method: 'POST',
     header: {
-      'cookie': wx.getStorageSync("sessionid"),//读取cookie
       'content-type': 'application/x-www-form-urlencoded' // 默认值
     },
     success: function (res) {
@@ -86,6 +85,7 @@ function getGraphCode(data) {
     responseType: 'arraybuffer',
     method: 'GET',
     header: {
+      'cookie': wx.getStorageSync("sessionid"),//读取cookie
       'content-type': 'application/x-www-form-urlencoded' // 默认值
     },
     success: function (res) {

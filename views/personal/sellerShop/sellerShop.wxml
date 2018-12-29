@@ -2,7 +2,7 @@
 <wxs src="../../../filters/filters.wxs" module="filters" />
 <view class='searchMore'>
   <view class='seachsDetail'>
-    <view class='seachsOut' style='margin-bottom:-10rpx;'><seachs></seachs></view>
+    <view class='seachsOut' style='margin-bottom:-10rpx;'><seachs seachValue="{{seachValue}}"></seachs></view>
     <view>
      <image bindtap='addCollect' wx:if="{{isCollect!=1}}" class='collectImg' src='../../../image/shoucang2.png'></image>
      <image bindtap='removeCollect' wx:if="{{isCollect==1}}" class='collectImg' src='../../../image/collected.png'></image>

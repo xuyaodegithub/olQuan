@@ -9,7 +9,7 @@
     <view class='left' style='width: 75%;'>
       <view class='leftTop'>
         <view style="margin-bottom: 12rpx;">
-          <text style="color: #3593DB;" wx:if="{{speListAgree==0}}">-{{item.goldBeans}}金豆,+{{item.snrccoins}}SNRC</text>
+          <text style="color: #3593DB;" wx:if="{{speListAgree==0}}"><text wx:if="{{item.type!=4}}">-{{item.goldBeans}}金豆,</text>+{{item.snrccoins}}SNRC<text wx:if="{{item.result==1 && item.type==4}}">(新人红包)</text></text>
           <text style="color: #3593DB;" wx:if="{{speListAgree==1}}">-{{item.snrccoins}}SNRC,+{{item.goldBeans}}金豆</text>
         </view>
         <view class='qiangzhi'>NC钱包地址: {{item.walletAccount}}</view>

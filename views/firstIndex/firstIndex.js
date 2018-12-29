@@ -81,7 +81,7 @@ Page({
      }else{
       
      }
-    this.setdialog(item.id)
+    this.setdialog(item.dialogId)
   },
   //弹框记录
   setdialog(id){

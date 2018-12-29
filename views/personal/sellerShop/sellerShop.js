@@ -15,6 +15,7 @@ Page({
     isMore:true,
     isCollect:true,
     sellerShopList:[],
+    seachValue:''
   },
 
   /**
@@ -38,6 +39,24 @@ Page({
     })
     common.methods.getLoginMess(this.getProductList, this)
     this.getSellShop();
+    this.getSeachValue()
+  },
+  //搜索内容
+  getSeachValue() {
+    let _self = this
+    let data = {
+      url: '/mobile/find/getSearchRemind',
+      data: {
+        memberId: app.userId,
+        type: 2
+      },
+      callback: function (res) {
+        _self.setData({
+          seachValue: res.data.result
+        })
+      }
+    }
+    common.methods.mothod1(data)
   },
   //获取商家信息
   getSellShop(){
@@ -246,7 +265,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
 
-  }
+  // }
 })

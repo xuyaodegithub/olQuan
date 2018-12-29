@@ -207,7 +207,14 @@ Page({
       wx.navigateTo({
         url: '/views/activePage/activePage?id=' + item.url.split('id=')[1],
       })
+    } else if (item.type == 1) {
+      wx.navigateTo({
+        url: '/views/tryPage/tryPage',
+      })
+    } else {
+
     }
+    this.setdialog(item.dialogId)
   },
   //弹框记录
   setdialog() {

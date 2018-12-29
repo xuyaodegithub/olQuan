@@ -4,7 +4,7 @@
    <view class='logoImg'>
      <image class='logoImgSon' src='{{personalList.logo}}'></image>
    </view>
-   <view class='personalName'>{{personalList.nickName}}</view>
+   <view class='personalName over'>{{personalList.nickName}}</view>
    <view class='personalLevel'>
     <view class='perLevelName'>{{personalList.levelName}}</view>
      <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.partnerLevel==1}}'>梦想合伙人</view>

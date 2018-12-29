@@ -2,39 +2,80 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d222bbf-e83b-4bf6-aa47-16f65fa61648" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/md5.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/detial/toSureBuy/toSureBuy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/detial/toSureBuy/toSureBuy.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/detial/toSureBuy/toSureBuy.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/detial/toSureBuy/toSureBuy.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filters/filters.wxs" beforeDir="false" afterPath="$PROJECT_DIR$/filters/filters.wxs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/detial/detial.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/detial/detial.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/detial/detial.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/detial/detial.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/firstIndex/firstIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/firstIndex/firstIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/getLogin/getLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/getLogin/getLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/addCard/addCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/addCard/addCard.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/addCard/addCard.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/bankCard/bankCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/bankCard/bankCard.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/bankCard/bankCard.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/myWallet/myWallet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/myWallet/myWallet.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/myWallet/myWallet.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/myWallet/myWallet.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/myWallet/myWallet.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/plusPage/plusPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/plusPage/plusPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/tryPage/tryPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.js" afterDir="false" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/image/active.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/image/actstart.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/detial.wxml" afterPath="$PROJECT_DIR$/views/detial/detial.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.wxss" afterPath="$PROJECT_DIR$/app.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.config.json" afterPath="$PROJECT_DIR$/project.config.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/common.js" afterPath="$PROJECT_DIR$/utils/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/activePage/activePage.js" afterPath="$PROJECT_DIR$/views/activePage/activePage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/activePage/activePage.wxml" afterPath="$PROJECT_DIR$/views/activePage/activePage.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/bindPhone/bindPhone.wxss" afterPath="$PROJECT_DIR$/views/bindPhone/bindPhone.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/addAdress/addAdress.js" afterPath="$PROJECT_DIR$/views/detial/addAdress/addAdress.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/addAdress/addAdress.wxml" afterPath="$PROJECT_DIR$/views/detial/addAdress/addAdress.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/detial.js" afterPath="$PROJECT_DIR$/views/detial/detial.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/detial.json" afterPath="$PROJECT_DIR$/views/detial/detial.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/detial.wxss" afterPath="$PROJECT_DIR$/views/detial/detial.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/paySuccess/paySuccess.json" afterPath="$PROJECT_DIR$/views/detial/paySuccess/paySuccess.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/toSureBuy/toSureBuy.js" afterPath="$PROJECT_DIR$/views/detial/toSureBuy/toSureBuy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/toSureBuy/toSureBuy.wxml" afterPath="$PROJECT_DIR$/views/detial/toSureBuy/toSureBuy.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/tryExplain/tryExplain.js" afterPath="$PROJECT_DIR$/views/detial/tryExplain/tryExplain.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/detial/tryExplain/tryExplain.wxml" afterPath="$PROJECT_DIR$/views/detial/tryExplain/tryExplain.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/find/find.js" afterPath="$PROJECT_DIR$/views/find/find.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/find/find.wxml" afterPath="$PROJECT_DIR$/views/find/find.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/find/find.wxss" afterPath="$PROJECT_DIR$/views/find/find.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/findPage/findPsge.js" afterPath="$PROJECT_DIR$/views/findPage/findPsge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/findPage/findPsge.wxss" afterPath="$PROJECT_DIR$/views/findPage/findPsge.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/firstIndex/firstIndex.js" afterPath="$PROJECT_DIR$/views/firstIndex/firstIndex.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/firstIndex/firstIndex.wxml" afterPath="$PROJECT_DIR$/views/firstIndex/firstIndex.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/getLogin/getLogin.js" afterPath="$PROJECT_DIR$/views/getLogin/getLogin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/logistics/logistics.js" afterPath="$PROJECT_DIR$/views/logistics/logistics.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/myFind/myFind.js" afterPath="$PROJECT_DIR$/views/myFind/myFind.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/myFind/myFind.wxss" afterPath="$PROJECT_DIR$/views/myFind/myFind.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/addCard/addCard.js" afterPath="$PROJECT_DIR$/views/personal/addCard/addCard.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/applyManger/applyManager.js" afterPath="$PROJECT_DIR$/views/personal/applyManger/applyManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/bankCard/bankCard.js" afterPath="$PROJECT_DIR$/views/personal/bankCard/bankCard.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/boundMobile/boundMobile.wxss" afterPath="$PROJECT_DIR$/views/personal/boundMobile/boundMobile.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/buyPink/buyPink.js" afterPath="$PROJECT_DIR$/views/personal/buyPink/buyPink.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/changeSnrc/changeSnrc.js" afterPath="$PROJECT_DIR$/views/personal/changeSnrc/changeSnrc.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/changeSnrc/changeSnrc.wxml" afterPath="$PROJECT_DIR$/views/personal/changeSnrc/changeSnrc.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/changeSnrc/changeSnrc.wxss" afterPath="$PROJECT_DIR$/views/personal/changeSnrc/changeSnrc.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/invitePink/invitePink.js" afterPath="$PROJECT_DIR$/views/personal/invitePink/invitePink.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/inviteSuper/inviteSuper.js" afterPath="$PROJECT_DIR$/views/personal/inviteSuper/inviteSuper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/myCollect/myCollect.wxml" afterPath="$PROJECT_DIR$/views/personal/myCollect/myCollect.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/mySet/mySet.wxml" afterPath="$PROJECT_DIR$/views/personal/mySet/mySet.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/mySet/mySet.wxss" afterPath="$PROJECT_DIR$/views/personal/mySet/mySet.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/myWallet/myWallet.js" afterPath="$PROJECT_DIR$/views/personal/myWallet/myWallet.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/myWallet/myWallet.wxml" afterPath="$PROJECT_DIR$/views/personal/myWallet/myWallet.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/myWallet/myWallet.wxss" afterPath="$PROJECT_DIR$/views/personal/myWallet/myWallet.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/partner/partner.js" afterPath="$PROJECT_DIR$/views/personal/partner/partner.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/payMent/payMent.js" afterPath="$PROJECT_DIR$/views/personal/payMent/payMent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/payMent/payMent.wxml" afterPath="$PROJECT_DIR$/views/personal/payMent/payMent.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/personal.js" afterPath="$PROJECT_DIR$/views/personal/personal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/personal.wxml" afterPath="$PROJECT_DIR$/views/personal/personal.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/sellerShop/sellerShop.js" afterPath="$PROJECT_DIR$/views/personal/sellerShop/sellerShop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/sellerShop/sellerShop.wxml" afterPath="$PROJECT_DIR$/views/personal/sellerShop/sellerShop.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.js" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxml" afterPath="$PROJECT_DIR$/views/personal/withDraw/withDraw.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plusPage/plusPage.js" afterPath="$PROJECT_DIR$/views/plusPage/plusPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plusPage/plusPage.wxml" afterPath="$PROJECT_DIR$/views/plusPage/plusPage.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/plusPage/plusPage.wxss" afterPath="$PROJECT_DIR$/views/plusPage/plusPage.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/seachSome/seachsome.wxml" afterPath="$PROJECT_DIR$/views/seachSome/seachsome.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/service/service.js" afterPath="$PROJECT_DIR$/views/service/service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/service/service.json" afterPath="$PROJECT_DIR$/views/service/service.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/service/service.wxml" afterPath="$PROJECT_DIR$/views/service/service.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tryPage/tryPage.js" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tryPage/tryPage.wxml" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tryPage/tryPage.wxss" afterPath="$PROJECT_DIR$/views/tryPage/tryPage.wxss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,47 +123,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/orderList/orderList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3825">
-              <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/personal/personal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+            <state relative-caret-position="432">
+              <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/detial/detial.wxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19">
-              <caret line="267" column="30" selection-start-line="267" selection-start-column="30" selection-end-line="267" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3635">
-              <caret line="36" column="16" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="16" />
+            <state relative-caret-position="558">
+              <caret line="36" column="1" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -130,33 +145,84 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/detial/detial.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2279">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            <state relative-caret-position="18">
+              <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.wxss">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="changeSnrc.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/personal/changeSnrc/changeSnrc.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="274" column="10" lean-forward="false" selection-start-line="274" selection-start-column="2" selection-end-line="274" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxml">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="addCard.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/personal/addCard/addCard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="293" column="5" lean-forward="true" selection-start-line="293" selection-start-column="5" selection-end-line="293" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxss">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="applyManager.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/personal/applyManger/applyManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="217" column="23" lean-forward="true" selection-start-line="217" selection-start-column="23" selection-end-line="217" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="withDraw.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/personal/withDraw/withDraw.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31">
+              <caret line="166" column="10" lean-forward="false" selection-start-line="166" selection-start-column="2" selection-end-line="166" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bindPhone.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/bindPhone/bindPhone.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="67">
+              <caret line="92" column="33" lean-forward="false" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="boundMobile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/personal/boundMobile/boundMobile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="98" column="13" lean-forward="true" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="updatepayPassword.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/personal/updatepayPassword/updatepayPassword.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="107" column="9" lean-forward="true" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -165,6 +231,7 @@
     <findStrings>
       <find>wllletList</find>
       <find>presentRecord</find>
+      <find>sendCode</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,6 +245,9 @@
         <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/views/orderList/orderList.js" />
         <option value="$PROJECT_DIR$/utils/common.js" />
+        <option value="$PROJECT_DIR$/views/personal/addCard/addCard.js" />
+        <option value="$PROJECT_DIR$/views/personal/applyManger/applyManager.js" />
+        <option value="$PROJECT_DIR$/views/personal/withDraw/withDraw.js" />
       </list>
     </option>
   </component>
@@ -187,24 +257,81 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="225" />
     <option name="y" value="137" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="olQuan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="olQuan" type="462c0819:PsiDirectoryNode" />
+              <item name="ol圈" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ol圈" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ol圈" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ol圈" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ol圈" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ol圈" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="personal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ol圈" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ol圈" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="personal" type="462c0819:PsiDirectoryNode" />
+              <item name="addCard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ol圈" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ol圈" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="personal" type="462c0819:PsiDirectoryNode" />
+              <item name="applyManger" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ol圈" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ol圈" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="personal" type="462c0819:PsiDirectoryNode" />
+              <item name="boundMobile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ol圈" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ol圈" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="personal" type="462c0819:PsiDirectoryNode" />
+              <item name="changeSnrc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ol圈" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ol圈" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="personal" type="462c0819:PsiDirectoryNode" />
+              <item name="updatepayPassword" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -241,6 +368,9 @@
       </list>
     </option>
   </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -257,33 +387,33 @@
       <workItem from="1541413512184" duration="9000" />
       <workItem from="1541418069160" duration="388000" />
       <workItem from="1541761823766" duration="263000" />
+      <workItem from="1546076983559" duration="374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4917000" />
+    <option name="totallyTimeSpent" value="5291000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18303572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,16 +422,64 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/views/orderList/orderList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2754">
+          <caret line="153" column="13" lean-forward="true" selection-start-line="153" selection-start-column="13" selection-end-line="153" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/personal/personal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/header/header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-379" />
+        <state relative-caret-position="-379">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/header/header.wxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -321,41 +499,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/orderList/orderList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3825">
-          <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
+        <state relative-caret-position="2754">
+          <caret line="153" column="13" lean-forward="false" selection-start-line="153" selection-start-column="13" selection-end-line="153" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/personal/personal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        <state relative-caret-position="306">
+          <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/detial/detial.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.wxss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/orderList/orderList.wxss">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/views/detial/detial.wxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-19">
-          <caret line="267" column="30" selection-start-line="267" selection-start-column="30" selection-end-line="267" selection-end-column="30" />
+          <caret line="267" column="30" lean-forward="false" selection-start-line="267" selection-start-column="30" selection-end-line="267" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3635">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="16" />
+        <state relative-caret-position="558">
+          <caret line="36" column="1" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -364,15 +532,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+        <state relative-caret-position="432">
+          <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2279">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="18">
+          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/personal/changeSnrc/changeSnrc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="274" column="10" lean-forward="false" selection-start-line="274" selection-start-column="2" selection-end-line="274" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/personal/withDraw/withDraw.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="166" column="10" lean-forward="false" selection-start-line="166" selection-start-column="2" selection-end-line="166" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/bindPhone/bindPhone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="92" column="33" lean-forward="false" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/personal/boundMobile/boundMobile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="98" column="13" lean-forward="true" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/personal/updatepayPassword/updatepayPassword.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="107" column="9" lean-forward="true" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/personal/addCard/addCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="293" column="5" lean-forward="true" selection-start-line="293" selection-start-column="5" selection-end-line="293" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/personal/applyManger/applyManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="217" column="23" lean-forward="true" selection-start-line="217" selection-start-column="23" selection-end-line="217" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
