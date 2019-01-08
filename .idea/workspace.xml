@@ -45,6 +45,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/changeSnrc/changeSnrc.wxss" afterPath="$PROJECT_DIR$/views/personal/changeSnrc/changeSnrc.wxss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/invitePink/invitePink.js" afterPath="$PROJECT_DIR$/views/personal/invitePink/invitePink.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/inviteSuper/inviteSuper.js" afterPath="$PROJECT_DIR$/views/personal/inviteSuper/inviteSuper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/listSNRC/listSNRC.wxml" afterPath="$PROJECT_DIR$/views/personal/listSNRC/listSNRC.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/myCollect/myCollect.wxml" afterPath="$PROJECT_DIR$/views/personal/myCollect/myCollect.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/mySet/mySet.wxml" afterPath="$PROJECT_DIR$/views/personal/mySet/mySet.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personal/mySet/mySet.wxss" afterPath="$PROJECT_DIR$/views/personal/mySet/mySet.wxss" />
@@ -150,7 +151,49 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18">
               <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-              <folding />
+              <folding>
+                <marker date="1546077733967" expanded="true" signature="44:6433" ph="{&quot;scene&quot;: ''...}" />
+                <marker date="1546077733967" expanded="true" signature="469:4686" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="542:4681" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="736:4438" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="1205:3348" ph="{&quot;dataType&quot;: 'json'...}" />
+                <marker date="1546077733967" expanded="true" signature="1310:1946" ph="{&quot;appid&quot;: _self.wx_appid...}" />
+                <marker date="1546077733967" expanded="true" signature="1909:1920" ph="//..." />
+                <marker date="1546077733967" expanded="true" signature="2062:2174" ph="{&quot;content-type&quot;: 'application/x-www-form-urlencoded'...}" />
+                <marker date="1546077733967" expanded="true" signature="2225:3207" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="2409:2838" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="2844:3181" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="2942:3111" ph="{&quot;title&quot;: '获取用户信息失败'...}" />
+                <marker date="1546077733967" expanded="true" signature="3254:3324" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="3372:3612" ph="//..." />
+                <marker date="1546077733967" expanded="true" signature="3656:4269" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="3693:4246" ph="{&quot;title&quot;: '警告'...}" />
+                <marker date="1546077733967" expanded="true" signature="3931:4222" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="3978:4196" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="4073:4167" ph="{&quot;url&quot;: '/views/getLogin/getLogin'...}" />
+                <marker date="1546077733967" expanded="true" signature="4361:4411" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="4444:4655" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="4509:4617" ph="{&quot;title&quot;: '登录失败，请重新登录'...}" />
+                <marker date="1546077733967" expanded="true" signature="4719:5112" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="4725:5079" ph="//..." />
+                <marker date="1546077733967" expanded="true" signature="5132:6222" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="5133:5205" ph="//..." />
+                <marker date="1546077733967" expanded="true" signature="5246:6071" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="5383:6064" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="5435:6056" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="5487:5824" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="5514:5811" ph="{&quot;title&quot;: '更新提示'...}" />
+                <marker date="1546077733967" expanded="true" signature="5626:5797" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="5661:5781" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="5877:6045" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="5928:6032" ph="{&quot;title&quot;: '已经有新版本了哟~'...}" />
+                <marker date="1546077733967" expanded="true" signature="6077:6217" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="6139:6210" ph="{&quot;title&quot;: '提示'...}" />
+                <marker date="1546077733967" expanded="true" signature="6235:6265" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="6279:6330" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="6351:6391" ph="{...}" />
+                <marker date="1546077733967" expanded="true" signature="6407:6431" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -258,10 +301,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="225" />
-    <option name="y" value="137" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="359" />
+    <option name="y" value="53" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -341,7 +384,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/weitusrc" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="" />
@@ -387,16 +430,15 @@
       <workItem from="1541413512184" duration="9000" />
       <workItem from="1541418069160" duration="388000" />
       <workItem from="1541761823766" duration="263000" />
-      <workItem from="1546076983559" duration="374000" />
+      <workItem from="1546076983559" duration="1085000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5291000" />
+    <option name="totallyTimeSpent" value="6002000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18303572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -465,7 +507,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
+          <folding>
+            <marker date="1546077733967" expanded="true" signature="44:6433" ph="{&quot;scene&quot;: ''...}" />
+            <marker date="1546077733967" expanded="true" signature="469:4686" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="542:4681" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="736:4438" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="1205:3348" ph="{&quot;dataType&quot;: 'json'...}" />
+            <marker date="1546077733967" expanded="true" signature="1310:1946" ph="{&quot;appid&quot;: _self.wx_appid...}" />
+            <marker date="1546077733967" expanded="true" signature="1909:1920" ph="//..." />
+            <marker date="1546077733967" expanded="true" signature="2062:2174" ph="{&quot;content-type&quot;: 'application/x-www-form-urlencoded'...}" />
+            <marker date="1546077733967" expanded="true" signature="2225:3207" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="2409:2838" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="2844:3181" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="2942:3111" ph="{&quot;title&quot;: '获取用户信息失败'...}" />
+            <marker date="1546077733967" expanded="true" signature="3254:3324" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="3372:3612" ph="//..." />
+            <marker date="1546077733967" expanded="true" signature="3656:4269" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="3693:4246" ph="{&quot;title&quot;: '警告'...}" />
+            <marker date="1546077733967" expanded="true" signature="3931:4222" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="3978:4196" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="4073:4167" ph="{&quot;url&quot;: '/views/getLogin/getLogin'...}" />
+            <marker date="1546077733967" expanded="true" signature="4361:4411" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="4444:4655" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="4509:4617" ph="{&quot;title&quot;: '登录失败，请重新登录'...}" />
+            <marker date="1546077733967" expanded="true" signature="4719:5112" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="4725:5079" ph="//..." />
+            <marker date="1546077733967" expanded="true" signature="5132:6222" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5133:5205" ph="//..." />
+            <marker date="1546077733967" expanded="true" signature="5246:6071" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5383:6064" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5435:6056" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5487:5824" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5514:5811" ph="{&quot;title&quot;: '更新提示'...}" />
+            <marker date="1546077733967" expanded="true" signature="5626:5797" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5661:5781" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5877:6045" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5928:6032" ph="{&quot;title&quot;: '已经有新版本了哟~'...}" />
+            <marker date="1546077733967" expanded="true" signature="6077:6217" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="6139:6210" ph="{&quot;title&quot;: '提示'...}" />
+            <marker date="1546077733967" expanded="true" signature="6235:6265" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="6279:6330" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="6351:6391" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="6407:6431" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -542,7 +626,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
+          <folding>
+            <marker date="1546077733967" expanded="true" signature="44:6433" ph="{&quot;scene&quot;: ''...}" />
+            <marker date="1546077733967" expanded="true" signature="469:4686" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="542:4681" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="736:4438" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="1205:3348" ph="{&quot;dataType&quot;: 'json'...}" />
+            <marker date="1546077733967" expanded="true" signature="1310:1946" ph="{&quot;appid&quot;: _self.wx_appid...}" />
+            <marker date="1546077733967" expanded="true" signature="1909:1920" ph="//..." />
+            <marker date="1546077733967" expanded="true" signature="2062:2174" ph="{&quot;content-type&quot;: 'application/x-www-form-urlencoded'...}" />
+            <marker date="1546077733967" expanded="true" signature="2225:3207" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="2409:2838" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="2844:3181" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="2942:3111" ph="{&quot;title&quot;: '获取用户信息失败'...}" />
+            <marker date="1546077733967" expanded="true" signature="3254:3324" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="3372:3612" ph="//..." />
+            <marker date="1546077733967" expanded="true" signature="3656:4269" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="3693:4246" ph="{&quot;title&quot;: '警告'...}" />
+            <marker date="1546077733967" expanded="true" signature="3931:4222" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="3978:4196" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="4073:4167" ph="{&quot;url&quot;: '/views/getLogin/getLogin'...}" />
+            <marker date="1546077733967" expanded="true" signature="4361:4411" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="4444:4655" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="4509:4617" ph="{&quot;title&quot;: '登录失败，请重新登录'...}" />
+            <marker date="1546077733967" expanded="true" signature="4719:5112" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="4725:5079" ph="//..." />
+            <marker date="1546077733967" expanded="true" signature="5132:6222" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5133:5205" ph="//..." />
+            <marker date="1546077733967" expanded="true" signature="5246:6071" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5383:6064" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5435:6056" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5487:5824" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5514:5811" ph="{&quot;title&quot;: '更新提示'...}" />
+            <marker date="1546077733967" expanded="true" signature="5626:5797" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5661:5781" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5877:6045" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="5928:6032" ph="{&quot;title&quot;: '已经有新版本了哟~'...}" />
+            <marker date="1546077733967" expanded="true" signature="6077:6217" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="6139:6210" ph="{&quot;title&quot;: '提示'...}" />
+            <marker date="1546077733967" expanded="true" signature="6235:6265" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="6279:6330" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="6351:6391" ph="{...}" />
+            <marker date="1546077733967" expanded="true" signature="6407:6431" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

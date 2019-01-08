@@ -144,19 +144,21 @@
       <view class='navTabName'>帮助中心</view>
     </view>
   </view>
-  <view class='navTab' wx:if="{{personalList.levelCode!='white' &&  personalList.levelCode!='golden'}}" bindtap='inviteSuper'>
+  <view class='navTab' wx:if="{{personalList.levelCode=='store'}}" bindtap='inviteSuper'>
+    <!-- <view class='navTab' wx:if="{{personalList.levelCode!='white' &&  personalList.levelCode!='golden'}}" bindtap='inviteSuper'> -->
     <view class='navTabSon'>
       <image style='width:50rpx;height:50rpx;' class='navTabImg'src='../../image/user-hua-02.png'></image>
-      <view class='navTabName' wx:if="{{personalList.levelCode=='store'}}">申请经理</view>
-      <view class='navTabName' wx:if="{{personalList.levelCode!='store'}}">邀请经理</view>
+      <view class='navTabName'>申请经理</view>
+      <!-- <view class='navTabName' wx:if="{{personalList.levelCode=='store'}}">申请经理</view> -->
+      <!-- <view class='navTabName' wx:if="{{personalList.levelCode!='store'}}">邀请经理</view> -->
     </view>
   </view>
-  <view class='navTab' wx:if="{{personalList.levelCode!='white' && personalList.levelCode!='golden' && personalList.levelCode!='store'}}" bindtap='getInviteList'>
+  <!-- <view class='navTab' wx:if="{{personalList.levelCode!='white' && personalList.levelCode!='golden' && personalList.levelCode!='store'}}" bindtap='getInviteList'>
     <view class='navTabSon'>
       <image style='width:50rpx;height:50rpx;' class='navTabImg'src='../../image/apply.png'></image>
       <view class='navTabName'>经理审核</view>
     </view>
-  </view>
+  </view> -->
   <view class='navTab' wx:if="{{personalList.isShowFind==1}}" bindtap='getMyFind'>
     <view class='navTabSon'>
       <image style='width:50rpx;height:50rpx;' class='navTabImg'src='../../image/user-icon-20.png'></image>

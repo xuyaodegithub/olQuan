@@ -13,7 +13,8 @@ Page({
     code:'',
     sign:'',
     getTime:'',
-    currentTime:60
+    currentTime:60,
+    doubleClick:true
   },
 
   /**

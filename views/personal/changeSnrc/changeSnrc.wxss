@@ -214,6 +214,8 @@ page{
 .inputIcon{
   margin-top: 40rpx;
   position: relative;
+  align-items: center;
+  padding:0 26rpx;
 }
 .codeImg{
   display: block;
@@ -255,11 +257,12 @@ page{
   font-size: 28rpx;
   line-height: 90rpx;
   border-left: 1rpx solid #e5e5e5;
-  position: absolute;
-  right: 45rpx;
+  background-color: #fff;
+  /* position: absolute;
+  right: 45rpx; */
   color: #e50f72;
-  z-index: 22;
-  top: 0;
+  /* z-index: 22; */
+  /* top: 0; */
 }
 .sureTixian{
   width: 85%;

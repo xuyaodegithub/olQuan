@@ -36,7 +36,7 @@ App({
                   // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
                   wx.getUserInfo({
                     success: res => {
-                      console.log(res)
+                      // console.log(res)
                       // 可以将 res 发送给后台解码出 unionId
                       wx.request({
                         url: _self.baseUrl + '/mobile/member/getOpenid',
@@ -134,7 +134,7 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-     wx.clearStorageSync();
+    //  wx.clearStorageSync();
 
   },
   onShow(options) {//当小程序启动，或从后台进入前台显示，会触发 onShow

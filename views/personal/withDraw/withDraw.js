@@ -72,6 +72,14 @@ Page({
             inputValue: '',
           })
           
+        } else if (res.data.code == 4){
+          wx.showToast({
+            title: '验证码错误',
+            icon:'none'
+          });0
+          _self.setData({
+            doubleClick: true,
+          })
         }else{
           _self.setData({
             doubleClick: true,
@@ -293,8 +301,18 @@ Page({
   },
   //点击全部提现
   getAllMoney(){
+    if (this.data.memberList.amount<200){
+      wx.showToast({
+        title: '余额不足200，无法提现',
+        icon:'none'
+      })
+      return
+    }
     this.setData({
-      inputValue: this.data.memberList.amount
+      moreMoney:true,
+      inputValue: this.data.memberList.amount,
+      poundage: (this.data.memberList.amount * 0.01).toFixed(2),
+      accountMoney: (this.data.memberList.amount - this.data.memberList.amount * 0.01).toFixed(2),
     })
   },
   //确认提现
