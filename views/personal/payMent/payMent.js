@@ -24,6 +24,7 @@ Page({
     scoreFee:0,
     coffersFee:0,
     goldBeanFee:0,
+    freeUseGoldBean:0,
   },
 
   /**
@@ -53,6 +54,7 @@ Page({
           curObjList: curObjFee.orderNo,
           totalFeeObj: res.data.result.totalFee.toFixed(2),
           couponFeeObj: res.data.result.couponFee.toFixed(2),
+          freeUseGoldBean: res.data.result.freeUseGoldBean.toFixed(2),
           curObj: curObjFee,
           finalFeeObj: (res.data.result.totalFee - res.data.result.couponFee).toFixed(2)
         })
@@ -143,13 +145,14 @@ Page({
       } else {
         this.setData({
           amountFee: (this.data.curObj.totalFee - this.data.curObj.couponFee),
-          amountObj: (this.data.curObj.totalFee - this.data.curObj.couponFee).toFixed(2)
+          amountFeeObj: (this.data.curObj.totalFee - this.data.curObj.couponFee).toFixed(2)
         })
       }
+      console.log(this.data.amountFeeObj)
     } else {
       this.setData({
         amountFee: 0,
-        amountObj: 0
+        amountFeeObj: 0
       })
     }
     this.setData({

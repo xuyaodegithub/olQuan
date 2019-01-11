@@ -35,7 +35,8 @@ Page({
     addOrBuy:1,//1add2buy
     topTrue:false,
     openlink:false,
-    isMore:''
+    isMore:'',
+    isNewGoods:false
   },
 
   /**
@@ -81,9 +82,11 @@ Page({
             url:'/mobile/product/productDetail',
             data:{
               productId: this.data.productId,
+              // productId:'138',
               memberId: app.userId,
               uutype: app.uutype,
-              type: this.data.productType
+              type: this.data.productType,
+              // type: 14
             },
             callback:res => {
               let resData = res.data.result
@@ -96,8 +99,14 @@ Page({
                 productData: res.data.result,
                 propverImg: res.data.result.image,
                 isbuyMinCount: res.data.result.buyMinCount > 1 ? res.data.result.buyMinCount : 1,
+                // productType: '14'
                 productType: (res.data.result.type).toString()
               })
+              if (_self.data.productType == '14' && app.memberData.levelCode != 'white' && _self.data.productData.dayType==1){
+                _self.setData({
+                  isNewGoods:true
+                })
+              }
               if ((_self.data.productType === '4') || (_self.data.productType === '9' && resData.status !== 5)) { 
                 if (res.data.result.time) {
                   let time = res.data.result.time
@@ -215,11 +224,25 @@ Page({
     })
   },
   openBuy() {
-    // if (this.data.productType === '1' || this.data.productType === '9'){
-    //   this.setData({
-    //     // normalPrice: this.data.productData.,
-    //   })
-    // }
+    if (this.data.productType ==4 && app.memberData.goldBean < this.data.productData.freeUseGoldBean){
+      wx.showModal({
+        title: '提示',
+        content: '对不起，您没有足够的金豆用于申请试用产品！',
+        cancelText: '否',
+        confirmText: '去赚金豆',
+        confirmColor:'#e50f72',
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/views/goldBeanPage/goldBeanPage',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+      return
+    }
     this.setData({
       isShow: false,
       isStore: this.data.normalMess ? this.data.normalMess.store : this.data.productData.store,

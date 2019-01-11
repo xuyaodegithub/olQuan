@@ -119,7 +119,7 @@ Page({
           _self.setData({
             OrderList: arr,
             lastMoney: arr.totalFee,
-            productPrice: arr.totalFee
+            productPrice: arr.totalFee,
           })
           wx.hideLoading()    
         }

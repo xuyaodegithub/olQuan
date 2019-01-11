@@ -145,6 +145,18 @@ Page({
     }
     common.methods.mothod1(banners)
   },
+  //跳转金豆多笔转正
+  getDetailList(e){
+    // console.log(e.currentTarget.dataset)
+    if (e.currentTarget.dataset.daytype==2){
+      wx.navigateTo({
+        url: '/views/personal/wllletList/beanDetail/beanDetail?id=' + e.currentTarget.dataset.id + '&day=' + e.currentTarget.dataset.day + '&dayamount=' + e.currentTarget.dataset.dayamount + '&pushday=' + e.currentTarget.dataset.pushday,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+  },
   //积分切换
   changeType(e){
     if (e.currentTarget.dataset.key==0){

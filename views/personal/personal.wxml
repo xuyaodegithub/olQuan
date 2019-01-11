@@ -67,12 +67,8 @@
       <view class='navTabName'>我的钱包</view>
     </view>
   </view>
-<!-- <<<<<<< HEAD -->
   <view class='navTab'>
     <view class='navTabSon' bindtap='getMyTry'>
-<!-- =======
-  <view class='navTab' bindtap='getMyTry'>
-    <view class='navTabSon'> -->
       <image class='navTabImg' src='../../image/myTryUes.png'></image>
       <view class='navTabName'>我的试用</view>
       <view class='severalNum' wx:if='{{orderCount.freeUseCount!=0}}'>{{orderCount.freeUseCount}}</view>

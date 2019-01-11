@@ -100,7 +100,7 @@ Page({
   //点击金豆
   getGoldBean(e) {
     
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '../wllletList/walletList?type=6&number=' + e.currentTarget.dataset.number,
       success: function (res) { },
       fail: function (res) { },

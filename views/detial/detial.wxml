@@ -17,7 +17,8 @@
       <view wx:if="{{productData.time}}" class="tryPrice flex"><!-- 尚未开始 productData.status===1 && -->
         <view class="left">
           <text>保证金</text>
-          <text>￥{{productData.salePrice}}</text>
+          <text style='font-size: 38rpx; color:#fff;'>￥{{productData.salePrice}}</text>
+          <text wx:if="{{productData.freeUseGoldBean>0}}"> + {{productData.freeUseGoldBean}}金豆</text>
         </view>
         <view class="right">
         <view>{{productData.status===1 ? '距开始' : '距结束'}}</view><!--是否开始-->
@@ -40,7 +41,8 @@
        <view wx:if="{{productData.time}}" class="tryPrice flex"><!-- 尚未开始 productData.status===1 && -->
         <view class="left">
           <text>保证金</text>
-          <text>￥{{productData.salePrice}}</text>
+          <text style='font-size: 38rpx; color:#fff;'>￥{{productData.salePrice}}</text>
+          <text wx:if="{{productData.freeUseGoldBean>0}}"> + {{productData.freeUseGoldBean}}金豆</text>
         </view>
         <view class="right">
         <view>{{productData.status===1 ? '距开始' : '距结束'}}</view><!--是否开始-->
@@ -100,6 +102,15 @@
       <image src="../../image/erwei.png" wx:if="{{timer}}"  bindtap='drawImage'></image>
     </view>
     <view class="smalltitle">{{productData.summary}}</view>
+    <view class="smalltitle" style='color:#e50f72;margin-top:20rpx;'>{{productData.trip}}</view>
+    <view class='newSong flex' wx:if="{{productData.dayType==1}}">
+      <image style='width: 158rpx;height:36rpx;' src='../../image/newPeople.png'></image>
+      <view>下单即送<text>{{productData.dayGoldBean}}</text>金豆</view>
+    </view>
+    <view class='newSong flex' wx:if="{{productData.dayType==2}}">
+      <image style='width: 136rpx;height:36rpx;' src='../../image/daySong.png'></image>
+      <view><text>{{productData.dayGoldBean}}</text>金豆连送<text>{{productData.dayDay}}</text>天</view>
+    </view>
     <view class="jindou flex" wx:if="{{productType==='1'}}">
       <text>{{productData.score}}</text>
       <text>仅剩{{productData.store}}件</text>
@@ -247,6 +258,14 @@
         立即购买
       </view>
     </view>
+    <view wx:elif="{{productType=='14'}}">
+       <view wx:if="{{isNewGoods}}" class="activenoTime">
+        新人专享
+      </view>
+      <view wx:else class="buyColor" bindtap="openBuy">
+        立即购买
+      </view>
+    </view>
     <view wx:else class="flex typeOne">
         <view wx:if="{{productData.personal!==1}}" class="darkNo" bindtap='addStore'>加入购物车</view>
         <view class="buyColor" bindtap="openBuy">立即购买</view>
@@ -266,8 +285,9 @@
             <text wx:else>￥{{normalMess.salePriceView}}</text>
           </view>
           <view wx:elif="{{productType==='4'}}">保证金：
-            <text wx:if="{{!normalMess}}">￥{{productData.activePriceInterval}}</text>
-            <text wx:else>￥{{normalMess.salePriceView}}</text>
+            <text wx:if="{{!normalMess}}">￥{{filters.changePrice(productData.activePriceInterval)}}</text>
+            <text wx:else>￥{{filters.changePrice(normalMess.salePriceView)}}</text>
+            <text style='font-size:24rpx;color:#E5006E' wx:if="{{productData.freeUseGoldBean>0}}"> + {{productData.freeUseGoldBean}}金豆</text>
           </view>
           <view wx:else>
             <text wx:if="{{!normalMess}}">￥{{productData.activePriceInterval}}</text>

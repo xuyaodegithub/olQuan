@@ -32,7 +32,7 @@
         <view class="over title"><text wx:if="{{item.isYueXuan==1}}" class="yuexuan">悦选</text>{{item.productName}}</view>
         <view class="smallTitle " wx:if="{{item.summery}}">{{item.summery}}</view>
         <view class="price flex">
-          <view>保证金<text class="firstTitle">￥{{item.price}}</text></view>
+          <view>保证金<text class="firstTitle">￥{{item.price}}<text style='font-size:24rpx; color:#E5006E;' wx:if="{{item.goldBean>0}}"> + {{item.goldBean}}金豆</text></text></view>
           <!-- 仅剩{{(item.dayLimitCount-item.saleCount)<0 ? 0 : item.dayLimitCount-item.saleCount}}件 -->
           <view class="aloneR flex">
             <image class="newChange" src="../../image/dianNew.png"></image> 剩<text style="color: rgb(229, 15, 114);font-size:24rpx;">{{item.alone.day}}</text>{{item.alone.danwei}} | {{(item.dayLimitCount-item.saleCount)<0 ? 0 : (item.dayLimitCount-item.saleCount)}}件
@@ -48,7 +48,7 @@
           <view class="over title">{{item.productName}}</view>
           <view class="smallTitle" wx:if="{{item.summery}}">{{item.summery}}</view>
           <view class="price flex">
-            <view>保证金<text>￥{{item.price}}</text></view>
+            <view>保证金<text>￥{{item.price}}<text style='font-size:24rpx; color:#E5006E;' wx:if="{{item.goldBean>0}}"> + {{item.goldBean}}金豆</text></text></view>
             <view>仅剩{{(item.dayLimitCount-item.saleCount)<0 ? 0 : item.dayLimitCount-item.saleCount}}件</view>
           </view>
       </view>
@@ -63,7 +63,7 @@
             <view class="rightTitle over2">{{item.productName}}</view>
             <text>仅剩{{(item.dayLimitCount-item.saleCount)<0 ? 0 : item.dayLimitCount-item.saleCount}}件</text>
             <view class="flex btn">
-              <view>保证金:￥{{item.price}}</view>
+              <view>保证金:￥{{item.price}}<text style='font-size:24rpx; color:#E5006E;' wx:if="{{item.goldBean>0}}"> + {{item.goldBean}}金豆</text></view>
               <view class="border_radius flex" wx:if="{{item.isStarted===1}}">马上试<image src="../../image/jiantou.png" />  </view>
               <view class="border_radius disno" wx:else>即将开始</view>
             </view>
