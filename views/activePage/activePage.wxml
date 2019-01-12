@@ -32,9 +32,29 @@
     <view wx:if="{{item.modelSampleCode==='productf5' && item.contents.length>0}}" class="productf5 {{activeData[index+1].modelSampleCode!=='productf5' ? 'addPadding' : ''}}">
         <view wx:if="{{item.contents.length==2}}" class="twoP flex">
           <view wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" bindtap='goDetial'>
+          <view  style="position:relative;">
             <image src="{{itemSon.image}}" mode="widthFix"></image>
+             <view class="daydayclass"  wx:if="{{itemSon.productType==14}}">
+                      <text>{{itemSon.dayType==1 ? '新人专享' : '天天送'}}</text>
+                      <text wx:if="{{itemSon.dayType==1}}" style="color:#fff;background-color:#E50F72;">送{{itemSon.goldBean}}金豆</text>
+                      <text wx:else style="color:#fff;background-color:#E50F72;">{{itemSon.goldBean}}金豆送{{itemSon.goldBeanDay}}天</text>
+            </view>
+          </view>
             <view class="over2">{{itemSon.productName}}</view>
-            <view class="flex">
+               <view class="flex11"  wx:if="{{itemSon.productType==4}}">
+                  <text style="font-size:22rpx">保证金￥</text>
+                  <text style="font-size:28rpx">{{filters.changePrice(itemSon.salePriceView)}}</text>
+                  <text wx:if="{{itemSon.goldBean>0}}" style="color:#E50F72;font-size:22rpx">+{{itemSon.goldBean}}金豆</text>
+                </view>
+                <view class="flex11"  wx:elif="{{itemSon.productType==9}}">
+                  <text style="color: #E50F72;font-size:28rpx;">￥{{filters.changePrice(itemSon.salePriceView)}}</text>
+                  <text style="color: #AAAAAA;margin:0 10rpx;font-size:22rpx;" class="delete">{{filters.changePrice(itemSon.marketPriceView)}}</text>
+                  <text style="color:#E50F72;font-size:28rpx;" wx:if="{{itemSon.commission>0}}">赚{{itemSon.commission}}金豆</text>
+                </view>
+                <view class="flex11"  wx:elif="{{itemSon.productType==14}}">
+                  <text>￥{{filters.changePrice(itemSon.dayPrice)}}</text>
+                </view>
+            <view class="flex" wx:else>
                 <text>￥{{filters.changePrice(itemSon.salePriceView)}}</text>
                 <text>{{itemSon.goldenBean}}金豆</text>
             </view>
@@ -43,9 +63,29 @@
         </view>
         <view wx:if="{{item.contents.length==3}}" class="threeP flex">
           <view wx:for="{{item.contents}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" data-item="{{itemSon}}" bindtap='goDetial'>
+          <view style="position:relative;">
             <image src="{{itemSon.image}}" mode="widthFix"></image>
+             <view class="daydayclass"  wx:if="{{itemSon.productType==14}}">
+                      <text>{{itemSon.dayType==1 ? '新人专享' : '天天送'}}</text>
+                      <text wx:if="{{itemSon.dayType==1}}" style="color:#fff;background-color:#E50F72;">送{{itemSon.goldBean}}金豆</text>
+                      <text wx:else style="color:#fff;background-color:#E50F72;">{{itemSon.goldBean}}金豆送{{itemSon.goldBeanDay}}天</text>
+            </view>
+          </view>
             <view class="over2">{{itemSon.productName}}</view>
-            <view class="flex">
+              <view class="flex11"  wx:if="{{itemSon.productType==4}}">
+                  <text style="font-size:20rpx">保证金￥</text>
+                  <text style="font-size:24rpx">{{filters.changePrice(itemSon.salePriceView)}}</text>
+                  <text wx:if="{{itemSon.goldBean>0}}" style="color:#E50F72;font-size:20rpx">+{{itemSon.goldBean}}金豆</text>
+                </view>
+                <view class="flex11"  wx:elif="{{itemSon.productType==9}}">
+                  <text style="color: #E50F72;font-size:24rpx;">￥{{filters.changePrice(itemSon.salePriceView)}}</text>
+                  <text style="color: #AAAAAA;margin:0 10rpx;font-size:20rpx;" class="delete">{{filters.changePrice(itemSon.marketPriceView)}}</text>
+                  <text style="color:#E50F72;font-size:24rpx;" wx:if="{{itemSon.commission>0}}">赚{{itemSon.commission}}金豆</text>
+                </view>
+                <view class="flex11"  wx:elif="{{itemSon.productType==14}}">
+                  <text>￥{{filters.changePrice(itemSon.dayPrice)}}</text>
+                </view>
+            <view class="flex" wx:else>
                 <text>￥{{filters.changePrice(itemSon.salePriceView)}}</text>
                 <text>{{itemSon.goldenBean}}金豆</text>
             </view>
@@ -70,9 +110,29 @@
                 <image src="{{itemSon.image}}" mode="widthFix" wx:if="{{itemSon.image}}"></image>
               </view>
               <view wx:else class="profuct" bindtap='goDetial'  data-item="{{itemSon}}">
-                <image src="{{itemSon.image}}"  mode="widthFix" ></image>
+                <view style="position:relative;">
+                  <image src="{{itemSon.image}}"  mode="widthFix" ></image>
+                  <view class="daydayclass"  wx:if="{{itemSon.productType==14}}">
+                      <text>{{itemSon.dayType==1 ? '新人专享' : '天天送'}}</text>
+                      <text wx:if="{{itemSon.dayType==1}}" style="color:#fff;background-color:#E50F72;">送{{itemSon.goldBean}}金豆</text>
+                      <text wx:else style="color:#fff;background-color:#E50F72;">{{itemSon.goldBean}}金豆送{{itemSon.goldBeanDay}}天</text>
+                  </view>
+                </view>
                 <view class="over2">{{itemSon.productName}}</view>
-                <view class="flex">
+                 <view class="flex11"  wx:if="{{itemSon.productType==4}}">
+                  <text style="font-size:22rpx">保证金￥</text>
+                  <text style="font-size:28rpx">{{filters.changePrice(itemSon.salePriceView)}}</text>
+                  <text wx:if="{{itemSon.goldBean>0}}" style="color:#E50F72;font-size:22rpx">+{{itemSon.goldBean}}金豆</text>
+                </view>
+                <view class="flex11"  wx:elif="{{itemSon.productType==9}}">
+                  <text style="color: #E50F72;font-size:28rpx;">￥{{filters.changePrice(itemSon.salePriceView)}}</text>
+                  <text style="color: #AAAAAA;margin:0 10rpx;font-size:22rpx;" class="delete">{{filters.changePrice(itemSon.marketPriceView)}}</text>
+                  <text style="color:#E50F72;font-size:28rpx;" wx:if="{{itemSon.commission>0}}">赚{{itemSon.commission}}金豆</text>
+                </view>
+                <view class="flex11"  wx:elif="{{itemSon.productType==14}}">
+                  <text>￥{{filters.changePrice(itemSon.dayPrice)}}</text>
+                </view>
+                <view class="flex" wx:else>
                   <text>￥{{filters.changePrice(itemSon.salePriceView)}}</text>
                   <text>{{itemSon.goldenBean}}金豆</text>
                 </view>

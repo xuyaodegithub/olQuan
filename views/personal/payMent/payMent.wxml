@@ -76,6 +76,10 @@
       <view class='solo-l'>商品总额</view>
       <view class='solo-r'>￥{{totalFeeObj}}</view>
     </view>
+    <view class='soloDetail' wx:if="{{freeUseGoldBean>0}}">
+      <view class='solo-l'>金豆</view>
+      <view class='solo-r'>-{{freeUseGoldBean}}</view>
+    </view>
     <view class='soloDetail' wx:if="{{scoreFeeShow && scoreFee>=100}}">
       <view class='solo-l'>积分</view>
       <view class='solo-r'>-￥{{scoreFeeObj}}</view>

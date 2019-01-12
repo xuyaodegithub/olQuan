@@ -1,6 +1,8 @@
 {
   "pages": [
     "views/firstIndex/firstIndex",
+    "views/personal/myWallet/myWallet",
+    "views/personal/wllletList/beanDetail/beanDetail",
     "views/personal/reChargeList/reChargeList",
     "views/personal/personal",
     "views/personal/reCharge/reCharge",
@@ -18,7 +20,7 @@
     "views/personal/myCoupon/myCoupon",
     "views/personal/withDraw/withDraw",
     "views/personal/bankCard/bankCard",
-    "views/personal/myWallet/myWallet",
+    
     "views/personal/addCard/addCard",
     "views/orderList/orderList",
     "views/tryPage/tryPage",
@@ -68,7 +70,6 @@
     "views/logistics/logistics",
     "views/personal/helpCent/helpCent",
     "views/personal/partner/partner"
-    
   ],
   "find": [
     ""

@@ -96,7 +96,11 @@
       <text>合计</text>
       <view class="flex">
         <text>商品总额</text>
-        <text>￥{{OrderList.totalFee}}</text>
+        <text>￥{{filters.changePrice(OrderList.totalFee)}}</text>
+      </view>
+      <view wx:if="{{OrderList.sellers[0].productDetails[0].freeUseGoldBean>0}}" class="flex">
+        <text>金豆</text>
+        <text>-{{OrderList.sellers[0].productDetails[0].freeUseGoldBean}}</text>
       </view>
       <view wx:if="{{moneyNum===0 && isScore>99}}"  class="flex">
         <text>{{deleTitle}}</text>

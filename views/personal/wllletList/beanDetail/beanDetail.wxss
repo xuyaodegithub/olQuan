@@ -1,0 +1,29 @@
+/* views/personal/wllletList/beanDetail/beanDetail.wxss */
+.topList{
+  justify-content: space-around;
+  -webkit-justify-content:space-around;
+  -moz-box-pack:space-around;
+  -webkit--moz-box-pack:space-around;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 100rpx;
+  border-bottom: 2rpx solid #E1E1E1;
+}
+.listDetail{
+  font-size: 26rpx;
+  color: #333;
+  background: #F7F7F7;
+  padding-bottom: 20rpx;
+}
+.list{
+  display: flex;
+  justify-content: space-around;
+  -webkit-justify-content:space-around;
+  -moz-box-pack:space-around;
+  -webkit--moz-box-pack:space-around;
+  line-height: 100rpx;
+  background: #fff;
+}
+.listDetailSpe{
+  color: #AAAAAA;
+}

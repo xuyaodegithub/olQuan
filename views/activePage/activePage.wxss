@@ -33,14 +33,14 @@ f5 .fiveImg image{
   width: 20%;
 }
 .productf5{
-  padding: 20rpx 20rpx 0 20rpx;
+  padding: 10rpx 10rpx 0 10rpx;
   background-color: rgb(193, 201, 35);
 }
 .productf5 .twoP,.productf5 .threeP{
   justify-content: space-between;
 }
 .productf5 .twoP > view,.productf5 .threeP > view{
-  width: 346rpx;
+  width: 360rpx;
   background-color: #ffffff;
   /* padding-bottom: 20rpx; */
 }
@@ -49,20 +49,41 @@ f5 .fiveImg image{
   display: block;
 }
 .productf5 .twoP view .over2,.productf5 .threeP view .over2{
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #333;
   line-height: 40rpx;
   padding: 12rpx 20rpx 0;
 }
+.productf5 .threeP view .over2{
+  font-size: 24rpx;
+}
+.productf5 .threeP view .flex11,.productf5 .twoP view .flex11{
+  font-size: 28rpx;
+  color: #333;
+  padding:10rpx 20rpx;
+}
+.productf5 .threeP view .flex11{
+  font-size: 24rpx;
+}
 .productf5 .twoP view .flex,.productf5 .threeP view .flex{
   justify-content: space-between;
   padding:10rpx 20rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #333;
+}
+/* .productf5  view .flex text{
+  
+} */
+.productf5 .threeP view .flex{
+  font-size: 24rpx;
 }
 .productf5 .twoP view .flex text:last-child,.productf5 .threeP view .flex text:last-child,.productList .profuct .flex text:last-child{
   font-size: 22rpx;
   color: rgb(229, 15, 114);
+  display: inline-block;
+}
+.productf5 .threeP view .flex text:last-child{
+  font-size: 20rpx;
 }
 .productf5 .twoP view .sureBtn,.productf5 .threeP view .sureBtn,.productList .profuct .sureBtn{
   width: 306rpx;
@@ -75,10 +96,7 @@ f5 .fiveImg image{
   text-align: center;
 }
 .productf5 .threeP > view{
-  width: 224rpx;
-}
-.productf5 .threeP view .flex{
-  font-size: 22rpx;
+  width: 236rpx;
 }
 .productf5 .threeP view .flex text:last-child{
   font-size: 20rpx;
@@ -98,6 +116,7 @@ f5 .fiveImg image{
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
 }
 .catlist1 .classBtn view{
   font-size: 30rpx;
@@ -110,7 +129,7 @@ f5 .fiveImg image{
   color: #e50f72;
 }
 .productList{
-  padding: 20rpx 20rpx 0;
+  padding: 10rpx 10rpx 0;
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -120,16 +139,39 @@ f5 .fiveImg image{
 .productList .banner image{
   display:block;
   width: 100%;
-  margin-bottom: 20rpx;
+  margin-bottom: 10rpx;
 }
 .productList .profuct{
-  width: 346rpx;
-  font-size: 24rpx;
+  width: 360rpx;
+  font-size: 28rpx;
   color: #333;
   line-height: 40rpx;
   background-color: #fff;
   /* padding-bottom:20rpx;  */
-  margin-bottom: 20rpx;
+  margin-bottom: 10rpx;
+}
+.productf5 .daydayclass,.productList .profuct .daydayclass{
+  font-size: 22rpx;
+  line-height: 38rpx;
+  border: 2rpx solid #E50F72;
+  color: #E50F72;
+  border-top-right-radius: 19rpx;
+  border-bottom-right-radius: 19rpx;
+  background-color: #ffffff;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.productf5 .threeP .daydayclass{
+  font-size: 20rpx;
+  line-height: 32rpx;
+  border-top-right-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+}
+.productList .profuct .daydayclass text,.productf5 .daydayclass text{
+  display: inline-block;
+  padding: 0 8rpx;
 }
 .productList .profuct image{
   display: block;
@@ -145,8 +187,12 @@ f5 .fiveImg image{
   color: #333;
   justify-content: space-between;
 }
+.productList .profuct .flex11{
+  padding:10rpx 20rpx;
+  color: #333;
+}
 .addPadding{
-  padding-bottom: 20rpx;
+  padding-bottom: 10rpx;
 }
 .alert,.alert2{
   position: fixed;

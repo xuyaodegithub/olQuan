@@ -65,6 +65,10 @@
     <view>商品总额</view>
     <view style='color:#e50f72'>￥{{orderList.totalFee}}</view>
   </view>
+  <view class='totalMoney' wx:if="{{orderList.freeUseGoldBean>0}}">
+    <view>金豆</view>
+    <view style='color:#e50f72'>-{{orderList.freeUseGoldBean}}</view>
+  </view>
   <view class='totalMoney' wx:if="{{orderList.expressFee!=0}}">
     <view>运费</view>
     <view style='color:#e50f72'>￥{{orderList.expressFee}}</view>

@@ -14,7 +14,7 @@
 <view class='income' wx:if="{{scoreSure}}">
   总收入：<text style='color:#3593db'>{{shouruList.totalAddAmount}}分</text>/总支出：<text style='color:#e50f72'>{{shouruList.totalPlusAmount}}分</text>
 </view>
-<view class='integralsetail' wx:for="{{amountList}}"  wx:key="{{index}}">
+<view class='integralsetail' wx:for="{{amountList}}"  wx:key="{{index}}" data-dayType='{{item.dayType}}' data-id='{{item.recordId}}' data-day='{{item.day}}' data-dayAmount='{{item.dayAmount}}' data-pushDay='{{item.pushDay}}' bindtap='getDetailList'>
   <view class='integralList'>
     <view class='moneyDetail' class="{{item.amount < 0 ? 'moneyDetailSpe' : 'moneyDetail'}}">
       <text wx:if="{{item.amount > 0}}">+</text>
@@ -23,6 +23,8 @@
     <view class='listDetail'>
       <view>{{item.memo}}</view>
       <view>{{item.time}}</view>
+      
     </view>
+    <view wx:if="{{item.dayType==1 || item.dayType==2}}"><image style='width:10rpx;height:20rpx;' src='../../../image/moneyRow.png'></image></view>
   </view>
 </view>

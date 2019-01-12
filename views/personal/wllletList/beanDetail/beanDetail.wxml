@@ -1,0 +1,16 @@
+<!--views/personal/wllletList/beanDetail/beanDetail.wxml-->
+<view class='flex topList'>
+  <view>连送{{day}}天</view>
+  <view>{{dayamount}}金豆/天</view>
+  <view>已送{{pushday}}天</view>
+</view>
+<view class='listDetail' wx:for="{{amountList}}" wx:key="{{index}}">
+  <view class='flex list {{item.dayStatus==1?"listDetailSpe":""}}'>
+    <view>{{item.time}}</view>
+    <view>+{{item.amount}}金豆</view>
+    <view wx:if="{{item.dayStatus==1}}">已送出</view>
+    <view wx:if="{{item.dayStatus==0}}">未送出</view>
+    <view wx:if="{{item.dayStatus==2}}">已停止</view>
+  </view>
+</view>
+
