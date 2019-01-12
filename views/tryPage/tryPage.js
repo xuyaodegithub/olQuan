@@ -14,8 +14,10 @@ Page({
     page:1,
     rows:10,
     classBtn: [
-      { title: '限时试用', imgChose: '../../image/dianNew.png', imgNoChose: '../../image/dianNot.png'},      { title: '|', imgChose: '', imgNoChose: '' },
-      { title: '付邮试用', imgChose: '../../image/youPay.png', imgNoChose: '../../image/youNoPay.png'},              { title: '|', imgChose: '', imgNoChose: '' },
+      { title: '限时试用', imgChose: '../../image/dianNew.png', imgNoChose: '../../image/dianNot.png'},    
+      { title: '|', imgChose: '', imgNoChose: '' },
+      // { title: '付邮试用', imgChose: '../../image/youPay.png', imgNoChose: '../../image/youNoPay.png'},
+      // { title: '|', imgChose: '', imgNoChose: '' },
       { title: '整点抢试', imgChose: '../../image/chooseClock.png', imgNoChose:'../../image/noChooseClock.png'}
       ],
     isGetStoreCommission:'',
@@ -133,7 +135,7 @@ Page({
       duration: 400
     })
     let _self=this
-    if (e.currentTarget.dataset.index === 1 || e.currentTarget.dataset.index === 3 || e.currentTarget.dataset.index===this.data.classNum){
+    if (e.currentTarget.dataset.index === 1 || e.currentTarget.dataset.index===this.data.classNum){
       return
     }
     let url = '/mobile/freeUse/getFreeUseProducts'
@@ -146,12 +148,13 @@ Page({
     if (e.currentTarget.dataset.index===0){
       this.setData({
         productType: 1
-      })
-    } else if (e.currentTarget.dataset.index === 2){
-      this.setData({
-        productType: 5,
-      })
-    }else{
+      })}
+    // } else if (e.currentTarget.dataset.index === 2){
+    //   this.setData({
+    //     productType: 5,
+    //   })
+    // }
+    else{
       this.setData({
         productType: '',
       })
