@@ -4,12 +4,12 @@
  <swipers banner="{{banners}}"></swipers>  
   <view class="classBtn flex {{GetscrollTop > fixedNavTop ? 'fixedNav' : ''}}" id="classBtnTop">
     <block wx:for="{{classBtn}}" wx:key="{{index}}">
-      <view data-index="{{index}}" bindtap='changeClass' class="flex" wx:if="{{index < 3}}">
+      <view data-index="{{index}}" bindtap='changeClass' class="flex" wx:if="{{index == 0}}">
         <image src="{{item.imgChose}}" wx:if="{{classNum===index && item.imgChose}}"></image>
         <image src="{{item.imgNoChose}}" wx:elif="{{classNum!==index && item.imgChose}}"></image>
         <view class="{{classNum===index ? 'activeClass' : ''}}">{{item.title}}</view>
       </view>
-      <view  data-index="{{index}}" wx:elif="{{index > 2 && isGetStoreCommission===1}}"  class="flex"  bindtap='changeClass'>
+      <view  data-index="{{index}}" wx:elif="{{index > 0 && isGetStoreCommission===1}}"  class="flex"  bindtap='changeClass'>
         <image src="{{item.imgChose}}" wx:if="{{classNum===index && item.imgChose}}"></image>
           <image src="{{item.imgNoChose}}" wx:elif="{{classNum!==index && item.imgChose}}"></image>
           <view class="{{classNum===index ? 'activeClass' : ''}}">{{item.title}}</view>
