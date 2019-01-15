@@ -51,6 +51,13 @@ Page({
   },
   //输入验证码提现
   telSureChange(){
+    if(this.data.code.length!=6){
+      wx.showToast({
+        title: '请输入6位数验证码',
+        icon: 'none'
+      });
+      return
+    }
     this.setData({
       doubleClick:false,
     })
@@ -76,7 +83,7 @@ Page({
           wx.showToast({
             title: '验证码错误',
             icon:'none'
-          });0
+          });
           _self.setData({
             doubleClick: true,
           })

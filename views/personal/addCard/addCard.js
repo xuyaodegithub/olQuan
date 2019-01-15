@@ -120,6 +120,14 @@ Page({
       })
       return
     }
+    if (this.data.code.length!=6) {
+      wx.showToast({
+        title: '请输入6位数验证码',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
     if(this.data.accountNo!=this.data.accountNo2){
       wx.showToast({
         title: '2次输入账号不同',

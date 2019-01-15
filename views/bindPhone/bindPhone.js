@@ -115,6 +115,10 @@ Page({
       wx.showToast({ title: '请输入验证码', icon: 'none' })
       return
     }
+    if (this.data.yzma.length!=6) {
+      wx.showToast({ title: '请输入6位数验证码', icon: 'none' })
+      return
+    }
     let _self=this
     let dataList={
       memberId: app.userId,
