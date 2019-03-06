@@ -17,6 +17,7 @@ Page({
     coffersFee:0,//小金库
     amountFee:0,
     coffersFeeShow:false,//是否选择小金库
+    goldBeanFeeShow:false,
     pledgeMethod:'',//抵扣方式
     region: [],
     regionID: [],
@@ -31,7 +32,13 @@ Page({
     addressId:'',
     addressObj:[],
     dh:'',
+    finalPrice:'',
     isSuper:'',
+    isgoldBean: '',
+    isamount: '',
+    iscoffers:'',
+    finalPriceObj:''
+
   },
 
   /**
@@ -48,7 +55,7 @@ Page({
       isSuper: options.isSuper ? options.isSuper:''
     })
     this.getList();
-    console.log(this.data.orderList)
+    // console.log(this.data.orderList)
   },
   //点击去首页
   getIndex(){
@@ -223,66 +230,234 @@ Page({
       address: e.detail.value
     })
   },
-  //选择小金库
-  inputCoofers(){
-    this.setData({
-      coffersFeeShow: !this.data.coffersFeeShow,
-      amountFeeShow:false
-    })
-    if (this.data.coffersFeeShow){
+  // //选择小金库
+  // inputCoofers(){
+  //   this.setData({
+  //     coffersFeeShow: !this.data.coffersFeeShow,
+  //     amountFeeShow:false
+  //   })
+  //   if (this.data.coffersFeeShow){
+  //     this.setData({
+  //       pledgeMethod:2
+  //     })
+  //     if (this.data.curObj.coffers <= this.data.curObj.totalFee){
+  //       this.setData({
+  //         coffersFee: this.data.curObj.coffers,
+  //         coffersFeeObj: this.data.curObj.coffers.toFixed(2)
+  //       })
+  //     }else{
+  //       this.setData({
+  //         coffersFee: this.data.curObj.totalFee,
+  //         coffersFeeObj: this.data.curObj.totalFee.toFixed(2)
+  //       })
+  //     }
+  //   }else{
+  //     this.setData({
+  //       coffersFee:0,
+  //       pledgeMethod:'',
+  //     })
+  //   }
+  //   this.setData({
+  //     finalPriceObj: (this.data.finalPrice - this.data.coffersFee).toFixed(2)
+  //   })
+  // },
+  inputchecked(e){
+    let num = e.currentTarget.dataset.num
+    let _self = this
+    if(num==1){
       this.setData({
-        pledgeMethod:2
+        coffersFeeShow: !this.data.coffersFeeShow
       })
-      if (this.data.curObj.coffers <= this.data.curObj.totalFee){
-        this.setData({
-          coffersFee: this.data.curObj.coffers,
-          coffersFeeObj: this.data.curObj.coffers.toFixed(2)
-        })
-      }else{
-        this.setData({
-          coffersFee: this.data.curObj.totalFee,
-          coffersFeeObj: this.data.curObj.totalFee.toFixed(2)
-        })
-      }
+    }else if(num==2){
+      this.setData({
+        amountFeeShow: !this.data.amountFeeShow
+      })
     }else{
       this.setData({
-        coffersFee:0,
-        pledgeMethod:'',
+        goldBeanFeeShow: !this.data.goldBeanFeeShow
       })
     }
-    this.setData({
-      finalPriceObj: (this.data.finalPrice - this.data.coffersFee).toFixed(2)
+    let data = [this.data.coffersFeeShow, this.data.amountFeeShow, this.data.goldBeanFeeShow]
+    data.map(function (val, index) {
+      if (!val) {
+        if (index == 2) {
+          _self.setData({
+            isgoldBean: ''
+          })
+        } else if (index == 1) {
+          _self.setData({
+            isamount: ''
+          })
+        } else {
+          _self.setData({
+            iscoffers: ''
+          })
+        }
+      }
     })
+    let lsatPrice = this.getLastPrice(0)
+    this.setData({
+      finalPriceObj: lsatPrice
+    })
+    // this.setData({
+    //   amountFeeShow: !this.data.amountFeeShow,
+    //   coffersFeeShow: false
+    // })
+    // if (this.data.amountFeeShow) {
+    //   this.setData({
+    //     pledgeMethod: 3
+    //   })
+    //   if (this.data.curObj.amount <= this.data.curObj.totalFee) {
+    //     this.setData({
+    //       amountFee: this.data.curObj.amount,
+    //       amountFeeObj: this.data.curObj.amount.toFixed(2)
+    //     })
+    //   } else {
+    //     this.setData({
+    //       amountFee: this.data.curObj.totalFee,
+    //       amountFeeObj: this.data.curObj.totalFee.toFixed(2)
+    //     })
+    //   }
+    // } else {
+    //   this.setData({
+    //     amountFee: 0,
+    //     pledgeMethod: '',
+    //   })
+    // }
+    // this.setData({
+    //   finalPriceObj: (this.data.finalPrice - this.data.amountFee).toFixed(2)
+    // })
   },
-  inputAmount(){
-    this.setData({
-      amountFeeShow: !this.data.amountFeeShow,
-      coffersFeeShow: false
-    })
-    if (this.data.amountFeeShow) {
-      this.setData({
-        pledgeMethod: 3
-      })
-      if (this.data.curObj.amount <= this.data.curObj.totalFee) {
+  changeValue(e){
+    let index = e.currentTarget.dataset.num
+    // console.log(e)
+    let valueNum = e.detail.value;
+    //清除"数字"和"."以外的字符
+    if (index==3) {
+      valueNum = valueNum.replace(/[^\d]/g, "");
+    } else {
+      valueNum = valueNum.replace(/[^\d.]/g, "");
+    }
+    // valueNum = valueNum.replace(/[^\d.]/g, "");
+    //验证第一个字符是数字而不是
+    valueNum = valueNum.replace(/^\./g, "");
+    //只保留第一个. 清除多余的
+    // console.log(this.addObj.totalFee)
+    valueNum = valueNum.replace(/\.{2,}/g, ".");
+    valueNum = valueNum.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+    //只能输入两个小数
+    valueNum = valueNum.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
+    // console.log(valueNum, typeof valueNum)
+    // let price = this.data.couponSell ? this.data.productPrice - this.data.couponSell : this.data.productPrice
+    if (index == 2) {
+      let price = this.getLastPrice(2)
+      if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.curObj['amount'])) {
         this.setData({
-          amountFee: this.data.curObj.amount,
-          amountFeeObj: this.data.curObj.amount.toFixed(2)
+          isamount: parseFloat(price * 100) / 100,
+          finalPriceObj: (0).toFixed(2)
+        })
+      } else if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.curObj['amount'])) {
+        if (parseFloat(price) > parseFloat(this.data.curObj['amount'])) {
+          this.setData({
+            isamount: this.data.curObj['amount'],
+            finalPriceObj: (price - parseFloat(this.data.curObj['amount'])).toFixed(2)
+          })
+        } else {
+          this.setData({
+            isamount: parseFloat(price * 100) / 100,
+            finalPriceObj: (0).toFixed(2)
+          })
+        }
+      } else if (parseFloat(valueNum) <= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.curObj['amount'])) {
+        this.setData({
+          isamount: this.data.curObj['amount'],
+          finalPriceObj: (price - parseFloat(this.data.curObj['amount'])).toFixed(2)
         })
       } else {
         this.setData({
-          amountFee: this.data.curObj.totalFee,
-          amountFeeObj: this.data.curObj.totalFee.toFixed(2)
+          isamount: valueNum,
+          finalPriceObj: valueNum ? (price - parseFloat(valueNum)).toFixed(2) : price
+        })
+      }
+    } else if (index==1) {
+      let price = this.getLastPrice(1)
+      if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.curObj['coffers'])) {
+        console.log(valueNum, price)
+        this.setData({
+          iscoffers: parseFloat(price * 100) / 100,
+          finalPriceObj: (0).toFixed(2)
+        })
+      } else if (parseFloat(valueNum) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.curObj['coffers'])) {
+        if (parseFloat(price) > parseFloat(this.data.curObj['coffers'])) {
+          this.setData({
+            iscoffers: this.data.curObj['coffers'],
+            finalPriceObj: (price - parseFloat(this.data.curObj['coffers'])).toFixed(2)
+          })
+        } else {
+          this.setData({
+            iscoffers: parseFloat(price * 100) / 100,
+            finalPriceObj: (0).toFixed(2)
+          })
+        }
+      } else if (parseFloat(valueNum) <= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.curObj['coffers'])) {
+        this.setData({
+          iscoffers: this.data.curObj['coffers'],
+          finalPriceObj: (price - parseFloat(this.data.curObj['coffers'])).toFixed(2)
+        })
+      } else {
+        // console.log(valueNum, price, 222222222222222222)
+        this.setData({
+          iscoffers: valueNum,
+          finalPriceObj: valueNum ? (price - parseFloat(valueNum)).toFixed(2) : price
         })
       }
     } else {
-      this.setData({
-        amountFee: 0,
-        pledgeMethod: '',
-      })
+      let price = this.getLastPrice(3)
+      if (parseFloat(valueNum / 10) >= parseFloat(price) && parseFloat(valueNum) <= parseFloat(this.data.curObj['goldBean'])) {
+        console.log(valueNum, price)
+        this.setData({
+          isgoldBean: parseInt(price * 10),
+          finalPriceObj: parseFloat(price - parseInt(price * 10)/10).toFixed(2)
+        })
+      } else if (parseFloat(valueNum / 10) >= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.curObj['goldBean'])) {
+        if (parseFloat(price) > parseFloat(this.data.curObj['goldBean'] / 10)) {
+          this.setData({
+            isgoldBean: this.data.curObj['goldBean'],
+            finalPriceObj: (price - parseFloat(this.data.curObj['goldBean'] / 10)).toFixed(2)
+          })
+        } else {
+          this.setData({
+            isgoldBean: parseInt(price * 10),
+            finalPriceObj: parseFloat(price - parseInt(price * 10) / 10).toFixed(2)
+          })
+        }
+      } else if (parseFloat(valueNum / 10) <= parseFloat(price) && parseFloat(valueNum) >= parseFloat(this.data.curObj['goldBean'])) {
+        this.setData({
+          isgoldBean: this.data.curObj['goldBean'],
+          finalPriceObj: (price - parseFloat(this.data.curObj['goldBean'] / 10)).toFixed(2)
+        })
+      } else {
+        this.setData({
+          isgoldBean: valueNum,
+          finalPriceObj: valueNum ? (price - parseFloat(valueNum / 10)).toFixed(2) : price
+        })
+      }
     }
-    this.setData({
-      finalPriceObj: (this.data.finalPrice - this.data.amountFee).toFixed(2)
-    })
+  },
+  //计算价格
+  getLastPrice(num) {
+    let isGoldBean = this.data.isgoldBean ? this.data.isgoldBean : 0//金豆
+    // let isScore = this.data.iscore ? this.data.isScore : 0//积分
+    let isCoffers = this.data.iscoffers ? this.data.iscoffers : 0//小金库
+    let isAmount = this.data.isamount ? this.data.isamount : 0//余额
+    // let couponPrice = this.data.couponSell ? this.data.couponSell : 0//优惠券价格
+    let lastPrice
+    if(num === 0) {
+      lastPrice = parseFloat(parseFloat(this.data.finalPrice) - parseFloat(isGoldBean / 10) - parseFloat(isCoffers) - parseFloat(isAmount)).toFixed(2)
+    } else if (num === 1) lastPrice = parseFloat(parseFloat(this.data.finalPrice) - parseFloat(isGoldBean / 10) - parseFloat(isAmount)).toFixed(2)
+    else if (num === 2) lastPrice = parseFloat(this.data.finalPrice - parseFloat(isGoldBean / 10) - isCoffers).toFixed(2)
+    else lastPrice = parseFloat(this.data.finalPrice - parseFloat(isCoffers) - isAmount).toFixed(2)
+return lastPrice
   },
   cancelTixian(){
     this.setData({
@@ -298,18 +473,17 @@ Page({
   payOrder(){
     
     let _self = this;
-    if (Number(this.data.amountFee) == 0 && Number(this.data.coffersFee) == 0){
-      this.setData({
-        isShowPass:true
-      })
-    }else{
-      this.setData({
-        isShowPass: false
-      })
-    }
+    // if (Number(this.data.amountFee) == 0 && Number(this.data.coffersFee) == 0){
+    //   this.setData({
+    //     isShowPass:true
+    //   })
+    // }else{
+    //   this.setData({
+    //     isShowPass: false
+    //   })
+    // }
    
     if (this.data.curObj.receiveAddress==null){
-      
       if (this.data.addressName==''){
         wx.showToast({
           title: '请输入收货人姓名',
@@ -334,10 +508,18 @@ Page({
         })
         return
       }
-      
-      
     }
-    if (this.data.curObj.enabledPayPassword == 1 && !this.data.isShowPass) {
+    if (this.data.isgoldBean && this.data.isgoldBean < 10) {
+      wx.showToast({
+        title: '金豆最低10个起用',
+        icon: 'none'
+      })
+      return
+    }
+    let trueOrF = [this.data.isgoldBean, this.data.isamount, this.data.iscoffers].some(function(val,index){
+      return val
+    })
+    if (this.data.curObj.enabledPayPassword == 1 && trueOrF) {
       this.setData({
         payPasswordShow: true,
       })
@@ -371,7 +553,7 @@ Page({
         giftBagId: _self.data.orderList.bagId,
         addressId: _self.data.addressId,
         payMethod: 6,//小程序支付
-        pledgeMethod: _self.data.pledgeMethod,
+        // pledgeMethod: _self.data.pledgeMethod,
         inviteCode: _self.data.orderList.inviteId,
         // inviteCode:"15658160809",
         uutype: app.uutype,
@@ -388,14 +570,17 @@ Page({
         bagId: _self.data.orderList.bagId,
         addressId: _self.data.addressId,
         payMethod: 6,//小程序支付
-        pledgeMethod: _self.data.pledgeMethod,
+        // pledgeMethod: _self.data.pledgeMethod,
         inviteCode: _self.data.orderList.inviteId,
         // inviteCode:"15658160809",
         uutype: app.uutype,
       }
       url = '/mobile/buySupervisor/newCreateOrder'
     }
-    
+    // amount: this.data.isamount,
+    if (this.data.isamount) dataList.amount = this.data.isamount
+    if (this.data.iscoffers) dataList.coffers = this.data.iscoffers
+    if (this.data.isgoldBean) dataList.goldBean = this.data.isgoldBean
     if (_self.data.payPasswordShow){
       dataList.payPassword = utilMd5.hexMD5(this.data.payPassword)
     }
@@ -446,6 +631,11 @@ Page({
       }
     }
     common.methods.mothod3(banners)
+  },
+  goxieyi(){
+    wx.navigateTo({
+      url: './xieyi/xieyi',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

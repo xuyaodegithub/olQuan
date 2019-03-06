@@ -36,7 +36,12 @@ Page({
     topTrue:false,
     openlink:false,
     isMore:'',
-    isNewGoods:false
+    isNewGoods:false,
+    globAcount: {},
+    canorcanson: true,
+    showAlert: false,
+    smallTan:false,
+    limitNum:1
   },
 
   /**
@@ -113,6 +118,14 @@ Page({
                   _self.setData({
                     timer: _self.overTime(time, resData.freeUseSubType),
                     overtimer: setInterval(function () {
+                      if (_self.data.productType === '4' && _self.data.productData.freeUseSubType == 3 && time<=0){
+                        let obj = _self.data.productData
+                        obj.status=2
+                        _self.setData({
+                          productData: obj
+                        })
+                          clearInterval(_self.data.overtimer)
+                      }
                       time -= 1000
                       _self.setData({
                         timer: _self.overTime(time, resData.freeUseSubType)
@@ -257,14 +270,74 @@ Page({
       addOrBuy:1//加入购物车
     })
   },
+  //兑换权限
+  goldBeanToFreeUseCount(num) {
+    let _self = this
+    let data = {
+      url: '/mobile/freeUse/isGoldBeanToFreeUseCount',
+      data: {
+        memberId: app.userId,
+        num: this.data.isbuyMinCount
+      },
+      callback: function (res) {
+        // if(num==1){
+        if (!res.data.result.isFreeUseEnough) {
+          _self.setData({ smallTan: true })
+          _self.setData({
+            globAcount: res.data.result,
+            isShow:true
+          })
+        }else{
+          _self.tosureActive()
+        }
+      }
+    }
+    common.methods.mothod1(data)
+  },
+  //关闭弹框
+  closeAlert(){
+    this.setData({
+      smallTan:false,
+      showAlert:false
+    })
+  },
+  //兑换机会弹框
+  openchange(){
+    let _self=this
+    let datAA = this.data.globAcount
+    if (datAA.isGoldBeanToFreeUseCount == 1) {
+      _self.setData({ showAlert: true, smallTan:false})
+      if (datAA.goldBean < datAA.freeUseCountGoldBean) {
+        _self.setData({
+          canorcanson: false
+        })
+      } else _self.setData({ canorcanson: true })
+    } else wx.showToast({ title: '活动尚未开启', icon: 'none' })
+    // if (this.data.globAcount.goldBean < this.data.globAcount.freeUseCountGoldBean) {
+    //         _self.setData({
+    //           canorcanson: false
+    //         })
+    //       } else _self.setData({ canorcanson: true })
+    //     } else wx.showToast({ title: '活动尚未开启', icon: 'none' })
+  },
   //弹框确认按钮
   toSureBuy(){
-    if (!app.memberData.mobile && this.data.productType==4){
+    let _self=this
+    if (this.data.productType == 4 && this.data.productData.freeUseSubType == 3){
+     this.goldBeanToFreeUseCount()
+      return
+    }else{
+      this.tosureActive()
+    }
+   
+  },
+  tosureActive(){
+    if (!app.memberData.mobile && this.data.productType == 4) {
       wx.showModal({
         title: '提示',
         content: '完成试用下单,请先绑定手机号码,是否前往绑定',
-        cancelText:'否',
-        confirmText:'去绑定',
+        cancelText: '否',
+        confirmText: '去绑定',
         // confirmColor:'#e50f72',
         success(res) {
           if (res.confirm) {
@@ -282,21 +355,21 @@ Page({
       wx.showToast({ title: '商品已下架', icon: 'none' })
       return
     }
-    if (this.data.productData.normals.length>0){
-      if (this.data.normalMess){
-        if (this.data.isStore){
-          if (this.data.addOrBuy==2){
+    if (this.data.productData.normals.length > 0) {
+      if (this.data.normalMess) {
+        if (this.data.isStore) {
+          if (this.data.addOrBuy == 2) {
             this.saveProductMess()
-          }else{
+          } else {
             this.addShopStore()
           }
-        }else{
+        } else {
           wx.showToast({ title: '库存不足请选择其他规格', icon: 'none' })
         }
-      }else{
-        wx.showToast({ title:'请选择规格',icon:'none'})
+      } else {
+        wx.showToast({ title: '请选择规格', icon: 'none' })
       }
-    }else{
+    } else {
       if (this.data.isStore) {
         if (this.data.addOrBuy == 2) {
           this.saveProductMess()
@@ -688,7 +761,8 @@ Page({
       data:{
         objId: this.data.productId,
         memberId:app.userId,
-        type:1
+        type:1,
+        productType: this.data.productType
       },
       callback:function(res){
         if (_self.data.isCollect==0){
@@ -761,6 +835,58 @@ Page({
       url: url,
     })
   },
+  //添加机会
+  addSubnum(e) {
+    let index = e.currentTarget.dataset.index
+    let allnum = this.data.globAcount.goldBean
+    let limit = this.data.limitNum
+    if (index == 2) {
+      if (((limit + 1) * this.data.globAcount.freeUseCountGoldBean) > allnum) {
+        return
+      } else {
+        limit += 1
+      }
+    } else {
+      if (limit <= 1) {
+        limit = 1
+      } else {
+        limit -= 1
+      }
+    }
+    this.setData({
+      limitNum: limit
+    })
+  },
+  //确认兑换
+  tochoseSure() {
+    wx.showLoading({
+      mask: true
+    })
+    let _self = this
+    let data = {
+      url: '/mobile/freeUse/goldBeanToFreeUseCount',
+      data: {
+        memberId: app.userId,
+        count: this.data.limitNum
+      },
+      callback: function (res) {
+        // let shenyuNum = parseInt(_self.data.subFreeUseCount)
+        _self.setData({
+          // subFreeUseCount: res.data.result,
+          limitNum: 1,
+          showAlert: false
+        })
+        wx.hideLoading()
+        wx.showToast({
+          title: '兑换成功',
+          icon: 'none'
+        })
+      
+        // _self.getMber()
+      }
+    }
+    common.methods.mothod1(data)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -818,7 +944,9 @@ Page({
       url = url +'&recId='+app.userId
       url+='&isMore=1'
     }
-    let ititle = this.data.productData.freeUseSubType == 1 ? "限时试用·" : "" 
+    let ititle
+     ititle = this.data.productData.freeUseSubType == 1 ? "限时试用·" : "" 
+     ititle = this.data.productType== 14 ? "天天送·" : "" 
     return {
       title: ititle+this.data.productData.productName,
       path:url,//当前页面 path ，必须是以 / 开头的完整路径

@@ -1,0 +1,90 @@
+<view class="viewTop flex" style="height:116rpx;" bindtap='choseClass'>
+     <view class="flex">
+      <image src="{{choseMess.img}}"></image>
+        <view class="center">
+            <view>{{choseMess.title}}</view>
+            <view>{{choseMess.smallTitle}}</view>
+        </view>
+    </view>
+      <image src="../../../../image/moneyRow.png"></image>
+</view>
+<view class="teflex">
+  <view class="top">兑换数量(个)</view>
+  <view class="flex">
+  <input type='number' value='{{numValue}}' bindinput='setNum' placeholder='请输入需要兑换金豆个数' placeholder-style="font-size: 32rpx;"></input>
+  <image src="../../../../image/cancelBean.png" wx:if="{{valength}}" bindtap='hiddenClose'></image>
+  </view>
+  <view class="flex">
+    <text>可兑换金豆总数：{{muchnum}}个</text>
+    <view style="color:#029BFC;" bindtap='allchange'>全部兑换</view>
+  </view>
+</view>
+<view class="btn" bindtap='sureToGive'>兑换</view>
+<view class="flex right">
+  <view bindtap='goback'>兑换记录</view>
+</view>
+<view class="last">
+  <view>温馨提示：</view>
+  <view>
+    金豆兑换成功后，仅限消费和兑换SRNC通证；不支持提现、不 支持兑换余额、小金库和积分！请慎重兑换！
+  </view>
+</view>
+<!-- //支付弹框 -->
+<view class="password" wx:if="{{isPasswordShow}}">
+  <view class="title">请输入支付密码</view>
+    <input type='password' placeholder='请输入支付密码' value="{{isPassword}}" bindinput="getparssword" ></input>
+    <view class="flex">
+      <view bindtap='concalPay'>取消</view>
+      <view bindtap='surePay'>确定</view>
+    </view>
+</view>
+<view class="zhezhao" wx:if="{{isPasswordShow || choseIndex}}"></view>
+<view class='shade' wx:if="{{sureMobile}}"style='z-index:20;' bindtap='colseMobile'></view>
+<view wx:if="{{sureMobile}}" style='position: fixed;z-index:21;width:100%;top:300rpx;left:0;' >
+  <view class='shadeBox' style='width:85%;background:#f5f5fa;height:400rpx;'>
+    <view class='viewMobile'>你当前绑定的手机号码为：{{memberList.viewMobile}}</view>
+    <view class='inputIcon'>
+      <input bindinput="getCodeDetail" style='font-size:30rpx;background:#fff;' placeholder='请输入验证码' type="number" class='inputIconIn'></input>
+      <view wx:if="{{isDisabled}}" class='getCodeImg' bindtap='getWxGraphCode'>获取验证码</view>
+      <view wx:if="{{!isDisabled}}" class='getCodeImg' >{{time}}</view>
+    </view>
+    <view class='sureTixian' bindtap='telSureChange'>确认</view>
+    <!-- <view wx:if="{{!doubleClick}}" class='sureTixian'>确认</view> -->
+  </view>
+</view>
+<!-- 122 -->
+<view class='shade' wx:if="{{graphicCode}}" bindtap='colseCodeGet'></view>
+<view style='position: fixed;z-index:34;width:100%;top:300rpx;left:0;' wx:if="{{graphicCode}}">
+  <view class='shadeBox'>
+    <view bindtap='colseCodeGet' class='colseIcon'>
+      <image bindtap='colseCodeGet' style='display:block;width:100%;height:100%;' src='/image/duiClose.png'></image>
+    </view>
+    <view class='iconTip'>请在下方输入图片验证码</view>
+    <view class='inputIcon'>
+      <input bindinput='inputGraphicCode' type="number" class='inputIconIn'></input>
+      <view class='codeImg' bindtap='codeRefresh'>
+        <image style='width:100%;height:100%;' src='{{imgurl}}' bindtap='getGraphCodeDetail'></image>
+      </view>
+    </view>
+    <view>
+      <view wx:if="{{!cangetCode}}" class='sureCodeGet' style="opacity:0.6;">确认</view>
+      <view bindtap='sendCode' wx:if="{{cangetCode}}" class='sureCodeGet' style='background:#931EFF;'>确认</view>
+    </view>
+  </view>
+</view>
+<view class="positions" wx:if="{{choseIndex}}">
+  <view class="posi">
+  请选择兑换方式
+  <image src="../../../../image/closeChose.png" bindtap='closeChose'></image>
+  </view>
+  <view class="flex" wx:for="{{selectArr}}" wx:key="{{index}}" bindtap='changechose' data-item="{{item}}" data-index="{{index}}">
+    <view class="flex">
+      <image src="{{item.img}}"></image>
+        <view class="center">
+            <view>{{item.title}}</view>
+            <view>{{item.smallTitle}}</view>
+        </view>
+    </view>
+      <image src="../../../../image/chose.png" wx:if="{{choseTindex==index}}"></image>
+  </view>
+</view>

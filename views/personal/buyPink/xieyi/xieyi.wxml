@@ -1,0 +1,3 @@
+<!--views/personal/buyPink/xieyi/xieyi.wxml-->
+<!-- <text>views/personal/buyPink/xieyi/xieyi.wxml</text> -->
+<web-view src="https://ol-site.olquan.cn//weixin/protocol/protocol?code=storeProtocol"></web-view>

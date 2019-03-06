@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "金豆转账",
+  "navigationBarBackgroundColor": "#F7F7F7",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f7f7f7",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 10,
+  "backgroundTextStyle": "dark",
+  "disableScroll": false
+}

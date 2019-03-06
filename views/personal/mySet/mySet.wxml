@@ -93,6 +93,17 @@
   </view>
 </view>
 <view class='topMessage'>安全提升</view>
+<view class='setMessage' bindtap='changePassword' data-active="1">
+  <view class='setLeft'>
+    <image mode='widthFix' src='../../../image/pasWad.png'></image>
+    <view style="margin-left: 7rpx;">登录密码设置</view>
+  </view>
+  <view class='setRight'>
+    <view style='color:#D23172;' wx:if="{{memberList.hasPayPassWord==1}}">已设置</view>
+    <!-- <view style='color:#666;' wx:else>未设置</view> -->
+    <image style='margin-left: 20rpx;' src='../../../image/rowright.png'></image>
+  </view>
+</view>
 <view class='setMessage' bindtap='changePassword'>
   <view class='setLeft'>
     <image mode='widthFix' src='../../../image/pasWad.png'></image>

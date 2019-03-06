@@ -1,0 +1,37 @@
+/* views/personal/wllletList/Transfer/Transfer.wxss */
+page{
+  padding: 0 30rpx;
+  width:-webkit-calc(100% - 60rpx); 
+  width:-moz-calc(100% - 60rpx); 
+  width:calc(100% - 60rpx);
+}
+.flex{
+  font-size: 32rpx;
+  color: #333333;
+  line-height: 108rpx;
+  margin-top: 22rpx;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E1E1E1;
+}
+.flex image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.flex input{
+  /* margin-left: 40rpx; */
+  flex: 0.8;
+}
+.watch{
+  font-size: 26rpx;
+  color: #999999;
+  margin-top: 30rpx;
+}
+.btn{
+  font-size: 34rpx;
+  line-height: 88rpx;
+  background-color: #931EFF;
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 110rpx;
+}

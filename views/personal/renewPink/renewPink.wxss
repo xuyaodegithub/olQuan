@@ -167,3 +167,39 @@ page{
   line-height: 135rpx;
   font-size: 32rpx;
 }
+.payment .input{
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+}
+.payment .input input{
+      display: inline-block;
+      height: 48rpx;
+      width: 178rpx;
+      margin-right: 20rpx;
+      vertical-align: middle;
+      border: 2rpx solid #b5b5b5;
+      padding-left:15rpx; 
+}
+.totalDetail{
+  margin-top: 20rpx;
+  padding: 0 21rpx;
+  background: #fff;
+  color: #919191;
+  font-size: 24rpx;
+}
+.detailFee{
+  line-height: 46rpx;
+  overflow: hidden;
+}
+.soloDetail{
+  overflow: hidden;
+}
+.solo-l{
+  float: left;
+}
+.solo-r{
+  float: right;
+  color: #D33778;
+}

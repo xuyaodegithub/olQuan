@@ -1,0 +1,69 @@
+.givechose{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 660rpx;
+  height: 800rpx;
+  margin: -400rpx 0 0 -330rpx;
+  background-image: url('https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/5838a76e36c001c8789cff50bf4b1f465cf2ff0d');
+  background-repeat: no-repeat;
+  background-size: cover;
+   text-align:center;
+   z-index: 890
+}
+.givechose .title{
+  padding: 60rpx 0;
+  font-size: 38rpx;
+  color: #FFFFFF;
+}
+.givechose .choseNum{
+font-size: 44rpx;
+color: #333333;
+padding: 40rpx 0;
+margin-top: 16rpx;
+}
+.givechose .flex{
+  justify-content: center;
+  align-items: center;
+  font-size: 44rpx;
+  }
+  .givechose .flex image{
+    width: 80rpx;
+    height: 80rpx;
+  }
+  .givechose .flex .muchci{
+    width: 128rpx;
+  }
+  .givechose  .all{
+    font-size: 28rpx;
+    color: #AAAAAA;
+    padding: 18rpx 0;
+    margin-top: 20rpx;
+  }
+  .givechose .cbtn{
+    /* padding: 0 60rpx; */
+    margin-top: 30rpx;
+    font-size: 36rpx;
+    color: #FFFFFF;
+    background-color: #E50F72;
+    text-align: center;
+    border-radius: 8rpx;
+    line-height: 88rpx;
+    margin-bottom: 40rpx;
+  }
+ .givechose .asks{
+   padding: 0 45rpx;
+   font-size: 24rpx;
+   color: #AAAAAA;
+   line-height: 42rpx;
+   text-align: start
+ }
+ .givechose .close{
+   position: absolute;
+   bottom: -70rpx;
+   left:50%;
+   width:50rpx;
+   height: 50rpx;
+  margin-left: -25rpx;
+  margin-top: 80rpx;
+ }

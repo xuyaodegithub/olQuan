@@ -212,17 +212,18 @@ Page({
       //   personalList: app.memberData,
       //   time: app.memberData.validTime.split("至")[1]
       // })
-      if (app.memberData.isShowRenewButton!=0){
-        _self.setData({
-          showXufei: true,
-        })
-      }
+      // if (app.memberData.isShowRenewButton!=0){
+      //   _self.setData({
+      //     showXufei: true,
+      //   })
+      // }
       let banners = {
         url: '/mobile/member/getMember',
         data: {
           memberId: app.userId
         },
         callback: function (res) {
+          app.memberData = res.data.result
           _self.setData({
             personalList: res.data.result,
             time: res.data.result.validTime.split("至")[1] ? res.data.result.validTime.split("至")[1] : ''
@@ -230,6 +231,10 @@ Page({
           if (res.data.result.isShowRenewButton != 0){
             _self.setData({
               showXufei:true,
+            })
+          }else{
+            _self.setData({
+              showXufei: false,
             })
           }
         }

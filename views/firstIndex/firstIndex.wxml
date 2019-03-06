@@ -43,13 +43,19 @@
             <view class="price flex">
               <view>￥{{filters.changePrice(item.price)}}</view>
               <view>￥{{filters.changePrice(item.marketPrice)}}</view>
-              <view>{{item.score || item.score1 }}</view>
+              <view wx:if="{{item.type===9}}">
+                <view wx:if="{{isGetStoreCommission}}">{{item.score || item.score1 }}</view>
+              </view>
+              <view wx:else>{{item.score || item.score1 }}</view>
             </view>
             <view class="typeTitle" wx:if="{{item.type===4}}">
               试用
             </view>
             <view class="typeTitle" wx:if="{{item.type===9}}">
               特卖
+            </view>
+            <view class="typeTitle" wx:if="{{item.type===14}}">
+              天天送
             </view>
           </view>
       </view>

@@ -1,6 +1,6 @@
 <!--views/personal/myTry/myTry.wxml-->
 <view class='tryTop'>
-  <view>本月整点抢试剩余机会：<text style='font-weight:700;font-size:36rpx;'>{{memList.subFreeUseCount}}</text></view>
+  <view>本月整点抢试剩余机会：<text style='font-weight:700;font-size:36rpx;'>{{subFreeUseCount}}</text></view>
   <view bindtap='getDetailed'>明细</view>
 </view>
 <view class='orderDetail' bindtap='getTryList'>
@@ -38,6 +38,31 @@
   <view class='orderTop' style='border:none;'>我的试用秀</view>
   <image src='../../../image/rowright.png'></image>
 </view>
+<view class='orderDetail' style='border:none;margin-top:20rpx;' bindtap='openChange'>
+  <view class='orderTop' style='border:none;'>金豆兑换试用机会</view>
+  <image src='../../../image/rowright.png'></image>
+</view>
 <view class='explain'>
   <view class='exDian' bindtap='getExplain'>关于试用机会说明</view>
 </view>
+<!-- 5838a76e36c001c8789cff50bf4b1f465cf2ff0d -->
+<view class="givechose" wx:if="{{showAlert}}">
+    <view class="title">金豆换试用机会</view>
+    <view class="choseNum">{{globAcount.freeUseCountGoldBean}}金豆</view>
+    <view class="flex">
+      <image src="../../../image/down.png" bindtap='addSubnum' data-index="1"></image>
+      <view class="muchci">{{limitNum}}</view>
+      <image src="../../../image/add.png" style="margin-right:12rpx;" bindtap='addSubnum' data-index="2"></image><text style="font-size:36rpx;">次</text>  
+    </view>
+    <view class="all">
+        您共有{{globAcount.goldBean}}金豆
+    </view>
+    <view style="padding:0 45rpx">
+    <view class="cbtn" wx:if="{{canorcanson}}" bindtap='tochoseSure'>确认兑换</view>
+    <view class="cbtn active" wx:else>金豆不足</view>
+    </view>
+    <view class="asks">· 金豆兑换试用机会后，无法撤销。</view>
+    <view class="asks">· 兑换的试用机会无使用时间的限制，将在您申请 试用时，优先扣除。</view>
+    <image src='../../../image/colseIcon.png' class="close" bindtap='closeAlert'></image>
+</view>
+<view class="zhezhao" wx:if="{{showAlert}}"></view>

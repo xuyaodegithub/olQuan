@@ -131,6 +131,7 @@ page{
    line-height: 84rpx;
    color: #333;
    align-items: center;
+   border-bottom: 1px solid #e5e5e5;
   }
   .userMess .checkedBottom text{
     font-size: 24rpx;

@@ -5,8 +5,29 @@
   <view class='typeDetail' wx:if="{{typeNum==1}}">账户余额(元)</view>
   <view class='typeDetail' wx:if="{{typeNum==5}}">待定余额(元)</view>
   <view class='typeDetail' wx:if="{{typeNum==3}}">小金库(元)</view>
-  <view class='typeDetail' wx:if="{{typeNum==6}}">金豆(个)</view>
+  <view class='typeDetail' wx:if="{{typeNum==6}}" style="position:relative;">金豆(个)
+    <view class="gobenEr" wx:if="{{typeNum==6}}" bindtap='toMyErm'>
+        <image src="../../../image/erM.png"></image>
+        <view>我的二维码</view>
+   </view>
+  </view>
   <view class='typeDetail' wx:if="{{typeNum==7}}">待定金豆(个)</view>
+</view>
+<view wx:if="{{typeNum==6}}">
+  <view class="flex changeGive" bindtap='goexchange'>
+    <view class="flex" style=" align-items: center;">
+      <image src="../../../image/giveJ.png"></image>
+      <text>金豆兑换</text>
+    </view>
+    <image src="../../../image/moneyRow.png"></image>
+  </view>
+  <view class="flex changeGive" style="margin-bottom:20rpx;" bindtap='goTrans'>
+    <view class="flex" style=" align-items: center;">
+      <image src="../../../image/zhuanzhang.png"></image>
+      <text>金豆转账</text>
+    </view>
+    <image src="../../../image/moneyRow.png"></image>
+  </view>
 </view>
 <view class="topbtn flex" wx:if="{{scoreSure}}">
  <view style='width:150rpx;margin:0 10rpx;' wx:for="{{topBtm}}" wx:key="{{index}}" class="{{status==index ? 'active' : ''}}" data-key="{{index}}" bindtap='changeType'>{{item}}</view>

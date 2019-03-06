@@ -1,0 +1,11 @@
+{
+  "component": false,
+  "usingComponents": {},
+  "navigationBarTitleText": "找人代付",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#9e9e9e",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 30,
+  "disableScroll": false
+}

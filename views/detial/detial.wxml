@@ -56,7 +56,7 @@
       1111
       </view> -->
       <!-- <image src="../../image/back.png"></image>           -->
-      <image src="../../image/dayBack.png" bindtap='drawImage' ></image>
+      <image src="../../image/dayBack.png"></image>
     </view>
   </view>
   <view wx:elif="{{productType==='9'}}"><!--特卖-->
@@ -102,13 +102,13 @@
       <image src="../../image/erwei.png" wx:if="{{timer}}"  bindtap='drawImage'></image>
     </view>
     <view class="smalltitle">{{productData.summary}}</view>
-    <view class="smalltitle" style='color:#e50f72;margin-top:20rpx;'>{{productData.trip}}</view>
+    <view class="smalltitle" style='color:#e50f72;margin-top:20rpx;' wx:if="{{productData.trip}}">{{productData.trip}}</view>
     <view class='newSong flex' wx:if="{{productData.dayType==1}}">
-      <image style='width: 158rpx;height:36rpx;' src='../../image/newPeople.png'></image>
+      <image style='width: 166rpx;height:42rpx;' src='../../image/newPeople.png'></image>
       <view>下单即送<text>{{productData.dayGoldBean}}</text>金豆</view>
     </view>
     <view class='newSong flex' wx:if="{{productData.dayType==2}}">
-      <image style='width: 136rpx;height:36rpx;' src='../../image/daySong.png'></image>
+      <image style='width: 140rpx;height:42rpx;' src='../../image/daySong.png'></image>
       <view><text>{{productData.dayGoldBean}}</text>金豆连送<text>{{productData.dayDay}}</text>天</view>
     </view>
     <view class="jindou flex" wx:if="{{productType==='1'}}">
@@ -142,10 +142,11 @@
     <text>{{normalMess ? normalMess.values : '规格'}}</text>
     <image src="../../image/rowright.png"></image>
   </view>
-  <view class="shareDou" wx:if="{{(productType==='1' && productData.score1 && productData.personal===1 && levelCode!=='white' && levelCode!=='golden') || (productType==='4' && productData.promotionAward && levelCode!=='white')}}">
+  <view class="shareDou" wx:if="{{(productType==='1' && productData.score1 && productData.personal===1 && levelCode!=='white' && levelCode!=='golden') || (productType==='4' && productData.promotionAward && levelCode!=='white') || (productType=='14' && levelCode!=='white' && levelCode!=='golden' && productData.score1)}}">
    <!-- wx:if="{{productData.personal===1 && productData.score1}}"{{productData.score1}} -->
-      <view>分享奖励金豆</view>
-      <view>分享好友下单成功可获得<text style="color:#E50F72;">{{productType==='1' ? productData.score1 : productData.promotionAward}}</text>金豆</view>
+      <view>分享奖励</view>
+      <view wx:if="{{productType!='14'}}">分享好友下单成功可获得<text style="color:#E50F72;">{{productType==='1' ? productData.score1 : productData.promotionAward}}</text>金豆</view>
+      <view wx:else>邀请好友下单成功可获得<text style="color:#E50F72;">{{productData.score1}}</text>奖励</view>
       <view class="flex">
         <button plain bindtap='drawImage'>海报邀请</button>
         <button plain open-type="share">分享邀请</button>
@@ -208,6 +209,7 @@
   </view>
   <!--商品详情-->
   <view class="h5Title">—— 商品详情 ——</view>
+  <!-- <image model="widthFix" src="https://olquan-jscss.oss-cn-beijing.aliyuncs.com/img/20190117093345.jpg" style="display:block;width:100%;"></image> -->
 </view>
 <rich-text nodes="{{productData.detail}}"></rich-text> 
 <view class="buyBtn flex"><!--购买按钮-->
@@ -236,7 +238,7 @@
       <view wx:else>
         <view wx:if="{{productData.isApply===0 }}">
           <view wx:if="{{productData.store<1}}" class="buyColor noTime">试用完了</view>
-          <view wx:else class="buyColor"  bindtap="openBuy">申请试用</view> 
+          <view wx:else class="buyColor" bindtap="openBuy">申请试用</view> 
         </view>
          <view wx:else>
           <view wx:if="{{productData.canGoPlusBuy===1}}"  class="buyColor">
@@ -381,7 +383,7 @@
 bindopensetting='calconShou'>去授权</button>
     </view>
   </view>
-  <view class="zhezhao" wx:if="{{isSaveAlow}}"></view>
+  <view class="zhezhao" wx:if="{{isSaveAlow || showAlert || smallTan}}"></view>
   <view class="toTop" wx:if="{{topTrue}}" bindtap='toScrollTop'>
     <image src="../../image/goTop.png"></image>
 </view>
@@ -393,3 +395,35 @@ bindopensetting='calconShou'>去授权</button>
     </view>
     <image src="../../image/link.png" bindtap='openlink'></image>
   </view>
+  <!-- //金豆兑换试用机会 -->
+  <view class="givechose" wx:if="{{showAlert}}">
+    <view class="title">金豆换试用机会</view>
+    <view class="choseNum">{{globAcount.freeUseCountGoldBean}}金豆</view>
+    <view class="flex">
+      <image src="../../image/down.png" bindtap='addSubnum' data-index="1"></image>
+      <view class="muchci">{{limitNum}}</view>
+      <image src="../../image/add.png" style="margin-right:12rpx;" bindtap='addSubnum' data-index="2"></image><text style="font-size:36rpx;">次</text>  
+    </view>
+    <view class="all">
+        您共有{{globAcount.goldBean}}金豆
+    </view>
+    <view style="padding:0 45rpx">
+    <view class="cbtn" wx:if="{{canorcanson}}" bindtap='tochoseSure'>确认兑换</view>
+    <view class="cbtn active" wx:else>金豆不足</view>
+    </view>
+    <view class="asks">· 金豆兑换试用机会后，无法撤销。</view>
+    <view class="asks">· 兑换的试用机会无使用时间的限制，将在您申请 试用时，优先扣除。</view>
+    <image src='../../image/colseIcon.png' class="close" bindtap='closeAlert'></image>
+</view>
+<!-- <view class="zhezhao" wx:if="{{showAlert}}"></view> -->
+<view class="geiwome" wx:if="{{smallTan}}">
+  <view> 您的试用机会已不足，无法 申请试用该产品.</view>
+  <view class="flex" wx:if="{{globAcount.isGoldBeanToFreeUseCount==1}}">
+    <view bindtap='openchange'>金豆换次数</view>
+    <view bindtap='closeAlert'>下次再来</view>
+  </view>
+  <view wx:else style="padding: 0 50rpx">
+    <view class="viewww" style="margin:0 auto;" bindtap='closeAlert'>下次再来</view>
+  </view>
+  
+</view>

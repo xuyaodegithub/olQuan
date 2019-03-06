@@ -685,7 +685,7 @@ view.toTop{
 .newSong{
   background: #FBF2D9;
   width: 100%;
-  height: 80rpx;
+  height: 84rpx;
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -ms-flex-align:center;/* IE 10 */
@@ -693,7 +693,7 @@ view.toTop{
   -moz-align-items: center;
   align-items: center;
   color: #333;
-  font-size:28rpx;
+  font-size:26rpx;
   margin-top: 20rpx;
 }
 .newSong image{
@@ -702,4 +702,45 @@ view.toTop{
 }
 .newSong text{
   color: #e50f72;
+}
+.geiwome{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 490rpx;
+  height: 256rpx;
+  margin: -128rpx 0 0 -245rpx;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 24rpx;
+  font-size: 30rpx;
+  color: #333333;
+  z-index: 1111;
+}
+.geiwome > view:first-child{
+  line-height: 50rpx;
+   padding: 24rpx 50rpx;
+   margin-top: 20rpx
+}
+.geiwome .flex{
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #fff;
+  padding: 0 50rpx;
+  line-height: 50rpx;
+}
+.geiwome .flex view,.viewww{
+  width: 170rpx;
+}
+.geiwome .flex view:first-child,.viewww{
+  background-color: #E50F72;
+  color: #fff;
+  line-height: 50rpx;
+  border-radius: 26rpx;
+}
+.geiwome .flex view:last-child{
+  background-color: #C9C7C8;
+   border-radius: 26rpx;
 }

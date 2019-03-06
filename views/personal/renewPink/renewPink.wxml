@@ -2,25 +2,70 @@
 <view class='payment'>
   <view class='choosestores'>
     <view class='stores'>
-      <view class='stores-l'>小金库支付<text decode="nbsp"> &nbsp;({{memberList.coffers}}元)</text></view>
+      <view class='stores-l'>小金库<text decode="nbsp"> &nbsp;({{memberList.coffers}}元)</text></view>
       <view class='stores-r'>
-        <view class='choosePay' bindtap='inputCoffers'>
+        <view class='choosePay' bindtap='inputchecked' data-num="1">
           <image wx:if="{{!coffersFeeShow}}" src='../../../image/nochose.png'></image>
           <image wx:if="{{coffersFeeShow}}" src='../../../image/checked.png'></image>
         </view>
       </view>
+    </view>
+    <view class="input">
+      <input value="{{iscoffers}}" type="digit" bindinput='changeValue' data-num="1" wx:if="{{coffersFeeShow}}"></input>
     </view>
   </view>
   <view class='choosestores'>
     <view class='stores'>
       <view class='stores-l'>账户余额<text decode="nbsp"> &nbsp;({{memberList.amount}}元)</text></view>
       <view class='stores-r'>
-        <view class='choosePay' bindtap='inputAmount'>
+        <view class='choosePay' bindtap='inputchecked' data-num="2">
           <image wx:if="{{!amountFeeShow}}" src='../../../image/nochose.png'></image>
           <image wx:if="{{amountFeeShow}}" src='../../../image/checked.png'></image>
         </view>
       </view>
     </view>
+     <view class="input">
+        <input value="{{isamount}}" type="digit" bindinput='changeValue' data-num="2" wx:if="{{amountFeeShow}}"></input>
+    </view>
+  </view>
+    <view class='choosestores' wx:if="{{memberList.goldBean>9}}">
+    <view class='stores'>
+      <view class='stores-l'>金豆<text decode="nbsp"> &nbsp;（{{memberList.goldBean}}可抵现{{memberList.goldBean/10}}元）</text></view>
+      <view class='stores-r'>
+        <view class='choosePay' bindtap='inputchecked' data-num="3">
+          <image wx:if="{{!goldBeanFeeShow}}" src='../../../image/nochose.png'></image>
+          <image wx:if="{{goldBeanFeeShow}}" src='../../../image/checked.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class="input">
+        <input value="{{isgoldBean}}" type="number" bindinput='changeValue' data-num="3" wx:if="{{goldBeanFeeShow}}"></input>
+    </view>
+  </view>
+</view>
+<view class='totalDetail'>
+  <view style="font-size:28rpx;line-height: 72rpx;">合计</view>
+  <view class='detailFee'>
+    <view class='soloDetail'>
+      <view class='solo-l'>商品总额</view>
+      <view class='solo-r'>￥{{prodrctFee}}</view>
+    </view>
+    <view class='soloDetail' wx:if="{{coffersFeeShow && iscoffers>0}}">
+      <view class='solo-l'>小金库</view>
+      <view class='solo-r'>-￥{{iscoffers}}</view>
+    </view>
+    <view class='soloDetail' wx:if="{{amountFeeShow && isamount>0}}">
+      <view class='solo-l'>余额</view>
+      <view class='solo-r'>-￥{{isamount}}</view>
+    </view>
+     <view class='soloDetail' wx:if="{{goldBeanFeeShow && isgoldBean > 9}}">
+      <view class='solo-l'>金豆</view>
+      <view class='solo-r'>-￥{{isgoldBean/10}}</view>
+    </view>
+    <!-- <view class='soloDetail'>
+      <view class='solo-l'>应付</view>
+      <view class='solo-r'>￥{{finalPriceObj}}</view>
+    </view> -->
   </view>
 </view>
 <view class='orderSure'>
@@ -37,7 +82,7 @@
 </view>
 <view class='content'>1、在到期日之前续费的，试用次数更新日期遵循之前的更新日期。2、到期之后续费的，有2种情况：a、到期之日后30天内续费，试用次数更新日期遵循之前的更新日期。b、到期之日后超过30天续费，试用次数更新日期自续费之日起，每30天更新3次试用机会。</view>
 <view class='sure'>
-  <text class='money'>应付金额：<text style='color:#e61d79;font-size:24rpx;'>￥</text><text style='color:#e61d79;'>{{memberList.totalFee}}</text></text>
+  <text class='money'>应付金额：<text style='color:#e61d79;font-size:24rpx;'>￥</text><text style='color:#e61d79;'>{{finalPriceObj}}</text></text>
   <view class='sureOrder' bindtap="submitOrder">提交订单</view>
 </view>
 <view class='shade' wx:if="{{payPasswordShow}}">
@@ -50,8 +95,8 @@
       <view class='passBotSure' bindtap='cancelTixian'>
         <view style='border-right:2rpx solid #e5e5e5;'>取消</view>
       </view>
-      <view class='passBotSure'  wx:if="{{!doubleClick}}" style='color:#e7317d;'>确定</view>
-      <view class='passBotSure' bindtap='passworeTixian'  wx:if="{{doubleClick}}" style='color:#e7317d;'>确定</view>
+      <!-- <view class='passBotSure'  wx:if="{{!doubleClick}}" style='color:#e7317d;'>确定</view> -->
+      <view class='passBotSure' bindtap='passworeTixian' style='color:#e7317d;'>确定</view>
     </view>
   </view>
 </view>

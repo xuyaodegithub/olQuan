@@ -1,6 +1,7 @@
 <!--firstIndex/tryPage/tryPage.wxml-->
+<wxs src="../../filters/filters.wxs" module="filters" /><!--引入过滤器-->
 <header numkey="0"></header> 
-<view class="content">
+<view class="content" style="background-color:#fff;">
  <swipers banner="{{banners}}"></swipers>  
   <view class="classBtn flex {{GetscrollTop > fixedNavTop ? 'fixedNav' : ''}}" id="classBtnTop">
     <block wx:for="{{classBtn}}" wx:key="{{index}}">
@@ -25,22 +26,55 @@
     <view>{{item.isStarted === 1 ? '抢试中' : '预热中'}}</view>
   </view>
 </view>
-<view class="productList">
+<view class="productList" style="margin-top:20rpx;">
     <view wx:if="{{productType===1}}" class="typeFirst">
-      <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" bindtap='goDetial'  data-type="{{dataType}}" style="position:relative;">  
-        <image src="{{item.indexImage}}"  mode="widthFix" lazy-load class="border_radius"></image>
-        <view class="over title"><text wx:if="{{item.isYueXuan==1}}" class="yuexuan">悦选</text>{{item.productName}}</view>
-        <view class="smallTitle " wx:if="{{item.summery}}">{{item.summery}}</view>
-        <view class="price flex">
-          <view>保证金<text class="firstTitle">￥{{item.price}}<text style='font-size:24rpx; color:#E5006E;' wx:if="{{item.goldBean>0}}"> + {{item.goldBean}}金豆</text></text></view>
-          <!-- 仅剩{{(item.dayLimitCount-item.saleCount)<0 ? 0 : item.dayLimitCount-item.saleCount}}件 -->
-          <view class="aloneR flex">
-            <image class="newChange" src="../../image/dianNew.png"></image> 剩<text style="color: rgb(229, 15, 114);font-size:24rpx;">{{item.alone.day}}</text>{{item.alone.danwei}} | {{(item.dayLimitCount-item.saleCount)<0 ? 0 : (item.dayLimitCount-item.saleCount)}}件
+      <view class="nineImg" wx:for="{{dataList}}" wx:key="{{index}}" style="position:relative;">
+      <view class="over2">
+        <image src="../../image/newDay.png" wx:if="{{item.isFirstDay==1 && item.isLastDay!=1}}"></image>
+          <image src="../../image/lastDay.png" class="posiImg" wx:if="{{item.isLastDay==1}}"></image>
+          {{item.productName}}
+      </view>
+      <view class="smallTitle " wx:if="{{item.summery}}">{{item.summery}}</view>
+        <view class="flex imgaes {{item.images.length>2 ? '' : 'active'}}">
+          <image wx:for="{{item.images}}" wx:for-item="itemson" wx:for-index="indexson" src="{{itemson}}" wx:key="{{indexson}}" mode="widthFix" class="{{item.images.length>2 ? 'three' : ''}}" bindtap="showimg" data-item="{{item}}" data-index="{{indexson}}"></image>
+        </view>
+        <view class="flex detialP" bindtap='goDetial'  data-id="{{item.productId}}" data-type="{{dataType}}">
+          <view class="flex">
+            <image src="{{item.image}}"></image>
+            <view style="width:400rpx;">
+              <view class="over">{{item.productName}}</view>
+              <view>保证金<text>￥{{item.price}}</text><text style='font-size:24rpx; color:#E5006E;' wx:if="{{item.goldBean>0}}"> + {{item.goldBean}}金豆</text></view>
+            </view>
+          </view>
+          <image src="../../image/myBook.png" catchtap='drawImage' data-item="{{item}}"></image>
+        </view>
+        <view class="flex lastd">
+          <view  bindtap="saveImg" data-item="{{item.images}}">
+            <image src="../../image/sucai.png" class="save"></image>保存素材
+          </view>
+          <view class="flex" style="align-items: center;">
+              <image src="../../image/dianNew.png"  class="save2"></image>
+              <view style="color:#777777;"> 剩
+              <text style="color: rgb(229, 15, 114);font-size:24rpx;">{{item.alone.day}}</text>{{item.alone.danwei}}  | {{(item.dayLimitCount-item.saleCount)<0 ? 0 : (item.dayLimitCount-item.saleCount)}}件
+              </view>     
+              <view class="BUY" bindtap='openBuy' data-item="{{item}}">购买</view>
           </view>
         </view>
-        <image src="../../image/dayNew.png" class="posiImg" wx:if="{{item.isFirstDay==1 && item.isLastDay!=1}}"></image>
-        <image src="../../image/lastDay.png" class="posiImg" wx:if="{{item.isLastDay==1}}"></image>
       </view>
+      <!-- <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" bindtap='goDetial'  data-type="{{dataType}}" style="position:relative;">   -->
+        <!-- <image src="{{item.indexImage}}"  mode="widthFix" lazy-load class="border_radius"></image> -->
+        <!-- <view class="over title"><text wx:if="{{item.isYueXuan==1}}" class="yuexuan">悦选</text>{{item.productName}}</view> -->
+        <!-- <view class="smallTitle " wx:if="{{item.summery}}">{{item.summery}}</view> -->
+        <!-- <view class="price flex"> -->
+          <!-- <view>保证金<text class="firstTitle">￥{{item.price}}<text style='font-size:24rpx; color:#E5006E;' wx:if="{{item.goldBean>0}}"> + {{item.goldBean}}金豆</text></text></view> -->
+          <!-- 仅剩{{(item.dayLimitCount-item.saleCount)<0 ? 0 : item.dayLimitCount-item.saleCount}}件 -->
+          <!-- <view class="aloneR flex">
+            <image class="newChange" src="../../image/dianNew.png"></image> 剩<text style="color: rgb(229, 15, 114);font-size:24rpx;">{{item.alone.day}}</text>{{item.alone.danwei}} | {{(item.dayLimitCount-item.saleCount)<0 ? 0 : (item.dayLimitCount-item.saleCount)}}件
+          </view> -->
+        <!-- </view> -->
+        <!-- <image src="../../image/dayNew.png" class="posiImg" wx:if="{{item.isFirstDay==1 && item.isLastDay!=1}}"></image>
+        <image src="../../image/lastDay.png" class="posiImg" wx:if="{{item.isLastDay==1}}"></image>
+      </view> -->
     </view>
     <view  wx:elif="{{productType===5}}" class="typeSecond">
       <view wx:for="{{dataList}}" wx:key="{{index}}" data-id="{{item.productId}}" bindtap='goDetial'  data-type="{{dataType}}" >  
@@ -73,4 +107,81 @@
 </view>
 <view class="toTop" wx:if="{{GetscrollTop>300}}" bindtap='toScrollTop'>
     <image src="../../image/goTop.png"></image>
+  </view>
+    <view class="GoShouQuan" wx:if="{{isSaveAlow}}">
+    <view>微信授权提示</view>
+    <view>保存图片权限还没同意,请先进行授权操作</view>
+    <view class="flex">
+      <button type="default" bindtap="calconShou">取消</button>
+      <button type="primary"  open-type="openSetting" 
+bindopensetting='calconShou'>去授权</button>
+    </view>
+  </view>
+  <view class="zhezhao" wx:if="{{isSaveAlow || !isShow}}"></view>
+  <!-- //guige -->
+  <view class="buyPopver" hidden='{{isShow}}'>
+  <view class="buyContent">
+    <view class="top flex">
+      <image src="{{normalMess.image}}" class="imgbord" wx:if="{{normalMess && normalMess.image}}"  lazy-load></image>
+      <image src="{{propverImg}}" class="imgbord" wx:else  lazy-load></image>
+      <view class="right">
+        <view class="flex priceBuy">
+          <!-- <view wx:if="{{productType==='1'}}">
+            <text wx:if="{{!normalMess}}">￥{{productData.salePrice}}</text>
+            <text wx:else>￥{{normalMess.salePriceView}}</text>
+          </view> -->
+          <view wx:if="{{dataType=='4'}}">保证金：
+            <text wx:if="{{!normalMess}}">￥{{filters.changePrice(chonseMess.price)}}</text>
+            <text wx:else>￥{{filters.changePrice(normalMess.salePriceView)}}</text>
+            <text style='font-size:24rpx;color:#E5006E' wx:if="{{chonseMess.goldBean>0}}"> + {{chonseMess.goldBean}}金豆</text>
+          </view>
+          <view wx:else>
+            <text wx:if="{{!normalMess}}">￥{{productData.activePriceInterval}}</text>
+            <text wx:else>￥{{normalMess.salePriceView}}</text>
+          </view>
+          <image src="../../image/duiClose.png" class="close" bindtap='closeBuy'></image>
+        </view>
+        <text>库存{{isStore ? isStore : 0}}件</text>
+      </view>
+    </view>
+    <view class="center">
+        <view wx:for="{{allNormalMess.normals}}" wx:key="{{index}}"  wx:if="{{allNormalMess.normals.length>0}}">
+          <text>{{item.key}}</text>
+          <view class="valueItem" wx:if="{{index===0}}"><!--第一个大分类规格-->
+            <view wx:for="{{item.normses}}" wx:key="{{item_son.valueId}}" wx:for-item="item_son" wx:for-index="index_son" data-index="{{index}}" data-indexson="{{index_son}}" class="{{item_sonOne === index_son ? 'index_son' : ''}}" bindtap='changenormal'>
+            {{item_son.value}}
+            </view>
+          </view>
+          <view class="valueItem" wx:if="{{index===1}}"><!--第2个大分类规格-->
+            <view wx:for="{{item.normses}}" wx:key="{{item_son.valueId}}" wx:for-item="item_son" wx:for-index="index_son" data-index="{{index}}" data-indexson="{{index_son}}" class="{{item_sonTwo === index_son ? 'index_son' : ''}}" bindtap='changenormal'>
+            {{item_son.value}}
+            </view>
+          </view>
+          <view class="valueItem" wx:if="{{index===2}}"><!--第3个大分类规格-->
+            <view wx:for="{{item.normses}}" wx:key="{{item_son.valueId}}" wx:for-item="item_son" wx:for-index="index_son" data-index="{{index}}" data-indexson="{{index_son}}" class="{{item_sonThree === index_son ? 'index_son' : ''}}" bindtap='changenormal'>
+            {{item_son.value}}
+            </view>
+          </view>
+        </view>
+        <view class="buyNumKey">
+          <text>购买数量</text>
+          <view class="addOrDel flex">
+            <image src='../../image/delNew.png' bindtap='changeNum' data-key="1"></image>
+            <text>{{isbuyMinCount}}</text>
+            <image src='../../image/addNew.png' bindtap='changeNum' data-key="2"></image>
+          </view>
+        </view>
+    </view>
+    <view class="bottom">
+      <view bindtap='tosureActive'>
+        确定
+     </view>  
+    </view>
+  </view>
+</view>
+<!-- //canvas -->
+  <view class="canvas flex" hidden="{{!canvasImg}}" catchtouchmove="preventD">
+    <view catchtouchmove="preventD">
+      <canvas canvas-id="mycanvas" class="canvasId" style="z-index:1200;background-color: #ffffff;" bindtap='closeEwm' bindlongpress="saveImgTolocal"></canvas>
+    </view>
   </view>

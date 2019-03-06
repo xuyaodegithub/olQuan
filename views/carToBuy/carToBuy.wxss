@@ -135,6 +135,7 @@ page{
    line-height: 84rpx;
    color: #333;
    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
   }
   .userMess .checkedBottom text{
     font-size: 24rpx;
@@ -191,7 +192,7 @@ page{
     top: 0;
     height: 100%;
     width: 100%;
-    z-index: 99;
+    z-index: 666;
     background: rgba(0,0,0,.5);
  }
  .couponContent{

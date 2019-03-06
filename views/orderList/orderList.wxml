@@ -48,6 +48,7 @@
       <view class='listNoCent'>
         <view>订单号:{{item.orderNo}}
           <view style='display:inline' wx:if="{{item.type==7}}">(粉领专享)</view>
+          <view style='display:inline' wx:if="{{item.type==13}}">(天天送)</view>
         </view>
         <view class='listStatus' wx:if="{{item.status==0}}">待付款</view>
         <view class='listStatus' wx:if="{{item.status==1}}">待发货</view>
@@ -66,7 +67,7 @@
       </view>
       <view class='order-list'>
         <view class='shopName'>{{item.sellerName}}</view>
-        <view class='productList'>
+        <view class='productList' bindtap='getDetail'  data-orderId="{{item.orderId}}">
           <view class='productDetail' wx:key="{{index}}" wx:for="{{item.items}}">
             <view>
               <image class='productImage' src='{{item.productImage}}'></image>

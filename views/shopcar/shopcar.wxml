@@ -15,7 +15,7 @@
     <view wx:for="{{item.detailDtos}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}" class="product_mess flex">
         <image src="../../image/nochose.png" wx:if="{{itemSon.choseOr==0}}" data-index="{{index}}" data-indexson="{{indexSon}}" bindtap='choseOneProduct'></image>
         <image src="../../image/checked.png" wx:else data-index="{{index}}" data-indexSon="{{indexSon}}"  bindtap='cancalOneProduct'></image>
-        <view class="cneter">
+        <view class="cneter" bindtap='goDetial' data-id="{{itemSon.productId}}">
           <view wx:if="{{item.setAll==0}}" class="first flex">
             <image src="{{itemSon.productImage}}"></image>
             <view class="name">

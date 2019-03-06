@@ -1,0 +1,48 @@
+/* views/company/company.wxss */
+page{
+  background-color: #fff;
+}
+.first,.thired{
+  position: relative;
+}
+.first > image,.thired > image,.fours > image{
+  display: block;
+  width: 100%;
+}
+.first > view{
+  position: absolute;
+  width: 630rpx;
+  height: 354rpx;
+  left: 50%;
+  bottom: 78rpx;
+  margin-left:-315rpx; 
+}
+.first > view video{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.first > view >image:last-child,.thired > view >image:last-child{
+  position: absolute;
+  width: 86rpx;
+  height: 86rpx;
+  left: 50%;
+  top: 50%;
+  margin: -43rpx 0 0 -43rpx;
+}
+.thired > view{
+ position: absolute;
+  width: 540rpx;
+  height: 380rpx;
+  left: 30rpx;
+  bottom: 78rpx;
+}
+.thired > view >video:first-child{
+  display: block;
+  width: 100%;
+  height:100%;
+}
+.second > image{
+  display: block;
+  width: 100%;
+}

@@ -35,6 +35,9 @@
      <view class="typeTitle" wx:if="{{item.type===9}}">
               特卖
      </view>
+     <view class="typeTitle" wx:if="{{item.type===14}}">
+              天天送
+     </view>
   </view>
 </view>
 <view class="position"  wx:if="{{isShow}}">

@@ -19,7 +19,7 @@
       <view class='productName'>
         <view class='nameTop'>
           <view class='nameT-T'>{{item.productName}}</view>
-          <view style="color: #FA0072;margin-top: 40rpx;">{{item.price}}</view>
+          <view style="color: #FA0072;margin-top: 40rpx;">￥{{item.price}}</view>
         </view>
       </view>
     </view>
@@ -59,24 +59,49 @@
     <view class='stores'>
       <view class='stores-l'>小金库<text decode="nbsp"> &nbsp;({{curObj.coffers}}元)</text></view>
       <view class='stores-r'>
-        <text wx:if="{{pledgeMethod==2}}">-￥{{coffersFeeObj}}</text>
-        <view class='choosePay' bindtap='inputCoofers'>
+        <!-- <text wx:if="{{pledgeMethod==2}}">-￥{{coffersFeeObj}}</text> -->
+        <text wx:if="{{iscoffers>0}}">-￥{{iscoffers}}</text>
+        <view class='choosePay' bindtap='inputchecked' data-num="1">
           <image wx:if="{{!coffersFeeShow}}" src='../../../image/nochose.png'></image>
           <image wx:if="{{coffersFeeShow}}" src='../../../image/checked.png'></image>
         </view>
       </view>
+    </view>
+    <view class="input">
+      <input value="{{iscoffers}}" type="digit" bindinput='changeValue' data-num="1" wx:if="{{coffersFeeShow}}"></input>
     </view>
   </view>
   <view class='choosestores' wx:if="{{curObj.amount>0}}">
     <view class='stores'>
       <view class='stores-l'>余额<text decode="nbsp"> &nbsp;({{curObj.amount}}元)</text></view>
       <view class='stores-r'>
-        <text wx:if="{{pledgeMethod==3}}">-￥{{amountFeeObj}}</text>
-        <view class='choosePay' bindtap='inputAmount'>
+        <!-- <text wx:if="{{pledgeMethod==3}}">-￥{{amountFeeObj}}</text> -->
+        <text wx:if="{{isamount>0}}">-￥{{isamount}}</text>
+        <view class='choosePay' bindtap='inputchecked' data-num="2">
           <image wx:if="{{!amountFeeShow}}" src='../../../image/nochose.png'></image>
           <image wx:if="{{amountFeeShow}}" src='../../../image/checked.png'></image>
         </view>
       </view>
+    </view>
+    <view class="input">
+        <input value="{{isamount}}" type="digit" bindinput='changeValue' data-num="2" wx:if="{{amountFeeShow}}"></input>
+    </view>
+  </view>
+   <view class='choosestores' wx:if="{{curObj.goldBean>9}}">
+    <view class='stores'>
+      <view class='stores-l'>金豆<text decode="nbsp"> &nbsp;（{{curObj.goldBean}}可抵现{{curObj.goldBean/10}}元）</text></view>
+      <view class='stores-r'>
+        <!-- <text wx:if="{{pledgeMethod==3}}">-￥{{amountFeeObj}}</text> -->
+        <text wx:if="{{goldBeanFeeShow}}">{{isgoldBean>9 ? '-￥'+isgoldBean/10 : '最低10金豆'}}</text>
+        <view class='choosePay flex' bindtap='inputchecked' data-num="3">
+          <!-- <text>{{isgoldBean>99 ? '-￥'+isgoldBean/10 : '最低10金豆'}}</text> -->
+          <image wx:if="{{!goldBeanFeeShow}}" src='../../../image/nochose.png'></image>
+          <image wx:if="{{goldBeanFeeShow}}" src='../../../image/checked.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class="input">
+        <input value="{{isgoldBean}}" type="number" bindinput='changeValue' data-num="3" wx:if="{{goldBeanFeeShow}}"></input>
     </view>
   </view>
 </view>
@@ -87,13 +112,17 @@
       <view class='solo-l'>商品总额</view>
       <view class='solo-r'>￥{{prodrctFee}}</view>
     </view>
-    <view class='soloDetail' wx:if="{{coffersFeeShow}}">
+    <view class='soloDetail' wx:if="{{coffersFeeShow && iscoffers>0}}">
       <view class='solo-l'>小金库</view>
-      <view class='solo-r'>-￥{{coffersFeeObj}}</view>
+      <view class='solo-r'>-￥{{iscoffers}}</view>
     </view>
-    <view class='soloDetail' wx:if="{{amountFeeShow}}">
+    <view class='soloDetail' wx:if="{{amountFeeShow && isamount>0}}">
       <view class='solo-l'>余额</view>
-      <view class='solo-r'>-￥{{amountFeeObj}}</view>
+      <view class='solo-r'>-￥{{isamount}}</view>
+    </view>
+     <view class='soloDetail' wx:if="{{goldBeanFeeShow && isgoldBean > 9}}">
+      <view class='solo-l'>金豆</view>
+      <view class='solo-r'>-￥{{isgoldBean/10}}</view>
     </view>
     <view class='soloDetail'>
       <view class='solo-l'>应付</view>
@@ -112,6 +141,12 @@
       <image src='../../../image/waychose.png'> </image>
     </view>
   </view>
+</view>
+<view style="font-size:22rpx;padding:24rpx 24rpx 0 24rpx;line-height:36rpx;background-color:#fff;">
+  购买即视为同意<text style="color:blue;border-bottom:1px solid blue;" bindtap='goxieyi'>《OL圈店主会员卡服务协议》</text>
+</view>
+<view style="font-size:22rpx;color:#999;padding:0 24rpx 24rpx 24rpx;line-height:36rpx;background-color:#fff;">
+  店主会员卡服务一经开通不支持取消和退款
 </view>
 <view class='orderPay'>
   <view class='moneyPay'>

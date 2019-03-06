@@ -56,7 +56,19 @@ Page({
   onReady: function () {
 
   },
-
+//进详情
+  goDetial(e){
+    // 1 p 2s 7t 
+    let id = e.currentTarget.dataset.id ? e.currentTarget.dataset.id : ''
+    let typeP = e.currentTarget.dataset.type ? e.currentTarget.dataset.type : ''
+    let type=1
+    if (typeP == 1) type=1
+    else if (typeP == 2) type = 4
+    else if (typeP==13) type=14
+    wx.navigateTo({
+      url: '/views/detial/detial?id=' + id + '&type=' + type,
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

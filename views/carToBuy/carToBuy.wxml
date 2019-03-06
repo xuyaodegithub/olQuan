@@ -36,9 +36,9 @@
   </view>
 </view>
  <view class="userMess">
-    <view>账户</view>
+     <view wx:hidden="{{(productType=='4' && OrderList.amount <1) || (productType=='4' && OrderList.coffers <1) || (productType!='4' && OrderList.amount < 1 && OrderList.coffers < 1 && OrderList.score < 100 && OrderList.score < 10)}}">账户</view>
     <view wx:for="{{moneyClass}}" wx:key="{{index}}">
-        <view class="flex anyPay" wx:if="{{OrderList[item.mean]>0}}">
+         <view class="flex anyPay" wx:if="{{(item.mean!=='score' && item.mean!=='goldBean' && OrderList[item.mean]>0) || (item.mean==='score' && OrderList[item.mean]>100) || (item.mean==='goldBean' && OrderList[item.mean]>10)}}">
           <view class="left">
             <view wx:if="{{item.mean==='score' && OrderList.score>100 && productType!=='4'}}">
             {{item.title}}<text>（{{OrderList.score}}可抵现{{OrderList.score/100}}元）</text>
@@ -57,19 +57,19 @@
             </view> -->
           </view>
           <!-- wx:if="{{productType!=='4'}}" -->
-          <view class="right flex" wx:if="{{!((productType=='4' && index===0) ||(productType=='4' && index===3))}}"> 
-            <view wx:if="{{moneyNum===index}}" class="elenum"> 
-              <text wx:if="{{index===0}}"> {{isScore>99 ? '-￥'+isScore/100 : '最低100积分'}}</text>
-              <text wx:elif="{{index===3}}"> {{isGoldBean>9 ? '-￥'+isGoldBean/10 : '最低10金豆'}}</text>
-              <text wx:elif="{{index===1 && isAmount}}">-￥{{isAmount}}</text>
-              <text wx:elif="{{index===2 && isCoffers}}">-￥{{isCoffers}}</text>
+         <view class="right flex" wx:if="{{!((productType=='4' && item.mean==='score') ||(productType=='4' && item.mean==='goldBean') || (productType=='14' && item.mean==='goldBean'))}}"> 
+            <view wx:if="{{item.showOrhidden}}" class="elenum"> 
+               <text wx:if="{{item.mean==='score'}}"> {{isScore>99 ? '-￥'+isScore/100 : '最低100积分'}}</text>
+              <text wx:elif="{{item.mean==='goldBean'}}"> {{isGoldBean>9 ? '-￥'+isGoldBean/10 : '最低10金豆'}}</text>
+              <text wx:elif="{{item.mean==='amount' && isAmount}}">-￥{{isAmount}}</text>
+              <text wx:elif="{{item.mean==='coffers' && isCoffers}}">-￥{{isCoffers}}</text>
             <!-- -￥{{muchNum}} -->
             </view>
-            <view class="border"  wx:if="{{moneyNum!==index}}" bindtap='checkedThis' data-item="{{item}}" data-index="{{index}}"></view>
-            <image src="../../image/checked.png"  wx:if="{{moneyNum===index}}" data-index="{{index}}" bindtap='checkedThis'></image>
+            <view class="border"  wx:if="{{!item.showOrhidden}}" bindtap='checkedThis' data-item="{{item}}" data-index="{{index}}"></view>
+            <image src="../../image/checked.png"  wx:else  data-item="{{item}}"  data-index="{{index}}" bindtap='checkedThis'></image>
           </view>
         </view>
-        <view wx:if="{{moneyNum===index}}" class="checkedBottom">
+        <view wx:if="{{item.showOrhidden}}" class="checkedBottom">
           <view wx:if="{{item.mean==='score'}}">
             <input type="number" value="{{isScore}}" data-item="{{item}}" bindinput="putinMoney"></input>{{item.title}}<text>(最低100积分)</text>
           </view>
@@ -99,21 +99,28 @@
         <text>商品总额</text>
         <text>￥{{OrderList.totalFee}}</text>
       </view>
-      <view wx:if="{{moneyNum===0 && isScore>99}}"  class="flex">
-        <text>{{deleTitle}}</text>
-        <text>-￥{{muchNum}}</text>
+      <view wx:if="{{isScore>99}}"  class="flex">
+        <text>积分</text>
+        <text>-￥{{filters.changePrice(isScore/100)}}</text>
       </view>
-      <view wx:elif="{{moneyNum===3 && isGoldBean>9}}"  class="flex">
-        <text>{{deleTitle}}</text>
-        <text>-￥{{muchNum}}</text>
+      <view wx:elif="{{isGoldBean>9}}"  class="flex">
+        <text>金豆</text>
+        <text>-￥{{filters.changePrice(isGoldBean/10)}}</text>
       </view>
-      <view wx:elif="{{(moneyNum===1 && isAmount) || (moneyNum===2 && isCoffers)}}"  class="flex">
-        <text>{{deleTitle}}</text>
-        <text>-￥{{muchNum}}</text>
+      <view wx:if="{{isAmount>0}}"  class="flex">
+        <text>余额</text>
+        <text>-￥{{isAmount}}</text>
+      </view>
+       <view wx:if="{{isCoffers}}"  class="flex">
+        <text>小金库</text>
+        <text>-￥{{isCoffers}}</text>
       </view>
        <view wx:if="{{couponSell}}"  class="flex">
         <text>优惠券</text>
         <text>-￥{{couponSell}}</text>
+      </view>
+       <view style="color:#D33778;font-size:24rpx;line-height:60rpx;text-align:right;border-top:1px solid #EBEBEB;" wx:if="{{OrderList.totalScore}}">
+      {{OrderList.totalScore}}
       </view>
     </view>
       <!-- 支付方式 -->
@@ -131,7 +138,7 @@
       </view>
     </view>
   </view>
-<!-- //优惠券弹框 -->
+<!-- //优惠券弹框  catchtouchmove="preventD"-->
 <view class="couponList" wx:if="{{isCoupon}}">
   <view class="couponContent">
     <view class="top flex">

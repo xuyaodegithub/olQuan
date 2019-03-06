@@ -170,7 +170,7 @@ overflow: hidden;
   right: 0;
   top: 18rpx;
   line-height: 40rpx;
-  padding: 0 20rpx 0 32rpx;
+  padding: 0 15rpx 0 15rpx;
   background-color: #E50F72;
   color: #FFFFFF;
   font-size: 26rpx;

@@ -1,0 +1,7 @@
+<view class="flex">
+  <view>对方OL圈账户</view>
+  <input type='text' value="{{account}}" bindinput='setAccount' placeholder='OL圈账号/手机号'></input>
+  <image src="/image/qrcode.png" bindtap='openQrcode'></image>
+</view>
+<view class="watch">金豆将实时转入到对方OL圈账户，无法撤销</view>
+<view class="btn" bindtap='nextTo'>下一步</view>

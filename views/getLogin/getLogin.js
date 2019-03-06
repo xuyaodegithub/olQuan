@@ -29,6 +29,8 @@ Page({
         let url = '/' + callBackUrl.url
         if (callBackUrl.id){
           url = '/' + callBackUrl.url + '?id=' + callBackUrl.id
+        }else{
+          url = '/' + callBackUrl.url + '?ordeNo=' + callBackUrl.ordeNo
         }
         if (callBackUrl.type){
           url += '&type=' + callBackUrl.type

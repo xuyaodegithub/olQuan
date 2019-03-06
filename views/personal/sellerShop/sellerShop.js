@@ -129,12 +129,13 @@ Page({
         memberId: app.userId,
         objId: _self.data.sellerShopList.sellerId,
         type:2,
+        productType:''
       },
       callback: function (res) {
         if (isCollect==1){
           wx.showToast({
             title: '取消收藏',
-            icon: 'success',
+            icon: 'none',
             duration: 2000
           })
           
@@ -144,7 +145,7 @@ Page({
         } else {
           wx.showToast({
             title: '收藏成功',
-            icon: 'success',
+            icon: 'none',
             duration: 2000
           })
          

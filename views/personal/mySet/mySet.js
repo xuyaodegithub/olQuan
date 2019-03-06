@@ -431,7 +431,9 @@ Page({
     }
     
   },
-  changePassword(){
+  changePassword(e){
+    let active = e.currentTarget.dataset.active
+    let str=''
     if (this.data.memberList.mobile == ''){
       wx.showToast({
         title: '请先绑定手机号',
@@ -439,8 +441,11 @@ Page({
         duration: 2000
       });
     }else{
-      wx: wx.navigateTo({
-        url: '/views/personal/updatepayPassword/updatepayPassword?phone=' + this.data.memberList.mobile,
+      if (active == 1) {
+          str='login'
+      }
+      wx.navigateTo({
+        url: '/views/personal/updatepayPassword/updatepayPassword?phone=' + this.data.memberList.mobile+'&type='+str,
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },

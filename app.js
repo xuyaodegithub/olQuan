@@ -8,6 +8,7 @@ App({
   scene:'',//场景值
   uutype:1,//终端类型
   baseUrl: 'https://test-mobile.olquan.cn',
+  // baseUrl:'https://ol-mobile.olquan.cn',  
   // baseUrl: 'https://ol-site.olquan.cn',
   snrcUrl: 'https://moco.olquan.cn/',//正式SNRC
   userId: '',//openId

@@ -1,7 +1,7 @@
 <!--views/personal/payMent/payMent.wxml-->
 <view class='payment'>
   <view class='account'>账户</view>
-  <view class='choosestores' wx:if="{{curObj.type!=2 && memberList.score>0 && curObj.type!=3}}">
+  <!-- <view class='choosestores' wx:if="{{curObj.type!=2 && memberList.score>0 && curObj.type!=3}}">
     <view class='stores'>
       <view class='stores-l'>积分<text decode="nbsp"> &nbsp;({{memberList.score}}积分)</text></view>
       <view class='stores-r'>
@@ -17,20 +17,20 @@
       <input class="storeNum" value='{{scoreFee}}' bindinput='inputScoreFee' type='number'></input>
       <text style='color:#888;'>积分(最低100积分)</text>
     </view>
-  </view>
+  </view> -->
   <view class='choosestores' wx:if="{{memberList.coffers>0}}">
     <view class='stores'>
       <view class='stores-l'>小金库<text decode="nbsp"> &nbsp;({{memberList.coffers}}元)</text></view>
       <view class='stores-r'>
-        <text wx:if="{{coffersFeeShow}}">-￥{{coffersFeeObj}}</text>
-        <view class='choosePay' bindtap='inputCoofers'>
+        <text wx:if="{{iscoffers>0}}">-￥{{iscoffers}}</text>
+        <view class='choosePay' bindtap='inputchecked' data-num="1" data-mean="coffers">
           <image wx:if="{{!coffersFeeShow}}" src='../../../image/nochose.png'></image>
           <image wx:if="{{coffersFeeShow}}" src='../../../image/checked.png'></image>
         </view>
       </view>
     </view>
     <view class='usestore' wx:if="{{coffersFeeShow}}">
-      <input class="storeNum" value='{{coffersFee}}' bindinput='inputCoffersFee' type='number'></input>
+      <input class="storeNum" value='{{iscoffers}}' bindinput='changeValue' data-num="1" type='digit'></input>
       <text>元</text>
     </view>
   </view>
@@ -38,33 +38,33 @@
     <view class='stores'>
       <view class='stores-l'>余额<text decode="nbsp"> &nbsp;({{memberList.amount}}元)</text></view>
       <view class='stores-r'>
-        <text wx:if="{{amountFeeShow}}">-￥{{amountFeeObj}}</text>
-        <view class='choosePay' bindtap='inputAmount'>
+        <text wx:if="{{isamount>0}}">-￥{{isamount}}</text>
+        <view class='choosePay' bindtap='inputchecked' data-num="2"  data-mean="amount">
           <image wx:if="{{!amountFeeShow}}" src='../../../image/nochose.png'></image>
           <image wx:if="{{amountFeeShow}}" src='../../../image/checked.png'></image>
         </view>
       </view>
     </view>
     <view class='usestore' wx:if="{{amountFeeShow}}">
-      <input class="storeNum" value='{{amountFee}}' bindinput='inputAmountFee' type='number'></input>
+      <input class="storeNum" value='{{isamount}}' bindinput='changeValue' data-num="2" type='digit'></input>
       <text>元</text>
     </view>
   </view>
-  <view class='choosestores' wx:if="{{curObj.type!=2 && memberList.goldBean>0 && curObj.personal!=1  && curObj.type!=3}}">
+  <view class='choosestores' wx:if="{{curObj.type!=2 && memberList.goldBean>0 && curObj.personal!=1  && curObj.type!=3 && curObj.type!=13}}">
     
     <view class='stores'>
       <view class='stores-l'>金豆<text decode="nbsp"> &nbsp;({{memberList.goldBean}}可抵现{{memberList.goldBean/10}}元)</text></view>
       <view class='stores-r'>
-        <text wx:if="{{goldBeanFeeShow && goldBeanFee>=10}}">-￥{{goldBeanFeeObj}}</text>
-        <text wx:if="{{goldBeanFeeShow && goldBeanFee<10}}">最低10金豆</text>
-        <view class='choosePay' bindtap='inputGoldBean'>
+        <text wx:if="{{goldBeanFeeShow && isgoldBean>=10}}">-￥{{isgoldBean/10}}</text>
+        <text wx:if="{{goldBeanFeeShow && isgoldBean<10}}">最低10金豆</text>
+        <view class='choosePay' bindtap='inputchecked' data-num="3"  data-mean="goldBean">
           <image wx:if="{{!goldBeanFeeShow}}" src='../../../image/nochose.png'></image>
           <image wx:if="{{goldBeanFeeShow}}" src='../../../image/checked.png'></image>
         </view>
       </view>
     </view>
     <view class='usestore' wx:if="{{goldBeanFeeShow}}">
-      <input class="storeNum" value='{{goldBeanFee}}' bindinput='inputGoldBeanFee' type='number'></input>
+      <input class="storeNum" value='{{isgoldBean}}' bindinput='changeValue' data-num="3" type='number'></input>
       <text style='color:#888;'>金豆(最低10金豆)</text>
     </view>
   </view>
@@ -80,21 +80,21 @@
       <view class='solo-l'>金豆</view>
       <view class='solo-r'>-{{freeUseGoldBean}}</view>
     </view>
-    <view class='soloDetail' wx:if="{{scoreFeeShow && scoreFee>=100}}">
+    <!-- <view class='soloDetail' wx:if="{{isscore && scoreFee>=100}}">
       <view class='solo-l'>积分</view>
       <view class='solo-r'>-￥{{scoreFeeObj}}</view>
-    </view>
-    <view class='soloDetail' wx:if="{{coffersFeeShow}}">
+    </view> -->
+    <view class='soloDetail' wx:if="{{iscoffers>0}}">
       <view class='solo-l'>小金库</view>
-      <view class='solo-r'>-￥{{coffersFeeObj}}</view>
+      <view class='solo-r'>-￥{{iscoffers}}</view>
     </view>
-    <view class='soloDetail' wx:if="{{amountFeeShow}}">
+    <view class='soloDetail' wx:if="{{isamount>0}}">
       <view class='solo-l'>余额</view>
-      <view class='solo-r'>-￥{{amountFeeObj}}</view>
+      <view class='solo-r'>-￥{{isamount}}</view>
     </view>
-    <view class='soloDetail' wx:if="{{goldBeanFeeShow && goldBeanFee>=10}}">
+    <view class='soloDetail' wx:if="{{goldBeanFeeShow && isgoldBean>9}}">
       <view class='solo-l'>金豆</view>
-      <view class='solo-r'>-￥{{goldBeanFeeObj}}</view>
+      <view class='solo-r'>-￥{{isgoldBean/10}}</view>
     </view>
     <view class='soloDetail' wx:if="{{curObj.couponFee>0}}">
       <view class='solo-l'>优惠券</view>
@@ -102,11 +102,11 @@
     </view>
     <view class='soloDetail'>
       <view class='solo-l'>应付</view>
-      <view class='solo-r'>￥{{finalFeeObj}}</view>
+      <view class='solo-r'>￥{{finalPriceObj}}</view>
     </view>
   </view>
 </view>
-<view class='orderSure'>
+<!-- <view class='orderSure'>
   <view class='chooseOrder'>支付方式</view>
   <view class='orderWay'>
     <view class='wayLeft'>
@@ -117,9 +117,22 @@
       <image src='../../../image/waychose.png'> </image>
     </view>
   </view>
-</view>
+</view> -->
+ <view class="paymemoy">
+      <view>支付方式</view>
+      <view class="flex" wx:for="{{payWhich}}" wx:key="{{index}}" wx:if="{{!(productType==4 && index==1)}}">
+        <view class="left flex">
+          <image src="{{item.img}}"></image>
+          <text>{{item.title}}</text>
+        </view>
+        <view class="right" bindtap='chosePay' data-item="{{item}}" data-index="{{index}}">
+          <view class="border" wx:if="{{!item.yn}}"></view>       
+          <image src="../../../image/waychose.png" wx:else></image>        
+        </view>
+      </view>
+    </view>
 <view class='sure'>
-  <text class='money'>应付金额：<text style='color:#e61d79;font-size:24rpx;'>￥</text><text style='color:#e61d79;'>{{finalFeeObj}}</text></text>
+  <text class='money'>应付金额：<text style='color:#e61d79;font-size:24rpx;'>￥</text><text style='color:#e61d79;'>{{finalPriceObj}}</text></text>
   <view class='sureOrder' bindtap="submitOrder">提交订单</view>
 </view>
 <view class='shade' wx:if="{{payPasswordShow}}">

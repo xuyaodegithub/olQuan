@@ -14,13 +14,14 @@ Page({
     numDetail:'',
     status:0,
     scoreSure:false,
+    memberList:'',
+    first:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
     let _self = this;
     if (options.type==2){
       _self.setData({
@@ -37,31 +38,31 @@ Page({
       _self.setData({
         mername: '账户余额',
         typeNum: options.type,
-        numDetail: options.number,
+        // numDetail: options.number,
       })
     } else if (options.type == 5){
       _self.setData({
         mername: '待定余额',
         typeNum: options.type,
-        numDetail: options.number,
+        // numDetail: options.number,
       })
     } else if (options.type == 3) {
       _self.setData({
         mername: '小金库',
         typeNum: options.type,
-        numDetail: options.number,
+        // numDetail: options.number,
       })
     } else if (options.type == 6) {
       _self.setData({
         mername: '金豆',
         typeNum: options.type,
-        numDetail: options.number,
+        // numDetail: options.number,
       })
     } else if (options.type == 7) {
       _self.setData({
         mername: '金豆',
         typeNum: options.type,
-        numDetail: options.number,
+        // numDetail: options.number,
       })
     } else if (options.type == 4 || options.type == 2) {
       _self.setData({
@@ -76,6 +77,7 @@ Page({
       title: _self.data.mername
     })
     common.methods.getLoginMess(this.getAmountDetail)
+    // this.getMember()
   },
   //获取钱包明细
   getAmountDetail(isMore){
@@ -117,12 +119,47 @@ Page({
     }
     common.methods.mothod1(banners)
   },
+  //进入加载
+  getMember() {
+    let _self = this;
+    let banners = {
+      url: '/mobile/member/getMember',
+      data: {
+        memberId: app.userId
+      },
+      callback: function (res) {
+        _self.setData({
+          memberList: res.data.result,
+        }, _self.getDetialnumM)
+      }
+    }
+    common.methods.mothod1(banners)
+  },
+  //获取值
+  getDetialnumM(){
+    let detailaNum=''
+    if (this.data.typeNum==1){
+      detailaNum=this.data.memberList.amount
+    } else if (this.data.typeNum == 5) detailaNum = this.data.memberList.waitAmount
+    else if (this.data.typeNum == 3) detailaNum = this.data.memberList.coffers
+    else if (this.data.typeNum == 6) detailaNum = this.data.memberList.goldBean
+    else if (this.data.typeNum == 7) detailaNum = this.data.memberList.waitGoldBean
+    this.setData({
+      numDetail: detailaNum
+    })
+  },
+  //金豆兑换
+  goexchange(){
+    wx.navigateTo({
+      url: './gbexchange/gbexchange',
+    })
+  },
   //获取积分明细
   getScoresDetail(){
     
     let _self = this
     let banners = {
-      url: '/mobile / member / totalAmount',
+      url: '/mobile/member/totalAmount',
       data: {
         memberId: app.userId,
         type: 4,
@@ -175,6 +212,18 @@ Page({
     })
     this.getAmountDetail();
   },
+  //转账页面
+  goTrans(){
+    wx.navigateTo({
+      url: './Transfer/Transfer',
+    })
+  },
+  //我的二维码
+  toMyErm(){
+    wx.navigateTo({
+      url: './myerm/myerm',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -186,7 +235,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getMember()
+    common.methods.getLoginMess(this.getAmountDetail)
   },
 
   /**

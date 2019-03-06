@@ -62,7 +62,6 @@ page {
   height: 380rpx;
   background: #fff;
   margin: 0 auto;
- 
   border-radius: 10rpx;
   position: relative;
   overflow: hidden;

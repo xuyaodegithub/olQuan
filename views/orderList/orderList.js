@@ -333,7 +333,6 @@ Page({
   },
   //立即付款
   payMent(e){
-
     wx: wx.navigateTo({
       url: '/views/personal/payMent/payMent?id=' + e.currentTarget.dataset.id,
       success: function (res) { },

@@ -1,0 +1,40 @@
+/* views/personal/wllletList/myerm/myerm.wxss */
+page{
+  background-color: #F7F7F7;
+  padding: 0 32rpx;
+  width:-webkit-calc(100% - 64rpx); 
+  width:-moz-calc(100% - 64rpx); 
+  width:calc(100% - 64rpx);
+}
+.one{
+  background-color: #ffffff;
+  margin-top: 138rpx;
+  padding-top: 50rpx;
+}
+.one image:first-child{
+  display: block;
+  height: 110rpx;
+  width:110rpx;
+  margin:0 auto;
+  margin-top: 50rpx;
+  border-radius: 50%;
+}
+.one image:nth-child(3){
+  margin: 0 auto;
+  display: block;
+  width: 510rpx;
+  height: 510rpx;
+  /* margin-top: 74rpx; */
+}
+.one view:last-child{
+  color: #999999;
+  font-size: 24rpx;
+  text-align: center;
+  padding: 46rpx 0 38rpx 0;
+}
+.one view:nth-child(2){
+  font-size: 28rpx;
+  color: #333333;
+  text-align: center;
+  margin-top: 24rpx;
+}

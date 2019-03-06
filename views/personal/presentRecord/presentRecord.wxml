@@ -6,9 +6,10 @@
   </view>
   <view class='statusAccount'>
     <view>{{item.accountBank}}:{{item.accountNo}}</view>
-    <view wx:if="{{item.status==0||item.status==3}}" style='color:#999;font-size:32rpx;'>审核中</view>
+    <view wx:if="{{item.status==0}}" style='color:#999;font-size:32rpx;'>待处理</view>
     <view wx:if="{{item.status==1}}" style='color:#999;font-size:32rpx;'>已发放</view>
-    <view wx:if="{{item.status==2}}" style='color:#ff0000;font-size:32rpx;'>未通过</view>
-    <view wx:if="{{item.status==4}}" style='color:#999;font-size:32rpx;'>已取消</view>
+    <view wx:if="{{item.status==2}}" style='color:#ff0000;font-size:32rpx;'>审核未通过</view>
+    <view wx:if="{{item.status==3}}" style='color:#999;font-size:32rpx;'>审核已通过</view>
+    <view wx:if="{{item.status==4}}" style='color:#999;font-size:32rpx;'>取消提现</view>
   </view>
 </view>

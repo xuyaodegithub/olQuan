@@ -122,6 +122,10 @@ Page({
       wx.showToast({ title: '请输入验证码', icon: 'none' })
       return;
     }
+    if (this.data.code.length!=6) {
+      wx.showToast({ title: '请输入6位数验证码', icon: 'none' })
+      return;
+    }
     wx: wx.navigateTo({
       url: '/views/bindPhone/bindPhone?code='+this.data.code+'&oldPhone='+this.data.phone+'&type=1',
       success: function (res) { },

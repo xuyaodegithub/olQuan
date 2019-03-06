@@ -112,3 +112,6 @@ page{
   color: #637489;
   margin: 0 auto;
 }
+.givechose .cbtn.active{
+  background: #BDBCBC;
+}

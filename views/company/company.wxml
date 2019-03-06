@@ -1,0 +1,25 @@
+<view class="first">
+  <image src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/d57f615af828490f989e300b81649f250daab315?x-oss-process=style/zipig" mode='widthFix'></image>
+  <view>
+    <!-- <image src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/a89203086875838b85abdf046513f8fb80461100?x-oss-process=style/zipig" mode='widthFix'></image> -->
+    <video src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/b48081035226f7314ff2d62d3b98c787891623ad"  poster='https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/a89203086875838b85abdf046513f8fb80461100?x-oss-process=style/zipig' enable-play-gesture='true' show-center-play-btn="{{false}}" id="video1"
+    bindpause="stopVideo1" controls="{{controls1}}" enable-play-gesture="{{true}}"  bindplay="goplay"></video>
+    <image src="../../image/bofang.png"  wx:if="{{showOne}}"  bindtap='paly' data-type="1"></image>
+  </view>
+</view>
+<view class="second" style="margin-top:-50rpx;">
+  <image src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/imgs/91b297f2d3d788cd40aae2050b0c1a2d9be73640?x-oss-process=style/zipig" mode='widthFix'></image>
+  <image src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/imgs/c1ca0e4a3339536c89e3bb7075e7de51a0ef2bcd?x-oss-process=style/zipig" mode='widthFix'  style="margin-top:-50rpx;"></image>
+</view>
+<view class="thired"  style="margin-top:-50rpx;">
+  <image src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/imgs/1450527ff8a3d6f01851df78c81a94a8a1075489?x-oss-process=style/zipig" mode='widthFix'></image>
+  <view>
+    <!-- <image src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/451708975c1ccceaf781500e25fba18e0f27b9c9?x-oss-process=style/zipig" mode='widthFix'></image> -->
+    <video src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/9f86e6d0bbdc5aecf0717c2afd9470ccbeefc02a" controls poster='https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/451708975c1ccceaf781500e25fba18e0f27b9c9?x-oss-process=style/zipig' enable-play-gesture='true' show-center-play-btn="{{false}}" id="video2" bindpause="stopVideo2"  controls="{{controls2}}" enable-play-gesture="{{true}}" bindplay="goplay2"></video>
+    <image src="../../image/bofang.png" bindtap='paly' data-type="2" wx:if="{{showTwo}}"></image>
+  </view>
+</view>
+<view class="fours"  style="margin-top:-50rpx;">
+  <image src="https://ol-quan2017.oss-cn-shanghai.aliyuncs.com/imgs/cb8f2694ff53fbfd8152b3023416581af009b7bd?x-oss-process=style/zipig" mode='widthFix'></image>
+</view>
+ 

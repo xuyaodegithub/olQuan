@@ -1,0 +1,6 @@
+<view class="one">
+  <image src="{{MeberData.logo}}"></image>
+  <view>{{MeberData.nickName}}</view>
+  <image src="{{MeberData.twocodeUrl}}"></image>
+  <view>请将该二维码出示给对方扫码转账</view>
+</view>

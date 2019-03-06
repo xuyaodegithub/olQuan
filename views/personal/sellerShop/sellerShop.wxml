@@ -7,9 +7,7 @@
      <image bindtap='addCollect' wx:if="{{isCollect!=1}}" class='collectImg' src='../../../image/shoucang2.png'></image>
      <image bindtap='removeCollect' wx:if="{{isCollect==1}}" class='collectImg' src='../../../image/collected.png'></image>
     </view>
-    
   </view>
-  
 </view>
 <view class='logoOut'>
   <image class='backIMg' src='{{sellerShopList.sellerImage}}'></image>

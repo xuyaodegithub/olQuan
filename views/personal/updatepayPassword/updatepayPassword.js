@@ -17,6 +17,9 @@ Page({
     code: '',
     isPassWord:true,
     payPassWord:'',
+    phoneStr:'',
+    updataType:'',
+    placehold:''
   },
 
   /**
@@ -26,6 +29,8 @@ Page({
     this.setData({
       phone: options.phone,
       phoneStr: options.phone.substr(0, 3) + "****" + options.phone.substr(7),
+      updataType: options.type ? options.type : '',
+      placehold: options.type == 'login' ? '输入登录密码，至少6位' : '输入支付密码'
     })
   },
   getWxGraphCode() {
@@ -137,19 +142,22 @@ Page({
       return;
     }
     if (this.data.payPassWord==''){
-      wx.showToast({ title: '请输入支付密码', icon: 'none' })
+      wx.showToast({ title: '请输入密码', icon: 'none' })
+      return;
+    }
+    if (this.data.updataType == 'login' && this.data.payPassWord.length<6){
+      wx.showToast({ title: '登录密码长度不可小于6位', icon: 'none' })
       return;
     }
     let _self = this
-    
     let payPasswordStr = utilMd5.hexMD5(_self.data.payPassWord)
     // console.log(_self.data.payPassWord)
     let data = {
-      url: '/mobile/member/updatePayPassword',
+      url: this.data.updataType == 'login' ? '/mobile/member/updatePassword' : '/mobile/member/updatePayPassword',
       data: {
         memberId: app.userId,
         code: _self.data.code,
-        payPassword: payPasswordStr
+        // payPassword: payPasswordStr
       },
       callback: function (res) {
         wx.showToast({ title: '修改成功', icon: 'none' })
@@ -161,6 +169,11 @@ Page({
         })
         
       }
+    }
+    if (this.data.updataType == 'login'){
+      data.data.newPassword = payPasswordStr
+    }else{
+      data.data.payPassword = payPasswordStr
     }
     common.methods.mothod1(data)
   },

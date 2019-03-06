@@ -23,7 +23,8 @@ Page({
       isDialog:false,
       seachValue:'',
       isStartOrClose:true,
-      GetscrollTop:0
+      GetscrollTop:0,
+    isGetStoreCommission:''
   },
   callBack(res){
     this.setData({
@@ -56,6 +57,9 @@ Page({
       index:1,
       num:'4'
     }
+    this.setData({
+      isGetStoreCommission: app.isGetStoreCommission
+    })
     // console.log(this.route)
     common.methods.getLoginMess(this.getfirstBanner,this)
     // common.methods.setTabBarBadge(data)
@@ -175,6 +179,26 @@ Page({
         common.methods.mothod1(procuct)        
       }
     }
+    let Setdata = {
+      url: '/mobile/carItem/totalNum',
+      data: {
+        memberId: app.userId
+      },
+      callback: function (res) {
+        if (res.data.result > 0) {
+          wx.setTabBarBadge({
+            index: 1,
+            text: res.data.result.toString(),
+            success: function (res) {
+            },
+            fail: function (err) {
+              console.log(err)
+            }
+          })
+        }
+      }
+    }
+    common.methods.mothod1(Setdata)
     common.methods.mothod1(data)
     common.methods.mothod1(obj)
     common.methods.mothod1(classF)
@@ -200,6 +224,9 @@ Page({
   },
   //等分点击事件
   goCalssF(e){
+    // wx.navigateTo({
+    //     url: '../activePage/activePage?id=' + 97,
+    //   })
     console.log(e.currentTarget.dataset.link)
     if (e.currentTarget.dataset.type===4){
       wx.navigateTo({
@@ -211,7 +238,7 @@ Page({
       console.log('faxian')
     }else{
       wx.navigateTo({
-        url: '../activePage/activePage?id=' + e.currentTarget.dataset.item.otherInfo.id,
+        url: '../activePage/activePage?id=' + e.currentTarget.dataset.item.link.split('id=')[1],
       })
     }
    
@@ -355,7 +382,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    let Setdata = {
+      url: '/mobile/carItem/totalNum',
+      data: {
+        memberId: app.userId
+      },
+      callback: function (res) {
+        if (res.data.result>0){
+          wx.setTabBarBadge({
+            index: 1,
+            text: res.data.result.toString(),
+            success: function (res) {
+            },
+            fail: function (err) {
+              console.log(err)
+            }
+          })
+        }
+      }
+    }
+    if(app.userId){
+      common.methods.mothod1(Setdata)
+    }
   },
 
   /**

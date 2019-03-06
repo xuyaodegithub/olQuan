@@ -1,0 +1,53 @@
+<view class="viewTop">
+<image src="{{accountMess.logo}}"></image>
+<view>账户: {{accountMess.nickName}}</view>
+</view>
+<view class="flex teflex">
+<text>金豆数量</text>
+<input type='number' value='{{numValue}}' bindinput='setNum' placeholder='请输入转账金豆数量'></input>
+<text>个</text>
+</view>
+<view class="btn" bindtap='sureToGive'>确认转账</view>
+<!-- //支付弹框 -->
+<view class="password" wx:if="{{isPasswordShow}}">
+  <view class="title">请输入支付密码</view>
+    <input type='password' placeholder='请输入支付密码' value="{{isPassword}}" bindinput="getparssword" ></input>
+    <view class="flex">
+      <view bindtap='concalPay'>取消</view>
+      <view bindtap='surePay'>确定</view>
+    </view>
+</view>
+<view class="zhezhao" wx:if="{{isPasswordShow}}"></view>
+<view class='shade' wx:if="{{sureMobile}}"style='z-index:20;' bindtap='colseMobile'></view>
+<view wx:if="{{sureMobile}}" style='position: fixed;z-index:21;width:100%;top:300rpx;left:0;' >
+  <view class='shadeBox' style='width:85%;background:#f5f5fa;height:400rpx;'>
+    <view class='viewMobile'>你当前绑定的手机号码为：{{memberList.viewMobile}}</view>
+    <view class='inputIcon'>
+      <input bindinput="getCodeDetail" style='font-size:30rpx;background:#fff;' placeholder='请输入验证码' type="number" class='inputIconIn'></input>
+      <view wx:if="{{isDisabled}}" class='getCodeImg' bindtap='getWxGraphCode'>获取验证码</view>
+      <view wx:if="{{!isDisabled}}" class='getCodeImg' >{{time}}</view>
+    </view>
+    <view class='sureTixian' bindtap='telSureChange'>确认</view>
+    <!-- <view wx:if="{{!doubleClick}}" class='sureTixian'>确认</view> -->
+  </view>
+</view>
+<!-- 122 -->
+<view class='shade' wx:if="{{graphicCode}}" bindtap='colseCodeGet'></view>
+<view style='position: fixed;z-index:34;width:100%;top:300rpx;left:0;' wx:if="{{graphicCode}}">
+  <view class='shadeBox'>
+    <view bindtap='colseCodeGet' class='colseIcon'>
+      <image bindtap='colseCodeGet' style='display:block;width:100%;height:100%;' src='/image/duiClose.png'></image>
+    </view>
+    <view class='iconTip'>请在下方输入图片验证码</view>
+    <view class='inputIcon'>
+      <input bindinput='inputGraphicCode' type="number" class='inputIconIn'></input>
+      <view class='codeImg' bindtap='codeRefresh'>
+        <image style='width:100%;height:100%;' src='{{imgurl}}' bindtap='getGraphCodeDetail'></image>
+      </view>
+    </view>
+    <view>
+      <view wx:if="{{!cangetCode}}" class='sureCodeGet' style="opacity:0.6;">确认</view>
+      <view bindtap='sendCode' wx:if="{{cangetCode}}" class='sureCodeGet' style='background:#931EFF;'>确认</view>
+    </view>
+  </view>
+</view>

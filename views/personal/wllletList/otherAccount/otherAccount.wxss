@@ -1,0 +1,169 @@
+/* views/personal/wllletList/otherAccount/otherAccount.wxss */
+page{
+  padding: 66rpx 30rpx 0;
+  width:-webkit-calc(100% - 60rpx); 
+  width:-moz-calc(100% - 60rpx); 
+  width:calc(100% - 60rpx);
+}
+image{
+  display: block;
+  margin: 0 auto;
+  width: 110rpx;
+  height: 110rpx;
+  margin-bottom: 24rpx;
+  border-radius: 50%;
+}
+.viewTop{
+  font-size: 28rpx;
+  color: #333333;
+  text-align: center;
+}
+.flex.teflex{
+  font-size: 32rpx;
+  color: #333333;
+  line-height: 108rpx;
+  border-bottom: 1px solid #E1E1E1;
+  margin-top: 114rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn{
+  font-size: 34rpx;
+  line-height: 88rpx;
+  background-color: #931EFF;
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 100rpx;
+}
+.password{
+    position: fixed;
+    background-color: #ffffff;
+    height: 470rpx;
+    width: 85%;
+    top: 50%;
+    left: 50%;
+    margin: -235rpx 0 0 -42.5%;
+    z-index: 1999;
+  }
+  .password .title{
+    text-align: center;
+    font-size: 30rpx;
+    padding-top: 60rpx;
+  }
+  .password input{
+    margin: 80rpx auto;
+    width: 80%;
+    border: 2rpx solid #e5e5e5;
+    padding-left:20rpx;
+    line-height:100rpx;
+    font-size: 32rpx;
+    height:100rpx;
+  }
+  .password .flex{
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 100rpx;
+    color: #000;
+    border-top: 2rpx solid #e5e5e5;
+  }
+  .password .flex view{
+    flex: 1
+  }
+  .password .flex view:last-child{
+    border-left: 1px solid rgb(229, 229, 229);
+    color:#931EFF;
+  }
+  .shadeBox{
+  width: 75%;
+  height: 380rpx;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+.viewMobile{
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  padding-top: 30rpx;
+}
+.inputIcon{
+  margin-top: 40rpx;
+  position: relative;
+}
+.inputIconIn{
+  width: 85%;
+  background: #F3F0F3;
+  border-radius: 8rpx;
+  height: 90rpx;
+  margin: 0 auto;
+}
+.getCodeImg{
+  width: 35%;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  border-left: 1rpx solid #e5e5e5;
+  position: absolute;
+  right: 45rpx;
+  color: #931EFF;
+  z-index: 22;
+  top: 0;
+}
+.sureTixian{
+  width: 85%;
+  margin: 0 auto;
+  background: #931EFF;
+  font-size: 28rpx;
+  text-align: center;
+  color: #fff;
+  line-height: 90rpx;
+  margin-top: 30rpx;
+  border-radius: 8rpx;
+}
+.shade{
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 33;
+}
+.iconTip{
+  text-align: center;
+  padding-top: 50rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+.codeImg{
+  display: block;
+  width: 140rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  margin-top: -30rpx;
+  z-index: 2;
+}
+.sureCodeGet{
+  width: 400rpx;
+  height: 90rpx;
+  background: #931EFF;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  border-radius: 8rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+.colseIcon{
+  display: block;
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  z-index: 2;
+}

@@ -13,6 +13,7 @@
      <view style='margin-left: .12rem;' class='perLevelName' wx:if='{{personalList.isBrandPartner==1}}'>品牌合伙人</view> -->
    </view>
 </view>
+ <!-- wx:if='{{showXufei}}' -->
 <view class='renewGet' wx:if='{{showXufei}}' bindtap='renewPink'>
   <view class='getDate'>您的店主将于{{time}}到期</view>
   <view class='goRenew'>立即续费</view>
@@ -92,7 +93,8 @@
       <view class='navTabName'>推广海报</view>
     </view>
   </view>
-  <view class='navTab' bindtap='invitePink'>
+  <view class='navTab' bindtap='invitePink' wx:if="{{personalList.levelCode!='white' && personalList.levelCode!='golden'}}">
+   <!-- wx:if="{{personalList.levelCode!='white' && personalList.levelCode!='golden'}}" -->
     <view class='navTabSon'>
       <image style='width:50rpx;height:50rpx;' class='navTabImg' src='../../image/user-icon09-02.png'></image>
       <view class='navTabName'>邀请店主</view>

@@ -212,6 +212,14 @@ Page({
       })
       return;
     }
+    if (this.data.code.length!=6) {
+      wx.showToast({
+        title: '请输入6位数验证码',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
     this.setData({  
       doubleClick:false,
       getTime: (new Date()).valueOf(),

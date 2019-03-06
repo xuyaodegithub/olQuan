@@ -380,7 +380,12 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
-
+  },
+  //进详情
+  goDetial(e){
+    wx.navigateTo({
+      url: '/views/detial/detial?id=' + e.currentTarget.dataset.id+'&type=1',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -398,6 +403,14 @@ Page({
       choseAll:false,
       allnum:0,
       allprice:'0.00'
+    })
+    wx.removeTabBarBadge({
+      index: 1,
+      success: function (res) {
+      },
+      fail: function (err) {
+        console.log(err)
+      }
     })
   },
 
